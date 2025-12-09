@@ -147,7 +147,7 @@ export function MachineCard({ machine, index, onViewDetails }: MachineCardProps)
           />
           
           {/* Gradient fade where text starts */}
-          <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent via-40% to-background" />
+          <div className="absolute inset-0 bg-gradient-to-b from-transparent via-background/30 via-50% to-background" />
         </div>
           
         {/* Discount Badge with pulse */}
@@ -171,10 +171,10 @@ export function MachineCard({ machine, index, onViewDetails }: MachineCardProps)
         </div>
 
         {/* Spacer for image area */}
-        <div className="h-32 sm:h-40" />
+        <div className="h-44 sm:h-52" />
 
         {/* Content */}
-        <div className="p-4 sm:p-6 space-y-3 sm:space-y-4 relative z-10" style={{ transform: 'translateZ(30px)' }}>
+        <div className="p-4 sm:p-6 space-y-3 sm:space-y-4 relative z-10 bg-background/80 backdrop-blur-sm rounded-t-xl" style={{ transform: 'translateZ(30px)' }}>
           {/* Title */}
           <h3 className="text-lg sm:text-xl font-bold text-foreground leading-tight line-clamp-2">
             {machine.name}
