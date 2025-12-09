@@ -150,13 +150,16 @@ export function MachineCard({ machine, index, onViewDetails }: MachineCardProps)
         {/* Full background image with lazy loading and blur placeholder */}
         <div className="absolute inset-0 overflow-hidden">
           <div className="w-full h-full group-hover:scale-110 transition-transform duration-700">
-            <OptimizedImage
-              src={machine.image}
-              alt={machine.name}
-              aspectRatio="aspect-auto"
-              className="w-full h-full"
-              fit={machine.imageFit || 'cover'}
-            />
+            {/* Image container with bottom crop to hide watermarks */}
+            <div className="w-full h-full relative overflow-hidden" style={{ marginBottom: '-30px', paddingBottom: '30px' }}>
+              <img
+                src={machine.image}
+                alt={machine.name}
+                className={`w-full h-full ${machine.imageFit === 'contain' ? 'object-contain' : 'object-cover'} object-center scale-105`}
+                loading="lazy"
+                decoding="async"
+              />
+            </div>
           </div>
           
           {/* Gradient fade where text starts */}
@@ -183,8 +186,8 @@ export function MachineCard({ machine, index, onViewDetails }: MachineCardProps)
           HOT DEAL
         </div>
 
-        {/* Spacer for image area */}
-        <div className="h-72 sm:h-80" />
+        {/* Fixed height spacer for consistent card sizes */}
+        <div className="h-64 sm:h-72 md:h-80" />
 
         {/* Content */}
         <div className="p-4 sm:p-6 space-y-3 sm:space-y-4 relative z-10" style={{ transform: 'translateZ(30px)' }}>
