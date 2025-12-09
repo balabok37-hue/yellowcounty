@@ -28,15 +28,24 @@ interface MachineCardProps {
 }
 
 const cardVariants = {
-  hidden: { opacity: 0, y: 40, scale: 0.95 },
+  hidden: { 
+    opacity: 0, 
+    y: 80, 
+    scale: 0.8,
+    rotateX: 15,
+  },
   visible: (i: number) => ({
     opacity: 1,
     y: 0,
     scale: 1,
+    rotateX: 0,
     transition: {
-      duration: 0.5,
-      delay: i * 0.08,
-      ease: [0.25, 0.46, 0.45, 0.94],
+      duration: 0.7,
+      delay: i * 0.1,
+      ease: [0.16, 1, 0.3, 1], // Smooth spring-like easing
+      opacity: { duration: 0.5 },
+      scale: { duration: 0.6 },
+      rotateX: { duration: 0.8 },
     },
   }),
 };
