@@ -9,7 +9,7 @@ import manitouMlt1040Image2 from '@/assets/machines/manitou-mlt1040-2.jpg';
 import jcb9404Image from '@/assets/machines/jcb-940-4.png';
 import johnDeere310lImage from '@/assets/machines/john-deere-310l-ep.png';
 import merloP5018hmImage from '@/assets/machines/merlo-p50-18hm.png';
-import johnDeere6430Image from '@/assets/machines/john-deere-6430.jpg';
+import johnDeere6430Image from '@/assets/machines/john-deere-6430.png';
 
 export const featuredMachines: Machine[] = [
   {
