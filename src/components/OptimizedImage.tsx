@@ -7,6 +7,7 @@ interface OptimizedImageProps {
   className?: string;
   aspectRatio?: string;
   priority?: boolean;
+  fit?: 'cover' | 'contain';
 }
 
 export function OptimizedImage({ 
@@ -14,7 +15,8 @@ export function OptimizedImage({
   alt, 
   className = '', 
   aspectRatio = 'aspect-[4/3]',
-  priority = false 
+  priority = false,
+  fit = 'cover'
 }: OptimizedImageProps) {
   const [isLoaded, setIsLoaded] = useState(false);
   const [isInView, setIsInView] = useState(priority);
@@ -61,7 +63,7 @@ export function OptimizedImage({
         <motion.img
           src={src}
           alt={alt}
-          className={`w-full h-full object-cover ${className}`}
+          className={`w-full h-full ${fit === 'contain' ? 'object-contain bg-muted/30' : 'object-cover'} ${className}`}
           loading={priority ? 'eager' : 'lazy'}
           decoding="async"
           onLoad={() => setIsLoaded(true)}

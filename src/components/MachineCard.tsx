@@ -13,6 +13,7 @@ export interface Machine {
   originalPrice: number;
   discount: number;
   image: string;
+  imageFit?: 'cover' | 'contain';
   description?: string;
   specs?: {
     engine?: string;
@@ -142,6 +143,7 @@ export function MachineCard({ machine, index, onViewDetails }: MachineCardProps)
             src={machine.image}
             alt={machine.name}
             className="group-hover:scale-110 transition-transform duration-700"
+            fit={machine.imageFit || 'cover'}
           />
           
           {/* Discount Badge with pulse */}
