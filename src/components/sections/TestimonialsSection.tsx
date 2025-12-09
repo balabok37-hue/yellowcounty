@@ -1,6 +1,6 @@
-import { motion } from 'framer-motion';
+import { motion, useScroll, useTransform, useSpring } from 'framer-motion';
 import { Star, Quote } from 'lucide-react';
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 
 const testimonials = [
   {
@@ -31,6 +31,17 @@ const testimonials = [
 
 export function TestimonialsSection() {
   const [activeIndex, setActiveIndex] = useState(0);
+  const sectionRef = useRef<HTMLElement>(null);
+  
+  const { scrollYProgress } = useScroll({
+    target: sectionRef,
+    offset: ["start end", "end start"]
+  });
+
+  const springConfig = { stiffness: 100, damping: 30 };
+  const opacity = useSpring(useTransform(scrollYProgress, [0, 0.2, 0.8, 1], [0, 1, 1, 0]), springConfig);
+  const y = useSpring(useTransform(scrollYProgress, [0, 0.2, 0.8, 1], [80, 0, 0, -80]), springConfig);
+  const scale = useSpring(useTransform(scrollYProgress, [0, 0.2, 0.8, 1], [0.9, 1, 1, 0.9]), springConfig);
 
   useEffect(() => {
     const timer = setInterval(() => {
@@ -40,13 +51,10 @@ export function TestimonialsSection() {
   }, []);
 
   return (
-    <section className="py-20 md:py-32">
+    <section ref={sectionRef} className="py-20 md:py-32">
       <div className="container px-4">
         <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
-          viewport={{ once: true }}
+          style={{ opacity, y, scale, willChange: 'transform, opacity' }}
           className="text-center mb-16"
         >
           <h2 className="section-title text-foreground mb-4">
@@ -57,8 +65,10 @@ export function TestimonialsSection() {
           </p>
         </motion.div>
 
-        {/* Testimonial Cards */}
-        <div className="max-w-4xl mx-auto">
+        <motion.div 
+          className="max-w-4xl mx-auto"
+          style={{ opacity, y, willChange: 'transform, opacity' }}
+        >
           <div className="relative">
             {testimonials.map((testimonial, index) => (
               <motion.div
@@ -101,7 +111,6 @@ export function TestimonialsSection() {
             ))}
           </div>
 
-          {/* Indicators */}
           <div className="flex justify-center gap-2 mt-8">
             {testimonials.map((_, index) => (
               <button
@@ -113,7 +122,7 @@ export function TestimonialsSection() {
               />
             ))}
           </div>
-        </div>
+        </motion.div>
       </div>
     </section>
   );

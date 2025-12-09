@@ -42,10 +42,9 @@ const Index = () => {
     const loadAssets = async () => {
       const heroModule = await import('@/assets/hero-background.jpg');
       await preloadImage(heroModule.default);
-      await new Promise(resolve => setTimeout(resolve, 1000));
+      await new Promise(resolve => setTimeout(resolve, 800));
       setIsLoading(false);
-      // Delay content reveal for smooth transition
-      setTimeout(() => setShowContent(true), 100);
+      setTimeout(() => setShowContent(true), 50);
     };
 
     loadAssets();
@@ -63,26 +62,23 @@ const Index = () => {
 
   return (
     <>
-      {/* Loading Screen */}
       <LoadingScreen isLoading={isLoading} />
 
       <AnimatePresence>
         {showContent && (
           <motion.div 
             className="min-h-screen bg-background text-foreground overflow-x-hidden"
-            initial={{ opacity: 0, scale: 1.02 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.8, ease: [0.4, 0, 0.2, 1] }}
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 0.6, ease: [0.4, 0, 0.2, 1] }}
           >
             {/* 3D Particle Background */}
             <Suspense fallback={<div className="fixed inset-0 bg-background -z-10" />}>
               <ParticleBackground />
             </Suspense>
 
-            {/* Global Geometric Shapes with Parallax */}
-            <div className="fixed inset-0 z-[1] pointer-events-none">
-              <GeometricShapes variant="hero" intensity={0.5} />
-            </div>
+            {/* Global Geometric Shapes - Always visible with parallax */}
+            <GeometricShapes variant="hero" intensity={0.6} />
 
             {/* Header */}
             <Header />

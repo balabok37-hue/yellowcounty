@@ -1,8 +1,10 @@
-import { motion, AnimatePresence } from 'framer-motion';
+import { motion, AnimatePresence, useScroll, useTransform, useSpring } from 'framer-motion';
+import { useRef } from 'react';
 import { MachineCard } from '@/components/MachineCard';
 import { catalogMachines } from '@/data/machines';
 import { Button } from '@/components/ui/button';
 import { ChevronDown, ChevronUp } from 'lucide-react';
+import { CardReveal } from '@/components/ScrollReveal';
 import type { Machine } from '@/components/MachineCard';
 
 interface CatalogSectionProps {
@@ -11,27 +13,23 @@ interface CatalogSectionProps {
   onViewDetails: (machine: Machine) => void;
 }
 
-const gridContainerVariants = {
-  hidden: { opacity: 0 },
-  visible: {
-    opacity: 1,
-    transition: {
-      staggerChildren: 0.05,
-      delayChildren: 0.3,
-    },
-  },
-};
-
 export function CatalogSection({ isOpen, onToggle, onViewDetails }: CatalogSectionProps) {
+  const sectionRef = useRef<HTMLElement>(null);
+  const { scrollYProgress } = useScroll({
+    target: sectionRef,
+    offset: ["start end", "end start"]
+  });
+
+  const springConfig = { stiffness: 100, damping: 30 };
+  const opacity = useSpring(useTransform(scrollYProgress, [0, 0.15, 0.85, 1], [0, 1, 1, 0]), springConfig);
+  const y = useSpring(useTransform(scrollYProgress, [0, 0.15, 0.85, 1], [80, 0, 0, -80]), springConfig);
+
   return (
-    <section className="pb-12 sm:pb-20 md:pb-32">
+    <section ref={sectionRef} className="pb-12 sm:pb-20 md:pb-32">
       <div className="container px-4 sm:px-6">
-        {/* Toggle Button - Mobile optimized */}
+        {/* Toggle Button */}
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
-          viewport={{ once: true }}
+          style={{ opacity, y, willChange: 'transform, opacity' }}
           className="text-center mb-10 sm:mb-16"
         >
           <motion.div
@@ -84,22 +82,18 @@ export function CatalogSection({ isOpen, onToggle, onViewDetails }: CatalogSecti
                 </p>
               </motion.div>
 
-              {/* Grid - 1 col mobile, 2 col tablet, 4 col desktop */}
-              <motion.div 
-                className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-4 sm:gap-6"
-                variants={gridContainerVariants}
-                initial="hidden"
-                animate="visible"
-              >
+              {/* Grid */}
+              <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-4 sm:gap-6">
                 {catalogMachines.map((machine, index) => (
-                  <MachineCard
-                    key={machine.id}
-                    machine={machine}
-                    index={index}
-                    onViewDetails={onViewDetails}
-                  />
+                  <CardReveal key={machine.id} index={index}>
+                    <MachineCard
+                      machine={machine}
+                      index={index}
+                      onViewDetails={onViewDetails}
+                    />
+                  </CardReveal>
                 ))}
-              </motion.div>
+              </div>
             </motion.div>
           )}
         </AnimatePresence>
