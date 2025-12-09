@@ -11,6 +11,7 @@ import johnDeere310lImage from '@/assets/machines/john-deere-310l-ep.png';
 import merloP5018hmImage from '@/assets/machines/merlo-p50-18hm.png';
 import johnDeere6430Image from '@/assets/machines/john-deere-6430.png';
 import peterbilt389Image from '@/assets/machines/peterbilt-389.png';
+import freightlinerM2Image from '@/assets/machines/freightliner-m2-106.png';
 
 export const featuredMachines: Machine[] = [
   {
@@ -350,6 +351,37 @@ export const catalogMachines: Machine[] = [
     },
     gallery: [
       peterbilt389Image,
+    ],
+  },
+  {
+    id: 22,
+    name: '2019 Freightliner M2 106 Day Cab',
+    year: 2019,
+    hours: 34893,
+    location: 'USA Stock',
+    price: 41800,
+    originalPrice: 44000,
+    discount: 5,
+    image: freightlinerM2Image,
+    description: 'The 2019 Freightliner M2 106 – super-clean, low-mileage, one-owner day cab with only 34,893 original miles! Factory Cummins L9 350 hp (new crate engine installed 2024 under warranty – 0 miles on it), Allison 3000 HS automatic, air ride suspension, 3.55 ratio, 270" wheelbase, 12k front / 40k rears on AirLiner. Bright white with chrome bumper, heated mirrors, power windows/locks, air-ride driver seat, Bluetooth radio and ice-cold A/C. Spotless aluminum wheels, 11R22.5 virgin Bridgestone rubber all around (90%+). Ready for immediate delivery, vocational or highway work – still smells new inside. Extremely rare low-mile 2019 M2 with brand-new crate engine – these trucks hold value like gold (+15–20% over book on low-mile units at auctions).',
+    specs: {
+      engine: 'Cummins L9 350 hp (NEW 2024 crate engine – 0 mi)',
+      transmission: 'Allison 3000 HS 6-speed automatic',
+      rearAxleRatio: '3.55',
+      wheelbase: '270 in',
+      suspension: 'AirLiner air ride',
+      frontAxle: '12,000 lb',
+      rearAxles: '40,000 lb',
+      brakes: 'Air brakes with ABS',
+      fuelTank: 'Dual 80 gal aluminum',
+      tireSize: '11R22.5 Bridgestone virgin (90%+)',
+      wheels: 'Polished aluminum',
+      gvwr: '52,000 lb',
+      cab: 'A/C, power windows/locks, heated mirrors, Bluetooth',
+      status: 'One-owner, new crate engine, DOT-ready',
+    },
+    gallery: [
+      freightlinerM2Image,
     ],
   },
   {
