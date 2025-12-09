@@ -5,7 +5,6 @@ import develonDd100Image from '@/assets/machines/develon-dd100.jpg';
 import kubotaR640r43Image from '@/assets/machines/kubota-r640r43.jpg';
 import sanySy215cImage from '@/assets/machines/sany-sy215c.jpg';
 import manitouMlt1040Image from '@/assets/machines/manitou-mlt1040.jpg';
-import manitouMlt1040Image2 from '@/assets/machines/manitou-mlt1040-2.jpg';
 import jcb9404Image from '@/assets/machines/jcb-940-4.png';
 import johnDeere310lImage from '@/assets/machines/john-deere-310l-ep.png';
 import manitouM502Image from '@/assets/machines/manitou-m50-2.jpg';
@@ -204,7 +203,6 @@ export const catalogMachines: Machine[] = [
     },
     gallery: [
       manitouMlt1040Image,
-      manitouMlt1040Image2,
     ],
   },
   {
