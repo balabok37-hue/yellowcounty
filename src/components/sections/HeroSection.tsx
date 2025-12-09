@@ -13,7 +13,7 @@ export function HeroSection() {
 
   const y = useTransform(scrollYProgress, [0, 1], [0, 200]);
   const opacity = useTransform(scrollYProgress, [0, 0.5], [1, 0]);
-  const scale = useTransform(scrollYProgress, [0, 1], [1, 1.1]);
+  const scale = useTransform(scrollYProgress, [0, 1], [1, 1.15]);
 
   const scrollToDeals = () => {
     document.getElementById('featured')?.scrollIntoView({ behavior: 'smooth' });
@@ -21,7 +21,7 @@ export function HeroSection() {
 
   return (
     <section ref={containerRef} className="relative min-h-[100svh] flex items-center justify-center overflow-hidden">
-      {/* Parallax Background Image */}
+      {/* Parallax Background Image - Brighter */}
       <motion.div 
         className="absolute inset-0 z-0"
         style={{ y, scale }}
@@ -29,18 +29,58 @@ export function HeroSection() {
         <img 
           src={heroBackground} 
           alt="Premium heavy machinery fleet" 
-          className="w-full h-full object-cover object-center"
+          className="w-full h-full object-cover object-center brightness-110 contrast-105"
           loading="eager"
           decoding="async"
-          fetchPriority="high"
         />
-        {/* Premium overlay layers */}
-        <div className="absolute inset-0 bg-gradient-to-b from-background/90 via-background/70 to-background" />
+        {/* Lighter overlay for brighter image */}
+        <div className="absolute inset-0 bg-gradient-to-b from-background/70 via-background/50 to-background/90" />
         <div className="absolute inset-0 bg-primary/5 mix-blend-overlay" />
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,transparent_0%,hsl(var(--background))_100%)] opacity-70" />
-        {/* Luxury golden accent line */}
-        <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-primary/50 to-transparent" />
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,transparent_20%,hsl(var(--background))_100%)] opacity-60" />
       </motion.div>
+
+      {/* Decorative Shapes */}
+      <div className="absolute inset-0 z-[1] overflow-hidden pointer-events-none">
+        {/* Yellow blob top right */}
+        <motion.div 
+          className="shape-circle w-[600px] h-[600px] bg-primary/15 -top-40 -right-40"
+          animate={{ 
+            scale: [1, 1.2, 1],
+            rotate: [0, 90, 0]
+          }}
+          transition={{ duration: 20, repeat: Infinity, ease: 'linear' }}
+        />
+        {/* Gray blob bottom left */}
+        <motion.div 
+          className="shape-circle w-[500px] h-[500px] bg-secondary/20 -bottom-32 -left-32"
+          animate={{ 
+            scale: [1.2, 1, 1.2],
+            rotate: [0, -90, 0]
+          }}
+          transition={{ duration: 25, repeat: Infinity, ease: 'linear' }}
+        />
+        {/* Small accent circle */}
+        <motion.div 
+          className="shape-circle w-[300px] h-[300px] bg-primary/10 top-1/4 left-1/4"
+          animate={{ 
+            x: [0, 50, 0],
+            y: [0, -30, 0]
+          }}
+          transition={{ duration: 15, repeat: Infinity, ease: 'easeInOut' }}
+        />
+        {/* Diagonal lines */}
+        <svg className="absolute inset-0 w-full h-full opacity-[0.03]" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <pattern id="diagonalLines" width="40" height="40" patternUnits="userSpaceOnUse">
+              <path d="M-10,10 l20,-20 M0,40 l40,-40 M30,50 l20,-20" stroke="hsl(48 100% 50%)" strokeWidth="1"/>
+            </pattern>
+          </defs>
+          <rect width="100%" height="100%" fill="url(#diagonalLines)" />
+        </svg>
+      </div>
+
+      {/* Golden accent line bottom */}
+      <div className="absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r from-transparent via-primary to-transparent z-10" />
       
       {/* Content with fade on scroll */}
       <motion.div 
@@ -58,11 +98,11 @@ export function HeroSection() {
             initial={{ opacity: 0, scale: 0.8 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ delay: 0.2, duration: 0.5 }}
-            className="inline-flex items-center gap-2 px-4 sm:px-6 py-2 sm:py-2.5 rounded-full bg-primary/10 border border-primary/30 backdrop-blur-sm"
-            style={{ boxShadow: '0 0 30px hsl(45 100% 50% / 0.15)' }}
+            className="inline-flex items-center gap-2 px-4 sm:px-6 py-2 sm:py-2.5 rounded-full bg-primary/15 border border-primary/40 backdrop-blur-sm"
+            style={{ boxShadow: '0 0 40px hsl(48 100% 50% / 0.2)' }}
           >
             <Award className="w-4 h-4 text-primary" />
-            <span className="text-xs sm:text-sm font-semibold text-primary tracking-wide">
+            <span className="text-xs sm:text-sm font-bold text-primary tracking-wide">
               #1 HEAVY EQUIPMENT DEALER IN USA
             </span>
             <Star className="w-4 h-4 text-primary fill-primary" />
@@ -109,12 +149,12 @@ export function HeroSection() {
             <Button
               size="lg"
               onClick={scrollToDeals}
-              className="relative btn-glow bg-gradient-to-r from-primary via-primary to-accent hover:from-primary/90 hover:to-accent/90 text-primary-foreground font-bold text-sm sm:text-lg px-8 sm:px-12 py-6 sm:py-8 rounded-2xl min-h-[56px] sm:min-h-[64px] touch-manipulation overflow-hidden group"
-              style={{ boxShadow: '0 0 40px hsl(45 100% 50% / 0.3), 0 10px 40px hsl(0 0% 0% / 0.4)' }}
+              className="relative btn-glow bg-primary hover:bg-primary/90 text-primary-foreground font-bold text-sm sm:text-lg px-8 sm:px-12 py-6 sm:py-8 rounded-2xl min-h-[56px] sm:min-h-[64px] touch-manipulation overflow-hidden group"
+              style={{ boxShadow: '0 0 50px hsl(48 100% 50% / 0.35), 0 15px 50px hsl(0 0% 0% / 0.4)' }}
             >
               {/* Shine effect */}
               <motion.div 
-                className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-700"
+                className="absolute inset-0 bg-gradient-to-r from-transparent via-foreground/10 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-700"
               />
               <span className="relative flex items-center gap-2">
                 See Today's Best Deals
@@ -137,18 +177,18 @@ export function HeroSection() {
             ].map((stat, index) => (
               <motion.div 
                 key={index} 
-                className="text-center p-3 sm:p-5 rounded-2xl bg-card/30 backdrop-blur-sm border border-border/20"
+                className="text-center p-3 sm:p-5 rounded-2xl bg-card/40 backdrop-blur-sm border border-border/30"
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 1.4 + index * 0.1, duration: 0.4 }}
                 whileHover={{ 
                   scale: 1.05, 
-                  borderColor: 'hsl(45 100% 50% / 0.3)',
-                  boxShadow: '0 0 30px hsl(45 100% 50% / 0.1)'
+                  borderColor: 'hsl(48 100% 50% / 0.4)',
+                  boxShadow: '0 0 40px hsl(48 100% 50% / 0.15)'
                 }}
               >
                 <stat.icon className="w-4 h-4 sm:w-5 sm:h-5 text-primary mx-auto mb-1 sm:mb-2" />
-                <div className="text-lg sm:text-3xl md:text-4xl font-black text-primary" style={{ textShadow: '0 0 20px hsl(45 100% 50% / 0.3)' }}>
+                <div className="text-lg sm:text-3xl md:text-4xl font-black text-primary" style={{ textShadow: '0 0 25px hsl(48 100% 50% / 0.35)' }}>
                   {stat.value}
                 </div>
                 <div className="text-[10px] sm:text-sm text-muted-foreground font-medium">{stat.label}</div>
@@ -168,8 +208,8 @@ export function HeroSection() {
         <motion.div
           animate={{ y: [0, 10, 0] }}
           transition={{ duration: 1.5, repeat: Infinity, ease: 'easeInOut' }}
-          className="w-7 h-12 rounded-full border-2 border-primary/30 flex justify-center pt-3 bg-background/20 backdrop-blur-sm"
-          style={{ boxShadow: '0 0 20px hsl(45 100% 50% / 0.1)' }}
+          className="w-7 h-12 rounded-full border-2 border-primary/40 flex justify-center pt-3 bg-background/30 backdrop-blur-sm"
+          style={{ boxShadow: '0 0 25px hsl(48 100% 50% / 0.15)' }}
         >
           <motion.div 
             className="w-1.5 h-3 rounded-full bg-primary"
