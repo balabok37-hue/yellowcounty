@@ -58,6 +58,7 @@ export function MachineCard({ machine, index, onViewDetails }: MachineCardProps)
         y: 0,
         transition: { duration: 0.15 }
       }}
+      onClick={() => onViewDetails(machine)}
       className="group cursor-pointer touch-manipulation"
     >
       <div className="glass-card overflow-hidden">
@@ -123,13 +124,11 @@ export function MachineCard({ machine, index, onViewDetails }: MachineCardProps)
             whileTap={{ scale: 0.97 }}
           >
             <Button
-              onClick={() => onViewDetails(machine)}
               className="w-full h-12 sm:h-14 text-base sm:text-lg font-bold rounded-xl bg-gradient-to-r from-primary to-accent text-primary-foreground shadow-lg"
               style={{ 
                 boxShadow: '0 0 20px hsl(45 100% 50% / 0.3), 0 4px 15px hsl(0 0% 0% / 0.3)' 
               }}
             >
-              <Eye className="w-5 h-5 mr-2" />
               View Details
             </Button>
           </motion.div>
