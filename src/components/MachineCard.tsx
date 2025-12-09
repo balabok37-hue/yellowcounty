@@ -14,6 +14,7 @@ export interface Machine {
   discount: number;
   image: string;
   imageFit?: 'cover' | 'contain';
+  imagePosition?: string;
   description?: string;
   specs?: {
     engine?: string;
@@ -161,7 +162,8 @@ export function MachineCard({ machine, index, onViewDetails }: MachineCardProps)
               <img
                 src={machine.image}
                 alt={machine.name}
-                className={`w-full h-full ${machine.imageFit === 'contain' ? 'object-contain' : 'object-cover'} object-center scale-105`}
+                className={`w-full h-full ${machine.imageFit === 'contain' ? 'object-contain' : 'object-cover'} scale-105`}
+                style={{ objectPosition: machine.imagePosition || 'center' }}
                 loading="lazy"
                 decoding="async"
               />
