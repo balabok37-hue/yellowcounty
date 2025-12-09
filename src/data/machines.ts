@@ -15,6 +15,7 @@ import freightlinerM2Image from '@/assets/machines/freightliner-m2-106.png';
 import asvVt70hoImage from '@/assets/machines/asv-vt70ho.png';
 import silverado5500hdImage from '@/assets/machines/chevrolet-silverado-5500hd.png';
 import silverado6500hdImage from '@/assets/machines/chevrolet-silverado-6500hd.png';
+import silverado4500hdImage from '@/assets/machines/chevrolet-silverado-4500hd.png';
 
 export const featuredMachines: Machine[] = [
   {
@@ -477,6 +478,35 @@ export const catalogMachines: Machine[] = [
     },
     gallery: [
       silverado6500hdImage,
+    ],
+  },
+  {
+    id: 26,
+    name: '2024 Chevrolet Silverado 4500HD 4×2 Reg Cab Service Truck',
+    year: 2024,
+    hours: 31,
+    location: 'USA Stock',
+    price: 52250,
+    originalPrice: 55000,
+    discount: 5,
+    image: silverado4500hdImage,
+    description: 'The 2024 Chevrolet Silverado 4500HD 4×2 Regular Cab Service Truck – brand-new, never titled, only 31 delivery miles! Fully loaded 11 ft Knapheide service body with master locks, LED compartment lighting, bottle-gas rack, vise mount, and flip-top lids. Duramax 6.6L V8 Turbo Diesel 350 hp / 700 lb-ft, Allison 10-speed automatic, power windows/locks/mirrors, A/C, cruise, Bluetooth, backup camera, remote start, chrome bumper, 19.5" polished wheels. Still 100% under full GM factory warranty. Ships nationwide (#A0184894). Same-spec brand-new units still stickering $78–84k at dealers. This is the cheapest titled-ready 2024 4500HD service truck in the country right now.',
+    specs: {
+      engine: 'Duramax 6.6L V8 Turbo Diesel',
+      power: '350 hp / 700 lb-ft torque',
+      transmission: 'Allison 10-speed automatic',
+      suspension: '4×2',
+      gvwr: '16,500 lb',
+      cab: 'Regular Cab, 3-passenger',
+      wheelbase: '165 in',
+      fuelTank: '40 gal + optional auxiliary',
+      tireSize: '225/70R19.5 Michelin (100%)',
+      wheels: '19.5" polished aluminum',
+      brakes: '4-wheel hydraulic disc',
+      status: 'New, titled-ready, 11 ft Knapheide steel service body, full factory GM 5 yr/100k powertrain warranty, ships nationwide',
+    },
+    gallery: [
+      silverado4500hdImage,
     ],
   },
   {
