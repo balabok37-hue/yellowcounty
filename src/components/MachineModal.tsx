@@ -142,13 +142,13 @@ export function MachineModal({ machine, isOpen, onClose }: MachineModalProps) {
                       onDrag={handleDrag}
                       onDragEnd={handleDragEnd}
                     >
-                      {/* Image container centered */}
-                      <div className="w-full h-full flex items-center justify-center">
+                      {/* Image container full fill */}
+                      <div className="w-full h-full">
                         <img
                           src={images[currentImageIndex]}
                           alt={machine.name}
-                          className="w-full h-full object-contain"
-                          style={{ objectPosition: 'center center' }}
+                          className="w-full h-full object-cover"
+                          style={{ objectPosition: machine.imagePosition || 'center' }}
                           loading={currentImageIndex === 0 ? 'eager' : 'lazy'}
                           decoding="async"
                         />
