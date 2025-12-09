@@ -19,6 +19,7 @@ import silverado4500hdImage from '@/assets/machines/chevrolet-silverado-4500hd.p
 import silverado4500hdBoxImage from '@/assets/machines/chevrolet-silverado-4500hd-box.png';
 import silverado5500hdBoxImage from '@/assets/machines/chevrolet-silverado-5500hd-box.png';
 import mackGu713Image from '@/assets/machines/mack-gu713.png';
+import komatsuWa3208Image from '@/assets/machines/komatsu-wa320-8.png';
 
 export const featuredMachines: Machine[] = [
   {
@@ -598,6 +599,36 @@ export const catalogMachines: Machine[] = [
     },
     gallery: [
       mackGu713Image,
+    ],
+  },
+  {
+    id: 30,
+    name: '2019 Komatsu WA320-8 Wheel Loader',
+    year: 2019,
+    hours: 7361,
+    location: 'USA Stock',
+    price: 41360,
+    originalPrice: 47000,
+    discount: 12,
+    image: komatsuWa3208Image,
+    description: 'The 2019 Komatsu WA320-8 – one of the cleanest, tightest mid-size wheel loaders left in North America. Only 7,361 original hours, full Komatsu CARE history, no leaks, no welds, no excuses. 170 hp Komatsu SAA6D107E-3 Tier 4 Final (DEF), powershift transmission with auto-shift + traction control, limited-slip diffs, 3.6 yd³ pin-on bucket with bolt-on edge, ride control, enclosed ROPS cab with heat/AC/Bluetooth/camera, LED lights all around. Fresh service, 20.5R25 Michelin XHA2 tires at 80–90%, tight center, strong hydraulics, ice-cold A/C. Work-ready tomorrow. Ships nationwide (#B6525762). Same-year / similar-hour WA320-8 units still bringing $52–58k at Ritchie Bros, IronPlanet and Alex Lyon auctions.',
+    specs: {
+      engine: 'Komatsu SAA6D107E-3 (Tier 4 Final)',
+      power: '170 hp (127 kW)',
+      weight: '34,950 lb (15,853 kg)',
+      bucketCapacity: '3.6 yd³ (2.7 m³) pin-on GP with BOE',
+      breakoutForce: '31,580 lbf (140.5 kN)',
+      maxDumpHeight: '9 ft 5 in (2.87 m)',
+      transmission: 'Komatsu powershift 4F/4R with auto-shift',
+      tireSize: '20.5R25 Michelin XHA2 (80–90%)',
+      maxSpeed: '24.9 mph (40 km/h)',
+      turningRadius: '20 ft 4 in (6.20 m)',
+      hydraulicFlow: 'Load-sensing, 52.8 gpm (200 L/min)',
+      cab: 'Enclosed ROPS/FOPS, heat/AC, Bluetooth, camera',
+      status: 'Full service history, tight, ships nationwide',
+    },
+    gallery: [
+      komatsuWa3208Image,
     ],
   },
   {
