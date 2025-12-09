@@ -147,7 +147,8 @@ export function MachineModal({ machine, isOpen, onClose }: MachineModalProps) {
                         <img
                           src={images[currentImageIndex]}
                           alt={machine.name}
-                          className="w-full h-full object-cover object-center scale-105"
+                          className="w-full h-full object-cover scale-105"
+                          style={{ objectPosition: machine.imagePosition || 'center' }}
                           loading={currentImageIndex === 0 ? 'eager' : 'lazy'}
                           decoding="async"
                         />

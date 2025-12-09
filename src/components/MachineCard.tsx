@@ -163,7 +163,7 @@ export function MachineCard({ machine, index, onViewDetails }: MachineCardProps)
                 src={machine.image}
                 alt={machine.name}
                 className={`w-full h-full ${machine.imageFit === 'contain' ? 'object-contain' : 'object-cover'} scale-105`}
-                style={{ objectPosition: machine.imagePosition || 'center' }}
+                style={{ objectPosition: 'center' }}
                 loading="lazy"
                 decoding="async"
               />

@@ -182,7 +182,7 @@ export const catalogMachines: Machine[] = [
     originalPrice: 50000,
     discount: 20,
     image: manitouMlt1040Image,
-    imagePosition: 'calc(50% - 2cm) center',
+    imagePosition: 'calc(50% - 1.5cm) center',
     description: 'The 2018 Manitou MLT 1040-145 L is a high-performance 10-meter telescopic handler built for heavy agriculture, construction, and industrial applications, featuring a reinforced boom and frame for 15,000+ hour service life. Powered by a Deutz TCD 3.6 L4 Tier 4 Final engine (141 hp net), it delivers 9,000 lb (4,000 kg) lift capacity to full 32 ft 3 in (9.84 m) height and 22 ft 2 in forward reach. Equipped with 4WD hydrostatic transmission, load-sensing hydraulics, 360° visibility cab with heat/AC/Bluetooth, joystick control, and quick-attach carriage. This low-hour unit includes 1.5 yd³ bucket + pallet forks and auxiliary hydraulics — perfect for stacking bales, loading trucks, or high-reach work on big sites.',
     specs: {
       engine: 'Deutz TCD 3.6 L4 (Tier 4 Final)',
