@@ -14,6 +14,7 @@ export interface Machine {
   discount: number;
   image: string;
   imageFit?: 'cover' | 'contain';
+  isHotOffer?: boolean;
   imagePosition?: string;
   description?: string;
   specs?: {
@@ -208,10 +209,23 @@ export function MachineCard({ machine, index, onViewDetails }: MachineCardProps)
           −{machine.discount}%
         </motion.div>
 
-        {/* Premium hot deal indicator */}
-        <div className="absolute top-3 right-3 sm:top-4 sm:right-4 px-3 py-1.5 rounded-full bg-secondary/90 text-[10px] sm:text-xs font-bold text-foreground backdrop-blur-sm border border-border/30 z-10">
-          HOT DEAL
-        </div>
+        {/* Premium hot deal indicator - only show for hot offers */}
+        {machine.isHotOffer && (
+          <motion.div 
+            className="absolute top-3 right-3 sm:top-4 sm:right-4 px-3 py-1.5 rounded-full bg-destructive text-[10px] sm:text-xs font-bold text-destructive-foreground backdrop-blur-sm border border-destructive/50 z-10"
+            animate={{ 
+              scale: [1, 1.05, 1],
+              boxShadow: [
+                "0 0 15px hsl(0 84% 60% / 0.4)",
+                "0 0 25px hsl(0 84% 60% / 0.7)",
+                "0 0 15px hsl(0 84% 60% / 0.4)"
+              ]
+            }}
+            transition={{ duration: 1.5, repeat: Infinity, ease: "easeInOut" }}
+          >
+            🔥 HOT OFFER
+          </motion.div>
+        )}
 
         {/* Fixed height spacer for consistent card sizes */}
         <div className="h-64 sm:h-72 md:h-80" />
