@@ -33,6 +33,16 @@ export interface Machine {
     trackWidth?: string;
     fuelTank?: string;
     hydraulicTank?: string;
+    // Wheel loader specific
+    grossTorque?: string;
+    displacement?: string;
+    breakoutForce?: string;
+    tippingLoad?: string;
+    maxDumpHeight?: string;
+    maxLiftHeight?: string;
+    maxSpeed?: string;
+    turningRadius?: string;
+    tireSize?: string;
   };
   gallery?: string[];
 }

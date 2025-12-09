@@ -1,5 +1,6 @@
 import type { Machine } from '@/components/MachineCard';
 import sanySy80uImage from '@/assets/machines/sany-sy80u.jpg';
+import sanySw405kImage from '@/assets/machines/sany-sw405k.jpg';
 
 export const featuredMachines: Machine[] = [
   {
@@ -37,16 +38,35 @@ export const featuredMachines: Machine[] = [
   },
   {
     id: 2,
-    name: 'Caterpillar 745 Articulated Dump Truck',
-    year: 2021,
-    hours: 8900,
+    name: '2022 Sany SW405K Wheel Loader',
+    year: 2022,
+    hours: 1433,
     location: 'USA Stock',
-    price: 188000,
-    originalPrice: 235000,
+    price: 116000,
+    originalPrice: 145000,
     discount: 20,
-    image: 'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=1200&h=900&fit=crop',
+    image: sanySw405kImage,
+    description: 'The 2022 Sany SW405K is a rugged beast engineered for heavy-duty mining and construction, with a reinforced frame for 10,000+ hour service life. Powered by a Deutz TCD7.8 Tier 4 Final engine (252 hp net), it delivers massive 40,466 lbf breakout force and 28,881 lb tipping load for efficient material handling. Features load-sensing hydraulics, 360° camera, ergonomic cab with AC/heat/USB, and quick-coupler for attachments.',
+    specs: {
+      engine: 'Deutz TCD7.8 (Tier 4 Final)',
+      power: '252 hp (188 kW) @ 2,200 rpm',
+      weight: '40,786 lb (18,500 kg)',
+      grossTorque: '962 lb-ft (1,304 Nm)',
+      displacement: '7.8 L',
+      bucketCapacity: '4.2 yd³ (3.2 m³)',
+      breakoutForce: '40,466 lbf (180 kN)',
+      tippingLoad: '28,881 lb (13,100 kg)',
+      maxDumpHeight: '10 ft 3 in (3.13 m)',
+      maxLiftHeight: '18 ft 5 in (5.61 m)',
+      maxSpeed: '22.4 mph (36 km/h)',
+      turningRadius: '20 ft 4 in (6.2 m)',
+      tireSize: '23.5-25',
+      fuelTank: '79.3 gal (300 L)',
+      hydraulicTank: '31.7 gal (120 L)',
+      transportDimensions: '28 ft 5 in x 8 ft 10 in x 11 ft 2 in',
+    },
     gallery: [
-      'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=1200&h=900&fit=crop',
+      sanySw405kImage,
     ],
   },
   {
