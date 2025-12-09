@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
     <title>HeavyMach USA | Premium Used & New Heavy Equipment</title>
     <meta name="description" content="America's #1 heavy machinery dealer. Hand-selected premium excavators, dozers, loaders & more. 20% below market prices. Nationwide delivery." />
     <meta name="author" content="HeavyMach USA" />
@@ -19,6 +19,13 @@
     <meta name="twitter:image" content="https://lovable.dev/opengraph-image-p98pqg.png" />
 
     <link rel="canonical" href="https://heavymachusa.com" />
+    
+    <!-- Preload hero image for faster LCP -->
+    <link rel="preload" as="image" href="/src/assets/hero-background.jpg" fetchpriority="high" />
+    
+    <!-- Preconnect to external resources -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   </head>
 
   <body class="dark">
