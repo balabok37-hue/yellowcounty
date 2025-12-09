@@ -1,6 +1,7 @@
 import type { Machine } from '@/components/MachineCard';
 import sanySy80uImage from '@/assets/machines/sany-sy80u.jpg';
 import sanySw405kImage from '@/assets/machines/sany-sw405k.jpg';
+import develonDd100Image from '@/assets/machines/develon-dd100.jpg';
 
 export const featuredMachines: Machine[] = [
   {
@@ -78,7 +79,7 @@ export const featuredMachines: Machine[] = [
     price: 103200,
     originalPrice: 129000,
     discount: 20,
-    image: 'https://images.unsplash.com/photo-1541625602330-2277a4c46182?w=1200&h=900&fit=crop',
+    image: develonDd100Image,
     description: 'The 2023 Develon DD100 (Serial #227473) is a next-gen dozer engineered for superior power-to-weight performance. With 122 hp and 24,286 lb operating weight, it delivers exceptional tractive effort and pushing power. Features fully electronic hydraulic controls, 6-way variable angle pitch blade, rearview camera, ECO mode, blade shake function, and premium cab with AC/heat. Low-hour unit ideal for site prep, grading, and land clearing.',
     specs: {
       engine: 'Doosan DL06P (Tier 4 Final)',
@@ -93,7 +94,7 @@ export const featuredMachines: Machine[] = [
       hydraulicTank: '23.8 gal (90 L)',
     },
     gallery: [
-      'https://images.unsplash.com/photo-1541625602330-2277a4c46182?w=1200&h=900&fit=crop',
+      develonDd100Image,
     ],
   },
   {
