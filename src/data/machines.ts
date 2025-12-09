@@ -147,9 +147,9 @@ export const catalogMachines: Machine[] = [
     year: 2021,
     hours: 1250,
     location: 'USA Stock',
-    price: 60000,
+    price: 64000,
     originalPrice: 80000,
-    discount: 25,
+    discount: 20,
     image: sanySy215cImage,
     description: 'The Sany SY215C is a robust medium excavator built for demanding construction, quarrying, and earthmoving applications, featuring a reinforced undercarriage for 10,000+ hour durability. Powered by a Cummins QSB6.7 Tier 4 Final engine (163.6 hp net), it provides exceptional 30,800 lbf arm digging force and 21\' 8" dig depth for superior productivity. Equipped with positive flow load-sensing hydraulics, 360° camera system, spacious cab with AC/heat/USB ports, and quick-change coupler for attachments. Ideal for trenching, loading, or site prep.',
     specs: {
