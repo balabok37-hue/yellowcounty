@@ -1,10 +1,11 @@
-import { motion } from 'framer-motion';
+import { motion, useScroll, useTransform, useSpring } from 'framer-motion';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
 import { MapPin, Phone, Mail, Send } from 'lucide-react';
-import { useState } from 'react';
+import { useState, useRef } from 'react';
 import { toast } from 'sonner';
+import { ScrollReveal, CardReveal } from '@/components/ScrollReveal';
 
 export function ContactSection() {
   const [formData, setFormData] = useState({
@@ -14,6 +15,16 @@ export function ContactSection() {
     message: '',
   });
 
+  const sectionRef = useRef<HTMLElement>(null);
+  const { scrollYProgress } = useScroll({
+    target: sectionRef,
+    offset: ["start end", "end start"]
+  });
+
+  const springConfig = { stiffness: 100, damping: 30 };
+  const headerOpacity = useSpring(useTransform(scrollYProgress, [0, 0.15, 0.85, 1], [0, 1, 1, 0]), springConfig);
+  const headerY = useSpring(useTransform(scrollYProgress, [0, 0.15, 0.85, 1], [60, 0, 0, -60]), springConfig);
+
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     toast.success('Message sent! We\'ll get back to you within 24 hours.');
@@ -21,15 +32,12 @@ export function ContactSection() {
   };
 
   return (
-    <section id="contact" className="py-20 md:py-32 relative overflow-hidden">
+    <section ref={sectionRef} id="contact" className="py-20 md:py-32 relative overflow-hidden">
       <div className="absolute inset-0 bg-gradient-to-b from-background via-card/50 to-background" />
       
       <div className="container px-4 relative z-10">
         <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
-          viewport={{ once: true }}
+          style={{ opacity: headerOpacity, y: headerY, willChange: 'transform, opacity' }}
           className="text-center mb-16"
         >
           <h2 className="section-title text-foreground mb-4">
@@ -42,12 +50,7 @@ export function ContactSection() {
 
         <div className="grid lg:grid-cols-2 gap-12 max-w-6xl mx-auto">
           {/* Contact Form */}
-          <motion.div
-            initial={{ opacity: 0, x: -30 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.6 }}
-            viewport={{ once: true }}
-          >
+          <ScrollReveal direction="left">
             <form onSubmit={handleSubmit} className="glass-card p-8 space-y-6">
               <div className="grid sm:grid-cols-2 gap-4">
                 <div>
@@ -110,53 +113,47 @@ export function ContactSection() {
                 Send Message
               </Button>
             </form>
-          </motion.div>
+          </ScrollReveal>
 
           {/* Map & Contact Info */}
-          <motion.div
-            initial={{ opacity: 0, x: 30 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.6 }}
-            viewport={{ once: true }}
-            className="space-y-6"
-          >
-            {/* Map */}
-            <div className="glass-card overflow-hidden aspect-video">
-              <iframe
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d443086.5765036956!2d-95.72587897968707!3d29.81706920004087!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8640b8b4488d8501%3A0xca0d02def365053b!2sHouston%2C%20TX!5e0!3m2!1sen!2sus!4v1703123456789!5m2!1sen!2sus"
-                width="100%"
-                height="100%"
-                style={{ border: 0, filter: 'grayscale(1) contrast(1.1)' }}
-                allowFullScreen
-                loading="lazy"
-                referrerPolicy="no-referrer-when-downgrade"
-                title="HeavyMach USA Location"
-              />
-            </div>
+          <ScrollReveal direction="right">
+            <div className="space-y-6">
+              <div className="glass-card overflow-hidden aspect-video">
+                <iframe
+                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d443086.5765036956!2d-95.72587897968707!3d29.81706920004087!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8640b8b4488d8501%3A0xca0d02def365053b!2sHouston%2C%20TX!5e0!3m2!1sen!2sus!4v1703123456789!5m2!1sen!2sus"
+                  width="100%"
+                  height="100%"
+                  style={{ border: 0, filter: 'grayscale(1) contrast(1.1)' }}
+                  allowFullScreen
+                  loading="lazy"
+                  referrerPolicy="no-referrer-when-downgrade"
+                  title="HeavyMach USA Location"
+                />
+              </div>
 
-            {/* Contact Info */}
-            <div className="grid sm:grid-cols-3 gap-4">
-              <div className="glass-card p-6 text-center">
-                <MapPin className="w-8 h-8 text-primary mx-auto mb-3" />
-                <div className="text-sm text-muted-foreground">Location</div>
-                <div className="font-semibold text-foreground">Houston, TX</div>
-              </div>
-              <div className="glass-card p-6 text-center">
-                <Phone className="w-8 h-8 text-primary mx-auto mb-3" />
-                <div className="text-sm text-muted-foreground">Phone</div>
-                <a href="tel:+12029322837" className="font-semibold text-foreground hover:text-primary transition-colors">
-                  +1 (202) 932-2837
-                </a>
-              </div>
-              <div className="glass-card p-6 text-center">
-                <Mail className="w-8 h-8 text-primary mx-auto mb-3" />
-                <div className="text-sm text-muted-foreground">Email</div>
-                <a href="mailto:sales@heavymachusa.com" className="font-semibold text-foreground hover:text-primary transition-colors">
-                  sales@heavymachusa.com
-                </a>
+              <div className="grid sm:grid-cols-3 gap-4">
+                {[
+                  { icon: MapPin, label: 'Location', value: 'Houston, TX' },
+                  { icon: Phone, label: 'Phone', value: '+1 (202) 932-2837', href: 'tel:+12029322837' },
+                  { icon: Mail, label: 'Email', value: 'sales@heavymachusa.com', href: 'mailto:sales@heavymachusa.com' }
+                ].map((item, index) => (
+                  <CardReveal key={index} index={index}>
+                    <div className="glass-card p-6 text-center h-full">
+                      <item.icon className="w-8 h-8 text-primary mx-auto mb-3" />
+                      <div className="text-sm text-muted-foreground">{item.label}</div>
+                      {item.href ? (
+                        <a href={item.href} className="font-semibold text-foreground hover:text-primary transition-colors">
+                          {item.value}
+                        </a>
+                      ) : (
+                        <div className="font-semibold text-foreground">{item.value}</div>
+                      )}
+                    </div>
+                  </CardReveal>
+                ))}
               </div>
             </div>
-          </motion.div>
+          </ScrollReveal>
         </div>
       </div>
     </section>
