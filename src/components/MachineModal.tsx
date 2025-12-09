@@ -132,7 +132,7 @@ export function MachineModal({ machine, isOpen, onClose }: MachineModalProps) {
                       key={currentImageIndex}
                       src={images[currentImageIndex]}
                       alt={machine.name}
-                      className="w-full h-full object-cover cursor-grab active:cursor-grabbing"
+                      className="w-full h-full object-contain bg-muted/30 cursor-grab active:cursor-grabbing"
                       initial={{ opacity: 0, x: dragDirection > 0 ? -100 : 100 }}
                       animate={{ opacity: 1, x: 0 }}
                       exit={{ opacity: 0, x: dragDirection > 0 ? 100 : -100 }}
