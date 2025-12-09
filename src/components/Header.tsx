@@ -1,66 +1,121 @@
-import { motion } from 'framer-motion';
+import { motion, useScroll, useTransform, useSpring } from 'framer-motion';
 import { Button } from '@/components/ui/button';
 import { Phone, Menu, X } from 'lucide-react';
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 
 export function Header() {
-  const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-
-  useEffect(() => {
-    const handleScroll = () => {
-      setIsScrolled(window.scrollY > 50);
-    };
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
+  
+  const { scrollY } = useScroll();
+  
+  // Smooth spring for all transforms
+  const springConfig = { stiffness: 100, damping: 30 };
+  
+  // Header transforms based on scroll
+  const rawBackgroundOpacity = useTransform(scrollY, [0, 100], [0, 0.95]);
+  const rawBlur = useTransform(scrollY, [0, 100], [0, 20]);
+  const rawBorderOpacity = useTransform(scrollY, [0, 100], [0, 0.5]);
+  const rawScale = useTransform(scrollY, [0, 100], [1, 0.98]);
+  const rawY = useTransform(scrollY, [0, 50], [0, -5]);
+  
+  // Apply springs
+  const backgroundOpacity = useSpring(rawBackgroundOpacity, springConfig);
+  const blur = useSpring(rawBlur, springConfig);
+  const borderOpacity = useSpring(rawBorderOpacity, springConfig);
+  const scale = useSpring(rawScale, springConfig);
+  const y = useSpring(rawY, springConfig);
 
   return (
     <motion.header
       initial={{ y: -100, opacity: 0 }}
       animate={{ y: 0, opacity: 1 }}
-      transition={{ duration: 0.6 }}
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        isScrolled ? 'bg-background/80 backdrop-blur-xl border-b border-border/50' : ''
-      }`}
+      transition={{ duration: 0.6, ease: [0.4, 0, 0.2, 1] }}
+      style={{
+        y,
+        scale,
+        willChange: 'transform'
+      }}
+      className="fixed top-0 left-0 right-0 z-50"
     >
-      <div className="container px-4">
+      {/* Animated background */}
+      <motion.div 
+        className="absolute inset-0 bg-background border-b border-primary/20"
+        style={{ 
+          opacity: backgroundOpacity,
+          backdropFilter: blur.get() > 0 ? `blur(${blur.get()}px)` : 'none',
+          borderBottomColor: `hsl(48 100% 50% / ${borderOpacity.get()})`
+        }}
+      />
+      
+      {/* Glow effect on scroll */}
+      <motion.div 
+        className="absolute inset-x-0 bottom-0 h-px bg-gradient-to-r from-transparent via-primary to-transparent"
+        style={{ opacity: borderOpacity }}
+      />
+      
+      <div className="container px-4 relative z-10">
         <div className="flex items-center justify-between h-20">
-          {/* Logo */}
-          <a href="/" className="text-2xl font-bold text-foreground">
+          {/* Logo with hover effect */}
+          <motion.a 
+            href="/" 
+            className="text-2xl font-bold text-foreground"
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
+          >
             Heavy<span className="text-primary">Mach</span>
-          </a>
+          </motion.a>
 
           {/* Desktop Nav */}
           <nav className="hidden md:flex items-center gap-8">
-            <a href="#featured" className="text-foreground/80 hover:text-primary transition-colors">
-              Equipment
-            </a>
-            <a href="#contact" className="text-foreground/80 hover:text-primary transition-colors">
-              Contact
-            </a>
-            <Button asChild variant="outline" size="sm" className="border-primary/50 text-primary">
-              <a href="tel:+12029322837">
-                <Phone className="w-4 h-4 mr-2" />
-                Call Now
-              </a>
-            </Button>
+            {['Equipment', 'Contact'].map((item, i) => (
+              <motion.a 
+                key={item}
+                href={`#${item.toLowerCase() === 'equipment' ? 'featured' : 'contact'}`}
+                className="text-foreground/80 hover:text-primary transition-colors relative"
+                whileHover={{ y: -2 }}
+                initial={{ opacity: 0, y: -20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.1 + i * 0.1 }}
+              >
+                {item}
+                <motion.span 
+                  className="absolute -bottom-1 left-0 right-0 h-0.5 bg-primary origin-left"
+                  initial={{ scaleX: 0 }}
+                  whileHover={{ scaleX: 1 }}
+                  transition={{ duration: 0.3 }}
+                />
+              </motion.a>
+            ))}
+            <motion.div
+              initial={{ opacity: 0, scale: 0.8 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ delay: 0.3 }}
+            >
+              <Button asChild variant="outline" size="sm" className="border-primary/50 text-primary hover:bg-primary/10">
+                <a href="tel:+12029322837">
+                  <Phone className="w-4 h-4 mr-2" />
+                  Call Now
+                </a>
+              </Button>
+            </motion.div>
           </nav>
 
           {/* Mobile Menu Toggle */}
-          <button
+          <motion.button
             className="md:hidden p-2"
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+            whileTap={{ scale: 0.9 }}
           >
             {isMobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
-          </button>
+          </motion.button>
         </div>
 
         {/* Mobile Menu */}
         {isMobileMenuOpen && (
           <motion.nav
-            initial={{ opacity: 0, y: -20 }}
-            animate={{ opacity: 1, y: 0 }}
+            initial={{ opacity: 0, y: -20, height: 0 }}
+            animate={{ opacity: 1, y: 0, height: 'auto' }}
+            exit={{ opacity: 0, y: -20, height: 0 }}
             className="md:hidden py-6 space-y-4"
           >
             <a
