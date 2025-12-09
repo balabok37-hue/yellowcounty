@@ -147,13 +147,17 @@ export function MachineCard({ machine, index, onViewDetails }: MachineCardProps)
           transition={{ duration: 0.3 }}
         />
 
-        {/* Full background image */}
+        {/* Full background image with lazy loading and blur placeholder */}
         <div className="absolute inset-0 overflow-hidden">
-          <img
-            src={machine.image}
-            alt={machine.name}
-            className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
-          />
+          <div className="w-full h-full group-hover:scale-110 transition-transform duration-700">
+            <OptimizedImage
+              src={machine.image}
+              alt={machine.name}
+              aspectRatio="aspect-auto"
+              className="w-full h-full"
+              fit={machine.imageFit || 'cover'}
+            />
+          </div>
           
           {/* Gradient fade where text starts */}
           <div className="absolute inset-0 bg-gradient-to-b from-transparent via-background/30 via-50% to-background" />

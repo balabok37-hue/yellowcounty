@@ -3,6 +3,7 @@ import { X, MapPin, Clock, MessageCircle, Phone, ChevronLeft, ChevronRight, Shie
 import { Button } from '@/components/ui/button';
 import { useState, useCallback } from 'react';
 import type { Machine } from './MachineCard';
+import { OptimizedImage } from './OptimizedImage';
 
 interface MachineModalProps {
   machine: Machine | null;
@@ -128,11 +129,9 @@ export function MachineModal({ machine, isOpen, onClose }: MachineModalProps) {
                 {/* Image Gallery with Swipe */}
                 <div className="relative aspect-square md:aspect-auto md:min-h-[500px] overflow-hidden bg-muted/20">
                   <AnimatePresence mode="wait" initial={false}>
-                    <motion.img
+                    <motion.div
                       key={currentImageIndex}
-                      src={images[currentImageIndex]}
-                      alt={machine.name}
-                      className="w-full h-full object-cover cursor-grab active:cursor-grabbing"
+                      className="w-full h-full cursor-grab active:cursor-grabbing"
                       initial={{ opacity: 0, x: dragDirection > 0 ? -100 : 100 }}
                       animate={{ opacity: 1, x: 0 }}
                       exit={{ opacity: 0, x: dragDirection > 0 ? 100 : -100 }}
@@ -142,7 +141,15 @@ export function MachineModal({ machine, isOpen, onClose }: MachineModalProps) {
                       dragElastic={0.2}
                       onDrag={handleDrag}
                       onDragEnd={handleDragEnd}
-                    />
+                    >
+                      <OptimizedImage
+                        src={images[currentImageIndex]}
+                        alt={machine.name}
+                        aspectRatio="aspect-auto"
+                        className="w-full h-full"
+                        priority={currentImageIndex === 0}
+                      />
+                    </motion.div>
                   </AnimatePresence>
                   
                   {images.length > 1 && (
