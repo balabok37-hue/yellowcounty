@@ -2,6 +2,7 @@ import type { Machine } from '@/components/MachineCard';
 import sanySy80uImage from '@/assets/machines/sany-sy80u.jpg';
 import sanySw405kImage from '@/assets/machines/sany-sw405k.jpg';
 import develonDd100Image from '@/assets/machines/develon-dd100.jpg';
+import develonDd100Image2 from '@/assets/machines/develon-dd100-2.jpg';
 
 export const featuredMachines: Machine[] = [
   {
@@ -95,6 +96,7 @@ export const featuredMachines: Machine[] = [
     },
     gallery: [
       develonDd100Image,
+      develonDd100Image2,
     ],
   },
   {
