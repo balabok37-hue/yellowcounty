@@ -171,7 +171,7 @@ export function MachineCard({ machine, index, onViewDetails }: MachineCardProps)
         </div>
 
         {/* Spacer for image area */}
-        <div className="h-56 sm:h-64" />
+        <div className="h-72 sm:h-80" />
 
         {/* Content */}
         <div className="p-4 sm:p-6 space-y-3 sm:space-y-4 relative z-10 bg-background/80 backdrop-blur-sm rounded-t-xl" style={{ transform: 'translateZ(30px)' }}>
