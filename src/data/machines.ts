@@ -9,6 +9,7 @@ import manitouMlt1040Image from '@/assets/machines/manitou-mlt1040.jpg';
 import manitouMlt1040Image2 from '@/assets/machines/manitou-mlt1040-2.jpg';
 import jcb9404Image from '@/assets/machines/jcb-940-4.png';
 import johnDeere310lImage from '@/assets/machines/john-deere-310l-ep.png';
+import manitouM502Image from '@/assets/machines/manitou-m50-2.jpg';
 
 export const featuredMachines: Machine[] = [
   {
@@ -264,14 +265,35 @@ export const catalogMachines: Machine[] = [
   },
   {
     id: 9,
-    name: 'Caterpillar 938M Wheel Loader',
-    year: 2021,
-    hours: 4900,
-    location: 'USA',
-    price: 94400,
-    originalPrice: 118000,
-    discount: 20,
-    image: 'https://images.unsplash.com/photo-1589939705384-5185137a7f0f?w=1200&h=900&fit=crop',
+    name: '2023 Manitou M50-2 Telescopic Handler',
+    year: 2023,
+    hours: 1200,
+    location: 'USA Stock',
+    price: 58175,
+    originalPrice: 89500,
+    discount: 35,
+    image: manitouM502Image,
+    description: 'The 2023 Manitou M50-2 is a versatile compact telescopic handler engineered for agriculture, construction, and material handling, with a rugged frame designed for 10,000+ hour durability. Powered by a Perkins 1104D-44T Tier 4 Final engine (74 hp net), it delivers a robust 5,000 lb (2,268 kg) lift capacity to a maximum height of 19 ft 4 in (5.9 m) and forward reach of 10 ft 6 in (3.2 m) for efficient stacking and loading. Features include hydrostatic transmission, 4WD with 3 steering modes (2WS/4WS/crab), load-sensing hydraulics, ergonomic cab with AC/heat/USB, joystick controls, and quick-attach system for forks or buckets. This low-hour unit (est. 1,200 hrs) includes standard pallet forks and auxiliary hydraulics — ideal for farms, yards, or tight sites. Exceptional resale value (+15% in auctions) and 3-year/3,000-hour warranty make it a top pick for operators needing compact power without compromise.',
+    specs: {
+      engine: 'Perkins 1104D-44T (Tier 4 Final)',
+      power: '74 hp (55 kW) @ 2,200 rpm',
+      weight: '12,125 lb (5,500 kg)',
+      grossTorque: '221 lb-ft (300 Nm)',
+      displacement: '4.4 L',
+      maxLiftCapacity: '5,000 lb (2,268 kg)',
+      liftHeight: '19 ft 4 in (5.9 m)',
+      forwardReach: '10 ft 6 in (3.2 m)',
+      breakoutForce: '8,850 lbf (39 kN)',
+      travelSpeed: '24.9 mph (40 km/h)',
+      turningRadius: '12 ft 2 in (3.7 m)',
+      tireSize: '12.5/80-18',
+      fuelTank: '23.8 gal (90 L)',
+      hydraulicTank: '26.4 gal (100 L)',
+      transportDimensions: '15 ft 1 in x 5 ft 11 in x 7 ft 11 in (4.6 x 1.8 x 2.41 m)',
+    },
+    gallery: [
+      manitouM502Image,
+    ],
   },
   {
     id: 10,
