@@ -69,6 +69,9 @@ export interface Machine {
     gvwr?: string;
     rearAxles?: string;
     exhaust?: string;
+    // Dump truck specific
+    ratio?: string;
+    dumpBody?: string;
     status?: string;
   };
   gallery?: string[];
