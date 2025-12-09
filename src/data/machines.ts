@@ -5,6 +5,7 @@ import develonDd100Image from '@/assets/machines/develon-dd100.jpg';
 import develonDd100Image2 from '@/assets/machines/develon-dd100-2.jpg';
 import kubotaR640r43Image from '@/assets/machines/kubota-r640r43.jpg';
 import sanySy215cImage from '@/assets/machines/sany-sy215c.jpg';
+import manitouMlt1040Image from '@/assets/machines/manitou-mlt1040.jpg';
 
 export const featuredMachines: Machine[] = [
   {
@@ -173,14 +174,33 @@ export const catalogMachines: Machine[] = [
   },
   {
     id: 6,
-    name: 'Kubota KX040-4',
-    year: 2022,
-    hours: 1200,
-    location: 'California',
-    price: 43200,
-    originalPrice: 54000,
+    name: '2018 Manitou MLT 1040-145 L Telehandler',
+    year: 2018,
+    hours: 1800,
+    location: 'USA Stock',
+    price: 40000,
+    originalPrice: 50000,
     discount: 20,
-    image: 'https://images.unsplash.com/photo-1580901368919-7738efb0f87e?w=1200&h=900&fit=crop',
+    image: manitouMlt1040Image,
+    description: 'The 2018 Manitou MLT 1040-145 L is a high-performance 10-meter telescopic handler built for heavy agriculture, construction, and industrial applications, featuring a reinforced boom and frame for 15,000+ hour service life. Powered by a Deutz TCD 3.6 L4 Tier 4 Final engine (141 hp net), it delivers 9,000 lb (4,000 kg) lift capacity to full 32 ft 3 in (9.84 m) height and 22 ft 2 in forward reach. Equipped with 4WD hydrostatic transmission, load-sensing hydraulics, 360° visibility cab with heat/AC/Bluetooth, joystick control, and quick-attach carriage. This low-hour unit includes 1.5 yd³ bucket + pallet forks and auxiliary hydraulics — perfect for stacking bales, loading trucks, or high-reach work on big sites.',
+    specs: {
+      engine: 'Deutz TCD 3.6 L4 (Tier 4 Final)',
+      power: '141 hp (104 kW) @ 2,200 rpm',
+      weight: '23,148 lb (10,500 kg)',
+      maxLiftCapacity: '9,000 lb (4,000 kg)',
+      liftHeight: '32 ft 3 in (9.84 m)',
+      forwardReach: '22 ft 2 in (6.75 m)',
+      breakoutForce: '14,612 lbf (65 kN)',
+      transmission: 'Hydrostatic 2-speed, 25 mph (40 km/h)',
+      turningRadius: '12 ft 8 in (3.89 m)',
+      tireSize: '460/70 R24',
+      fuelTank: '37 gal (140 L)',
+      hydraulicFlow: '49.4 gal/min (187 L/min)',
+      transportDimensions: '20 ft 8 in × 7 ft 10 in × 8 ft 4 in',
+    },
+    gallery: [
+      manitouMlt1040Image,
+    ],
   },
   {
     id: 7,

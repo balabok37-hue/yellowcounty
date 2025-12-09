@@ -43,6 +43,12 @@ export interface Machine {
     maxSpeed?: string;
     turningRadius?: string;
     tireSize?: string;
+    // Telehandler specific
+    maxLiftCapacity?: string;
+    liftHeight?: string;
+    forwardReach?: string;
+    transmission?: string;
+    hydraulicFlow?: string;
   };
   gallery?: string[];
 }
