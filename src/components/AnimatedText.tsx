@@ -88,16 +88,15 @@ export function AnimatedLetters({ text, className = '', delay = 0 }: AnimatedTex
       variants={container}
       initial="hidden"
       animate="visible"
-      style={{ display: 'inline-block' }}
+      style={{ display: 'inline' }}
     >
       {letters.map((letter, index) => (
         <motion.span
           key={index}
-          className="inline-block"
           variants={child}
           style={{ 
             display: 'inline-block',
-            whiteSpace: letter === ' ' ? 'pre' : 'normal'
+            minWidth: letter === ' ' ? '0.25em' : 'auto',
           }}
         >
           {letter === ' ' ? '\u00A0' : letter}
