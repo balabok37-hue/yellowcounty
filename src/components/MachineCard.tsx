@@ -139,11 +139,10 @@ export function MachineCard({ machine, index, onViewDetails }: MachineCardProps)
 
         {/* Full background image */}
         <div className="absolute inset-0 overflow-hidden">
-          <OptimizedImage
+          <img
             src={machine.image}
             alt={machine.name}
-            className="group-hover:scale-110 transition-transform duration-700"
-            fit={machine.imageFit || 'cover'}
+            className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
           />
           
           {/* Gradient fade where text starts */}
