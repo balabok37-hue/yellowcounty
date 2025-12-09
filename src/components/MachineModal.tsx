@@ -127,7 +127,7 @@ export function MachineModal({ machine, isOpen, onClose }: MachineModalProps) {
             <div className="overflow-y-auto max-h-[95vh] sm:max-h-[90vh]">
               <div className="grid md:grid-cols-2 gap-0">
                 {/* Image Gallery with Swipe */}
-                <div className="relative aspect-square md:aspect-auto md:min-h-[500px] overflow-hidden bg-muted/20">
+                <div className="relative aspect-square md:aspect-auto md:min-h-[500px] overflow-hidden bg-muted/20 flex items-center justify-center">
                   <AnimatePresence mode="wait" initial={false}>
                     <motion.div
                       key={currentImageIndex}
@@ -142,13 +142,13 @@ export function MachineModal({ machine, isOpen, onClose }: MachineModalProps) {
                       onDrag={handleDrag}
                       onDragEnd={handleDragEnd}
                     >
-                      {/* Image container with bottom crop to hide watermark */}
-                      <div className="w-full h-full relative" style={{ marginBottom: '-40px', paddingBottom: '40px' }}>
+                      {/* Image container centered */}
+                      <div className="w-full h-full flex items-center justify-center">
                         <img
                           src={images[currentImageIndex]}
                           alt={machine.name}
-                          className="w-full h-full object-cover"
-                          style={{ objectPosition: machine.imagePosition || 'center' }}
+                          className="w-full h-full object-contain"
+                          style={{ objectPosition: 'center center' }}
                           loading={currentImageIndex === 0 ? 'eager' : 'lazy'}
                           decoding="async"
                         />
