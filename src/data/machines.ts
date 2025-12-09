@@ -18,6 +18,7 @@ import silverado6500hdImage from '@/assets/machines/chevrolet-silverado-6500hd.p
 import silverado4500hdImage from '@/assets/machines/chevrolet-silverado-4500hd.png';
 import silverado4500hdBoxImage from '@/assets/machines/chevrolet-silverado-4500hd-box.png';
 import silverado5500hdBoxImage from '@/assets/machines/chevrolet-silverado-5500hd-box.png';
+import mackGu713Image from '@/assets/machines/mack-gu713.png';
 
 export const featuredMachines: Machine[] = [
   {
@@ -567,6 +568,36 @@ export const catalogMachines: Machine[] = [
     },
     gallery: [
       silverado5500hdBoxImage,
+    ],
+  },
+  {
+    id: 29,
+    name: '2013 Mack GU713 Tri-Axle Dump Truck',
+    year: 2013,
+    hours: 325435,
+    location: 'USA Stock',
+    price: 49500,
+    originalPrice: 55000,
+    discount: 10,
+    image: mackGu713Image,
+    description: 'The 2013 Mack GU713 Tri-Axle Dump Truck – bulletproof Mack pedigree, ready to go straight to work tomorrow. MP8 505C 505 hp / 1,860 lb-ft, Mack mDrive 12-speed automated transmission, 18k front, 46k Camelback rears, 3.98 ratio, double frame, 20 ft heated steel body with electric tarp, pintle hitch, air tailgate. Only 325,435 miles, fresh DOT, no rust, 85%+ virgin steers, 70%+ drives/caps. Ice-cold A/C, power mirrors, heated seat, Bluetooth radio. Runs flawless – no blow-by, no leaks, no stories. Ships nationwide (#A6491997). Same-spec 2013–2014 GU713 tri-axles still bringing $58–64k all day at Ritchie Bros and JJ Kane auctions.',
+    specs: {
+      engine: 'Mack MP8 505C (505 hp / 1,860 lb-ft)',
+      transmission: 'Mack mDrive 12-speed automated',
+      frontAxle: '18,000 lb',
+      rearAxles: '46,000 lb Mack Camelback',
+      ratio: '3.98',
+      suspension: 'Camelback 46k',
+      dumpBody: '20 ft heated steel, electric tarp, air gate',
+      wheelbase: '225 in',
+      tireSize: '425 steers 85%, 11R24.5 drives 70%+ caps',
+      brakes: 'Air brakes, Jake',
+      fuelTank: 'Dual 93 gal aluminum',
+      gvwr: '84,000 lb+',
+      status: 'Fresh DOT, work-ready, ships nationwide',
+    },
+    gallery: [
+      mackGu713Image,
     ],
   },
   {
