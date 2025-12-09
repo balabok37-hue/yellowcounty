@@ -13,10 +13,25 @@ export interface Machine {
   originalPrice: number;
   discount: number;
   image: string;
+  description?: string;
   specs?: {
     engine?: string;
+    power?: string;
     weight?: string;
     capacity?: string;
+    maxDiggingDepth?: string;
+    maxReach?: string;
+    maxDumpingHeight?: string;
+    bucketCapacity?: string;
+    bucketDiggingForce?: string;
+    armDiggingForce?: string;
+    swingSpeed?: string;
+    travelSpeed?: string;
+    tailSwing?: string;
+    transportDimensions?: string;
+    trackWidth?: string;
+    fuelTank?: string;
+    hydraulicTank?: string;
   };
   gallery?: string[];
 }

@@ -1,19 +1,38 @@
 import type { Machine } from '@/components/MachineCard';
+import sanySy80uImage from '@/assets/machines/sany-sy80u.jpg';
 
 export const featuredMachines: Machine[] = [
   {
     id: 1,
-    name: 'Caterpillar 336 Excavator',
-    year: 2021,
-    hours: 4200,
+    name: '2022 Sany SY80U Excavator',
+    year: 2022,
+    hours: 1500,
     location: 'Texas, USA',
-    price: 116000,
-    originalPrice: 145000,
+    price: 68000,
+    originalPrice: 85000,
     discount: 20,
-    image: 'https://images.unsplash.com/photo-1581092160562-40aa08e78837?w=1200&h=900&fit=crop',
+    image: sanySy80uImage,
+    description: 'The 2022 Sany SY80U is a powerhouse in compact form — built for endurance with reinforced boom, arm, and undercarriage. Powered by a reliable Yanmar 4TNV98CT engine, it delivers 66.4 hp for offset digging in tight spaces. Ideal for urban construction, landscaping, and utilities.',
+    specs: {
+      engine: 'Yanmar 4TNV98CT (Tier 4 Final)',
+      power: '66.4 hp (49.5 kW) @ 2,000 rpm',
+      weight: '19,401 lb (8,800 kg)',
+      maxDiggingDepth: '14 ft 10.5 in (4,534 mm)',
+      maxReach: '23 ft 11 in (7,290 mm)',
+      maxDumpingHeight: '16 ft 2 in (4,930 mm)',
+      bucketCapacity: '0.28 m³ (0.37 yd³)',
+      bucketDiggingForce: '7,927 lbf (35.3 kN)',
+      armDiggingForce: '5,709 lbf (25.4 kN)',
+      swingSpeed: '10 rpm',
+      travelSpeed: '2.0–2.8 mph (3.2–4.5 km/h)',
+      tailSwing: '5 ft 11 in (1,800 mm) — Short Tail',
+      transportDimensions: '21 ft 4 in x 7 ft 3 in x 8 ft 4 in',
+      trackWidth: '17.7 in (450 mm)',
+      fuelTank: '26.4 gal (100 L)',
+      hydraulicTank: '31.7 gal (120 L)',
+    },
     gallery: [
-      'https://images.unsplash.com/photo-1581092160562-40aa08e78837?w=1200&h=900&fit=crop',
-      'https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=1200&h=900&fit=crop',
+      sanySy80uImage,
     ],
   },
   {

@@ -223,6 +223,13 @@ export function MachineModal({ machine, isOpen, onClose }: MachineModalProps) {
                     </div>
                   </div>
 
+                  {/* Description */}
+                  {machine.description && (
+                    <p className="text-sm text-muted-foreground leading-relaxed">
+                      {machine.description}
+                    </p>
+                  )}
+
                   {/* Price */}
                   <div className="py-5 px-4 rounded-2xl bg-gradient-to-r from-primary/10 to-accent/10 border border-primary/20">
                     <div className="flex items-baseline gap-3 mb-1">
@@ -239,25 +246,93 @@ export function MachineModal({ machine, isOpen, onClose }: MachineModalProps) {
                     </p>
                   </div>
 
-                  {/* Specs Grid */}
-                  <div className="grid grid-cols-2 gap-3">
-                    <div className="p-4 rounded-xl bg-muted/30 border border-border/30">
-                      <span className="text-xs text-muted-foreground uppercase tracking-wide">Year</span>
-                      <p className="font-bold text-lg text-foreground">{machine.year}</p>
+                  {/* Detailed Specs Table */}
+                  {machine.specs && Object.keys(machine.specs).length > 3 && (
+                    <div className="space-y-3">
+                      <h3 className="text-sm font-bold text-foreground uppercase tracking-wide flex items-center gap-2">
+                        <span className="w-2 h-2 rounded-full bg-primary" />
+                        Technical Specifications
+                      </h3>
+                      <div className="grid grid-cols-1 gap-2 text-sm max-h-[200px] overflow-y-auto pr-2 scrollbar-thin">
+                        {machine.specs.engine && (
+                          <div className="flex justify-between py-2 border-b border-border/30">
+                            <span className="text-muted-foreground">Engine</span>
+                            <span className="font-medium text-foreground text-right max-w-[60%]">{machine.specs.engine}</span>
+                          </div>
+                        )}
+                        {machine.specs.power && (
+                          <div className="flex justify-between py-2 border-b border-border/30">
+                            <span className="text-muted-foreground">Power</span>
+                            <span className="font-medium text-foreground">{machine.specs.power}</span>
+                          </div>
+                        )}
+                        {machine.specs.weight && (
+                          <div className="flex justify-between py-2 border-b border-border/30">
+                            <span className="text-muted-foreground">Operating Weight</span>
+                            <span className="font-medium text-foreground">{machine.specs.weight}</span>
+                          </div>
+                        )}
+                        {machine.specs.maxDiggingDepth && (
+                          <div className="flex justify-between py-2 border-b border-border/30">
+                            <span className="text-muted-foreground">Max Digging Depth</span>
+                            <span className="font-medium text-foreground">{machine.specs.maxDiggingDepth}</span>
+                          </div>
+                        )}
+                        {machine.specs.maxReach && (
+                          <div className="flex justify-between py-2 border-b border-border/30">
+                            <span className="text-muted-foreground">Max Reach</span>
+                            <span className="font-medium text-foreground">{machine.specs.maxReach}</span>
+                          </div>
+                        )}
+                        {machine.specs.bucketCapacity && (
+                          <div className="flex justify-between py-2 border-b border-border/30">
+                            <span className="text-muted-foreground">Bucket Capacity</span>
+                            <span className="font-medium text-foreground">{machine.specs.bucketCapacity}</span>
+                          </div>
+                        )}
+                        {machine.specs.bucketDiggingForce && (
+                          <div className="flex justify-between py-2 border-b border-border/30">
+                            <span className="text-muted-foreground">Bucket Digging Force</span>
+                            <span className="font-medium text-foreground">{machine.specs.bucketDiggingForce}</span>
+                          </div>
+                        )}
+                        {machine.specs.travelSpeed && (
+                          <div className="flex justify-between py-2 border-b border-border/30">
+                            <span className="text-muted-foreground">Travel Speed</span>
+                            <span className="font-medium text-foreground">{machine.specs.travelSpeed}</span>
+                          </div>
+                        )}
+                        {machine.specs.fuelTank && (
+                          <div className="flex justify-between py-2 border-b border-border/30">
+                            <span className="text-muted-foreground">Fuel Tank</span>
+                            <span className="font-medium text-foreground">{machine.specs.fuelTank}</span>
+                          </div>
+                        )}
+                      </div>
                     </div>
-                    <div className="p-4 rounded-xl bg-muted/30 border border-border/30">
-                      <span className="text-xs text-muted-foreground uppercase tracking-wide">Hours</span>
-                      <p className="font-bold text-lg text-foreground">{machine.hours.toLocaleString()}</p>
+                  )}
+
+                  {/* Basic Specs Grid (for machines without detailed specs) */}
+                  {(!machine.specs || Object.keys(machine.specs).length <= 3) && (
+                    <div className="grid grid-cols-2 gap-3">
+                      <div className="p-4 rounded-xl bg-muted/30 border border-border/30">
+                        <span className="text-xs text-muted-foreground uppercase tracking-wide">Year</span>
+                        <p className="font-bold text-lg text-foreground">{machine.year}</p>
+                      </div>
+                      <div className="p-4 rounded-xl bg-muted/30 border border-border/30">
+                        <span className="text-xs text-muted-foreground uppercase tracking-wide">Hours</span>
+                        <p className="font-bold text-lg text-foreground">{machine.hours.toLocaleString()}</p>
+                      </div>
+                      <div className="p-4 rounded-xl bg-muted/30 border border-border/30">
+                        <span className="text-xs text-muted-foreground uppercase tracking-wide">Condition</span>
+                        <p className="font-bold text-lg text-green-500">Excellent</p>
+                      </div>
+                      <div className="p-4 rounded-xl bg-muted/30 border border-border/30">
+                        <span className="text-xs text-muted-foreground uppercase tracking-wide">Status</span>
+                        <p className="font-bold text-lg text-green-500">In Stock ✓</p>
+                      </div>
                     </div>
-                    <div className="p-4 rounded-xl bg-muted/30 border border-border/30">
-                      <span className="text-xs text-muted-foreground uppercase tracking-wide">Condition</span>
-                      <p className="font-bold text-lg text-green-500">Excellent</p>
-                    </div>
-                    <div className="p-4 rounded-xl bg-muted/30 border border-border/30">
-                      <span className="text-xs text-muted-foreground uppercase tracking-wide">Status</span>
-                      <p className="font-bold text-lg text-green-500">In Stock ✓</p>
-                    </div>
-                  </div>
+                  )}
 
                   {/* Trust badges */}
                   <div className="flex flex-wrap gap-3 py-2">
