@@ -2,6 +2,7 @@ import { motion } from 'framer-motion';
 import { AnimatedLetters } from '@/components/AnimatedText';
 import { Button } from '@/components/ui/button';
 import { ChevronDown } from 'lucide-react';
+import heroBackground from '@/assets/hero-background.jpg';
 
 export function HeroSection() {
   const scrollToDeals = () => {
@@ -10,6 +11,20 @@ export function HeroSection() {
 
   return (
     <section className="relative min-h-[100svh] flex items-center justify-center overflow-hidden">
+      {/* Background Image with Overlay */}
+      <div className="absolute inset-0 z-0">
+        <img 
+          src={heroBackground} 
+          alt="Heavy machinery" 
+          className="w-full h-full object-cover object-center"
+        />
+        {/* Dark gradient overlay for readability */}
+        <div className="absolute inset-0 bg-gradient-to-b from-background/80 via-background/70 to-background" />
+        {/* Primary color tint overlay */}
+        <div className="absolute inset-0 bg-primary/10 mix-blend-overlay" />
+        {/* Vignette effect */}
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,transparent_0%,hsl(var(--background))_100%)] opacity-60" />
+      </div>
       {/* Content */}
       <div className="container relative z-10 text-center px-5 sm:px-6 py-16 sm:py-20">
         <motion.div
