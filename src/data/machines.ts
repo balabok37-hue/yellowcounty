@@ -12,6 +12,7 @@ export const featuredMachines: Machine[] = [
     originalPrice: 85000,
     discount: 20,
     image: sanySy80uImage,
+    imageFit: 'contain',
     description: 'The 2022 Sany SY80U is a powerhouse in compact form — built for endurance with reinforced boom, arm, and undercarriage. Powered by a reliable Yanmar 4TNV98CT engine, it delivers 66.4 hp for offset digging in tight spaces. Ideal for urban construction, landscaping, and utilities.',
     specs: {
       engine: 'Yanmar 4TNV98CT (Tier 4 Final)',
