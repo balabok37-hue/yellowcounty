@@ -8,6 +8,7 @@ import sanySy215cImage from '@/assets/machines/sany-sy215c.jpg';
 import manitouMlt1040Image from '@/assets/machines/manitou-mlt1040.jpg';
 import manitouMlt1040Image2 from '@/assets/machines/manitou-mlt1040-2.jpg';
 import jcb9404Image from '@/assets/machines/jcb-940-4.png';
+import johnDeere310lImage from '@/assets/machines/john-deere-310l-ep.png';
 
 export const featuredMachines: Machine[] = [
   {
@@ -238,14 +239,28 @@ export const catalogMachines: Machine[] = [
   },
   {
     id: 8,
-    name: 'Komatsu D37PX-24',
-    year: 2022,
-    hours: 3100,
+    name: '2019 John Deere 310L EP Backhoe Loader',
+    year: 2019,
+    hours: 2100,
     location: 'USA Stock',
-    price: 73600,
-    originalPrice: 92000,
-    discount: 20,
-    image: 'https://images.unsplash.com/photo-1629810245498-1609be6a3e71?w=1200&h=900&fit=crop',
+    price: 35275,
+    originalPrice: 42500,
+    discount: 17,
+    image: johnDeere310lImage,
+    description: 'The 2019 John Deere 310L EP is a super-clean, low-hour compact backhoe loader perfect for landscaping, utilities and small-to-medium construction jobs. Powered by a 99 hp John Deere PowerTech 4045HT Tier 4 Final engine (SCR only, no DPF), it offers smooth powershift transmission, pilot controls, extendable stick and ride control. This unit has only ≈ 2,100 hours and comes fully loaded. Ready to work — full service just completed, excellent tire condition, both quick couplers included.',
+    specs: {
+      engine: 'JD PowerTech 4045HT 99 hp Tier 4 Final',
+      power: '99 hp (74 kW)',
+      weight: '14,590 lb (6,618 kg)',
+      maxDiggingDepth: '14 ft 3 in (4.34 m)',
+      bucketCapacity: '1.0 yd³ GP',
+      maxLiftCapacity: '7,403 lb (3,358 kg)',
+      travelSpeed: '25 mph (40 km/h)',
+      transportDimensions: '23 ft 3 in × 7 ft 2 in × 11 ft 2 in',
+    },
+    gallery: [
+      johnDeere310lImage,
+    ],
   },
   {
     id: 9,
