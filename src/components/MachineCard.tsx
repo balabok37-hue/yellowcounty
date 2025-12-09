@@ -173,19 +173,28 @@ export function MachineCard({ machine, index, onViewDetails }: MachineCardProps)
         <div className="h-72 sm:h-80" />
 
         {/* Content */}
-        <div className="p-4 sm:p-6 space-y-3 sm:space-y-4 relative z-10 bg-background/80 backdrop-blur-sm rounded-t-xl" style={{ transform: 'translateZ(30px)' }}>
+        <div className="p-4 sm:p-6 space-y-3 sm:space-y-4 relative z-10" style={{ transform: 'translateZ(30px)' }}>
           {/* Title */}
-          <h3 className="text-lg sm:text-xl font-bold text-foreground leading-tight line-clamp-2">
+          <h3 
+            className="text-lg sm:text-xl font-bold text-foreground leading-tight line-clamp-2"
+            style={{ textShadow: '0 0 8px hsl(0 0% 0%), 0 0 16px hsl(0 0% 0% / 0.8), 0 2px 4px hsl(0 0% 0%)' }}
+          >
             {machine.name}
           </h3>
 
           {/* Meta info with premium styling */}
-          <div className="flex flex-wrap gap-2 sm:gap-3 text-xs sm:text-sm text-muted-foreground">
-            <span className="flex items-center gap-1.5 bg-muted/40 px-2.5 py-1.5 rounded-full border border-border/20">
+          <div className="flex flex-wrap gap-2 sm:gap-3 text-xs sm:text-sm">
+            <span 
+              className="flex items-center gap-1.5 px-2.5 py-1.5 rounded-full bg-background/60 backdrop-blur-sm border border-border/30"
+              style={{ textShadow: '0 1px 3px hsl(0 0% 0%)' }}
+            >
               <Clock className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-primary" />
               {machine.year} • {machine.hours.toLocaleString()} hrs
             </span>
-            <span className="flex items-center gap-1.5 bg-muted/40 px-2.5 py-1.5 rounded-full border border-border/20">
+            <span 
+              className="flex items-center gap-1.5 px-2.5 py-1.5 rounded-full bg-background/60 backdrop-blur-sm border border-border/30"
+              style={{ textShadow: '0 1px 3px hsl(0 0% 0%)' }}
+            >
               <MapPin className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-muted-foreground" />
               {machine.location}
             </span>
@@ -195,11 +204,14 @@ export function MachineCard({ machine, index, onViewDetails }: MachineCardProps)
           <div className="flex items-baseline gap-2 sm:gap-3">
             <span 
               className="text-2xl sm:text-3xl font-black text-primary"
-              style={{ textShadow: '0 0 30px hsl(48 100% 50% / 0.4)' }}
+              style={{ textShadow: '0 0 30px hsl(48 100% 50% / 0.4), 0 0 8px hsl(0 0% 0%), 0 2px 4px hsl(0 0% 0%)' }}
             >
               ${machine.price.toLocaleString()}
             </span>
-            <span className="text-sm sm:text-lg line-through text-muted-foreground/70">
+            <span 
+              className="text-sm sm:text-lg line-through text-muted-foreground"
+              style={{ textShadow: '0 1px 3px hsl(0 0% 0%)' }}
+            >
               ${machine.originalPrice.toLocaleString()}
             </span>
           </div>
