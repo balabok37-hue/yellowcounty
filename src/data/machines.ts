@@ -4,6 +4,7 @@ import sanySw405kImage from '@/assets/machines/sany-sw405k.jpg';
 import develonDd100Image from '@/assets/machines/develon-dd100.jpg';
 import develonDd100Image2 from '@/assets/machines/develon-dd100-2.jpg';
 import kubotaR640r43Image from '@/assets/machines/kubota-r640r43.jpg';
+import sanySy215cImage from '@/assets/machines/sany-sy215c.jpg';
 
 export const featuredMachines: Machine[] = [
   {
@@ -138,14 +139,37 @@ export const featuredMachines: Machine[] = [
 export const catalogMachines: Machine[] = [
   {
     id: 5,
-    name: 'John Deere 35G Mini Excavator',
-    year: 2023,
-    hours: 890,
-    location: 'Florida',
-    price: 38400,
-    originalPrice: 48000,
-    discount: 20,
-    image: 'https://images.unsplash.com/photo-1621188988909-fbef0a88dc04?w=1200&h=900&fit=crop',
+    name: '2021 Sany SY215C Excavator',
+    year: 2021,
+    hours: 1250,
+    location: 'USA Stock',
+    price: 60000,
+    originalPrice: 80000,
+    discount: 25,
+    image: sanySy215cImage,
+    description: 'The Sany SY215C is a robust medium excavator built for demanding construction, quarrying, and earthmoving applications, featuring a reinforced undercarriage for 10,000+ hour durability. Powered by a Cummins QSB6.7 Tier 4 Final engine (163.6 hp net), it provides exceptional 30,800 lbf arm digging force and 21\' 8" dig depth for superior productivity. Equipped with positive flow load-sensing hydraulics, 360° camera system, spacious cab with AC/heat/USB ports, and quick-change coupler for attachments. Ideal for trenching, loading, or site prep.',
+    specs: {
+      engine: 'Cummins QSB6.7 (Tier 4 Final)',
+      power: '163.6 hp (122 kW) @ 2,050 rpm',
+      weight: '51,919 lb (23,550 kg)',
+      grossTorque: '589 lb-ft (800 Nm)',
+      displacement: '6.7 L',
+      bucketCapacity: '1.22 yd³ (0.93 m³)',
+      armDiggingForce: '30,800 lbf (137 kN)',
+      bucketDiggingForce: '34,700 lbf (154 kN)',
+      maxDiggingDepth: '21 ft 8 in (6.62 m)',
+      maxReach: '32 ft 2 in (9.81 m)',
+      maxDumpingHeight: '22 ft 4 in (6.81 m)',
+      travelSpeed: '3.7 mph (6 km/h)',
+      swingSpeed: '11 rpm',
+      trackWidth: '24 in (600 mm)',
+      fuelTank: '90 gal (340 L)',
+      hydraulicTank: '63 gal (239 L)',
+      transportDimensions: '31 ft 9 in x 9 ft 10 in x 10 ft 4 in',
+    },
+    gallery: [
+      sanySy215cImage,
+    ],
   },
   {
     id: 6,
