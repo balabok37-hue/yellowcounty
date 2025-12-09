@@ -1,77 +1,105 @@
-import { motion } from 'framer-motion';
+import { motion, useScroll, useTransform } from 'framer-motion';
 import { Button } from '@/components/ui/button';
-import { ChevronDown } from 'lucide-react';
+import { ChevronDown, Star, Award, TrendingUp } from 'lucide-react';
 import heroBackground from '@/assets/hero-background.jpg';
+import { useRef } from 'react';
 
 export function HeroSection() {
+  const containerRef = useRef<HTMLElement>(null);
+  const { scrollYProgress } = useScroll({
+    target: containerRef,
+    offset: ["start start", "end start"]
+  });
+
+  const y = useTransform(scrollYProgress, [0, 1], [0, 200]);
+  const opacity = useTransform(scrollYProgress, [0, 0.5], [1, 0]);
+  const scale = useTransform(scrollYProgress, [0, 1], [1, 1.1]);
+
   const scrollToDeals = () => {
     document.getElementById('featured')?.scrollIntoView({ behavior: 'smooth' });
   };
 
   return (
-    <section className="relative min-h-[100svh] flex items-center justify-center overflow-hidden">
-      {/* Background Image with Overlay - Preloaded with eager loading */}
-      <div className="absolute inset-0 z-0">
+    <section ref={containerRef} className="relative min-h-[100svh] flex items-center justify-center overflow-hidden">
+      {/* Parallax Background Image */}
+      <motion.div 
+        className="absolute inset-0 z-0"
+        style={{ y, scale }}
+      >
         <img 
           src={heroBackground} 
-          alt="Heavy machinery" 
+          alt="Premium heavy machinery fleet" 
           className="w-full h-full object-cover object-center"
           loading="eager"
           decoding="async"
           fetchPriority="high"
         />
-        {/* Dark gradient overlay for readability */}
-        <div className="absolute inset-0 bg-gradient-to-b from-background/80 via-background/70 to-background" />
-        {/* Primary color tint overlay */}
-        <div className="absolute inset-0 bg-primary/10 mix-blend-overlay" />
-        {/* Vignette effect */}
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,transparent_0%,hsl(var(--background))_100%)] opacity-60" />
-      </div>
+        {/* Premium overlay layers */}
+        <div className="absolute inset-0 bg-gradient-to-b from-background/90 via-background/70 to-background" />
+        <div className="absolute inset-0 bg-primary/5 mix-blend-overlay" />
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,transparent_0%,hsl(var(--background))_100%)] opacity-70" />
+        {/* Luxury golden accent line */}
+        <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-primary/50 to-transparent" />
+      </motion.div>
       
-      {/* Content */}
-      <div className="container relative z-10 text-center px-4 sm:px-6 py-12 sm:py-20">
+      {/* Content with fade on scroll */}
+      <motion.div 
+        className="container relative z-10 text-center px-4 sm:px-6 py-12 sm:py-20"
+        style={{ opacity }}
+      >
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
           className="max-w-5xl mx-auto space-y-5 sm:space-y-8"
         >
-          {/* Badge */}
+          {/* Premium Badge with glow */}
           <motion.div
             initial={{ opacity: 0, scale: 0.8 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ delay: 0.2, duration: 0.5 }}
-            className="inline-flex items-center gap-2 px-3 sm:px-4 py-1.5 sm:py-2 rounded-full bg-primary/10 border border-primary/20"
+            className="inline-flex items-center gap-2 px-4 sm:px-6 py-2 sm:py-2.5 rounded-full bg-primary/10 border border-primary/30 backdrop-blur-sm"
+            style={{ boxShadow: '0 0 30px hsl(45 100% 50% / 0.15)' }}
           >
-            <span className="w-2 h-2 rounded-full bg-primary animate-pulse" />
-            <span className="text-[11px] sm:text-sm font-medium text-primary">
-              #1 Heavy Equipment Dealer in USA
+            <Award className="w-4 h-4 text-primary" />
+            <span className="text-xs sm:text-sm font-semibold text-primary tracking-wide">
+              #1 HEAVY EQUIPMENT DEALER IN USA
             </span>
+            <Star className="w-4 h-4 text-primary fill-primary" />
           </motion.div>
 
-          {/* Main Headline - Simple and reliable */}
+          {/* Main Headline with luxury styling */}
           <motion.h1 
-            className="text-[1.75rem] leading-[1.15] sm:text-5xl md:text-7xl lg:text-8xl font-black tracking-tight sm:tracking-tighter text-foreground px-2 sm:px-0"
+            className="text-[1.75rem] leading-[1.1] sm:text-5xl md:text-7xl lg:text-8xl font-black tracking-tight sm:tracking-tighter text-foreground px-2 sm:px-0"
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.4, duration: 0.8 }}
           >
             Heavy Machinery
             <br />
-            <span className="text-gradient-gold">That Pays For Itself</span>
+            <span className="text-gradient-gold relative">
+              That Pays For Itself
+              {/* Underline accent */}
+              <motion.div 
+                className="absolute -bottom-2 left-1/4 right-1/4 h-1 rounded-full bg-gradient-to-r from-primary/0 via-primary to-primary/0"
+                initial={{ scaleX: 0 }}
+                animate={{ scaleX: 1 }}
+                transition={{ delay: 1.2, duration: 0.8 }}
+              />
+            </span>
           </motion.h1>
 
-          {/* Subheadline - Better mobile sizing */}
+          {/* Subheadline with premium touch */}
           <motion.p
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.8, duration: 0.6 }}
             className="text-sm sm:text-xl md:text-2xl text-muted-foreground max-w-2xl mx-auto px-4 sm:px-2"
           >
-            Hand-selected premium units — <span className="text-primary font-semibold">20% below market</span>
+            Hand-selected premium units — <span className="text-primary font-bold">20% below market</span>
           </motion.p>
 
-          {/* CTA Button - Mobile optimized */}
+          {/* Premium CTA Button */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -81,41 +109,56 @@ export function HeroSection() {
             <Button
               size="lg"
               onClick={scrollToDeals}
-              className="btn-glow bg-primary hover:bg-primary/90 text-primary-foreground font-bold text-sm sm:text-lg px-6 sm:px-10 py-5 sm:py-7 rounded-2xl min-h-[52px] sm:min-h-[56px] touch-manipulation"
+              className="relative btn-glow bg-gradient-to-r from-primary via-primary to-accent hover:from-primary/90 hover:to-accent/90 text-primary-foreground font-bold text-sm sm:text-lg px-8 sm:px-12 py-6 sm:py-8 rounded-2xl min-h-[56px] sm:min-h-[64px] touch-manipulation overflow-hidden group"
+              style={{ boxShadow: '0 0 40px hsl(45 100% 50% / 0.3), 0 10px 40px hsl(0 0% 0% / 0.4)' }}
             >
-              See Today's Best Deals
-              <ChevronDown className="ml-2 w-4 h-4 sm:w-5 sm:h-5" />
+              {/* Shine effect */}
+              <motion.div 
+                className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-700"
+              />
+              <span className="relative flex items-center gap-2">
+                See Today's Best Deals
+                <ChevronDown className="w-5 h-5 sm:w-6 sm:h-6 animate-bounce" />
+              </span>
             </Button>
           </motion.div>
 
-          {/* Stats - Mobile grid with better spacing */}
+          {/* Stats with luxury cards */}
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 1.2, duration: 0.6 }}
-            className="grid grid-cols-3 gap-2 sm:gap-4 sm:flex sm:flex-wrap sm:justify-center md:gap-16 pt-6 sm:pt-12"
+            className="grid grid-cols-3 gap-3 sm:gap-6 pt-8 sm:pt-14 max-w-3xl mx-auto"
           >
             {[
-              { value: '500+', label: 'Units Sold' },
-              { value: '$50M+', label: 'Equipment Value' },
-              { value: '98%', label: 'Satisfaction' },
+              { value: '500+', label: 'Units Sold', icon: TrendingUp },
+              { value: '$50M+', label: 'Equipment Value', icon: Award },
+              { value: '98%', label: 'Satisfaction', icon: Star },
             ].map((stat, index) => (
               <motion.div 
                 key={index} 
-                className="text-center"
+                className="text-center p-3 sm:p-5 rounded-2xl bg-card/30 backdrop-blur-sm border border-border/20"
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 1.3 + index * 0.1, duration: 0.4 }}
+                transition={{ delay: 1.4 + index * 0.1, duration: 0.4 }}
+                whileHover={{ 
+                  scale: 1.05, 
+                  borderColor: 'hsl(45 100% 50% / 0.3)',
+                  boxShadow: '0 0 30px hsl(45 100% 50% / 0.1)'
+                }}
               >
-                <div className="text-lg sm:text-3xl md:text-4xl font-bold text-primary">{stat.value}</div>
-                <div className="text-[10px] sm:text-sm text-muted-foreground">{stat.label}</div>
+                <stat.icon className="w-4 h-4 sm:w-5 sm:h-5 text-primary mx-auto mb-1 sm:mb-2" />
+                <div className="text-lg sm:text-3xl md:text-4xl font-black text-primary" style={{ textShadow: '0 0 20px hsl(45 100% 50% / 0.3)' }}>
+                  {stat.value}
+                </div>
+                <div className="text-[10px] sm:text-sm text-muted-foreground font-medium">{stat.label}</div>
               </motion.div>
             ))}
           </motion.div>
         </motion.div>
-      </div>
+      </motion.div>
 
-      {/* Scroll indicator - hidden on mobile */}
+      {/* Premium scroll indicator */}
       <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
@@ -125,9 +168,14 @@ export function HeroSection() {
         <motion.div
           animate={{ y: [0, 10, 0] }}
           transition={{ duration: 1.5, repeat: Infinity, ease: 'easeInOut' }}
-          className="w-6 h-10 rounded-full border-2 border-muted-foreground/30 flex justify-center pt-2"
+          className="w-7 h-12 rounded-full border-2 border-primary/30 flex justify-center pt-3 bg-background/20 backdrop-blur-sm"
+          style={{ boxShadow: '0 0 20px hsl(45 100% 50% / 0.1)' }}
         >
-          <div className="w-1 h-2 rounded-full bg-primary" />
+          <motion.div 
+            className="w-1.5 h-3 rounded-full bg-primary"
+            animate={{ opacity: [0.5, 1, 0.5] }}
+            transition={{ duration: 1.5, repeat: Infinity }}
+          />
         </motion.div>
       </motion.div>
     </section>
