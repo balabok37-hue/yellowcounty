@@ -3,6 +3,7 @@ import sanySy80uImage from '@/assets/machines/sany-sy80u.jpg';
 import sanySw405kImage from '@/assets/machines/sany-sw405k.jpg';
 import develonDd100Image from '@/assets/machines/develon-dd100.jpg';
 import develonDd100Image2 from '@/assets/machines/develon-dd100-2.jpg';
+import kubotaR640r43Image from '@/assets/machines/kubota-r640r43.jpg';
 
 export const featuredMachines: Machine[] = [
   {
@@ -101,16 +102,35 @@ export const featuredMachines: Machine[] = [
   },
   {
     id: 4,
-    name: 'Komatsu PC360LC-11',
-    year: 2020,
-    hours: 6500,
-    location: 'USA Ready',
-    price: 108000,
-    originalPrice: 135000,
+    name: '2023 Kubota R640R43 Wheel Loader',
+    year: 2023,
+    hours: 1200,
+    location: 'USA Stock',
+    price: 78400,
+    originalPrice: 98000,
     discount: 20,
-    image: 'https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=1200&h=900&fit=crop',
+    image: kubotaR640r43Image,
+    description: 'The 2023 Kubota R640R43 is a versatile compact powerhouse designed for demanding construction, landscaping, and material handling tasks, with a durable frame built for 8,000+ hour service life. Powered by a Kubota V2607-CR-TE5-WL Tier 4 Final engine (61.1 hp net), it delivers impressive 9,869 lbf breakout force and 7,450 lb static tipping load for precise loading and digging. Features load-sensing hydraulics, 360° visibility cab with AC/heat/USB ports, ergonomic controls, and quick-coupler for attachments. Ideal for urban sites, farms, or aggregate yards.',
+    specs: {
+      engine: 'Kubota V2607-CR-TE5-WL (Tier 4 Final)',
+      power: '61.1 hp (45.6 kW) @ 2,400 rpm',
+      weight: '11,563 lb (5,245 kg)',
+      grossTorque: '173 lb-ft (235 Nm)',
+      displacement: '2.615 L',
+      bucketCapacity: '0.94 yd³ (0.72 m³)',
+      breakoutForce: '9,869 lbf (43.9 kN)',
+      tippingLoad: '7,450 lb (3,380 kg)',
+      maxDumpHeight: '9 ft 8 in (2.95 m)',
+      maxLiftHeight: '10 ft 8 in (3.25 m)',
+      maxSpeed: '12.4 mph (20 km/h)',
+      turningRadius: '12 ft (3.66 m)',
+      tireSize: '405/70R20',
+      fuelTank: '18.5 gal (70 L)',
+      hydraulicTank: '12.4 gal (47 L)',
+      transportDimensions: '18 ft x 5 ft 11 in x 8 ft 2 in',
+    },
     gallery: [
-      'https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=1200&h=900&fit=crop',
+      kubotaR640r43Image,
     ],
   },
 ];
