@@ -58,6 +58,17 @@ export interface Machine {
     frontAxle?: string;
     cab?: string;
     pto?: string;
+    // Semi truck specific
+    rearAxleRatio?: string;
+    wheelbase?: string;
+    suspension?: string;
+    brakes?: string;
+    wheels?: string;
+    sleeper?: string;
+    gvwr?: string;
+    rearAxles?: string;
+    exhaust?: string;
+    status?: string;
   };
   gallery?: string[];
 }
