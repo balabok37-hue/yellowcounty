@@ -191,9 +191,9 @@ export function MachineCard({ machine, index, onViewDetails }: MachineCardProps)
 
         {/* Content */}
         <div className="p-4 sm:p-6 space-y-3 sm:space-y-4 relative z-10" style={{ transform: 'translateZ(30px)' }}>
-          {/* Title */}
+          {/* Title with fixed height for consistency */}
           <h3 
-            className="text-lg sm:text-xl font-bold text-foreground leading-tight line-clamp-2"
+            className="text-lg sm:text-xl font-bold text-foreground leading-tight line-clamp-2 min-h-[2.75rem] sm:min-h-[3rem]"
             style={{ textShadow: '0 0 8px hsl(0 0% 0%), 0 0 16px hsl(0 0% 0% / 0.8), 0 2px 4px hsl(0 0% 0%)' }}
           >
             {machine.name}
