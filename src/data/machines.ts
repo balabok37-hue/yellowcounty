@@ -14,6 +14,7 @@ import peterbilt389Image from '@/assets/machines/peterbilt-389.png';
 import freightlinerM2Image from '@/assets/machines/freightliner-m2-106.png';
 import asvVt70hoImage from '@/assets/machines/asv-vt70ho.png';
 import silverado5500hdImage from '@/assets/machines/chevrolet-silverado-5500hd.png';
+import silverado6500hdImage from '@/assets/machines/chevrolet-silverado-6500hd.png';
 
 export const featuredMachines: Machine[] = [
   {
@@ -447,6 +448,35 @@ export const catalogMachines: Machine[] = [
     },
     gallery: [
       silverado5500hdImage,
+    ],
+  },
+  {
+    id: 25,
+    name: '2024 Chevrolet Silverado 6500HD 4×4 Crew Cab LCF',
+    year: 2024,
+    hours: 100,
+    location: 'USA Stock',
+    price: 45500,
+    originalPrice: 65000,
+    discount: 30,
+    isHotOffer: true,
+    image: silverado6500hdImage,
+    description: 'The 2024 Chevrolet Silverado 6500HD 4×4 Crew Cab – essentially new, only 100 engine hours (delivery + test hours), never titled, zero miles on the odometer still reads 000100! Fully loaded LCF chassis with the bulletproof Duramax 6.6L V8 Turbo Diesel 350 hp / 700 lb-ft + Allison 10-speed automatic, 4WD, snow plow prep, block heater, power everything, remote start, LED lights, backup camera, 19.5" polished wheels. Ready for immediate upfit: dump body, flatbed, service body, stake, or box. Full remaining Chevrolet factory warranty (5 yr/100k powertrain + 5 yr/100k Duramax). Unreal liquidation deal – identical brand-new 2024 6500HD crew cabs are still stickering $92–105k at dealers and trading $80k+ at Manheim heavy-truck lanes.',
+    specs: {
+      engine: 'Duramax 6.6L V8 Turbo Diesel',
+      power: '350 hp / 700 lb-ft torque',
+      transmission: 'Allison 10-speed automatic',
+      suspension: 'Part-time 4WD',
+      gvwr: '23,500–26,000 lb (depending on config)',
+      cab: '4-door Crew Cab, 6 seats',
+      fuelTank: '65 gal total',
+      tireSize: '225/70R19.5 Michelin (100%)',
+      wheels: '19.5" polished aluminum',
+      brakes: '4-wheel air brakes with ABS',
+      status: 'Brand-new condition, full factory 5 yr/100k powertrain + Duramax warranty, ready for any upfit',
+    },
+    gallery: [
+      silverado6500hdImage,
     ],
   },
   {
