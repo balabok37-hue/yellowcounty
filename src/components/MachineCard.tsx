@@ -137,8 +137,8 @@ export function MachineCard({ machine, index, onViewDetails }: MachineCardProps)
           transition={{ duration: 0.3 }}
         />
 
-        {/* Image Container - 30% height with fade to transparency */}
-        <div className="relative overflow-hidden h-24 sm:h-28" style={{ transform: 'translateZ(20px)' }}>
+        {/* Full background image */}
+        <div className="absolute inset-0 overflow-hidden">
           <OptimizedImage
             src={machine.image}
             alt={machine.name}
@@ -146,32 +146,35 @@ export function MachineCard({ machine, index, onViewDetails }: MachineCardProps)
             fit={machine.imageFit || 'cover'}
           />
           
-          {/* Gradient fade to transparency */}
-          <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-background" />
+          {/* Gradient fade where text starts */}
+          <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent via-40% to-background" />
+        </div>
           
-          {/* Discount Badge with pulse */}
-          <motion.div 
-            className="absolute top-3 left-3 sm:top-4 sm:left-4 badge-discount"
-            animate={{ 
-              boxShadow: [
-                "0 0 20px hsl(48 100% 50% / 0.4)",
-                "0 0 35px hsl(48 100% 50% / 0.6)",
-                "0 0 20px hsl(48 100% 50% / 0.4)"
-              ]
-            }}
-            transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
-          >
-            −{machine.discount}%
-          </motion.div>
+        {/* Discount Badge with pulse */}
+        <motion.div 
+          className="absolute top-3 left-3 sm:top-4 sm:left-4 badge-discount z-10"
+          animate={{ 
+            boxShadow: [
+              "0 0 20px hsl(48 100% 50% / 0.4)",
+              "0 0 35px hsl(48 100% 50% / 0.6)",
+              "0 0 20px hsl(48 100% 50% / 0.4)"
+            ]
+          }}
+          transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
+        >
+          −{machine.discount}%
+        </motion.div>
 
-          {/* Premium hot deal indicator */}
-          <div className="absolute top-3 right-3 sm:top-4 sm:right-4 px-3 py-1.5 rounded-full bg-secondary/90 text-[10px] sm:text-xs font-bold text-foreground backdrop-blur-sm border border-border/30">
-            HOT DEAL
-          </div>
+        {/* Premium hot deal indicator */}
+        <div className="absolute top-3 right-3 sm:top-4 sm:right-4 px-3 py-1.5 rounded-full bg-secondary/90 text-[10px] sm:text-xs font-bold text-foreground backdrop-blur-sm border border-border/30 z-10">
+          HOT DEAL
         </div>
 
+        {/* Spacer for image area */}
+        <div className="h-32 sm:h-40" />
+
         {/* Content */}
-        <div className="p-4 sm:p-6 space-y-3 sm:space-y-4 relative" style={{ transform: 'translateZ(30px)' }}>
+        <div className="p-4 sm:p-6 space-y-3 sm:space-y-4 relative z-10" style={{ transform: 'translateZ(30px)' }}>
           {/* Title */}
           <h3 className="text-lg sm:text-xl font-bold text-foreground leading-tight line-clamp-2">
             {machine.name}
