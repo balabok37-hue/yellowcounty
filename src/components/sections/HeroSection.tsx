@@ -39,44 +39,79 @@ export function HeroSection() {
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,transparent_20%,hsl(var(--background))_100%)] opacity-60" />
       </motion.div>
 
-      {/* Decorative Shapes */}
+      {/* Geometric Decorative Elements */}
       <div className="absolute inset-0 z-[1] overflow-hidden pointer-events-none">
-        {/* Yellow blob top right */}
+        {/* Large hexagon top right */}
         <motion.div 
-          className="shape-circle w-[600px] h-[600px] bg-primary/15 -top-40 -right-40"
-          animate={{ 
-            scale: [1, 1.2, 1],
-            rotate: [0, 90, 0]
-          }}
-          transition={{ duration: 20, repeat: Infinity, ease: 'linear' }}
+          className="absolute -top-20 -right-20 w-[400px] h-[400px] border-2 border-primary/20"
+          style={{ clipPath: 'polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%)' }}
+          animate={{ rotate: [0, 360] }}
+          transition={{ duration: 60, repeat: Infinity, ease: 'linear' }}
         />
-        {/* Gray blob bottom left */}
+        
+        {/* Diamond shape left */}
         <motion.div 
-          className="shape-circle w-[500px] h-[500px] bg-secondary/20 -bottom-32 -left-32"
+          className="absolute top-1/3 -left-16 w-32 h-32 border-2 border-primary/25 rotate-45"
           animate={{ 
-            scale: [1.2, 1, 1.2],
-            rotate: [0, -90, 0]
+            y: [0, 30, 0],
+            opacity: [0.5, 1, 0.5]
           }}
-          transition={{ duration: 25, repeat: Infinity, ease: 'linear' }}
+          transition={{ duration: 8, repeat: Infinity, ease: 'easeInOut' }}
         />
-        {/* Small accent circle */}
+        
+        {/* Circle with border bottom left */}
         <motion.div 
-          className="shape-circle w-[300px] h-[300px] bg-primary/10 top-1/4 left-1/4"
-          animate={{ 
-            x: [0, 50, 0],
-            y: [0, -30, 0]
-          }}
-          transition={{ duration: 15, repeat: Infinity, ease: 'easeInOut' }}
+          className="absolute bottom-40 left-10 w-24 h-24 rounded-full border-2 border-secondary/30"
+          animate={{ scale: [1, 1.2, 1] }}
+          transition={{ duration: 6, repeat: Infinity, ease: 'easeInOut' }}
         />
-        {/* Diagonal lines */}
-        <svg className="absolute inset-0 w-full h-full opacity-[0.03]" xmlns="http://www.w3.org/2000/svg">
-          <defs>
-            <pattern id="diagonalLines" width="40" height="40" patternUnits="userSpaceOnUse">
-              <path d="M-10,10 l20,-20 M0,40 l40,-40 M30,50 l20,-20" stroke="hsl(48 100% 50%)" strokeWidth="1"/>
-            </pattern>
-          </defs>
-          <rect width="100%" height="100%" fill="url(#diagonalLines)" />
+        
+        {/* Triangle top left */}
+        <motion.div 
+          className="absolute top-24 left-1/4 w-0 h-0"
+          style={{ 
+            borderLeft: '30px solid transparent',
+            borderRight: '30px solid transparent',
+            borderBottom: '52px solid hsl(48 100% 50% / 0.15)'
+          }}
+          animate={{ 
+            rotate: [0, 180, 360],
+            y: [0, -20, 0]
+          }}
+          transition={{ duration: 15, repeat: Infinity, ease: 'linear' }}
+        />
+        
+        {/* Small squares pattern right side */}
+        <motion.div 
+          className="absolute top-1/2 right-20 w-8 h-8 border-2 border-primary/30"
+          animate={{ rotate: [0, 90, 0] }}
+          transition={{ duration: 10, repeat: Infinity, ease: 'easeInOut' }}
+        />
+        <motion.div 
+          className="absolute top-1/2 right-36 mt-12 w-6 h-6 bg-primary/20"
+          animate={{ scale: [1, 1.5, 1] }}
+          transition={{ duration: 5, repeat: Infinity, ease: 'easeInOut' }}
+        />
+        
+        {/* Horizontal line accent */}
+        <motion.div 
+          className="absolute top-1/4 left-0 w-40 h-[2px] bg-gradient-to-r from-primary/50 to-transparent"
+          animate={{ x: [-160, 0, -160] }}
+          transition={{ duration: 8, repeat: Infinity, ease: 'easeInOut' }}
+        />
+        
+        {/* Dotted circle right */}
+        <svg className="absolute bottom-1/4 right-1/4 w-48 h-48 opacity-20" viewBox="0 0 100 100">
+          <circle cx="50" cy="50" r="45" fill="none" stroke="hsl(48 100% 50%)" strokeWidth="1" strokeDasharray="5 5">
+            <animateTransform attributeName="transform" type="rotate" from="0 50 50" to="360 50 50" dur="30s" repeatCount="indefinite"/>
+          </circle>
         </svg>
+        
+        {/* Corner bracket top right */}
+        <div className="absolute top-20 right-40 w-16 h-16 border-t-2 border-r-2 border-primary/30" />
+        
+        {/* Corner bracket bottom left */}
+        <div className="absolute bottom-32 left-40 w-16 h-16 border-b-2 border-l-2 border-secondary/30" />
       </div>
 
       {/* Golden accent line bottom */}
