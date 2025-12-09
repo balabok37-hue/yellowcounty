@@ -13,6 +13,7 @@ import johnDeere6430Image from '@/assets/machines/john-deere-6430.png';
 import peterbilt389Image from '@/assets/machines/peterbilt-389.png';
 import freightlinerM2Image from '@/assets/machines/freightliner-m2-106.png';
 import asvVt70hoImage from '@/assets/machines/asv-vt70ho.png';
+import silverado5500hdImage from '@/assets/machines/chevrolet-silverado-5500hd.png';
 
 export const featuredMachines: Machine[] = [
   {
@@ -415,6 +416,37 @@ export const catalogMachines: Machine[] = [
     },
     gallery: [
       asvVt70hoImage,
+    ],
+  },
+  {
+    id: 24,
+    name: '2024 Chevrolet Silverado 5500HD 4×4 Crew Cab',
+    year: 2024,
+    hours: 94,
+    location: 'USA Stock',
+    price: 162840,
+    originalPrice: 177000,
+    discount: 8,
+    image: silverado5500hdImage,
+    description: 'The 2024 Chevrolet Silverado 5500HD 4×4 Crew Cab – brand-new, never-titled, 94 original delivery miles only! Loaded 4-door crew with Duramax 6.6L V8 Turbo Diesel 350 hp & 700 lb-ft mated to rock-solid Allison 10-speed automatic. Full factory chassis ready for any body: dump, flatbed, service, stake, or box van. Power windows/locks, ice-cold A/C, Bluetooth, backup camera, cruise, remote start, LED cargo lights, and the full 2024 safety suite. Snowplow prep package, engine block heater, 19.5" polished wheels with brand-new Michelin rubber. Still 100% under GM factory warranty (3 yr/36k bumper-to-bumper + 5 yr/100k powertrain + 5 yr/100k Duramax). One of the very last untitled 2024 5500HD crew cabs left in the country – these are trading at +10–15% over MSRP on the few that surface at dealer auctions.',
+    specs: {
+      engine: 'Duramax 6.6L V8 Turbo Diesel',
+      power: '350 hp @ 2,700 rpm / 700 lb-ft @ 1,600 rpm',
+      transmission: 'Allison 10-speed automatic',
+      frontAxle: '8,000 lb GAWR',
+      rearAxles: '15,000 lb GAWR',
+      gvwr: '19,500 lb',
+      wheelbase: '175 in (other lengths available)',
+      fuelTank: '65 gal total capacity',
+      tireSize: '225/70R19.5 Michelin (100%)',
+      wheels: '19.5" polished aluminum',
+      brakes: '4-wheel hydraulic disc with ABS',
+      cab: '4-door Crew Cab, 6-passenger',
+      suspension: 'Part-time 4WD with auto locking hubs',
+      status: 'New, never titled, ready for any upfit, full factory GM 5 yr/100k powertrain warranty',
+    },
+    gallery: [
+      silverado5500hdImage,
     ],
   },
   {
