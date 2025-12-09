@@ -1,5 +1,4 @@
 import { motion } from 'framer-motion';
-import { AnimatedLetters } from '@/components/AnimatedText';
 import { Button } from '@/components/ui/button';
 import { ChevronDown } from 'lucide-react';
 import heroBackground from '@/assets/hero-background.jpg';
@@ -50,21 +49,23 @@ export function HeroSection() {
             </span>
           </motion.div>
 
-          {/* Main Headline - Mobile-first sizing with better line breaks */}
-          <h1 className="text-[1.75rem] leading-[1.1] sm:text-5xl md:text-7xl lg:text-8xl font-black tracking-tight sm:tracking-tighter text-foreground px-2 sm:px-0">
-            <AnimatedLetters text="Heavy Machinery" delay={0.4} />
-            <br className="hidden sm:block" />
-            <span className="sm:hidden"> </span>
-            <span className="text-gradient-gold">
-              <AnimatedLetters text="That Pays For Itself" delay={0.8} />
-            </span>
-          </h1>
+          {/* Main Headline - Simple and reliable */}
+          <motion.h1 
+            className="text-[1.75rem] leading-[1.15] sm:text-5xl md:text-7xl lg:text-8xl font-black tracking-tight sm:tracking-tighter text-foreground px-2 sm:px-0"
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.4, duration: 0.8 }}
+          >
+            Heavy Machinery
+            <br />
+            <span className="text-gradient-gold">That Pays For Itself</span>
+          </motion.h1>
 
           {/* Subheadline - Better mobile sizing */}
           <motion.p
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 1.4, duration: 0.6 }}
+            transition={{ delay: 0.8, duration: 0.6 }}
             className="text-sm sm:text-xl md:text-2xl text-muted-foreground max-w-2xl mx-auto px-4 sm:px-2"
           >
             Hand-selected premium units — <span className="text-primary font-semibold">20% below market</span>
@@ -74,7 +75,7 @@ export function HeroSection() {
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 1.6, duration: 0.6 }}
+            transition={{ delay: 1.0, duration: 0.6 }}
             whileTap={{ scale: 0.97 }}
           >
             <Button
@@ -91,7 +92,7 @@ export function HeroSection() {
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 1.8, duration: 0.6 }}
+            transition={{ delay: 1.2, duration: 0.6 }}
             className="grid grid-cols-3 gap-2 sm:gap-4 sm:flex sm:flex-wrap sm:justify-center md:gap-16 pt-6 sm:pt-12"
           >
             {[
@@ -104,7 +105,7 @@ export function HeroSection() {
                 className="text-center"
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 1.9 + index * 0.1, duration: 0.4 }}
+                transition={{ delay: 1.3 + index * 0.1, duration: 0.4 }}
               >
                 <div className="text-lg sm:text-3xl md:text-4xl font-bold text-primary">{stat.value}</div>
                 <div className="text-[10px] sm:text-sm text-muted-foreground">{stat.label}</div>
