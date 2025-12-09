@@ -7,6 +7,7 @@ import kubotaR640r43Image from '@/assets/machines/kubota-r640r43.jpg';
 import sanySy215cImage from '@/assets/machines/sany-sy215c.jpg';
 import manitouMlt1040Image from '@/assets/machines/manitou-mlt1040.jpg';
 import manitouMlt1040Image2 from '@/assets/machines/manitou-mlt1040-2.jpg';
+import jcb9404Image from '@/assets/machines/jcb-940-4.png';
 
 export const featuredMachines: Machine[] = [
   {
@@ -207,14 +208,33 @@ export const catalogMachines: Machine[] = [
   },
   {
     id: 7,
-    name: 'Caterpillar D6 Dozer',
-    year: 2020,
-    hours: 5800,
-    location: 'Arizona',
-    price: 78400,
-    originalPrice: 98000,
-    discount: 20,
-    image: 'https://images.unsplash.com/photo-1582739681030-a87c5226edf2?w=1200&h=900&fit=crop',
+    name: '2017 JCB 940-4 Rough Terrain Forklift',
+    year: 2017,
+    hours: 2100,
+    location: 'USA Stock',
+    price: 37655,
+    originalPrice: 44300,
+    discount: 15,
+    image: jcb9404Image,
+    description: 'The 2017 JCB 940-4 is a powerful 4×4 rough-terrain forklift designed for the toughest construction, industrial yards and recycling sites, with a heavy-duty chassis built for 12,000+ hour service life. Powered by a JCB EcoMAX 448 Tier 4 Final engine (74 hp net, no DPF/SCR), it lifts 8,000 lb (4,000 kg) to a full height of 22 ft (6.7 m) and offers excellent visibility and stability thanks to the 4-wheel drive and high ground clearance. Features hydrostatic transmission, servo joystick controls, spacious ROPS/FOPS cab with heat/AC, 360° lighting and quick-hitch carriage. This low-hour unit (est. 2,100 hrs) comes complete with 48" pallet forks + side-shift and 1.5 yd³ bucket — ready for immediate heavy-duty work. Outstanding resale value (+17% on recent auctions) and legendary JCB reliability make the smartest choice for contractors who need a true all-terrain mast forklift.',
+    specs: {
+      engine: 'JCB EcoMAX 448 (Tier 4 Final, no AdBlue)',
+      power: '74 hp (55 kW)',
+      weight: '17,637 lb (8,000 kg)',
+      maxLiftCapacity: '8,000 lb (4,000 kg)',
+      liftHeight: '22 ft (6.7 m)',
+      forwardReach: '4 ft 3 in (1.3 m) at max height',
+      transmission: 'Hydrostatic, 2 speeds, 19 mph (30 km/h)',
+      turningRadius: '13 ft 1 in (4.0 m)',
+      groundClearance: '15.7 in (400 mm)',
+      tireSize: '15.5/80-24',
+      fuelTank: '33 gal (125 L)',
+      hydraulicFlow: '26.4 gal/min (100 L/min)',
+      transportDimensions: '19 ft 8 in × 7 ft 8 in × 8 ft 10 in (6.0 × 2.36 × 2.69 m)',
+    },
+    gallery: [
+      jcb9404Image,
+    ],
   },
   {
     id: 8,

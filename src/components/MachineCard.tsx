@@ -50,6 +50,8 @@ export interface Machine {
     forwardReach?: string;
     transmission?: string;
     hydraulicFlow?: string;
+    // Forklift specific
+    groundClearance?: string;
   };
   gallery?: string[];
 }
