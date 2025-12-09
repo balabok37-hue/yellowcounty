@@ -127,7 +127,7 @@ export function MachineModal({ machine, isOpen, onClose }: MachineModalProps) {
             <div className="overflow-y-auto max-h-[95vh] sm:max-h-[90vh]">
               <div className="grid md:grid-cols-2 gap-0">
                 {/* Image Gallery with Swipe */}
-                <div className="relative aspect-square md:aspect-auto md:min-h-[500px] overflow-hidden bg-muted/20 flex items-center justify-center">
+                <div className="relative aspect-[4/5] sm:aspect-square md:aspect-auto md:min-h-[500px] overflow-hidden bg-muted/20 flex items-center justify-center">
                   <AnimatePresence mode="wait" initial={false}>
                     <motion.div
                       key={currentImageIndex}
@@ -156,6 +156,9 @@ export function MachineModal({ machine, isOpen, onClose }: MachineModalProps) {
                     </motion.div>
                   </AnimatePresence>
                   
+                  {/* Transparent gradient fade to content on mobile */}
+                  <div className="md:hidden absolute bottom-0 left-0 right-0 h-24 bg-gradient-to-t from-card via-card/60 to-transparent pointer-events-none" />
+                  
                   {images.length > 1 && (
                     <>
                       {/* Navigation buttons - hidden on mobile, visible on desktop */}
@@ -177,7 +180,7 @@ export function MachineModal({ machine, isOpen, onClose }: MachineModalProps) {
                       </motion.button>
                       
                       {/* Image indicators */}
-                      <div className="absolute bottom-4 left-1/2 -translate-x-1/2 flex gap-2 px-4 py-2 rounded-full bg-background/80 backdrop-blur-sm">
+                      <div className="absolute bottom-28 md:bottom-4 left-1/2 -translate-x-1/2 flex gap-2 px-4 py-2 rounded-full bg-background/80 backdrop-blur-sm">
                         {images.map((_, idx) => (
                           <motion.button
                             key={idx}
@@ -193,7 +196,7 @@ export function MachineModal({ machine, isOpen, onClose }: MachineModalProps) {
                       </div>
 
                       {/* Swipe hint on mobile */}
-                      <div className="sm:hidden absolute bottom-16 left-1/2 -translate-x-1/2 text-xs text-muted-foreground bg-background/80 px-3 py-1 rounded-full">
+                      <div className="sm:hidden absolute bottom-36 left-1/2 -translate-x-1/2 text-xs text-muted-foreground bg-background/80 px-3 py-1 rounded-full">
                         ← Swipe to see more →
                       </div>
                     </>
