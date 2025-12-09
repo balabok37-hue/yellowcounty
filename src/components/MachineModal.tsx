@@ -131,7 +131,7 @@ export function MachineModal({ machine, isOpen, onClose }: MachineModalProps) {
                   <AnimatePresence mode="wait" initial={false}>
                     <motion.div
                       key={currentImageIndex}
-                      className="w-full h-full cursor-grab active:cursor-grabbing"
+                      className="w-full h-full cursor-grab active:cursor-grabbing overflow-hidden"
                       initial={{ opacity: 0, x: dragDirection > 0 ? -100 : 100 }}
                       animate={{ opacity: 1, x: 0 }}
                       exit={{ opacity: 0, x: dragDirection > 0 ? 100 : -100 }}
@@ -142,13 +142,16 @@ export function MachineModal({ machine, isOpen, onClose }: MachineModalProps) {
                       onDrag={handleDrag}
                       onDragEnd={handleDragEnd}
                     >
-                      <OptimizedImage
-                        src={images[currentImageIndex]}
-                        alt={machine.name}
-                        aspectRatio="aspect-auto"
-                        className="w-full h-full"
-                        priority={currentImageIndex === 0}
-                      />
+                      {/* Image container with bottom crop to hide watermark */}
+                      <div className="w-full h-full relative" style={{ marginBottom: '-40px', paddingBottom: '40px' }}>
+                        <img
+                          src={images[currentImageIndex]}
+                          alt={machine.name}
+                          className="w-full h-full object-cover object-center scale-105"
+                          loading={currentImageIndex === 0 ? 'eager' : 'lazy'}
+                          decoding="async"
+                        />
+                      </div>
                     </motion.div>
                   </AnimatePresence>
                   
