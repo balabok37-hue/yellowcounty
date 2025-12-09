@@ -137,14 +137,17 @@ export function MachineCard({ machine, index, onViewDetails }: MachineCardProps)
           transition={{ duration: 0.3 }}
         />
 
-        {/* Image Container with lazy loading */}
-        <div className="relative overflow-hidden" style={{ transform: 'translateZ(20px)' }}>
+        {/* Image Container - 30% height with fade to transparency */}
+        <div className="relative overflow-hidden h-24 sm:h-28" style={{ transform: 'translateZ(20px)' }}>
           <OptimizedImage
             src={machine.image}
             alt={machine.name}
             className="group-hover:scale-110 transition-transform duration-700"
             fit={machine.imageFit || 'cover'}
           />
+          
+          {/* Gradient fade to transparency */}
+          <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-background" />
           
           {/* Discount Badge with pulse */}
           <motion.div 
@@ -165,9 +168,6 @@ export function MachineCard({ machine, index, onViewDetails }: MachineCardProps)
           <div className="absolute top-3 right-3 sm:top-4 sm:right-4 px-3 py-1.5 rounded-full bg-secondary/90 text-[10px] sm:text-xs font-bold text-foreground backdrop-blur-sm border border-border/30">
             HOT DEAL
           </div>
-
-          {/* Overlay gradient */}
-          <div className="absolute inset-0 bg-gradient-to-t from-background via-transparent to-transparent opacity-60" />
         </div>
 
         {/* Content */}
