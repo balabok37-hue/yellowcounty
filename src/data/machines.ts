@@ -12,6 +12,7 @@ import merloP5018hmImage from '@/assets/machines/merlo-p50-18hm.png';
 import johnDeere6430Image from '@/assets/machines/john-deere-6430.png';
 import peterbilt389Image from '@/assets/machines/peterbilt-389.png';
 import freightlinerM2Image from '@/assets/machines/freightliner-m2-106.png';
+import asvVt70hoImage from '@/assets/machines/asv-vt70ho.png';
 
 export const featuredMachines: Machine[] = [
   {
@@ -382,6 +383,38 @@ export const catalogMachines: Machine[] = [
     },
     gallery: [
       freightlinerM2Image,
+    ],
+  },
+  {
+    id: 23,
+    name: '2022 ASV VT-70 High Output',
+    year: 2022,
+    hours: 983,
+    location: 'USA Stock',
+    price: 28800,
+    originalPrice: 32000,
+    discount: 10,
+    image: asvVt70hoImage,
+    description: 'The 2022 ASV VT-70HO – one of the cleanest, lowest-hour high-output mid-frame CTL on the planet right now. Only 983 original hours, still under full ASV factory coverage on major components. Turbo Deutz 74.3 hp / 207 ft-lbs, Posi-Track beast with 15" rubber tracks at 90%+, vertical lift, 2-speed (11 mph), high-flow hydraulics, enclosed cab with heat/AC/Bluetooth/camera, hydraulic quick-attach, LED lights all around. Fully serviced, zero leaks, ready to ship nationwide today (#A4340396). Perfect rental-fleet grade or owner-operator dream machine. Insane deal – same-year/hours units still bringing $34–38k at Ritchie Bros and JJ Kane auctions.',
+    specs: {
+      engine: 'Deutz TCD 2.2 L3 Turbo Diesel (Tier 4 Final)',
+      power: '74.3 hp @ 2,600 rpm',
+      grossTorque: '207 ft-lbs peak torque',
+      weight: '8,035 lb (3,645 kg)',
+      tippingLoad: '6,651 lb',
+      breakoutForce: '2,328 lb ROC (35% tipping load)',
+      maxLiftHeight: '126.5 in (3.21 m) hinge pin',
+      hydraulicFlow: '28 gpm @ 3,300 psi high-flow',
+      travelSpeed: '7.1 mph / 10.6 mph (2-speed)',
+      groundClearance: '4.5 psi ground pressure',
+      trackWidth: '15 in (381 mm)',
+      fuelTank: '25 gal',
+      cab: 'Enclosed ROPS/FOPS, heat/AC, Bluetooth, camera',
+      bucketCapacity: '72" low-profile bucket + hydraulic QA',
+      status: 'Remaining factory coverage on major components',
+    },
+    gallery: [
+      asvVt70hoImage,
     ],
   },
   {
