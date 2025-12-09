@@ -17,6 +17,7 @@ import silverado5500hdImage from '@/assets/machines/chevrolet-silverado-5500hd.p
 import silverado6500hdImage from '@/assets/machines/chevrolet-silverado-6500hd.png';
 import silverado4500hdImage from '@/assets/machines/chevrolet-silverado-4500hd.png';
 import silverado4500hdBoxImage from '@/assets/machines/chevrolet-silverado-4500hd-box.png';
+import silverado5500hdBoxImage from '@/assets/machines/chevrolet-silverado-5500hd-box.png';
 
 export const featuredMachines: Machine[] = [
   {
@@ -537,6 +538,35 @@ export const catalogMachines: Machine[] = [
     },
     gallery: [
       silverado4500hdBoxImage,
+    ],
+  },
+  {
+    id: 28,
+    name: '2024 Chevrolet Silverado 5500HD 4×2 Reg Cab 16ft Box Truck',
+    year: 2024,
+    hours: 403,
+    location: 'USA Stock',
+    price: 61200,
+    originalPrice: 68000,
+    discount: 10,
+    image: silverado5500hdBoxImage,
+    description: 'The 2024 Chevrolet Silverado 5500HD 4×2 Regular Cab 16 ft Box Truck – brand-new condition, only 403 delivery miles! Fully equipped with 16 ft Morgan dry van body (96" W × 96" H inside, roll-up rear door, translucent roof, wood tie slats, aluminum floor, curbside door). Duramax 6.6L V8 Turbo Diesel 350 hp / 700 lb-ft, Allison 10-speed automatic, hydraulic brakes, power everything, A/C, cruise, Bluetooth, backup camera, remote start, chrome package, 19.5" polished wheels, 100% Michelin rubber. Still 100% under full GM factory warranty. Ships nationwide (#A2085767). Identical brand-new 2024 5500HD box trucks are trading $78–86k at Manheim Commercial and dealer auctions. This is the lowest-priced titled-ready unit on the market right now.',
+    specs: {
+      engine: 'Duramax 6.6L V8 Turbo Diesel',
+      power: '350 hp / 700 lb-ft torque',
+      transmission: 'Allison 10-speed automatic',
+      suspension: '4×2',
+      gvwr: '19,500 lb',
+      cab: 'Regular Cab, 3 seats',
+      wheelbase: '189 in',
+      fuelTank: '65 gal total',
+      tireSize: '225/70R19.5 Michelin (100%)',
+      wheels: '19.5" polished aluminum',
+      brakes: '4-wheel hydraulic disc with ABS',
+      status: 'Like-new, titled-ready, 16 ft Morgan dry van body 96"×96", full factory 5 yr/100k powertrain + Duramax warranty, ships nationwide',
+    },
+    gallery: [
+      silverado5500hdBoxImage,
     ],
   },
   {
