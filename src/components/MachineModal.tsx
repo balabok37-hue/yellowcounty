@@ -51,29 +51,61 @@ export function MachineModal({ machine, isOpen, onClose }: MachineModalProps) {
   };
 
   return (
-    <AnimatePresence>
+    <AnimatePresence mode="wait">
       {isOpen && (
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
+          transition={{ duration: 0.3 }}
           className="fixed inset-0 z-50 flex items-end sm:items-center justify-center"
           onClick={handleClose}
         >
-          {/* Backdrop */}
+          {/* Backdrop with blur animation */}
           <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            className="absolute inset-0 bg-background/98 backdrop-blur-xl"
+            initial={{ opacity: 0, backdropFilter: "blur(0px)" }}
+            animate={{ opacity: 1, backdropFilter: "blur(20px)" }}
+            exit={{ opacity: 0, backdropFilter: "blur(0px)" }}
+            transition={{ duration: 0.4 }}
+            className="absolute inset-0 bg-background/95"
           />
 
-          {/* Modal */}
+          {/* Animated glow behind modal */}
           <motion.div
-            initial={{ opacity: 0, y: 100 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: 100 }}
-            transition={{ type: 'spring', damping: 30, stiffness: 300 }}
+            initial={{ opacity: 0, scale: 0.5 }}
+            animate={{ opacity: 1, scale: 1 }}
+            exit={{ opacity: 0, scale: 0.8 }}
+            transition={{ duration: 0.5, delay: 0.1 }}
+            className="absolute w-[600px] h-[600px] rounded-full bg-primary/20 blur-[100px] pointer-events-none"
+          />
+
+          {/* Modal with premium animation */}
+          <motion.div
+            initial={{ 
+              opacity: 0, 
+              y: "100%",
+              scale: 0.9,
+              rotateX: 10,
+            }}
+            animate={{ 
+              opacity: 1, 
+              y: 0,
+              scale: 1,
+              rotateX: 0,
+            }}
+            exit={{ 
+              opacity: 0, 
+              y: "100%",
+              scale: 0.95,
+              transition: { duration: 0.3, ease: "easeIn" }
+            }}
+            transition={{ 
+              type: 'spring', 
+              damping: 28, 
+              stiffness: 250,
+              mass: 0.8,
+            }}
+            style={{ perspective: 1000 }}
             className="relative w-full sm:max-w-4xl max-h-[95vh] sm:max-h-[90vh] overflow-hidden rounded-t-3xl sm:rounded-3xl bg-card border border-border/50 shadow-2xl"
             onClick={(e) => e.stopPropagation()}
           >
