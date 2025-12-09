@@ -10,6 +10,7 @@ import manitouMlt1040Image2 from '@/assets/machines/manitou-mlt1040-2.jpg';
 import jcb9404Image from '@/assets/machines/jcb-940-4.png';
 import johnDeere310lImage from '@/assets/machines/john-deere-310l-ep.png';
 import manitouM502Image from '@/assets/machines/manitou-m50-2.jpg';
+import johnDeere6430Image from '@/assets/machines/john-deere-6430.jpg';
 
 export const featuredMachines: Machine[] = [
   {
@@ -297,14 +298,29 @@ export const catalogMachines: Machine[] = [
   },
   {
     id: 10,
-    name: 'John Deere 544K',
-    year: 2020,
-    hours: 6700,
-    location: 'Texas',
-    price: 87200,
-    originalPrice: 109000,
-    discount: 20,
-    image: 'https://images.unsplash.com/photo-1567789884554-0b844b597180?w=1200&h=900&fit=crop',
+    name: '2012 John Deere 6430 Premium Cab Tractor',
+    year: 2012,
+    hours: 4850,
+    location: 'USA Stock',
+    price: 51832,
+    originalPrice: 58900,
+    discount: 12,
+    image: johnDeere6430Image,
+    description: 'The 2012 John Deere 6430 Premium Cab Tractor is one of the most bulletproof and sought-after 6-series tractors — clean, ready-to-work unit with only ≈ 4,850 hours, fully serviced, no money needed. Powered by the legendary PowerTech 4.5L Tier 3 engine (125 hp), it features a premium cab with air conditioning, air-ride seat, and excellent visibility. Equipped with PowerQuad Plus 24F/24R transmission (40 km/h Eco) with left-hand reverser, MFWD front axle with TLS suspension, 80 l/min hydraulics with 3 SCVs + Power Beyond, and front PTO 1000 rpm + rear 540/1000. Original paint, no welds or major repairs, full service history. Perfect for seeding, cultivation, transport, or municipal work.',
+    specs: {
+      power: '125 hp',
+      transmission: 'PowerQuad Plus 24F/24R, 40 km/h Eco',
+      hydraulicFlow: '80 l/min, 3 SCVs + Power Beyond',
+      maxLiftCapacity: '11,900 lb (5,400 kg) rear lift capacity',
+      frontAxle: 'MFWD with TLS suspension',
+      cab: 'Premium, A/C, air seat',
+      tireSize: '420/85R28 – 520/85R38 (70–80 %)',
+      pto: '540/1000 rear + 1000 front',
+      weight: '≈ 13,670 lb (6,200 kg) with weights',
+    },
+    gallery: [
+      johnDeere6430Image,
+    ],
   },
   {
     id: 11,

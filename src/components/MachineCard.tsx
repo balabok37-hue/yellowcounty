@@ -52,6 +52,10 @@ export interface Machine {
     hydraulicFlow?: string;
     // Forklift specific
     groundClearance?: string;
+    // Tractor specific
+    frontAxle?: string;
+    cab?: string;
+    pto?: string;
   };
   gallery?: string[];
 }
