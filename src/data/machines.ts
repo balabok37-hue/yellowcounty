@@ -10,6 +10,7 @@ import jcb9404Image from '@/assets/machines/jcb-940-4.png';
 import johnDeere310lImage from '@/assets/machines/john-deere-310l-ep.png';
 import merloP5018hmImage from '@/assets/machines/merlo-p50-18hm.png';
 import johnDeere6430Image from '@/assets/machines/john-deere-6430.png';
+import peterbilt389Image from '@/assets/machines/peterbilt-389.png';
 
 export const featuredMachines: Machine[] = [
   {
@@ -317,6 +318,38 @@ export const catalogMachines: Machine[] = [
     },
     gallery: [
       johnDeere6430Image,
+    ],
+  },
+  {
+    id: 21,
+    name: '2016 Peterbilt 389 Pride & Class',
+    year: 2016,
+    hours: 973167,
+    location: 'USA Stock',
+    price: 63140,
+    originalPrice: 82000,
+    discount: 23,
+    image: peterbilt389Image,
+    description: 'The 2016 Peterbilt 389 – iconic long-hood American legend in flawless Pride & Class configuration. Glider-kit spec with fully rebuilt 550 hp Cummins ISX15 (fresh in-frame overhaul 2025, papers available), 18-speed Eaton Fuller, 3.55 rears, 273" wheelbase, dual breathers, dual stacks, and full stainless drop visor. Stunning factory Viper Red paint with 22-gauge half fenders, 11R24.5 virgin rubber all around (80%+), and spotless aluminum wheels. Interior is legacy-class tan leather with wood trim, fridge, double bunk, and original gauges. 973,167 total chassis miles, but engine rebuild at 971k miles – runs like new, no blow-by, pulls like a freight train. Clean title, DOT-ready, no leaks, ice-cold A/C. One of the strongest-resale 389 Gliders on the market right now – similar trucks bring +12–18% over book at big auctions.',
+    specs: {
+      engine: 'Cummins ISX15 550 hp (fresh in-frame 2025)',
+      transmission: 'Eaton Fuller 18-speed',
+      rearAxleRatio: '3.55',
+      wheelbase: '273 in',
+      suspension: 'Peterbilt Air Trac',
+      brakes: 'Full air, Jake brake',
+      fuelTank: 'Dual 120 gal polished aluminum',
+      tireSize: '11R24.5 Virgin (80–90%)',
+      wheels: 'Alcoa polished aluminum',
+      sleeper: '78" UltraCab with double bunk',
+      gvwr: '52,000 lb',
+      frontAxle: '12,000 lb',
+      rearAxles: '40,000 lb',
+      exhaust: 'Dual 8" stacks + breathers',
+      status: 'Rebuilt engine, DOT-ready, no issues',
+    },
+    gallery: [
+      peterbilt389Image,
     ],
   },
   {
