@@ -48,7 +48,9 @@ export interface Machine {
     maxLiftCapacity?: string;
     liftHeight?: string;
     forwardReach?: string;
+    capacityAtMaxReach?: string;
     transmission?: string;
+    outriggers?: string;
     hydraulicFlow?: string;
     // Forklift specific
     groundClearance?: string;

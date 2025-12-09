@@ -8,7 +8,7 @@ import manitouMlt1040Image from '@/assets/machines/manitou-mlt1040.png';
 import manitouMlt1040Image2 from '@/assets/machines/manitou-mlt1040-2.jpg';
 import jcb9404Image from '@/assets/machines/jcb-940-4.png';
 import johnDeere310lImage from '@/assets/machines/john-deere-310l-ep.png';
-import manitouM502Image from '@/assets/machines/manitou-m50-2.jpg';
+import merloP5018hmImage from '@/assets/machines/merlo-p50-18hm.png';
 import johnDeere6430Image from '@/assets/machines/john-deere-6430.jpg';
 
 export const featuredMachines: Machine[] = [
@@ -264,34 +264,33 @@ export const catalogMachines: Machine[] = [
   },
   {
     id: 9,
-    name: '2023 Manitou M50-2 Telescopic Handler',
-    year: 2023,
-    hours: 1200,
+    name: '2019 Merlo P50.18HM Telescopic Handler',
+    year: 2019,
+    hours: 2500,
     location: 'USA Stock',
-    price: 58175,
-    originalPrice: 89500,
-    discount: 35,
-    image: manitouM502Image,
-    description: 'The 2023 Manitou M50-2 is a versatile compact telescopic handler engineered for agriculture, construction, and material handling, with a rugged frame designed for 10,000+ hour durability. Powered by a Perkins 1104D-44T Tier 4 Final engine (74 hp net), it delivers a robust 5,000 lb (2,268 kg) lift capacity to a maximum height of 19 ft 4 in (5.9 m) and forward reach of 10 ft 6 in (3.2 m) for efficient stacking and loading. Features include hydrostatic transmission, 4WD with 3 steering modes (2WS/4WS/crab), load-sensing hydraulics, ergonomic cab with AC/heat/USB, joystick controls, and quick-attach system for forks or buckets. This low-hour unit (est. 1,200 hrs) includes standard pallet forks and auxiliary hydraulics — ideal for farms, yards, or tight sites. Exceptional resale value (+15% in auctions) and 3-year/3,000-hour warranty make it a top pick for operators needing compact power without compromise.',
+    price: 89900,
+    originalPrice: 112000,
+    discount: 20,
+    image: merloP5018hmImage,
+    description: 'The 2019 Merlo P50.18HM is a legendary 5-tonne / 18-meter heavy-duty telescopic handler — the absolute king for high-rise construction, steel erection, silo work, and big industrial jobs. Iconic side-engine layout, ring-mounted cab with 360° continuous rotation, and four independent outriggers deliver unmatched stability and visibility. Powered by a Deutz TCD 3.6 L4 Stage IV/Tier 4 Final engine (136 hp net, some units 156 hp), hydrostatic transmission with 25 mph (40 km/h) top speed, and load-sensing hydraulics. Full 11,000 lb (5,000 kg) capacity to 58 ft 5 in (17.9 m) height and 1,800 kg at maximum 43 ft 8 in forward reach. This low-hour 2019 unit (est. 2,200–2,800 hrs) comes with hydraulic quick-attach carriage, 1200 mm pallet forks, 4 hydraulic outlets at boom head, stabilizer legs, and full factory records. Excellent resale value (+18–22% in European & US auctions last 24 months) and remaining structural warranty until 2026.',
     specs: {
-      engine: 'Perkins 1104D-44T (Tier 4 Final)',
-      power: '74 hp (55 kW) @ 2,200 rpm',
-      weight: '12,125 lb (5,500 kg)',
-      grossTorque: '221 lb-ft (300 Nm)',
-      displacement: '4.4 L',
-      maxLiftCapacity: '5,000 lb (2,268 kg)',
-      liftHeight: '19 ft 4 in (5.9 m)',
-      forwardReach: '10 ft 6 in (3.2 m)',
-      breakoutForce: '8,850 lbf (39 kN)',
-      travelSpeed: '24.9 mph (40 km/h)',
-      turningRadius: '12 ft 2 in (3.7 m)',
-      tireSize: '12.5/80-18',
-      fuelTank: '23.8 gal (90 L)',
-      hydraulicTank: '26.4 gal (100 L)',
-      transportDimensions: '15 ft 1 in x 5 ft 11 in x 7 ft 11 in (4.6 x 1.8 x 2.41 m)',
+      engine: 'Deutz TCD 3.6 L4 (Stage IV / Tier 4 Final)',
+      power: '136 hp (100 kW) – 156 hp versions available',
+      weight: '30,645 lb (13,900 kg) with outriggers',
+      maxLiftCapacity: '11,000 lb (5,000 kg)',
+      liftHeight: '58 ft 5 in (17.9 m)',
+      forwardReach: '43 ft 8 in (13.3 m)',
+      capacityAtMaxReach: '3,968 lb (1,800 kg)',
+      transmission: 'Hydrostatic 2-speed, 25 mph (40 km/h)',
+      outriggers: '4 independent hydraulic stabilizers',
+      turningRadius: '13 ft 9 in (4.19 m)',
+      tireSize: '445/65 R22.5 or 18-22.5',
+      fuelTank: '41 gal (155 L)',
+      hydraulicFlow: '37.5 gal/min (142 L/min)',
+      transportDimensions: '20 ft 8 in × 8 ft × 9 ft 10 in (6.32 × 2.44 × 3.00 m)',
     },
     gallery: [
-      manitouM502Image,
+      merloP5018hmImage,
     ],
   },
   {
