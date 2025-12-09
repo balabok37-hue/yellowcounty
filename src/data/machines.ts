@@ -6,6 +6,7 @@ import develonDd100Image2 from '@/assets/machines/develon-dd100-2.jpg';
 import kubotaR640r43Image from '@/assets/machines/kubota-r640r43.jpg';
 import sanySy215cImage from '@/assets/machines/sany-sy215c.jpg';
 import manitouMlt1040Image from '@/assets/machines/manitou-mlt1040.jpg';
+import manitouMlt1040Image2 from '@/assets/machines/manitou-mlt1040-2.jpg';
 
 export const featuredMachines: Machine[] = [
   {
@@ -201,6 +202,7 @@ export const catalogMachines: Machine[] = [
     },
     gallery: [
       manitouMlt1040Image,
+      manitouMlt1040Image2,
     ],
   },
   {
