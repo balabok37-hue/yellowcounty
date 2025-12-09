@@ -1,7 +1,7 @@
 import type { Machine } from '@/components/MachineCard';
 import sanySy80uImage from '@/assets/machines/sany-sy80u.jpg';
 import sanySw405kImage from '@/assets/machines/sany-sw405k.png';
-import develonDd100Image from '@/assets/machines/develon-dd100.jpg';
+import develonDd100Image from '@/assets/machines/develon-dd100.png';
 import kubotaR640r43Image from '@/assets/machines/kubota-r640r43.jpg';
 import sanySy215cImage from '@/assets/machines/sany-sy215c.jpg';
 import manitouMlt1040Image from '@/assets/machines/manitou-mlt1040.jpg';
