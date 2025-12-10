@@ -257,7 +257,7 @@ export function ContactSection() {
               Thank you for your inquiry!
             </p>
             <p className="text-muted-foreground">
-              We will call you back within <span className="font-bold text-primary">2-15 minutes</span>
+              We will call you back within <span className="font-bold text-primary">15 minutes</span>
             </p>
           </div>
           <Button onClick={() => setShowSuccessModal(false)} className="w-full">
