@@ -73,6 +73,7 @@ export interface Machine {
     ratio?: string;
     dumpBody?: string;
     status?: string;
+    stockNumber?: string;
   };
   gallery?: string[];
 }

@@ -20,6 +20,7 @@ import silverado4500hdBoxImage from '@/assets/machines/chevrolet-silverado-4500h
 import silverado5500hdBoxImage from '@/assets/machines/chevrolet-silverado-5500hd-box.png';
 import mackGu713Image from '@/assets/machines/mack-gu713.png';
 import komatsuWa3208Image from '@/assets/machines/komatsu-wa320-8.png';
+import fordF750DumpImage from '@/assets/machines/ford-f750-dump.png';
 
 export const featuredMachines: Machine[] = [
   {
@@ -740,5 +741,37 @@ export const catalogMachines: Machine[] = [
     originalPrice: 96000,
     discount: 20,
     image: 'https://images.unsplash.com/photo-1541625602330-2277a4c46182?w=1200&h=900&fit=crop',
+  },
+  {
+    id: 22,
+    name: '2011 Ford F-750 Tri-Axle Dump Truck',
+    year: 2011,
+    hours: 79337,
+    location: 'USA Stock',
+    price: 38142.50,
+    originalPrice: 40150,
+    discount: 5,
+    image: fordF750DumpImage,
+    description: 'The 2011 Ford F-750 Tri-Axle Dump Truck – tough-as-nails workhorse with only 79,337 original miles, fresh DOT inspection, and zero excuses. Power Stroke 6.7L V8 Turbo Diesel cranks 300 hp / 660 lb-ft, mated to Ford 6-speed automatic, 12k front, 40k rears on Hendrickson walk-through, 4.88 ratio, double frame rails. 16 ft steel dump body with barn doors, electric tarp, pintle hitch, air tailgate, and underbody hoist. Clean cab with A/C, power windows/mirrors, cruise, Bluetooth radio, heated seats, and no rust in the floors. Runs ice-cold, pulls strong, no leaks or smoke – ready for sand, gravel, or demo hauls. Ships nationwide (#A6267663). Low-mile 2011 F-750 tri-axle dumps still trading $44–49k at Ritchie Bros and JJ Kane auctions – this one\'s a steal with the mileage.',
+    specs: {
+      engine: 'Ford Power Stroke 6.7L V8 Turbo Diesel',
+      power: '300 hp / 660 lb-ft torque',
+      transmission: 'Ford 6-speed automatic',
+      frontAxle: '12,000 lb',
+      rearAxles: '40,000 lb Hendrickson walk-through',
+      ratio: '4.88',
+      suspension: 'Hendrickson rubber block',
+      dumpBody: '16 ft steel, barn doors, electric tarp, air gate',
+      wheelbase: '200 in',
+      tireSize: '11R22.5 Michelin (80–90% life)',
+      brakes: 'Air brakes with ABS, engine retarder',
+      fuelTank: 'Dual 100 gal aluminum',
+      gvwr: '66,000 lb',
+      status: 'Fresh DOT, work-ready, ships nationwide',
+      stockNumber: 'A6267663',
+    },
+    gallery: [
+      fordF750DumpImage,
+    ],
   },
 ];
