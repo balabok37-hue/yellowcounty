@@ -35,6 +35,7 @@ import hitachiZx350Image from '@/assets/machines/hitachi-zx350.png';
 import johnDeere210gImage from '@/assets/machines/john-deere-210g.png';
 import caterpillar950mImage from '@/assets/machines/caterpillar-950m.png';
 import johnDeere544pImage from '@/assets/machines/john-deere-544p.png';
+import volvoL120hImage from '@/assets/machines/volvo-l120h.png';
 
 // Category definitions with labels and icons
 export const categoryInfo: Record<MachineCategory, { label: string; labelRu?: string }> = {
@@ -1118,6 +1119,34 @@ export const allMachines: Machine[] = [
       johnDeere544pImage,
     ],
   },
+  {
+    id: 50,
+    name: '2016 Volvo L120H Wheel Loader',
+    year: 2016,
+    hours: 9180,
+    location: 'Salt Lake City, Utah',
+    price: 62882,
+    originalPrice: 85450,
+    discount: 26,
+    category: 'loaders',
+    image: volvoL120hImage,
+    isHotOffer: true,
+    description: 'Super-clean 2016 Volvo L120H from a single-owner mining support fleet. Always dealer-serviced, stored indoors when not in use. Fresh 500-hour service completed, zero leaks, excellent Michelin tires (85% remaining). Ice-cold A/C, Comfort Drive Control, Boom Suspension. Comes with 5.0 yd³ rehandling bucket + bolt-on edge. Ready to load trucks the day it arrives.',
+    specs: {
+      engine: 'Volvo D8J Tier 4 Final',
+      power: '255 hp',
+      weight: '43,650 lbs (19.8 metric tons)',
+      bucketCapacity: '5.0 yd³ rehandling with BOE',
+      hydraulicFlow: 'Load-sensing, 3rd & 4th function, quick coupler ready',
+      cab: 'Care Cab, heat & A/C, CDC steering, rear camera, radio',
+      tireSize: '23.5R25 Michelin XHA2 ≈ 85% remaining',
+      features: 'Boom Suspension, Comfort Drive Control, fresh 500-hr service, full inspection report, clean Utah title',
+      status: 'In stock – ships worldwide',
+    },
+    gallery: [
+      volvoL120hImage,
+    ],
+  },
 ];
 
 // Category assignments by machine ID
@@ -1140,6 +1169,7 @@ const categoryMap: Record<number, MachineCategory> = {
   42: 'loaders', // 289D3 Track Loader
   48: 'loaders', // CAT 950M Wheel Loader
   49: 'loaders', // JD 544 P-Tier Wheel Loader
+  50: 'loaders', // Volvo L120H Wheel Loader
   
   // Telehandlers & Forklifts
   6: 'telehandlers', // MLT 1040
