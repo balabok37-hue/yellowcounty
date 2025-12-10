@@ -1035,6 +1035,6 @@ function sortMachines(machines: Machine[]): Machine[] {
 // Get sorted machines
 const sortedMachines = sortMachines(machinesWithCategories);
 
-// Export featured (top 4) and catalog (rest)
+// Export featured (top 4) and catalog (all machines)
 export const featuredMachines = sortedMachines.slice(0, 4);
-export const catalogMachines = sortedMachines.slice(4);
+export const catalogMachines = sortedMachines;
