@@ -34,6 +34,7 @@ import caterpillar336Image from '@/assets/machines/caterpillar-336.png';
 import hitachiZx350Image from '@/assets/machines/hitachi-zx350.png';
 import johnDeere210gImage from '@/assets/machines/john-deere-210g.png';
 import caterpillar950mImage from '@/assets/machines/caterpillar-950m.png';
+import johnDeere544pImage from '@/assets/machines/john-deere-544p.png';
 
 // Category definitions with labels and icons
 export const categoryInfo: Record<MachineCategory, { label: string; labelRu?: string }> = {
@@ -1089,6 +1090,34 @@ export const allMachines: Machine[] = [
       caterpillar950mImage,
     ],
   },
+  {
+    id: 49,
+    name: '2021 John Deere 544 P-Tier Wheel Loader',
+    year: 2021,
+    hours: 2980,
+    location: 'Billings, Montana',
+    price: 111250,
+    originalPrice: 125000,
+    discount: 11,
+    category: 'loaders',
+    image: johnDeere544pImage,
+    isHotOffer: false,
+    description: 'Like-new 2021 John Deere 544 P-Tier with super low hours. One-owner Montana county machine, always stored inside, full JD dealer service records. Still under remaining PowerGard Protection Plan. Fresh service, no leaks, excellent rubber (92% remaining). Comes with 4.25 yd³ bucket + bolt-on edge and quick coupler.',
+    specs: {
+      engine: 'JD PowerTech PSS 6.8L Tier 4 Final',
+      power: '171 hp',
+      weight: '30,180 lbs (13.7 metric tons)',
+      bucketCapacity: '4.25 yd³ pin-on with BOE',
+      hydraulicFlow: 'High-lift Z-bar, ride control, 3rd & 4th function',
+      cab: 'Premium enclosed, heat & A/C, air-ride seat, JDLink telematics, rear camera',
+      tireSize: '20.5R25 Michelin XHA2 ≈ 92% remaining',
+      features: 'Remaining factory PowerGard warranty transferable, fresh service, full inspection report, clean Montana title',
+      status: 'In stock – ships worldwide',
+    },
+    gallery: [
+      johnDeere544pImage,
+    ],
+  },
 ];
 
 // Category assignments by machine ID
@@ -1110,6 +1139,7 @@ const categoryMap: Record<number, MachineCategory> = {
   39: 'loaders', // 310SL Backhoe
   42: 'loaders', // 289D3 Track Loader
   48: 'loaders', // CAT 950M Wheel Loader
+  49: 'loaders', // JD 544 P-Tier Wheel Loader
   
   // Telehandlers & Forklifts
   6: 'telehandlers', // MLT 1040
