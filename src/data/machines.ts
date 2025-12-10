@@ -39,6 +39,7 @@ import volvoL120hImage from '@/assets/machines/volvo-l120h.png';
 import caterpillarD6Image from '@/assets/machines/caterpillar-d6.png';
 import komatsuD65pxiImage from '@/assets/machines/komatsu-d65pxi.png';
 import kubotaKx0404Image from '@/assets/machines/kubota-kx040-4.png';
+import johnDeere35pTierImage from '@/assets/machines/john-deere-35-p-tier.png';
 
 // Category definitions with labels and icons
 export const categoryInfo: Record<MachineCategory, { label: string; labelRu?: string }> = {
@@ -1235,6 +1236,34 @@ export const allMachines: Machine[] = [
       kubotaKx0404Image,
     ],
   },
+  {
+    id: 54,
+    name: '2023 John Deere 35 P-Tier Mini Excavator',
+    year: 2023,
+    hours: 680,
+    location: 'Nashville, Tennessee',
+    price: 44200,
+    originalPrice: 52000,
+    discount: 15,
+    category: 'earthmoving',
+    image: johnDeere35pTierImage,
+    isHotOffer: false,
+    description: '2023 John Deere 35 P-Tier with only light residential use. Still covered by full John Deere factory warranty until 2026 or 3,000 hours. Zero tail swing, expandable tracks, angle blade, hydraulic thumb – basically brand-new machine at a huge discount.',
+    specs: {
+      engine: 'Yanmar 3TNV88 Tier 4 Final',
+      power: '23.3 hp',
+      weight: '8,750 lbs (3.97 metric tons)',
+      trackWidth: 'Rubber expandable 12"–16" ≈ 97% remaining',
+      bucketCapacity: '6-way power angle blade, factory hydraulic thumb',
+      hydraulicFlow: 'Auxiliary proportional circuit',
+      cab: 'Enclosed ROPS, heat & A/C, deluxe air-ride seat, Bluetooth',
+      features: 'Full factory warranty until 2026/3,000h, fresh service, clean Tennessee title',
+      status: 'In stock – ships worldwide',
+    },
+    gallery: [
+      johnDeere35pTierImage,
+    ],
+  },
 ];
 
 // Category assignments by machine ID
@@ -1249,6 +1278,7 @@ const categoryMap: Record<number, MachineCategory> = {
   51: 'earthmoving', // CAT D6 Dozer (SOLD)
   52: 'earthmoving', // Komatsu D65PXi Dozer
   53: 'earthmoving', // Kubota KX040-4 Mini Excavator
+  54: 'earthmoving', // John Deere 35 P-Tier Mini Excavator
   
   // Loaders (Wheel Loaders, Backhoe Loaders, Track Loaders)
   2: 'loaders', // SW405K Wheel Loader
