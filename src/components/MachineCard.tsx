@@ -74,6 +74,13 @@ export interface Machine {
     dumpBody?: string;
     status?: string;
     stockNumber?: string;
+    // Roller specific
+    drumWidth?: string;
+    frequency?: string;
+    centrifugalForce?: string;
+    waterTank?: string;
+    cabRops?: string;
+    features?: string;
   };
   gallery?: string[];
 }
