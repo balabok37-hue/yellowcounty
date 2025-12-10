@@ -15,10 +15,10 @@ export function Footer() {
           {/* Brand */}
           <div className="md:col-span-2">
             <h3 className="text-2xl font-bold text-foreground mb-4">
-              Heavy<span className="text-primary">Mach</span> USA
+              Yellow<span className="text-primary">Stone</span> County Equipment
             </h3>
             <p className="text-muted-foreground mb-4 max-w-md">
-              America's premier destination for premium used and new heavy equipment. 
+              Montana's premier destination for premium used and new heavy equipment. 
               Hand-selected machines, verified quality, unbeatable pricing.
             </p>
             <div className="flex gap-4">
@@ -76,19 +76,19 @@ export function Footer() {
             <ul className="space-y-3 text-muted-foreground">
               <li className="flex items-center gap-2">
                 <Phone className="w-4 h-4 text-primary" />
-                <a href="tel:+12029322837" className="hover:text-primary transition-colors">
-                  +1 (202) 932-2837
+                <a href="tel:+12402427810" className="hover:text-primary transition-colors">
+                  +1 (240) 242-7810
                 </a>
               </li>
               <li className="flex items-center gap-2">
                 <Mail className="w-4 h-4 text-primary" />
-                <a href="mailto:sales@heavymachusa.com" className="hover:text-primary transition-colors">
-                  sales@heavymachusa.com
+                <a href="mailto:sales@yellowcounty.com" className="hover:text-primary transition-colors">
+                  sales@yellowcounty.com
                 </a>
               </li>
               <li className="flex items-start gap-2">
                 <MapPin className="w-4 h-4 text-primary mt-0.5" />
-                <span>Houston, Texas, USA</span>
+                <span>5150 Midland Rd, Billings, MT 59101</span>
               </li>
             </ul>
           </div>
@@ -102,7 +102,7 @@ export function Footer() {
           viewport={{ once: true }}
           className="mt-12 pt-8 border-t border-border/30 text-center text-muted-foreground text-sm"
         >
-          © 2026 HeavyMach USA. All rights reserved. Premium Used & New Equipment.
+          © 2026 YellowStone County Equipment. All rights reserved. Premium Used & New Equipment.
         </motion.div>
       </div>
     </footer>

@@ -62,7 +62,7 @@ export function Header() {
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
           >
-            Heavy<span className="text-primary">Mach</span>
+            Yellow<span className="text-primary">Stone</span>
           </motion.a>
 
           {/* Desktop Nav */}
@@ -92,7 +92,7 @@ export function Header() {
               transition={{ delay: 0.3 }}
             >
               <Button asChild variant="outline" size="sm" className="border-primary/50 text-primary hover:bg-primary/10">
-                <a href="tel:+12029322837">
+                <a href="tel:+12402427810">
                   <Phone className="w-4 h-4 mr-2" />
                   Call Now
                 </a>
@@ -133,9 +133,9 @@ export function Header() {
               Contact
             </a>
             <Button asChild className="w-full bg-primary text-primary-foreground">
-              <a href="tel:+12029322837">
+              <a href="tel:+12402427810">
                 <Phone className="w-4 h-4 mr-2" />
-                +1 (202) 932-2837
+                +1 (240) 242-7810
               </a>
             </Button>
           </motion.nav>
