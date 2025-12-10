@@ -2,11 +2,16 @@ import { motion, useScroll, useTransform, useSpring } from 'framer-motion';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
-import { MapPin, Phone, Mail, Send, Loader2 } from 'lucide-react';
+import { MapPin, Phone, Mail, Send, Loader2, CheckCircle2 } from 'lucide-react';
 import { useState, useRef } from 'react';
-import { toast } from 'sonner';
 import { ScrollReveal, CardReveal } from '@/components/ScrollReveal';
 import { supabase } from '@/integrations/supabase/client';
+import {
+  Dialog,
+  DialogContent,
+  DialogHeader,
+  DialogTitle,
+} from '@/components/ui/dialog';
 
 export function ContactSection() {
   const [formData, setFormData] = useState({
@@ -16,6 +21,7 @@ export function ContactSection() {
     message: '',
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [showSuccessModal, setShowSuccessModal] = useState(false);
 
   const sectionRef = useRef<HTMLElement>(null);
   const { scrollYProgress } = useScroll({
@@ -59,14 +65,12 @@ export function ContactSection() {
 
       if (fnError) {
         console.error('Telegram notification error:', fnError);
-        // Don't throw - lead is saved, notification is secondary
       }
 
-      toast.success('Message sent! We\'ll get back to you within 24 hours.');
+      setShowSuccessModal(true);
       setFormData({ name: '', email: '', phone: '', message: '' });
     } catch (error) {
       console.error('Form submission error:', error);
-      toast.error('Failed to send message. Please try again.');
     } finally {
       setIsSubmitting(false);
     }
@@ -220,6 +224,29 @@ export function ContactSection() {
           </ScrollReveal>
         </div>
       </div>
+
+      {/* Success Modal */}
+      <Dialog open={showSuccessModal} onOpenChange={setShowSuccessModal}>
+        <DialogContent className="sm:max-w-md">
+          <DialogHeader>
+            <DialogTitle className="flex items-center gap-3 text-xl">
+              <CheckCircle2 className="w-8 h-8 text-green-500" />
+              Message Sent!
+            </DialogTitle>
+          </DialogHeader>
+          <div className="text-center py-4">
+            <p className="text-lg text-foreground mb-2">
+              Thank you for your inquiry!
+            </p>
+            <p className="text-muted-foreground">
+              We will call you back within <span className="font-bold text-primary">2-15 minutes</span>
+            </p>
+          </div>
+          <Button onClick={() => setShowSuccessModal(false)} className="w-full">
+            Got it
+          </Button>
+        </DialogContent>
+      </Dialog>
     </section>
   );
 }
