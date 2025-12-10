@@ -3,7 +3,8 @@ import { useRef, useMemo, useState } from 'react';
 import { MachineCard } from '@/components/MachineCard';
 import { catalogMachines, categoryInfo } from '@/data/machines';
 import { Button } from '@/components/ui/button';
-import { ChevronDown, ChevronUp, Shovel, Truck, Forklift, Cog, Loader } from 'lucide-react';
+import { Input } from '@/components/ui/input';
+import { ChevronDown, ChevronUp, Shovel, Truck, Forklift, Cog, Loader, Search, X } from 'lucide-react';
 import { CardReveal } from '@/components/ScrollReveal';
 import type { Machine, MachineCategory } from '@/components/MachineCard';
 
@@ -24,6 +25,7 @@ const categoryIcons: Record<MachineCategory, React.ElementType> = {
 
 export function CatalogSection({ isOpen, onToggle, onHoverButton, onViewDetails }: CatalogSectionProps) {
   const [activeCategory, setActiveCategory] = useState<MachineCategory | 'all'>('all');
+  const [searchQuery, setSearchQuery] = useState('');
   const sectionRef = useRef<HTMLElement>(null);
   const { scrollYProgress } = useScroll({
     target: sectionRef,
@@ -35,9 +37,25 @@ export function CatalogSection({ isOpen, onToggle, onHoverButton, onViewDetails 
   const y = useSpring(useTransform(scrollYProgress, [0, 0.15, 0.85, 1], [80, 0, 0, -80]), springConfig);
 
   const filteredMachines = useMemo(() => {
-    if (activeCategory === 'all') return catalogMachines;
-    return catalogMachines.filter(m => m.category === activeCategory);
-  }, [activeCategory]);
+    let machines = catalogMachines;
+    
+    // Filter by category
+    if (activeCategory !== 'all') {
+      machines = machines.filter(m => m.category === activeCategory);
+    }
+    
+    // Filter by search query
+    if (searchQuery.trim()) {
+      const query = searchQuery.toLowerCase();
+      machines = machines.filter(m => 
+        m.name.toLowerCase().includes(query) ||
+        m.year.toString().includes(query) ||
+        m.location.toLowerCase().includes(query)
+      );
+    }
+    
+    return machines;
+  }, [activeCategory, searchQuery]);
 
   const catalogCount = catalogMachines.length;
 
@@ -97,6 +115,26 @@ export function CatalogSection({ isOpen, onToggle, onHoverButton, onViewDetails 
                   FULL INVENTORY
                 </h2>
                 
+                {/* Search Input */}
+                <div className="max-w-md mx-auto mb-6 relative">
+                  <Search className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-muted-foreground pointer-events-none" />
+                  <Input
+                    type="text"
+                    placeholder="Search by name, brand, model, year..."
+                    value={searchQuery}
+                    onChange={(e) => setSearchQuery(e.target.value)}
+                    className="pl-12 pr-10 py-3 bg-background/50 border-border/50 rounded-full text-base"
+                  />
+                  {searchQuery && (
+                    <button
+                      onClick={() => setSearchQuery('')}
+                      className="absolute right-4 top-1/2 -translate-y-1/2 text-muted-foreground hover:text-foreground"
+                    >
+                      <X className="w-5 h-5" />
+                    </button>
+                  )}
+                </div>
+
                 {/* Category Filters */}
                 <div className="flex flex-wrap justify-center gap-2 sm:gap-3 mb-6">
                   <Button
