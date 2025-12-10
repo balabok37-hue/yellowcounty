@@ -32,6 +32,7 @@ import chevroletSilverado2500hdImage from '@/assets/machines/chevrolet-silverado
 import international7300Image from '@/assets/machines/international-7300.png';
 import caterpillar336Image from '@/assets/machines/caterpillar-336.png';
 import hitachiZx350Image from '@/assets/machines/hitachi-zx350.png';
+import johnDeere210gImage from '@/assets/machines/john-deere-210g.png';
 
 // Category definitions with labels and icons
 export const categoryInfo: Record<MachineCategory, { label: string; labelRu?: string }> = {
@@ -1031,6 +1032,34 @@ export const allMachines: Machine[] = [
       hitachiZx350Image,
     ],
   },
+  {
+    id: 47,
+    name: '2015 John Deere 210G LC Excavator',
+    year: 2015,
+    hours: 6920,
+    location: 'Belleville, Michigan',
+    price: 75924,
+    originalPrice: 99900,
+    discount: 24,
+    category: 'earthmoving',
+    image: johnDeere210gImage,
+    isHotOffer: true,
+    description: 'One-owner 2015 John Deere 210G LC from Midwest municipal work. Full dealer service history, no salt exposure, clean southern undercarriage (78% remaining). Just completed full service – new filters, oils, greased, hydraulics tested 100%. Cold A/C, tight boom/stick, ready to load trucks or dig foundations tomorrow.',
+    specs: {
+      engine: 'John Deere PowerTech 6.8L Tier 4 Final',
+      power: '159 hp',
+      weight: '48,800 lbs (22.1 metric tons)',
+      bucketCapacity: '48" (1.2 m³) heavy-duty with side cutters',
+      hydraulicFlow: 'Auxiliary circuit (thumb/hammer ready)',
+      cab: 'Enclosed ROPS, ice-cold A/C, heated seat, rear + side cameras',
+      trackWidth: '78% undercarriage remaining (tracks, rollers, idlers)',
+      features: 'Boom/stick no cracks or welds, fresh service, detailed inspection report, clean Michigan title',
+      status: 'In stock – ships worldwide',
+    },
+    gallery: [
+      johnDeere210gImage,
+    ],
+  },
 ];
 
 // Category assignments by machine ID
@@ -1041,6 +1070,7 @@ const categoryMap: Record<number, MachineCategory> = {
   5: 'earthmoving', // SY215C Excavator
   45: 'earthmoving', // CAT 336 Excavator
   46: 'earthmoving', // Hitachi ZX350 Excavator
+  47: 'earthmoving', // John Deere 210G Excavator
   
   // Loaders (Wheel Loaders, Backhoe Loaders, Track Loaders)
   2: 'loaders', // SW405K Wheel Loader
