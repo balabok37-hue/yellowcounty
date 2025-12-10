@@ -1,4 +1,4 @@
-import { useState, useEffect, Suspense, lazy, useCallback } from 'react';
+import { useState, useEffect, useCallback } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Header } from '@/components/Header';
 import { HeroSection } from '@/components/sections/HeroSection';
@@ -10,14 +10,11 @@ import { ContactSection } from '@/components/sections/ContactSection';
 import { Footer } from '@/components/sections/Footer';
 import { MachineModal } from '@/components/MachineModal';
 import { LoadingScreen } from '@/components/LoadingScreen';
-import { GeometricShapes } from '@/components/GeometricShapes';
+import { StaticGeometricShapes } from '@/components/StaticGeometricShapes';
 import { useLenis } from '@/hooks/useLenis';
 import { preloadImages } from '@/hooks/useImagePreloader';
 import { featuredMachines, catalogMachines } from '@/data/machines';
 import type { Machine } from '@/components/MachineCard';
-
-// Lazy load the particle background for performance
-const ParticleBackground = lazy(() => import('@/components/ParticleBackground'));
 
 // Preload hero image
 const preloadImage = (src: string): Promise<void> => {
@@ -98,13 +95,8 @@ const Index = () => {
             animate={{ opacity: 1 }}
             transition={{ duration: 0.6, ease: [0.4, 0, 0.2, 1] }}
           >
-            {/* 3D Particle Background */}
-            <Suspense fallback={<div className="fixed inset-0 bg-background -z-10" />}>
-              <ParticleBackground />
-            </Suspense>
-
-            {/* Global Geometric Shapes - Always visible with parallax */}
-            <GeometricShapes variant="hero" intensity={0.6} />
+            {/* Static Geometric Shapes Background */}
+            <StaticGeometricShapes />
 
             {/* Header */}
             <Header />
