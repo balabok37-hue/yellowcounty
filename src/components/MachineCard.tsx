@@ -91,6 +91,10 @@ export interface Machine {
     towingCapacity?: string;
     warranty?: string;
     carfax?: string;
+    // Service/bucket truck specific
+    drivetrain?: string;
+    aerialDevice?: string;
+    utilityBody?: string;
   };
   gallery?: string[];
 }
