@@ -27,6 +27,7 @@ import gehlRs642Image from '@/assets/machines/gehl-rs6-42.png';
 import johnDeere310slImage from '@/assets/machines/john-deere-310sl.png';
 import caterpillarTl943cImage from '@/assets/machines/caterpillar-tl943c.png';
 import chevroletColoradoZ71Image from '@/assets/machines/chevrolet-colorado-z71.png';
+import caterpillar289d3Image from '@/assets/machines/caterpillar-289d3.png';
 
 export const featuredMachines: Machine[] = [
   {
@@ -851,6 +852,38 @@ export const catalogMachines: Machine[] = [
     },
     gallery: [
       chevroletColoradoZ71Image,
+    ],
+  },
+  {
+    id: 32,
+    name: '2018 Caterpillar 289D3 XR Compact Track Loader',
+    year: 2018,
+    hours: 3850,
+    location: 'USA Stock',
+    price: 24620,
+    originalPrice: 27355,
+    discount: 10,
+    image: caterpillar289d3Image,
+    description: 'The 2018 Caterpillar 289D3 XR Compact Track Loader – premium high-flow radial-lift beast with only 3,850 original hours, full Cat service records, and zero excuses. Cat C3.6 Tier 4 Final 105 hp (no DEF downtime), hydrostatic drive with two-speed (10.6 mph), 3,650 lb ROC, 12 ft 1 in hinge pin height, 3,450 psi high-flow hydraulics (40 gpm for mulchers/grapples), enclosed cab with heat/AC/joystick controls/Bluetooth/camera, LED lights, quick coupler, 78" low-profile bucket with bolt-on edge, 17.7" tracks at 85%+, fresh full service, tight undercarriage, no leaks, no welds – ready for forestry, demo, or rental fleet abuse. Ships nationwide (#A5250679). Same-year 289D3 XR units with 3–4k hours still crushing $30–35k at Ritchie Bros, IronPlanet, and JJ Kane auctions – this low-hour high-flow spec is a unicorn.',
+    specs: {
+      engine: 'Cat C3.6 105 hp (Tier 4 Final)',
+      capacity: '3,650 lb (1,656 kg) ROC',
+      tippingLoad: '10,430 lb (4,732 kg)',
+      liftHeight: '12 ft 1 in (3.68 m) hinge pin',
+      breakoutForce: '8,270 lbf (36.8 kN)',
+      travelSpeed: '5.9 / 10.6 mph (2-speed)',
+      groundClearance: '5.9 psi (40.7 kPa) ground pressure',
+      trackWidth: '17.7 in (450 mm) steel-embedded (85%+)',
+      hydraulicFlow: '40 gpm (151 L/min) @ 3,450 psi high-flow',
+      fuelTank: '27.7 gal (105 L)',
+      weight: '10,450 lb (4,738 kg)',
+      transportDimensions: '149 × 78 × 82.2 in (3.78 × 1.98 × 2.09 m)',
+      cab: 'Enclosed ROPS/FOPS, heat/AC, joystick, camera',
+      status: 'Fully serviced, tight machine, ships nationwide',
+      stockNumber: 'A5250679',
+    },
+    gallery: [
+      caterpillar289d3Image,
     ],
   },
 ];
