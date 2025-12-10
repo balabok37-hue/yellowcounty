@@ -1,5 +1,5 @@
 import { motion, AnimatePresence, PanInfo } from 'framer-motion';
-import { X, MapPin, Clock, MessageCircle, Phone, ChevronLeft, ChevronRight, Shield, Truck, CheckCircle2 } from 'lucide-react';
+import { X, MapPin, Clock, Send, ArrowRight, ChevronLeft, ChevronRight, Shield, Truck, CheckCircle2 } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { useState, useCallback } from 'react';
 import type { Machine } from './MachineCard';
@@ -24,10 +24,24 @@ export function MachineModal({ machine, isOpen, onClose }: MachineModalProps) {
 
   const images = machine.gallery || [machine.image];
   
-  const whatsappMessage = encodeURIComponent(
-    `Hi! I'm interested in the ${machine.year} ${machine.name} listed at $${machine.price.toLocaleString()}. Is it still available?`
-  );
-  const whatsappUrl = `https://wa.me/+12029322837?text=${whatsappMessage}`;
+  const scrollToContact = useCallback((prefillMessage?: string) => {
+    handleClose();
+    setTimeout(() => {
+      const contactSection = document.getElementById('contact');
+      if (contactSection) {
+        contactSection.scrollIntoView({ behavior: 'smooth' });
+        // Dispatch event to prefill the form
+        if (prefillMessage) {
+          window.dispatchEvent(new CustomEvent('prefillContactForm', { detail: { message: prefillMessage } }));
+        }
+      }
+    }, 300);
+  }, [handleClose]);
+
+  const handleRequestQuote = () => {
+    const message = `Hi! I'm interested in the ${machine.year} ${machine.name} listed at $${machine.price.toLocaleString()}. Is it still available?`;
+    scrollToContact(message);
+  };
 
   const nextImage = () => {
     setCurrentImageIndex((prev) => (prev + 1) % images.length);
@@ -368,29 +382,25 @@ export function MachineModal({ machine, isOpen, onClose }: MachineModalProps) {
                   <div className="flex flex-col gap-3 pt-2">
                     <motion.div whileTap={{ scale: 0.98 }}>
                       <Button
-                        asChild
+                        onClick={handleRequestQuote}
                         size="lg"
                         className="w-full h-14 sm:h-16 text-lg font-bold rounded-2xl bg-[#25D366] hover:bg-[#22c55e] text-white shadow-xl"
                         style={{ boxShadow: '0 0 20px rgba(37, 211, 102, 0.4)' }}
                       >
-                        <a href={whatsappUrl} target="_blank" rel="noopener noreferrer" className="flex items-center justify-center gap-2">
-                          <MessageCircle className="w-6 h-6" />
-                          Message on WhatsApp
-                        </a>
+                        <Send className="w-6 h-6 mr-2" />
+                        Request Quote
                       </Button>
                     </motion.div>
                     <motion.div whileTap={{ scale: 0.98 }}>
                       <Button
-                        asChild
+                        onClick={() => scrollToContact()}
                         size="lg"
                         variant="outline"
                         className="w-full h-14 sm:h-16 text-lg font-bold rounded-2xl border-2 border-primary text-primary hover:bg-primary hover:text-primary-foreground transition-all duration-300 shadow-lg"
                         style={{ boxShadow: '0 0 15px hsl(45 100% 50% / 0.2)' }}
                       >
-                        <a href="tel:+12029322837" className="flex items-center justify-center gap-2">
-                          <Phone className="w-6 h-6" />
-                          Call Now
-                        </a>
+                        <ArrowRight className="w-6 h-6 mr-2" />
+                        Contact Us
                       </Button>
                     </motion.div>
                   </div>
