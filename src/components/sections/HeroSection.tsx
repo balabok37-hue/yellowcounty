@@ -1,31 +1,17 @@
-import { motion, useScroll, useTransform } from 'framer-motion';
+import { motion } from 'framer-motion';
 import { Button } from '@/components/ui/button';
 import { ChevronDown, Star, Award, TrendingUp } from 'lucide-react';
 import heroBackground from '@/assets/hero-background.jpg';
-import { useRef } from 'react';
 
 export function HeroSection() {
-  const containerRef = useRef<HTMLElement>(null);
-  const { scrollYProgress } = useScroll({
-    target: containerRef,
-    offset: ["start start", "end start"]
-  });
-
-  const y = useTransform(scrollYProgress, [0, 1], [0, 200]);
-  const opacity = useTransform(scrollYProgress, [0, 0.5], [1, 0]);
-  const scale = useTransform(scrollYProgress, [0, 1], [1, 1.15]);
-
   const scrollToDeals = () => {
     document.getElementById('featured')?.scrollIntoView({ behavior: 'smooth' });
   };
 
   return (
-    <section ref={containerRef} className="relative min-h-[100svh] flex items-center justify-center overflow-hidden" style={{ position: 'relative' }}>
-      {/* Parallax Background Image - Brighter */}
-      <motion.div 
-        className="absolute inset-0 z-0"
-        style={{ y, scale }}
-      >
+    <section className="relative min-h-[100svh] flex items-center justify-center overflow-hidden">
+      {/* Static Background Image */}
+      <div className="absolute inset-0 z-0">
         <img 
           src={heroBackground} 
           alt="Premium heavy machinery fleet" 
@@ -33,28 +19,24 @@ export function HeroSection() {
           loading="eager"
           decoding="async"
         />
-        {/* Lighter overlay for brighter image */}
+        {/* Overlay */}
         <div className="absolute inset-0 bg-gradient-to-b from-background/70 via-background/50 to-background/90" />
         <div className="absolute inset-0 bg-primary/5 mix-blend-overlay" />
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,transparent_20%,hsl(var(--background))_100%)] opacity-60" />
-      </motion.div>
-
+      </div>
 
       {/* Golden accent line bottom */}
       <div className="absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r from-transparent via-primary to-transparent z-10" />
       
-      {/* Content with fade on scroll */}
-      <motion.div 
-        className="container relative z-10 text-center px-4 sm:px-6 py-12 sm:py-20"
-        style={{ opacity }}
-      >
+      {/* Content */}
+      <div className="container relative z-10 text-center px-4 sm:px-6 py-12 sm:py-20">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
           className="max-w-5xl mx-auto space-y-5 sm:space-y-8"
         >
-          {/* Premium Badge with glow */}
+          {/* Premium Badge */}
           <motion.div
             initial={{ opacity: 0, scale: 0.8 }}
             animate={{ opacity: 1, scale: 1 }}
@@ -69,7 +51,7 @@ export function HeroSection() {
             <Star className="w-4 h-4 text-primary fill-primary" />
           </motion.div>
 
-          {/* Main Headline with luxury styling */}
+          {/* Main Headline */}
           <motion.h1 
             className="text-[1.75rem] leading-[1.1] sm:text-5xl md:text-7xl lg:text-8xl font-black tracking-tight sm:tracking-tighter text-foreground px-2 sm:px-0"
             initial={{ opacity: 0, y: 30 }}
@@ -90,7 +72,7 @@ export function HeroSection() {
             </span>
           </motion.h1>
 
-          {/* Subheadline with premium touch */}
+          {/* Subheadline */}
           <motion.p
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -100,7 +82,7 @@ export function HeroSection() {
             Hand-selected premium units — <span className="text-primary font-bold">20% below market</span>
           </motion.p>
 
-          {/* Premium CTA Button */}
+          {/* CTA Button */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -113,18 +95,14 @@ export function HeroSection() {
               className="relative btn-glow bg-primary hover:bg-primary/90 text-primary-foreground font-bold text-sm sm:text-lg px-8 sm:px-12 py-6 sm:py-8 rounded-2xl min-h-[56px] sm:min-h-[64px] touch-manipulation overflow-hidden group"
               style={{ boxShadow: '0 0 50px hsl(48 100% 50% / 0.35), 0 15px 50px hsl(0 0% 0% / 0.4)' }}
             >
-              {/* Shine effect */}
-              <motion.div 
-                className="absolute inset-0 bg-gradient-to-r from-transparent via-foreground/10 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-700"
-              />
               <span className="relative flex items-center gap-2">
                 See Today's Best Deals
-                <ChevronDown className="w-5 h-5 sm:w-6 sm:h-6 animate-bounce" />
+                <ChevronDown className="w-5 h-5 sm:w-6 sm:h-6" />
               </span>
             </Button>
           </motion.div>
 
-          {/* Stats with luxury cards */}
+          {/* Stats */}
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
@@ -157,27 +135,20 @@ export function HeroSection() {
             ))}
           </motion.div>
         </motion.div>
-      </motion.div>
+      </div>
 
-      {/* Premium scroll indicator */}
+      {/* Scroll indicator */}
       <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ delay: 2.2, duration: 0.6 }}
         className="absolute bottom-6 sm:bottom-8 left-1/2 -translate-x-1/2 hidden md:block"
       >
-        <motion.div
-          animate={{ y: [0, 10, 0] }}
-          transition={{ duration: 1.5, repeat: Infinity, ease: 'easeInOut' }}
-          className="w-7 h-12 rounded-full border-2 border-primary/40 flex justify-center pt-3 bg-background/30 backdrop-blur-sm"
+        <div className="w-7 h-12 rounded-full border-2 border-primary/40 flex justify-center pt-3 bg-background/30 backdrop-blur-sm"
           style={{ boxShadow: '0 0 25px hsl(48 100% 50% / 0.15)' }}
         >
-          <motion.div 
-            className="w-1.5 h-3 rounded-full bg-primary"
-            animate={{ opacity: [0.5, 1, 0.5] }}
-            transition={{ duration: 1.5, repeat: Infinity }}
-          />
-        </motion.div>
+          <div className="w-1.5 h-3 rounded-full bg-primary" />
+        </div>
       </motion.div>
     </section>
   );

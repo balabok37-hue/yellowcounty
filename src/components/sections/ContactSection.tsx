@@ -1,9 +1,9 @@
-import { motion, useScroll, useTransform, useSpring } from 'framer-motion';
+import { motion } from 'framer-motion';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
 import { MapPin, Phone, Mail, Send, Loader2, CheckCircle2, MessageCircle } from 'lucide-react';
-import { useState, useRef, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import { ScrollReveal, CardReveal } from '@/components/ScrollReveal';
 import { supabase } from '@/integrations/supabase/client';
 import {
@@ -31,16 +31,6 @@ export function ContactSection() {
     window.addEventListener('prefillContactForm', handlePrefill as EventListener);
     return () => window.removeEventListener('prefillContactForm', handlePrefill as EventListener);
   }, []);
-
-  const sectionRef = useRef<HTMLElement>(null);
-  const { scrollYProgress } = useScroll({
-    target: sectionRef,
-    offset: ["start end", "end start"]
-  });
-
-  const springConfig = { stiffness: 100, damping: 30 };
-  const headerOpacity = useSpring(useTransform(scrollYProgress, [0, 0.15, 0.85, 1], [0, 1, 1, 0]), springConfig);
-  const headerY = useSpring(useTransform(scrollYProgress, [0, 0.15, 0.85, 1], [60, 0, 0, -60]), springConfig);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -86,12 +76,15 @@ export function ContactSection() {
   };
 
   return (
-    <section ref={sectionRef} id="contact" className="py-20 md:py-32 relative overflow-hidden">
+    <section id="contact" className="py-20 md:py-32 relative overflow-hidden">
       <div className="absolute inset-0 bg-gradient-to-b from-background via-card/50 to-background" />
       
       <div className="container px-4 relative z-10">
         <motion.div
-          style={{ opacity: headerOpacity, y: headerY, willChange: 'transform, opacity' }}
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
           className="text-center mb-16"
         >
           <h2 className="section-title text-foreground mb-4">
@@ -104,7 +97,7 @@ export function ContactSection() {
 
         <div className="grid lg:grid-cols-2 gap-12 max-w-6xl mx-auto">
           {/* Contact Form */}
-          <ScrollReveal direction="left">
+          <ScrollReveal>
             <form onSubmit={handleSubmit} className="glass-card p-8 space-y-6">
               <div className="grid sm:grid-cols-2 gap-4">
                 <div>
@@ -183,7 +176,7 @@ export function ContactSection() {
           </ScrollReveal>
 
           {/* Map & Contact Info */}
-          <ScrollReveal direction="right">
+          <ScrollReveal delay={0.2}>
             <div className="space-y-6">
               <div className="glass-card overflow-hidden aspect-video">
                 <iframe
