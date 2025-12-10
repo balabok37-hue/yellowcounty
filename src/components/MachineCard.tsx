@@ -3,6 +3,8 @@ import { MapPin, Clock, Eye } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { OptimizedImage } from './OptimizedImage';
 
+export type MachineCategory = 'earthmoving' | 'loaders' | 'telehandlers' | 'trucks' | 'specialty';
+
 export interface Machine {
   id: number;
   name: string;
@@ -17,6 +19,7 @@ export interface Machine {
   imageFit?: 'cover' | 'contain';
   isHotOffer?: boolean;
   imagePosition?: string;
+  category?: MachineCategory;
   description?: string;
   specs?: {
     engine?: string;
