@@ -23,6 +23,7 @@ import komatsuWa3208Image from '@/assets/machines/komatsu-wa320-8.png';
 import fordF750DumpImage from '@/assets/machines/ford-f750-dump.png';
 import caterpillarCb16Image from '@/assets/machines/caterpillar-cb16.png';
 import genieGth1056Image from '@/assets/machines/genie-gth1056.png';
+import gehlRs642Image from '@/assets/machines/gehl-rs6-42.png';
 
 export const featuredMachines: Machine[] = [
   {
@@ -724,6 +725,37 @@ export const catalogMachines: Machine[] = [
     },
     gallery: [
       genieGth1056Image,
+    ],
+  },
+  {
+    id: 28,
+    name: '2016 Gehl RS6-42 Telehandler',
+    year: 2016,
+    hours: 3230,
+    location: 'USA Stock',
+    price: 20900,
+    originalPrice: 22000,
+    discount: 5,
+    image: gehlRs642Image,
+    description: 'The 2016 Gehl RS6-42 – clean, low-hour, high-spec 6,000 lb / 42 ft telehandler that still looks and runs like a 2020 model. Only 3,230 original hours, Deutz TCD 3.6 L4 Tier 4 Final 120 hp (no DEF issues), 4-speed powershift, 4WD + crab steer, 10° frame leveling, enclosed cab with heat/AC/Bluetooth, hydraulic quick-attach carriage + 60" pallet forks, foam-filled 13.00-24 tires at 85%, LED work lights, fenders, fresh full service, no leaks, no welds, boom tight as new. Ships nationwide (#A6567925). Same-year RS6-42 units with 3–4k hours still hammering $26–31k at Ritchie Bros, IronPlanet and JJ Kane auctions.',
+    specs: {
+      engine: 'Deutz TCD 3.6 L4 120 hp (Tier 4 Final)',
+      maxLiftCapacity: '6,600 lb (2,994 kg)',
+      liftHeight: '42 ft 1 in (12.83 m)',
+      forwardReach: '28 ft 6 in (8.69 m)',
+      capacityAtMaxHeight: '6,000 lb',
+      capacityAtMaxReach: '2,000 lb',
+      transmission: '4-speed powershift',
+      driveSteer: '4×4×4, 3-mode steering',
+      frameLeveling: '±10°',
+      tires: '13.00-24 foam-filled (85%+)',
+      hydraulicFlow: '43 gpm, pilot controls, aux at boom head',
+      cab: 'Enclosed ROPS/FOPS, heat/AC, Bluetooth',
+      status: 'Fully serviced, tight boom, ships nationwide',
+      stockNumber: 'A6567925',
+    },
+    gallery: [
+      gehlRs642Image,
     ],
   },
 ];
