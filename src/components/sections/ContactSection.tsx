@@ -120,22 +120,22 @@ export function ContactSection() {
             <div className="space-y-6">
               <div className="glass-card overflow-hidden aspect-video">
                 <iframe
-                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d443086.5765036956!2d-95.72587897968707!3d29.81706920004087!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8640b8b4488d8501%3A0xca0d02def365053b!2sHouston%2C%20TX!5e0!3m2!1sen!2sus!4v1703123456789!5m2!1sen!2sus"
+                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2843.8876513523456!2d-108.5576!3d45.7851!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x5345e899e0000001%3A0x1234567890abcdef!2s5150%20Midland%20Rd%2C%20Billings%2C%20MT%2059101!5e0!3m2!1sen!2sus!4v1703123456789!5m2!1sen!2sus"
                   width="100%"
                   height="100%"
                   style={{ border: 0, filter: 'grayscale(1) contrast(1.1)' }}
                   allowFullScreen
                   loading="lazy"
                   referrerPolicy="no-referrer-when-downgrade"
-                  title="HeavyMach USA Location"
+                  title="YellowStone County Equipment Location"
                 />
               </div>
 
               <div className="grid sm:grid-cols-3 gap-4">
                 {[
-                  { icon: MapPin, label: 'Location', value: 'Houston, TX' },
-                  { icon: Phone, label: 'Phone', value: '+1 (202) 932-2837', href: 'tel:+12029322837' },
-                  { icon: Mail, label: 'Email', value: 'sales@heavymachusa.com', href: 'mailto:sales@heavymachusa.com' }
+                  { icon: MapPin, label: 'Location', value: '5150 Midland Rd, Billings, MT 59101' },
+                  { icon: Phone, label: 'Phone', value: '+1 (240) 242-7810', href: 'tel:+12402427810' },
+                  { icon: Mail, label: 'Email', value: 'sales@yellowcounty.com', href: 'mailto:sales@yellowcounty.com' }
                 ].map((item, index) => (
                   <CardReveal key={index} index={index}>
                     <div className="glass-card p-6 text-center h-full">
