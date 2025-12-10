@@ -30,6 +30,7 @@ import chevroletColoradoZ71Image from '@/assets/machines/chevrolet-colorado-z71.
 import caterpillar289d3Image from '@/assets/machines/caterpillar-289d3.png';
 import chevroletSilverado2500hdImage from '@/assets/machines/chevrolet-silverado-2500hd-ltz.png';
 import international7300Image from '@/assets/machines/international-7300.png';
+import caterpillar336Image from '@/assets/machines/caterpillar-336.png';
 
 // Category definitions with labels and icons
 export const categoryInfo: Record<MachineCategory, { label: string; labelRu?: string }> = {
@@ -973,6 +974,34 @@ export const allMachines: Machine[] = [
       international7300Image,
     ],
   },
+  {
+    id: 45,
+    name: '2019 Caterpillar 336 Excavator',
+    year: 2019,
+    hours: 8522,
+    location: 'Lake Worth, Texas',
+    price: 149760,
+    originalPrice: 192000,
+    discount: 22,
+    category: 'earthmoving',
+    image: caterpillar336Image,
+    isHotOffer: true,
+    description: '2019 CAT 336 straight from a Texas pipeline contractor. One-owner machine, no salt exposure, full Cat dealer history. Just received fresh 1,000-hour service, all pins & bushings tight, undercarriage strong (70% remaining). Runs quiet and powerful – ready to load on a lowboy today. Includes 54" HD bucket + hydraulic thumb. Clean Texas title & ownership docs.',
+    specs: {
+      engine: 'Cat C7.1 ACERT Tier 4 Final',
+      power: '300 hp',
+      weight: '81,700 lbs (37 metric tons)',
+      bucketCapacity: '54" (1.9 m³) severe-duty with teeth',
+      hydraulicFlow: 'High-flow auxiliary + hydraulic thumb installed',
+      cab: 'Deluxe enclosed ROPS, ice-cold A/C, heated seat, 360° cameras, Cat Grade with 2D',
+      trackWidth: '70% undercarriage remaining (Cat HD chains, rollers, idlers)',
+      features: 'Heavy-duty reach boom (no cracks/welds), fresh 1,000-hr service, full inspection report, clean Texas title',
+      status: 'In stock – ships worldwide',
+    },
+    gallery: [
+      caterpillar336Image,
+    ],
+  },
 ];
 
 // Category assignments by machine ID
@@ -981,6 +1010,7 @@ const categoryMap: Record<number, MachineCategory> = {
   1: 'earthmoving', // SY80U Excavator
   3: 'earthmoving', // DD100 Dozer
   5: 'earthmoving', // SY215C Excavator
+  45: 'earthmoving', // CAT 336 Excavator
   
   // Loaders (Wheel Loaders, Backhoe Loaders, Track Loaders)
   2: 'loaders', // SW405K Wheel Loader
