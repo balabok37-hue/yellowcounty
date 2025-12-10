@@ -26,6 +26,7 @@ import genieGth1056Image from '@/assets/machines/genie-gth1056.png';
 import gehlRs642Image from '@/assets/machines/gehl-rs6-42.png';
 import johnDeere310slImage from '@/assets/machines/john-deere-310sl.png';
 import caterpillarTl943cImage from '@/assets/machines/caterpillar-tl943c.png';
+import chevroletColoradoZ71Image from '@/assets/machines/chevrolet-colorado-z71.png';
 
 export const featuredMachines: Machine[] = [
   {
@@ -822,6 +823,34 @@ export const catalogMachines: Machine[] = [
     },
     gallery: [
       caterpillarTl943cImage,
+    ],
+  },
+  {
+    id: 31,
+    name: '2024 Chevrolet Colorado Z71 Crew Cab 4×4',
+    year: 2024,
+    hours: 33169,
+    location: 'USA Stock',
+    price: 37338,
+    originalPrice: 40585,
+    discount: 8,
+    image: chevroletColoradoZ71Image,
+    description: 'The 2024 Chevrolet Colorado Z71 Crew Cab 4×4 – one-owner fleet return, only 33,169 easy highway miles, still under full GM factory warranty until 2029/100k! TurboMax 2.7L 310 hp / 430 lb-ft, 8-speed automatic, Z71 off-road package (skid plates, all-terrain tires, hill descent, red tow hooks), heated leather seats, heated steering wheel, Bose audio, wireless CarPlay/Android Auto, adaptive cruise, blind-spot, forward collision, remote start, spray-in bedliner, LED cargo lights, 18" Z71 wheels with fresh Goodyear Wrangler Territory AT tires. Zero accidents, perfect Carfax, no stories. Ships nationwide (#A8299499). Identical 2024 Z71 Colorados with 30–40k miles still bringing $42–45k at Manheim, ADESA and dealer auctions. This is the lowest-priced clean-title 2024 Z71 in the country right now.',
+    specs: {
+      engine: 'TurboMax 2.7L I4 (310 hp / 430 lb-ft)',
+      transmission: '8-speed automatic',
+      driveSteer: '4WD with AutoTrac 2-speed transfer case',
+      package: 'Z71 Off-Road + Convenience + Safety packages',
+      interior: 'Jet Black heated leather, Bose premium audio',
+      tires: '18" Z71 wheels + Goodyear AT (90%+)',
+      towingCapacity: '7,700 lb',
+      warranty: 'Full factory until 2029 or 100k miles',
+      carfax: 'One-owner, zero accidents',
+      status: 'Immaculate, titled-ready, ships nationwide',
+      stockNumber: 'A8299499',
+    },
+    gallery: [
+      chevroletColoradoZ71Image,
     ],
   },
 ];
