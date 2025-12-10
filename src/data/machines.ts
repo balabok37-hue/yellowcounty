@@ -25,6 +25,7 @@ import caterpillarCb16Image from '@/assets/machines/caterpillar-cb16.png';
 import genieGth1056Image from '@/assets/machines/genie-gth1056.png';
 import gehlRs642Image from '@/assets/machines/gehl-rs6-42.png';
 import johnDeere310slImage from '@/assets/machines/john-deere-310sl.png';
+import caterpillarTl943cImage from '@/assets/machines/caterpillar-tl943c.png';
 
 export const featuredMachines: Machine[] = [
   {
@@ -789,6 +790,38 @@ export const catalogMachines: Machine[] = [
     },
     gallery: [
       johnDeere310slImage,
+    ],
+  },
+  {
+    id: 30,
+    name: '2014 Caterpillar TL943C Telehandler',
+    year: 2014,
+    hours: 4500,
+    location: 'USA Stock',
+    price: 28894,
+    originalPrice: 30415,
+    discount: 5,
+    image: caterpillarTl943cImage,
+    description: 'The 2014 Caterpillar TL943C – rock-solid 9,000 lb / 43 ft telehandler with full Cat service history and only original hours in the mid-range sweet spot. Cat C4.4 Tier 4 Interim 124 hp (no DEF, just DOC), 4-speed powershift, 4WD + crab steer, 10° frame leveling, enclosed cab with heat/AC/Bluetooth, quick-attach carriage + 60" pallet forks, foam-filled 14.00-24 tires at 75–85%, LED work lights, fenders, fresh annual inspection, tight boom, no leaks, no welds, ready to go straight to work. Ships nationwide (#A2585619). Same-year TL943C units with comparable hours still hammering $34–39k at Ritchie Bros, IronPlanet and Alex Lyon auctions.',
+    specs: {
+      engine: 'Cat C4.4 124 hp (Tier 4i – no DEF)',
+      maxLiftCapacity: '9,000 lb (4,082 kg)',
+      liftHeight: '43 ft (13.1 m)',
+      forwardReach: '31 ft 6 in (9.6 m)',
+      capacityAtMaxHeight: '7,000 lb',
+      capacityAtMaxReach: '2,500 lb',
+      transmission: '4-speed powershift',
+      driveSteer: '4×4×4, three-mode steering',
+      frameLeveling: '±10°',
+      tires: '14.00-24 foam-filled (75–85%)',
+      hydraulicFlow: '40 gpm, pilot controls, aux at boom head',
+      cab: 'Enclosed ROPS/FOPS, heat/AC, Bluetooth',
+      weight: '26,240 lb (11,902 kg)',
+      status: 'Fully serviced, tight boom, ships nationwide',
+      stockNumber: 'A2585619',
+    },
+    gallery: [
+      caterpillarTl943cImage,
     ],
   },
 ];
