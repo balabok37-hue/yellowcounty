@@ -1,6 +1,6 @@
-import { motion, useScroll, useTransform, useSpring } from 'framer-motion';
+import { motion } from 'framer-motion';
 import { Star, Quote } from 'lucide-react';
-import { useState, useEffect, useRef } from 'react';
+import { useState, useEffect } from 'react';
 
 const testimonials = [
   {
@@ -63,17 +63,6 @@ const testimonials = [
 
 export function TestimonialsSection() {
   const [activeIndex, setActiveIndex] = useState(0);
-  const sectionRef = useRef<HTMLElement>(null);
-  
-  const { scrollYProgress } = useScroll({
-    target: sectionRef,
-    offset: ["start end", "end start"]
-  });
-
-  const springConfig = { stiffness: 100, damping: 30 };
-  const opacity = useSpring(useTransform(scrollYProgress, [0, 0.2, 0.8, 1], [0, 1, 1, 0]), springConfig);
-  const y = useSpring(useTransform(scrollYProgress, [0, 0.2, 0.8, 1], [80, 0, 0, -80]), springConfig);
-  const scale = useSpring(useTransform(scrollYProgress, [0, 0.2, 0.8, 1], [0.9, 1, 1, 0.9]), springConfig);
 
   useEffect(() => {
     const timer = setInterval(() => {
@@ -83,10 +72,13 @@ export function TestimonialsSection() {
   }, []);
 
   return (
-    <section ref={sectionRef} className="py-20 md:py-32">
+    <section className="py-20 md:py-32">
       <div className="container px-4">
         <motion.div
-          style={{ opacity, y, scale, willChange: 'transform, opacity' }}
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.4 }}
           className="text-center mb-16"
         >
           <h2 className="section-title text-foreground mb-4">
@@ -98,21 +90,21 @@ export function TestimonialsSection() {
         </motion.div>
 
         <motion.div 
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.4, delay: 0.1 }}
           className="max-w-4xl mx-auto"
-          style={{ opacity, y, willChange: 'transform, opacity' }}
         >
-          <div className="relative">
+          <div className="relative min-h-[300px]">
             {testimonials.map((testimonial, index) => (
-              <motion.div
+              <div
                 key={index}
-                initial={{ opacity: 0, scale: 0.95 }}
-                animate={{
-                  opacity: index === activeIndex ? 1 : 0,
-                  scale: index === activeIndex ? 1 : 0.95,
-                  zIndex: index === activeIndex ? 1 : 0,
-                }}
-                transition={{ duration: 0.5 }}
-                className={`${index === activeIndex ? 'relative' : 'absolute inset-0'}`}
+                className={`transition-opacity duration-300 ${
+                  index === activeIndex 
+                    ? 'opacity-100 relative' 
+                    : 'opacity-0 absolute inset-0 pointer-events-none'
+                }`}
               >
                 <div className="glass-card p-8 md:p-12">
                   <Quote className="w-12 h-12 text-primary/30 mb-6" />
@@ -126,6 +118,7 @@ export function TestimonialsSection() {
                       src={testimonial.image}
                       alt={testimonial.name}
                       className="w-14 h-14 rounded-full object-cover border-2 border-primary/30"
+                      loading="lazy"
                     />
                     <div>
                       <div className="font-bold text-foreground">{testimonial.name}</div>
@@ -139,7 +132,7 @@ export function TestimonialsSection() {
                     </div>
                   </div>
                 </div>
-              </motion.div>
+              </div>
             ))}
           </div>
 
@@ -148,8 +141,8 @@ export function TestimonialsSection() {
               <button
                 key={index}
                 onClick={() => setActiveIndex(index)}
-                className={`w-3 h-3 rounded-full transition-all ${
-                  index === activeIndex ? 'bg-primary w-8' : 'bg-muted-foreground/30'
+                className={`h-3 rounded-full transition-all duration-200 ${
+                  index === activeIndex ? 'bg-primary w-8' : 'bg-muted-foreground/30 w-3'
                 }`}
               />
             ))}

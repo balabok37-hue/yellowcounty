@@ -3,7 +3,6 @@ import { X, MapPin, Clock, Send, ArrowRight, ChevronLeft, ChevronRight, Shield, 
 import { Button } from '@/components/ui/button';
 import { useState, useCallback } from 'react';
 import type { Machine } from './MachineCard';
-import { OptimizedImage } from './OptimizedImage';
 
 interface MachineModalProps {
   machine: Machine | null;
@@ -71,66 +70,26 @@ export function MachineModal({ machine, isOpen, onClose }: MachineModalProps) {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
-          transition={{ duration: 0.3 }}
-          className="fixed inset-0 z-50 flex items-end sm:items-center justify-center"
+          transition={{ duration: 0.2 }}
+          className="fixed inset-0 z-50 flex items-end sm:items-center justify-center bg-background/95 backdrop-blur-xl"
           onClick={handleClose}
         >
-          {/* Backdrop with blur animation */}
+          {/* Modal */}
           <motion.div
-            initial={{ opacity: 0, backdropFilter: "blur(0px)" }}
-            animate={{ opacity: 1, backdropFilter: "blur(20px)" }}
-            exit={{ opacity: 0, backdropFilter: "blur(0px)" }}
-            transition={{ duration: 0.4 }}
-            className="absolute inset-0 bg-background/95"
-          />
-
-          {/* Animated glow behind modal */}
-          <motion.div
-            initial={{ opacity: 0, scale: 0.5 }}
-            animate={{ opacity: 1, scale: 1 }}
-            exit={{ opacity: 0, scale: 0.8 }}
-            transition={{ duration: 0.5, delay: 0.1 }}
-            className="absolute w-[600px] h-[600px] rounded-full bg-primary/20 blur-[100px] pointer-events-none"
-          />
-
-          {/* Modal with premium animation */}
-          <motion.div
-            initial={{ 
-              opacity: 0, 
-              y: "100%",
-              scale: 0.9,
-              rotateX: 10,
-            }}
-            animate={{ 
-              opacity: 1, 
-              y: 0,
-              scale: 1,
-              rotateX: 0,
-            }}
-            exit={{ 
-              opacity: 0, 
-              y: "100%",
-              scale: 0.95,
-              transition: { duration: 0.3, ease: "easeIn" }
-            }}
-            transition={{ 
-              type: 'spring', 
-              damping: 28, 
-              stiffness: 250,
-              mass: 0.8,
-            }}
-            style={{ perspective: 1000 }}
+            initial={{ opacity: 0, y: 100 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: 100 }}
+            transition={{ duration: 0.25, ease: [0.25, 0.1, 0.25, 1] }}
             className="relative w-full sm:max-w-4xl max-h-[95vh] sm:max-h-[90vh] overflow-hidden rounded-t-3xl sm:rounded-3xl bg-card border border-border/50 shadow-2xl"
             onClick={(e) => e.stopPropagation()}
           >
             {/* Close button */}
-            <motion.button
+            <button
               onClick={handleClose}
-              whileTap={{ scale: 0.9 }}
-              className="absolute top-4 right-4 z-20 p-3 rounded-full bg-background/90 backdrop-blur-sm border border-border/50 shadow-lg"
+              className="absolute top-4 right-4 z-20 p-3 rounded-full bg-background/90 backdrop-blur-sm border border-border/50 shadow-lg active:scale-95 transition-transform duration-150"
             >
               <X className="w-5 h-5 text-foreground" />
-            </motion.button>
+            </button>
 
             {/* Drag handle for mobile */}
             <div className="sm:hidden absolute top-2 left-1/2 -translate-x-1/2 z-20">
@@ -139,23 +98,22 @@ export function MachineModal({ machine, isOpen, onClose }: MachineModalProps) {
 
             <div className="overflow-y-auto max-h-[95vh] sm:max-h-[90vh]">
               <div className="grid md:grid-cols-2 gap-0">
-                {/* Image Gallery with Swipe */}
+                {/* Image Gallery */}
                 <div className="relative aspect-[4/5] sm:aspect-square md:aspect-auto md:min-h-[500px] overflow-hidden bg-muted/20 flex items-center justify-center">
                   <AnimatePresence mode="wait" initial={false}>
                     <motion.div
                       key={currentImageIndex}
                       className="w-full h-full cursor-grab active:cursor-grabbing overflow-hidden"
-                      initial={{ opacity: 0, x: dragDirection > 0 ? -100 : 100 }}
+                      initial={{ opacity: 0, x: dragDirection > 0 ? -50 : 50 }}
                       animate={{ opacity: 1, x: 0 }}
-                      exit={{ opacity: 0, x: dragDirection > 0 ? 100 : -100 }}
-                      transition={{ duration: 0.3 }}
+                      exit={{ opacity: 0, x: dragDirection > 0 ? 50 : -50 }}
+                      transition={{ duration: 0.2 }}
                       drag="x"
                       dragConstraints={{ left: 0, right: 0 }}
                       dragElastic={0.2}
                       onDrag={handleDrag}
                       onDragEnd={handleDragEnd}
                     >
-                      {/* Image container full fill */}
                       <div className="w-full h-full">
                         <img
                           src={images[currentImageIndex]}
@@ -169,46 +127,39 @@ export function MachineModal({ machine, isOpen, onClose }: MachineModalProps) {
                     </motion.div>
                   </AnimatePresence>
                   
-                  {/* Transparent gradient fade to content on mobile */}
+                  {/* Gradient fade on mobile */}
                   <div className="md:hidden absolute bottom-0 left-0 right-0 h-24 bg-gradient-to-t from-card via-card/60 to-transparent pointer-events-none" />
                   
                   {images.length > 1 && (
                     <>
-                      {/* Navigation buttons - hidden on mobile, visible on desktop */}
-                      <motion.button
+                      <button
                         onClick={prevImage}
-                        whileHover={{ scale: 1.1 }}
-                        whileTap={{ scale: 0.9 }}
-                        className="hidden sm:flex absolute left-4 top-1/2 -translate-y-1/2 p-3 rounded-full bg-background/90 backdrop-blur-sm border border-border/50 shadow-lg items-center justify-center"
+                        className="hidden sm:flex absolute left-4 top-1/2 -translate-y-1/2 p-3 rounded-full bg-background/90 backdrop-blur-sm border border-border/50 shadow-lg items-center justify-center active:scale-95 transition-transform duration-150"
                       >
                         <ChevronLeft className="w-5 h-5 text-foreground" />
-                      </motion.button>
-                      <motion.button
+                      </button>
+                      <button
                         onClick={nextImage}
-                        whileHover={{ scale: 1.1 }}
-                        whileTap={{ scale: 0.9 }}
-                        className="hidden sm:flex absolute right-4 top-1/2 -translate-y-1/2 p-3 rounded-full bg-background/90 backdrop-blur-sm border border-border/50 shadow-lg items-center justify-center"
+                        className="hidden sm:flex absolute right-4 top-1/2 -translate-y-1/2 p-3 rounded-full bg-background/90 backdrop-blur-sm border border-border/50 shadow-lg items-center justify-center active:scale-95 transition-transform duration-150"
                       >
                         <ChevronRight className="w-5 h-5 text-foreground" />
-                      </motion.button>
+                      </button>
                       
                       {/* Image indicators */}
                       <div className="absolute bottom-28 md:bottom-4 left-1/2 -translate-x-1/2 flex gap-2 px-4 py-2 rounded-full bg-background/80 backdrop-blur-sm">
                         {images.map((_, idx) => (
-                          <motion.button
+                          <button
                             key={idx}
                             onClick={() => setCurrentImageIndex(idx)}
-                            whileTap={{ scale: 0.8 }}
-                            className={`w-2.5 h-2.5 rounded-full transition-all duration-300 ${
+                            className={`h-2.5 rounded-full transition-all duration-200 ${
                               idx === currentImageIndex 
                                 ? 'bg-primary w-6' 
-                                : 'bg-foreground/30 hover:bg-foreground/50'
+                                : 'bg-foreground/30 w-2.5'
                             }`}
                           />
                         ))}
                       </div>
 
-                      {/* Swipe hint on mobile */}
                       <div className="sm:hidden absolute bottom-36 left-1/2 -translate-x-1/2 text-xs text-muted-foreground bg-background/80 px-3 py-1 rounded-full">
                         ← Swipe to see more →
                       </div>
@@ -216,24 +167,13 @@ export function MachineModal({ machine, isOpen, onClose }: MachineModalProps) {
                   )}
 
                   {/* Discount badge */}
-                  <motion.div 
-                    className="absolute top-4 left-4 px-4 py-2 rounded-full bg-primary font-bold text-primary-foreground text-lg shadow-lg"
-                    animate={{ 
-                      boxShadow: [
-                        "0 0 15px hsl(45 100% 50% / 0.4)",
-                        "0 0 25px hsl(45 100% 50% / 0.6)",
-                        "0 0 15px hsl(45 100% 50% / 0.4)"
-                      ]
-                    }}
-                    transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
-                  >
+                  <div className="absolute top-4 left-4 px-4 py-2 rounded-full bg-primary font-bold text-primary-foreground text-lg shadow-lg">
                     −{machine.discount}% OFF
-                  </motion.div>
+                  </div>
                 </div>
 
                 {/* Details */}
                 <div className="p-6 sm:p-8 space-y-5">
-                  {/* Header */}
                   <div>
                     <h2 className="text-2xl sm:text-3xl font-black text-foreground mb-3 leading-tight">
                       {machine.name}
@@ -250,7 +190,6 @@ export function MachineModal({ machine, isOpen, onClose }: MachineModalProps) {
                     </div>
                   </div>
 
-                  {/* Description */}
                   {machine.description && (
                     <p className="text-sm text-muted-foreground leading-relaxed">
                       {machine.description}
@@ -260,7 +199,7 @@ export function MachineModal({ machine, isOpen, onClose }: MachineModalProps) {
                   {/* Price */}
                   <div className="py-5 px-4 rounded-2xl bg-gradient-to-r from-primary/10 to-accent/10 border border-primary/20">
                     <div className="flex items-baseline gap-3 mb-1">
-                      <span className="text-3xl sm:text-4xl font-black text-primary" style={{ textShadow: '0 0 30px hsl(45 100% 50% / 0.4)' }}>
+                      <span className="text-3xl sm:text-4xl font-black text-primary">
                         ${machine.price.toLocaleString()}
                       </span>
                       <span className="text-lg sm:text-xl line-through text-muted-foreground">
@@ -273,14 +212,14 @@ export function MachineModal({ machine, isOpen, onClose }: MachineModalProps) {
                     </p>
                   </div>
 
-                  {/* Detailed Specs Table */}
+                  {/* Specs */}
                   {machine.specs && Object.keys(machine.specs).length > 3 && (
                     <div className="space-y-3">
                       <h3 className="text-sm font-bold text-foreground uppercase tracking-wide flex items-center gap-2">
                         <span className="w-2 h-2 rounded-full bg-primary" />
                         Technical Specifications
                       </h3>
-                      <div className="grid grid-cols-1 gap-2 text-sm max-h-[200px] overflow-y-auto pr-2 scrollbar-thin">
+                      <div className="grid grid-cols-1 gap-2 text-sm max-h-[200px] overflow-y-auto pr-2">
                         {machine.specs.engine && (
                           <div className="flex justify-between py-2 border-b border-border/30">
                             <span className="text-muted-foreground">Engine</span>
@@ -317,12 +256,6 @@ export function MachineModal({ machine, isOpen, onClose }: MachineModalProps) {
                             <span className="font-medium text-foreground">{machine.specs.bucketCapacity}</span>
                           </div>
                         )}
-                        {machine.specs.bucketDiggingForce && (
-                          <div className="flex justify-between py-2 border-b border-border/30">
-                            <span className="text-muted-foreground">Bucket Digging Force</span>
-                            <span className="font-medium text-foreground">{machine.specs.bucketDiggingForce}</span>
-                          </div>
-                        )}
                         {machine.specs.travelSpeed && (
                           <div className="flex justify-between py-2 border-b border-border/30">
                             <span className="text-muted-foreground">Travel Speed</span>
@@ -339,7 +272,7 @@ export function MachineModal({ machine, isOpen, onClose }: MachineModalProps) {
                     </div>
                   )}
 
-                  {/* Basic Specs Grid (for machines without detailed specs) */}
+                  {/* Basic Specs */}
                   {(!machine.specs || Object.keys(machine.specs).length <= 3) && (
                     <div className="grid grid-cols-2 gap-3">
                       <div className="p-4 rounded-xl bg-muted/30 border border-border/30">
@@ -362,46 +295,36 @@ export function MachineModal({ machine, isOpen, onClose }: MachineModalProps) {
                   )}
 
                   {/* Trust badges */}
-                  <div className="flex flex-wrap gap-3 py-2">
-                    <span className="flex items-center gap-1.5 text-xs text-muted-foreground">
-                      <Shield className="w-4 h-4 text-primary" />
-                      Verified Seller
-                    </span>
-                    <span className="flex items-center gap-1.5 text-xs text-muted-foreground">
+                  <div className="flex gap-4 py-3">
+                    <div className="flex items-center gap-2 text-xs text-muted-foreground">
+                      <Shield className="w-4 h-4 text-green-500" />
+                      150-Point Inspection
+                    </div>
+                    <div className="flex items-center gap-2 text-xs text-muted-foreground">
                       <Truck className="w-4 h-4 text-primary" />
-                      Shipping Available
-                    </span>
-                    <span className="flex items-center gap-1.5 text-xs text-muted-foreground">
-                      <CheckCircle2 className="w-4 h-4 text-primary" />
-                      Inspected
-                    </span>
+                      Nationwide Shipping
+                    </div>
                   </div>
 
                   {/* CTA Buttons */}
-                  <div className="flex flex-col gap-3 pt-2">
-                    <motion.div whileTap={{ scale: 0.98 }}>
-                      <Button
-                        onClick={handleRequestQuote}
-                        size="lg"
-                        className="w-full h-14 sm:h-16 text-lg font-bold rounded-2xl bg-[#25D366] hover:bg-[#22c55e] text-white shadow-xl"
-                        style={{ boxShadow: '0 0 20px rgba(37, 211, 102, 0.4)' }}
-                      >
-                        <Send className="w-6 h-6 mr-2" />
-                        Request Quote
-                      </Button>
-                    </motion.div>
-                    <motion.div whileTap={{ scale: 0.98 }}>
-                      <Button
-                        onClick={() => scrollToContact()}
-                        size="lg"
-                        variant="outline"
-                        className="w-full h-14 sm:h-16 text-lg font-bold rounded-2xl border-2 border-primary text-primary hover:bg-primary hover:text-primary-foreground transition-all duration-300 shadow-lg"
-                        style={{ boxShadow: '0 0 15px hsl(45 100% 50% / 0.2)' }}
-                      >
-                        <ArrowRight className="w-6 h-6 mr-2" />
-                        Contact Us
-                      </Button>
-                    </motion.div>
+                  <div className="space-y-3 pt-2">
+                    <Button
+                      onClick={handleRequestQuote}
+                      size="lg"
+                      className="w-full h-14 text-lg font-bold bg-primary text-primary-foreground hover:bg-primary/90 rounded-xl transition-colors duration-200"
+                    >
+                      <Send className="w-5 h-5 mr-2" />
+                      Request Quote
+                    </Button>
+                    <Button
+                      onClick={() => scrollToContact()}
+                      variant="outline"
+                      size="lg"
+                      className="w-full h-12 font-semibold border-primary/50 text-primary hover:bg-primary/10 rounded-xl transition-colors duration-200"
+                    >
+                      <ArrowRight className="w-4 h-4 mr-2" />
+                      Contact Us
+                    </Button>
                   </div>
                 </div>
               </div>

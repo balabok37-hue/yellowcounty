@@ -14,10 +14,10 @@ export function ScrollReveal({
 }: ScrollRevealProps) {
   return (
     <motion.div
-      initial={{ opacity: 0, y: 30 }}
+      initial={{ opacity: 0, y: 20 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: "-50px" }}
-      transition={{ duration: 0.5, delay, ease: "easeOut" }}
+      transition={{ duration: 0.4, delay, ease: [0.25, 0.1, 0.25, 1] }}
       className={className}
     >
       {children}
@@ -25,7 +25,6 @@ export function ScrollReveal({
   );
 }
 
-// Simple card reveal for grids
 interface CardRevealProps {
   children: ReactNode;
   className?: string;
@@ -35,10 +34,10 @@ interface CardRevealProps {
 export function CardReveal({ children, className = '', index = 0 }: CardRevealProps) {
   return (
     <motion.div
-      initial={{ opacity: 0, y: 40 }}
+      initial={{ opacity: 0, y: 20 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: "-30px" }}
-      transition={{ duration: 0.5, delay: index * 0.1, ease: "easeOut" }}
+      transition={{ duration: 0.35, delay: index * 0.05, ease: [0.25, 0.1, 0.25, 1] }}
       className={className}
     >
       {children}
