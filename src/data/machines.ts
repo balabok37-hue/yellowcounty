@@ -29,6 +29,7 @@ import caterpillarTl943cImage from '@/assets/machines/caterpillar-tl943c.png';
 import chevroletColoradoZ71Image from '@/assets/machines/chevrolet-colorado-z71.png';
 import caterpillar289d3Image from '@/assets/machines/caterpillar-289d3.png';
 import chevroletSilverado2500hdImage from '@/assets/machines/chevrolet-silverado-2500hd-ltz.png';
+import international7300Image from '@/assets/machines/international-7300.png';
 
 export const featuredMachines: Machine[] = [
   {
@@ -913,6 +914,37 @@ export const catalogMachines: Machine[] = [
     },
     gallery: [
       chevroletSilverado2500hdImage,
+    ],
+  },
+  {
+    id: 34,
+    name: '2017 International 7300 4×4 SFA Service Truck',
+    year: 2017,
+    hours: 7800,
+    location: 'USA Stock',
+    price: 54000,
+    originalPrice: 72000,
+    discount: 25,
+    image: international7300Image,
+    isHotOffer: true,
+    description: 'The 2017 International 7300 4×4 SFA Crew Cab Service Truck – ex-utility fleet, one-owner, only 79,134 miles / ~7,800 engine hours, Altec AT40M 45 ft material-handling boom (fully tested, current ANSI/dielectric), MaxxForce DT 300 hp (no DEF, pre-emissions), Allison 3000 RDS automatic, 14k front, 40k rears, 4.88 ratio, full double frame, 11 ft utility body with flip-tops, master locks, inverter, bottle racks, pipe vise, LED compartment lights, strobes. Ice-cold A/C, power windows, cruise, heated mirrors, air-ride seats. Fresh DOT, current boom inspection, no leaks, no rust. Ships nationwide (#A0764404). Identical 2017–2018 7300 4×4 crew Altec units with under 100k miles still bringing $78–92k at JJ Kane, Utility Fleet Sales, and Ritchie Bros auctions. This is the deepest discount on a turn-key 4×4 bucket truck in the country right now.',
+    specs: {
+      engine: 'International MaxxForce DT 300 hp (no DEF)',
+      transmission: 'Allison 3000 RDS 6-speed automatic',
+      drivetrain: '4×4 with fabco transfer case',
+      gvwr: '54,000 lb',
+      aerialDevice: 'Altec AT40M 45 ft insulated boom (current cert)',
+      utilityBody: '11 ft steel with flip-tops, inverter, master locks',
+      frontAxle: '14,000 lb',
+      rearAxles: '40,000 lb',
+      tires: '11R22.5 Michelin (70–80%+)',
+      brakes: 'Full air with Jake',
+      warranty: 'Current ANSI/dielectric + DOT',
+      status: 'Work-ready, ships nationwide',
+      stockNumber: 'A0764404',
+    },
+    gallery: [
+      international7300Image,
     ],
   },
 ];
