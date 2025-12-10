@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion';
-import { Instagram, Phone, Mail, MapPin } from 'lucide-react';
+import { Instagram, Phone, Mail, MapPin, MessageCircle } from 'lucide-react';
 
 export function Footer() {
   return (
@@ -78,6 +78,12 @@ export function Footer() {
                 <Phone className="w-4 h-4 text-primary" />
                 <a href="tel:+12402427810" className="hover:text-primary transition-colors">
                   +1 (240) 242-7810
+                </a>
+              </li>
+              <li className="flex items-center gap-2">
+                <MessageCircle className="w-4 h-4 text-[#25D366]" />
+                <a href="https://wa.me/15797013943" target="_blank" rel="noopener noreferrer" className="hover:text-[#25D366] transition-colors">
+                  +1 (579) 701-3943 (WhatsApp)
                 </a>
               </li>
               <li className="flex items-center gap-2">

@@ -2,8 +2,8 @@ import { motion, useScroll, useTransform, useSpring } from 'framer-motion';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
-import { MapPin, Phone, Mail, Send, Loader2, CheckCircle2 } from 'lucide-react';
-import { useState, useRef } from 'react';
+import { MapPin, Phone, Mail, Send, Loader2, CheckCircle2, MessageCircle } from 'lucide-react';
+import { useState, useRef, useEffect } from 'react';
 import { ScrollReveal, CardReveal } from '@/components/ScrollReveal';
 import { supabase } from '@/integrations/supabase/client';
 import {
@@ -22,6 +22,15 @@ export function ContactSection() {
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [showSuccessModal, setShowSuccessModal] = useState(false);
+
+  // Listen for prefill events from MachineModal
+  useEffect(() => {
+    const handlePrefill = (e: CustomEvent<{ message: string }>) => {
+      setFormData(prev => ({ ...prev, message: e.detail.message }));
+    };
+    window.addEventListener('prefillContactForm', handlePrefill as EventListener);
+    return () => window.removeEventListener('prefillContactForm', handlePrefill as EventListener);
+  }, []);
 
   const sectionRef = useRef<HTMLElement>(null);
   const { scrollYProgress } = useScroll({
@@ -190,33 +199,42 @@ export function ContactSection() {
               </div>
 
               <div className="space-y-4">
-                <div className="grid grid-cols-2 gap-4">
+                <div className="grid grid-cols-3 gap-3">
                   <CardReveal index={0}>
-                    <div className="glass-card p-4 sm:p-6 text-center h-full">
-                      <MapPin className="w-6 h-6 sm:w-8 sm:h-8 text-primary mx-auto mb-2 sm:mb-3" />
-                      <div className="text-xs sm:text-sm text-muted-foreground">Location</div>
-                      <div className="font-semibold text-foreground text-xs sm:text-sm">
-                        5150 Midland Rd,<br />Billings, MT 59101
-                      </div>
-                    </div>
-                  </CardReveal>
-                  <CardReveal index={1}>
-                    <div className="glass-card p-4 sm:p-6 text-center h-full">
-                      <Phone className="w-6 h-6 sm:w-8 sm:h-8 text-primary mx-auto mb-2 sm:mb-3" />
-                      <div className="text-xs sm:text-sm text-muted-foreground">Phone</div>
-                      <a href="tel:+12402427810" className="font-semibold text-foreground hover:text-primary transition-colors text-xs sm:text-sm">
+                    <div className="glass-card p-3 sm:p-4 text-center h-full">
+                      <Phone className="w-5 h-5 sm:w-6 sm:h-6 text-primary mx-auto mb-1 sm:mb-2" />
+                      <div className="text-[10px] sm:text-xs text-muted-foreground">Phone</div>
+                      <a href="tel:+12402427810" className="font-semibold text-foreground hover:text-primary transition-colors text-[10px] sm:text-xs">
                         +1 (240) 242-7810
                       </a>
                     </div>
                   </CardReveal>
+                  <CardReveal index={1}>
+                    <div className="glass-card p-3 sm:p-4 text-center h-full">
+                      <MessageCircle className="w-5 h-5 sm:w-6 sm:h-6 text-[#25D366] mx-auto mb-1 sm:mb-2" />
+                      <div className="text-[10px] sm:text-xs text-muted-foreground">WhatsApp</div>
+                      <a href="https://wa.me/15797013943" target="_blank" rel="noopener noreferrer" className="font-semibold text-foreground hover:text-[#25D366] transition-colors text-[10px] sm:text-xs">
+                        +1 (579) 701-3943
+                      </a>
+                    </div>
+                  </CardReveal>
+                  <CardReveal index={2}>
+                    <div className="glass-card p-3 sm:p-4 text-center h-full">
+                      <Mail className="w-5 h-5 sm:w-6 sm:h-6 text-primary mx-auto mb-1 sm:mb-2" />
+                      <div className="text-[10px] sm:text-xs text-muted-foreground">Email</div>
+                      <a href="mailto:sales@yellowcounty.com" className="font-semibold text-foreground hover:text-primary transition-colors text-[10px] sm:text-xs truncate block">
+                        sales@yellowcounty.com
+                      </a>
+                    </div>
+                  </CardReveal>
                 </div>
-                <CardReveal index={2}>
+                <CardReveal index={3}>
                   <div className="glass-card p-4 sm:p-6 text-center">
-                    <Mail className="w-6 h-6 sm:w-8 sm:h-8 text-primary mx-auto mb-2 sm:mb-3" />
-                    <div className="text-xs sm:text-sm text-muted-foreground">Email</div>
-                    <a href="mailto:sales@yellowcounty.com" className="font-semibold text-foreground hover:text-primary transition-colors text-sm sm:text-lg">
-                      sales@yellowcounty.com
-                    </a>
+                    <MapPin className="w-6 h-6 sm:w-8 sm:h-8 text-primary mx-auto mb-2 sm:mb-3" />
+                    <div className="text-xs sm:text-sm text-muted-foreground">Location</div>
+                    <div className="font-semibold text-foreground text-xs sm:text-sm">
+                      5150 Midland Rd, Billings, MT 59101
+                    </div>
                   </div>
                 </CardReveal>
               </div>
