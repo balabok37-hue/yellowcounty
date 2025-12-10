@@ -22,6 +22,7 @@ import mackGu713Image from '@/assets/machines/mack-gu713.png';
 import komatsuWa3208Image from '@/assets/machines/komatsu-wa320-8.png';
 import fordF750DumpImage from '@/assets/machines/ford-f750-dump.png';
 import caterpillarCb16Image from '@/assets/machines/caterpillar-cb16.png';
+import genieGth1056Image from '@/assets/machines/genie-gth1056.png';
 
 export const featuredMachines: Machine[] = [
   {
@@ -802,6 +803,37 @@ export const catalogMachines: Machine[] = [
     },
     gallery: [
       caterpillarCb16Image,
+    ],
+  },
+  {
+    id: 24,
+    name: '2007 Genie GTH-1056 Telehandler',
+    year: 2007,
+    hours: 7674,
+    location: 'USA Stock',
+    price: 19950,
+    originalPrice: 21000,
+    discount: 5,
+    image: genieGth1056Image,
+    description: 'The 2007 Genie GTH-1056 – legendary 10,000 lb / 56 ft telehandler that still outworks most new machines. Deutz BF4M2011 99 hp (no DEF, no regen), 4-speed powershift, 4WD, crab steer, frame leveling, foam-filled 14.00-24 tires at 70–80%, auxiliary hydraulics at boom head, quick-attach carriage + 60" forks. Only 7,674 original hours, fresh annual inspection, tight boom, no leaks, no welds, ice-cold A/C cab, fully serviced and ready to stack hay or load trucks tomorrow. Ships nationwide (#A6420133). Same-year GTH-1056 units with 7–9k hours still selling $24–28k all day at Ritchie Bros, JJ Kane, and Alex Lyon auctions.',
+    specs: {
+      engine: 'Deutz BF4M2011 99 hp (Tier 3 – no DEF)',
+      maxLiftCapacity: '10,000 lb (4,536 kg)',
+      liftHeight: '56 ft 10 in (17.32 m)',
+      forwardReach: '42 ft (12.8 m)',
+      capacityAtMaxHeight: '6,000 lb',
+      capacityAtMaxReach: '3,000 lb',
+      transmission: '4-speed powershift',
+      driveSteer: '4WD, 3-mode steer (front/crab/circle)',
+      frameLeveling: '±10°',
+      tires: '14.00-24 foam-filled (70–80%)',
+      hydraulicFlow: '43 gpm, auxiliary at boom head',
+      cab: 'Enclosed ROPS/FOPS, heat & A/C',
+      status: 'Fully serviced, work-ready, ships nationwide',
+      stockNumber: 'A6420133',
+    },
+    gallery: [
+      genieGth1056Image,
     ],
   },
 ];
