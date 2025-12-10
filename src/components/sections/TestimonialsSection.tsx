@@ -1,6 +1,6 @@
 import { motion } from 'framer-motion';
 import { Star, Quote, ChevronLeft, ChevronRight } from 'lucide-react';
-import { useState, useCallback } from 'react';
+import { useState, useCallback, useEffect } from 'react';
 import useEmblaCarousel from 'embla-carousel-react';
 
 const testimonials = [
@@ -83,10 +83,14 @@ export function TestimonialsSection() {
     setSelectedIndex(emblaApi.selectedScrollSnap());
   }, [emblaApi]);
 
-  // Set up the onSelect callback
-  if (emblaApi) {
+  useEffect(() => {
+    if (!emblaApi) return;
+    onSelect();
     emblaApi.on('select', onSelect);
-  }
+    return () => {
+      emblaApi.off('select', onSelect);
+    };
+  }, [emblaApi, onSelect]);
 
   return (
     <section className="py-20 md:py-32 overflow-hidden">
