@@ -2,10 +2,11 @@ import { motion, useScroll, useTransform, useSpring } from 'framer-motion';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
-import { MapPin, Phone, Mail, Send } from 'lucide-react';
+import { MapPin, Phone, Mail, Send, Loader2 } from 'lucide-react';
 import { useState, useRef } from 'react';
 import { toast } from 'sonner';
 import { ScrollReveal, CardReveal } from '@/components/ScrollReveal';
+import { supabase } from '@/integrations/supabase/client';
 
 export function ContactSection() {
   const [formData, setFormData] = useState({
@@ -14,6 +15,7 @@ export function ContactSection() {
     phone: '',
     message: '',
   });
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
   const sectionRef = useRef<HTMLElement>(null);
   const { scrollYProgress } = useScroll({
@@ -25,10 +27,49 @@ export function ContactSection() {
   const headerOpacity = useSpring(useTransform(scrollYProgress, [0, 0.15, 0.85, 1], [0, 1, 1, 0]), springConfig);
   const headerY = useSpring(useTransform(scrollYProgress, [0, 0.15, 0.85, 1], [60, 0, 0, -60]), springConfig);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    toast.success('Message sent! We\'ll get back to you within 24 hours.');
-    setFormData({ name: '', email: '', phone: '', message: '' });
+    setIsSubmitting(true);
+
+    try {
+      // Save lead to database
+      const { error: dbError } = await supabase
+        .from('leads')
+        .insert({
+          name: formData.name,
+          email: formData.email,
+          phone: formData.phone || null,
+          message: formData.message,
+        });
+
+      if (dbError) {
+        console.error('Database error:', dbError);
+        throw new Error('Failed to save lead');
+      }
+
+      // Send Telegram notification
+      const { error: fnError } = await supabase.functions.invoke('send-telegram-notification', {
+        body: {
+          name: formData.name,
+          email: formData.email,
+          phone: formData.phone,
+          message: formData.message,
+        },
+      });
+
+      if (fnError) {
+        console.error('Telegram notification error:', fnError);
+        // Don't throw - lead is saved, notification is secondary
+      }
+
+      toast.success('Message sent! We\'ll get back to you within 24 hours.');
+      setFormData({ name: '', email: '', phone: '', message: '' });
+    } catch (error) {
+      console.error('Form submission error:', error);
+      toast.error('Failed to send message. Please try again.');
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -63,6 +104,7 @@ export function ContactSection() {
                     placeholder="John Smith"
                     className="bg-background/50 border-border/50"
                     required
+                    disabled={isSubmitting}
                   />
                 </div>
                 <div>
@@ -74,7 +116,7 @@ export function ContactSection() {
                     onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
                     placeholder="+1 (555) 000-0000"
                     className="bg-background/50 border-border/50"
-                    required
+                    disabled={isSubmitting}
                   />
                 </div>
               </div>
@@ -89,6 +131,7 @@ export function ContactSection() {
                   placeholder="john@company.com"
                   className="bg-background/50 border-border/50"
                   required
+                  disabled={isSubmitting}
                 />
               </div>
               <div>
@@ -102,15 +145,26 @@ export function ContactSection() {
                   rows={4}
                   className="bg-background/50 border-border/50"
                   required
+                  disabled={isSubmitting}
                 />
               </div>
               <Button
                 type="submit"
                 size="lg"
                 className="w-full btn-glow bg-primary hover:bg-primary/90 text-primary-foreground font-bold"
+                disabled={isSubmitting}
               >
-                <Send className="w-4 h-4 mr-2" />
-                Send Message
+                {isSubmitting ? (
+                  <>
+                    <Loader2 className="w-4 h-4 mr-2 animate-spin" />
+                    Sending...
+                  </>
+                ) : (
+                  <>
+                    <Send className="w-4 h-4 mr-2" />
+                    Send Message
+                  </>
+                )}
               </Button>
             </form>
           </ScrollReveal>
