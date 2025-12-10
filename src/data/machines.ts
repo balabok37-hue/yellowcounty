@@ -41,6 +41,7 @@ import komatsuD65pxiImage from '@/assets/machines/komatsu-d65pxi.png';
 import kubotaKx0404Image from '@/assets/machines/kubota-kx040-4.png';
 import johnDeere35pTierImage from '@/assets/machines/john-deere-35-p-tier.png';
 import johnDeere35pTier2024Image from '@/assets/machines/john-deere-35-p-tier-2024.png';
+import johnDeere35pTier2024bImage from '@/assets/machines/john-deere-35-p-tier-2024-b.png';
 
 // Category definitions with labels and icons
 export const categoryInfo: Record<MachineCategory, { label: string; labelRu?: string }> = {
@@ -1293,6 +1294,34 @@ export const allMachines: Machine[] = [
       johnDeere35pTier2024Image,
     ],
   },
+  {
+    id: 56,
+    name: '2024 John Deere 35 P-Tier Mini Excavator',
+    year: 2024,
+    hours: 120,
+    location: 'Nashville, Tennessee',
+    price: 45000,
+    originalPrice: 50000,
+    discount: 10,
+    category: 'earthmoving',
+    image: johnDeere35pTier2024bImage,
+    isHotOffer: false,
+    description: '2024 John Deere 35 P-Tier demo machine with minimal dealer yard hours. Full factory warranty remains until 2028 / 3,000 h. Zero tail swing, expandable tracks, 6-way angle blade, factory hydraulic thumb, deluxe cab. Looks and runs brand-new at a sharp discount.',
+    specs: {
+      engine: 'Yanmar 3TNV88 Tier 4 Final',
+      power: '23.3 hp',
+      weight: '8,750 lbs (3.97 metric tons)',
+      trackWidth: 'Rubber expandable ≈ 99% remaining',
+      bucketCapacity: 'Power angle 6-way blade, factory hydraulic thumb',
+      hydraulicFlow: 'Proportional auxiliary circuit',
+      cab: 'Enclosed ROPS, heat & ice-cold A/C, air-ride seat, Bluetooth, rear camera',
+      features: 'Full factory warranty until 2028/3,000h (transferable), fresh pre-delivery service, clean Tennessee title',
+      status: 'In stock – ships worldwide',
+    },
+    gallery: [
+      johnDeere35pTier2024bImage,
+    ],
+  },
 ];
 
 // Category assignments by machine ID
@@ -1309,6 +1338,7 @@ const categoryMap: Record<number, MachineCategory> = {
   53: 'earthmoving', // Kubota KX040-4 Mini Excavator
   54: 'earthmoving', // John Deere 35 P-Tier Mini Excavator (2023)
   55: 'earthmoving', // John Deere 35 P-Tier Mini Excavator (2024)
+  56: 'earthmoving', // John Deere 35 P-Tier Mini Excavator (2024 B)
   
   // Loaders (Wheel Loaders, Backhoe Loaders, Track Loaders)
   2: 'loaders', // SW405K Wheel Loader
