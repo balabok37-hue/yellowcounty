@@ -112,7 +112,7 @@ export function LoadingScreen({ isLoading }: LoadingScreenProps) {
                   animate={{ scale: [1, 1.05, 1] }}
                   transition={{ duration: 1.5, repeat: Infinity, ease: 'easeInOut' }}
                 >
-                  HM
+                  YS
                 </motion.span>
               </div>
             </motion.div>
@@ -125,7 +125,7 @@ export function LoadingScreen({ isLoading }: LoadingScreenProps) {
               className="text-center"
             >
               <h1 className="text-3xl sm:text-4xl font-bold text-foreground tracking-tight">
-                HeavyMach <span className="text-primary">USA</span>
+                Yellow<span className="text-primary">Stone</span>
               </h1>
               <motion.p
                 initial={{ opacity: 0 }}
