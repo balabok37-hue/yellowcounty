@@ -37,6 +37,7 @@ import caterpillar950mImage from '@/assets/machines/caterpillar-950m.png';
 import johnDeere544pImage from '@/assets/machines/john-deere-544p.png';
 import volvoL120hImage from '@/assets/machines/volvo-l120h.png';
 import caterpillarD6Image from '@/assets/machines/caterpillar-d6.png';
+import komatsuD65pxiImage from '@/assets/machines/komatsu-d65pxi.png';
 
 // Category definitions with labels and icons
 export const categoryInfo: Record<MachineCategory, { label: string; labelRu?: string }> = {
@@ -1177,6 +1178,34 @@ export const allMachines: Machine[] = [
       caterpillarD6Image,
     ],
   },
+  {
+    id: 52,
+    name: '2019 Komatsu D65PXi-18 Intelligent Dozer',
+    year: 2019,
+    hours: 5410,
+    location: 'Phoenix, Arizona',
+    price: 104720,
+    originalPrice: 119000,
+    discount: 12,
+    category: 'earthmoving',
+    image: komatsuD65pxiImage,
+    isHotOffer: false,
+    description: 'Ultra-clean 2019 Komatsu D65PXi-18 (factory intelligent machine control). One-owner Arizona highway contractor unit, always dealer-serviced and shedded. Full iMC GPS system (3D-MC) still active with current subscription. Fresh service, new cutting edges, zero leaks. This is the smartest dozer you can buy at this price.',
+    specs: {
+      engine: 'Komatsu SAA6D114E-6 Tier 4 Final',
+      power: '217 hp',
+      weight: '52,160 lbs (23.7 metric tons)',
+      trackWidth: 'PLUS rotating bushings ≈ 82% remaining',
+      bucketCapacity: '13\'8" PAT blade (power angle tilt) – new edges & corners',
+      hydraulicFlow: 'Multi-shank ripper with 3 teeth',
+      cab: 'Enclosed ROPS, heat & A/C, air-ride seat, 360° cameras, Komatsu Intelligent Machine Control (GPS ready)',
+      features: 'Active iMC subscription transferable, fresh service, full inspection report, clean Arizona title',
+      status: 'In stock – ships worldwide',
+    },
+    gallery: [
+      komatsuD65pxiImage,
+    ],
+  },
 ];
 
 // Category assignments by machine ID
@@ -1189,6 +1218,7 @@ const categoryMap: Record<number, MachineCategory> = {
   46: 'earthmoving', // Hitachi ZX350 Excavator
   47: 'earthmoving', // John Deere 210G Excavator
   51: 'earthmoving', // CAT D6 Dozer (SOLD)
+  52: 'earthmoving', // Komatsu D65PXi Dozer
   
   // Loaders (Wheel Loaders, Backhoe Loaders, Track Loaders)
   2: 'loaders', // SW405K Wheel Loader
