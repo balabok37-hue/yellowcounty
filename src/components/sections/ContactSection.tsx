@@ -2,16 +2,24 @@ import { motion, useScroll, useTransform, useSpring } from 'framer-motion';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
-import { MapPin, Phone, Mail, Send, Loader2, CheckCircle2, MessageCircle } from 'lucide-react';
+import { MapPin, Phone, Mail, Send, Loader2, CheckCircle2, MessageCircle, ChevronDown } from 'lucide-react';
 import { useState, useRef, useEffect } from 'react';
 import { ScrollReveal, CardReveal } from '@/components/ScrollReveal';
 import { supabase } from '@/integrations/supabase/client';
+import { allMachines } from '@/data/machines';
 import {
   Dialog,
   DialogContent,
   DialogHeader,
   DialogTitle,
 } from '@/components/ui/dialog';
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from '@/components/ui/select';
 
 export function ContactSection() {
   const [formData, setFormData] = useState({
@@ -19,14 +27,21 @@ export function ContactSection() {
     email: '',
     phone: '',
     message: '',
+    selectedMachine: '',
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [showSuccessModal, setShowSuccessModal] = useState(false);
+  const messageRef = useRef<HTMLTextAreaElement>(null);
 
   // Listen for prefill events from MachineModal
   useEffect(() => {
     const handlePrefill = (e: CustomEvent<{ message: string }>) => {
       setFormData(prev => ({ ...prev, message: e.detail.message }));
+      // Auto-focus message field after a short delay
+      setTimeout(() => {
+        messageRef.current?.focus();
+        messageRef.current?.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      }, 400);
     };
     window.addEventListener('prefillContactForm', handlePrefill as EventListener);
     return () => window.removeEventListener('prefillContactForm', handlePrefill as EventListener);
@@ -42,11 +57,32 @@ export function ContactSection() {
   const headerOpacity = useSpring(useTransform(scrollYProgress, [0, 0.15, 0.85, 1], [0, 1, 1, 0]), springConfig);
   const headerY = useSpring(useTransform(scrollYProgress, [0, 0.15, 0.85, 1], [60, 0, 0, -60]), springConfig);
 
+  // Handle machine selection - prefill message
+  const handleMachineSelect = (machineId: string) => {
+    setFormData(prev => ({ ...prev, selectedMachine: machineId }));
+    if (machineId && machineId !== 'none') {
+      const machine = allMachines.find(m => m.id.toString() === machineId);
+      if (machine) {
+        const message = `Hi! I'm interested in the ${machine.year} ${machine.name} listed at $${machine.price.toLocaleString()}. Is it still available?`;
+        setFormData(prev => ({ ...prev, message, selectedMachine: machineId }));
+      }
+    }
+  };
+
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
 
     try {
+      // Include selected machine in message if selected
+      let finalMessage = formData.message;
+      if (formData.selectedMachine && formData.selectedMachine !== 'none') {
+        const machine = allMachines.find(m => m.id.toString() === formData.selectedMachine);
+        if (machine && !formData.message.includes(machine.name)) {
+          finalMessage = `[Interested in: ${machine.year} ${machine.name}]\n\n${formData.message}`;
+        }
+      }
+
       // Save lead to database
       const { error: dbError } = await supabase
         .from('leads')
@@ -54,7 +90,7 @@ export function ContactSection() {
           name: formData.name,
           email: formData.email,
           phone: formData.phone || null,
-          message: formData.message,
+          message: finalMessage,
         });
 
       if (dbError) {
@@ -68,7 +104,7 @@ export function ContactSection() {
           name: formData.name,
           email: formData.email,
           phone: formData.phone,
-          message: formData.message,
+          message: finalMessage,
         },
       });
 
@@ -77,7 +113,7 @@ export function ContactSection() {
       }
 
       setShowSuccessModal(true);
-      setFormData({ name: '', email: '', phone: '', message: '' });
+      setFormData({ name: '', email: '', phone: '', message: '', selectedMachine: '' });
     } catch (error) {
       console.error('Form submission error:', error);
     } finally {
@@ -149,9 +185,32 @@ export function ContactSection() {
               </div>
               <div>
                 <label className="text-sm font-medium text-foreground mb-2 block">
+                  Interested in (optional)
+                </label>
+                <Select
+                  value={formData.selectedMachine}
+                  onValueChange={handleMachineSelect}
+                  disabled={isSubmitting}
+                >
+                  <SelectTrigger className="bg-background/50 border-border/50">
+                    <SelectValue placeholder="Select a machine..." />
+                  </SelectTrigger>
+                  <SelectContent className="bg-background border-border max-h-60">
+                    <SelectItem value="none">No specific machine</SelectItem>
+                    {allMachines.map((machine) => (
+                      <SelectItem key={machine.id} value={machine.id.toString()}>
+                        {machine.year} {machine.name} - ${machine.price.toLocaleString()}
+                      </SelectItem>
+                    ))}
+                  </SelectContent>
+                </Select>
+              </div>
+              <div>
+                <label className="text-sm font-medium text-foreground mb-2 block">
                   Message
                 </label>
                 <Textarea
+                  ref={messageRef}
                   value={formData.message}
                   onChange={(e) => setFormData({ ...formData, message: e.target.value })}
                   placeholder="Tell us about the equipment you're looking for..."
