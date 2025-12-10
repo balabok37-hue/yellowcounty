@@ -33,6 +33,7 @@ import international7300Image from '@/assets/machines/international-7300.png';
 import caterpillar336Image from '@/assets/machines/caterpillar-336.png';
 import hitachiZx350Image from '@/assets/machines/hitachi-zx350.png';
 import johnDeere210gImage from '@/assets/machines/john-deere-210g.png';
+import caterpillar950mImage from '@/assets/machines/caterpillar-950m.png';
 
 // Category definitions with labels and icons
 export const categoryInfo: Record<MachineCategory, { label: string; labelRu?: string }> = {
@@ -1060,6 +1061,34 @@ export const allMachines: Machine[] = [
       johnDeere210gImage,
     ],
   },
+  {
+    id: 48,
+    name: '2018 Caterpillar 950M Wheel Loader',
+    year: 2018,
+    hours: 7340,
+    location: 'Billings, Montana',
+    price: 142800,
+    originalPrice: 170000,
+    discount: 16,
+    category: 'loaders',
+    image: caterpillar950mImage,
+    isHotOffer: false,
+    description: '2018 CAT 950M straight from a Montana gravel pit operation. One-owner, full Cat dealer history, no accidents. Fresh 500-hour service completed, zero leaks, excellent rubber all around (80% remaining). Ice-cold A/C, ride control, auto-lube ready. Comes with 5.5 yd³ GP bucket + bolt-on edge. Ready to load trucks today.',
+    specs: {
+      engine: 'Cat C7.1 Tier 4 Final',
+      power: '250 hp',
+      weight: '42,357 lbs (19.2 metric tons)',
+      bucketCapacity: '5.5 yd³ general purpose with BOE',
+      hydraulicFlow: '3rd valve + ride control, quick coupler ready',
+      cab: 'Deluxe enclosed, heat & A/C, rear camera, Cat Payload scales',
+      tireSize: '23.5R25 Michelin XHA2 ≈ 80% remaining',
+      features: 'Auto-lube ready, fresh 500-hr service, full inspection report, clean Montana title',
+      status: 'In stock – ships worldwide',
+    },
+    gallery: [
+      caterpillar950mImage,
+    ],
+  },
 ];
 
 // Category assignments by machine ID
@@ -1080,6 +1109,7 @@ const categoryMap: Record<number, MachineCategory> = {
   20: 'loaders', // WA320-8 Wheel Loader
   39: 'loaders', // 310SL Backhoe
   42: 'loaders', // 289D3 Track Loader
+  48: 'loaders', // CAT 950M Wheel Loader
   
   // Telehandlers & Forklifts
   6: 'telehandlers', // MLT 1040
