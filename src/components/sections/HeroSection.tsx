@@ -20,7 +20,7 @@ export function HeroSection() {
   };
 
   return (
-    <section ref={containerRef} className="relative min-h-[100svh] flex items-center justify-center overflow-hidden">
+    <section ref={containerRef} className="relative min-h-[100svh] flex items-center justify-center overflow-hidden" style={{ position: 'relative' }}>
       {/* Parallax Background Image - Brighter */}
       <motion.div 
         className="absolute inset-0 z-0"

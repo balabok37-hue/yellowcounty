@@ -50,8 +50,8 @@ export function Header() {
           className="absolute inset-0 bg-background border-b border-primary/20"
           style={{ 
             opacity: backgroundOpacity,
-            backdropFilter: blur.get() > 0 ? `blur(${blur.get()}px)` : 'none',
-            borderBottomColor: `hsl(48 100% 50% / ${borderOpacity.get()})`
+            backdropFilter: `blur(${blur}px)`,
+            borderBottomColor: `hsl(48 100% 50% / ${borderOpacity})`
           }}
         />
         

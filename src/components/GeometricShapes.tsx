@@ -1,5 +1,5 @@
 import { motion, useScroll, useTransform, useSpring, useMotionValue, useAnimationFrame } from 'framer-motion';
-import { useRef, useMemo } from 'react';
+import { useRef, useMemo, useEffect } from 'react';
 
 interface GeometricShapesProps {
   variant?: 'hero' | 'section';
@@ -12,13 +12,16 @@ export function GeometricShapes({ intensity = 1 }: GeometricShapesProps) {
   const mouseY = useMotionValue(0);
   const time = useRef(0);
   
-  // Track mouse for interactive parallax
-  if (typeof window !== 'undefined') {
-    window.addEventListener('mousemove', (e) => {
+  // Track mouse for interactive parallax - fixed memory leak
+  useEffect(() => {
+    const handleMouseMove = (e: MouseEvent) => {
       mouseX.set((e.clientX - window.innerWidth / 2) * 0.02);
       mouseY.set((e.clientY - window.innerHeight / 2) * 0.02);
-    }, { passive: true });
-  }
+    };
+    
+    window.addEventListener('mousemove', handleMouseMove, { passive: true });
+    return () => window.removeEventListener('mousemove', handleMouseMove);
+  }, [mouseX, mouseY]);
 
   // Smooth spring config
   const springConfig = { stiffness: 30, damping: 20, mass: 1 };
