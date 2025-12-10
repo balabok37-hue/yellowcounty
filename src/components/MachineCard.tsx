@@ -152,10 +152,12 @@ export function MachineCard({ machine, index, onViewDetails }: MachineCardProps)
           </div>
         )}
 
-        {/* SOLD badge */}
+        {/* SOLD overlay */}
         {machine.isSold && (
-          <div className="absolute top-3 right-3 sm:top-4 sm:right-4 px-4 py-2 rounded-lg bg-muted text-sm sm:text-base font-black text-muted-foreground z-10 border-2 border-muted-foreground/30 uppercase tracking-wider">
-            SOLD
+          <div className="absolute inset-0 z-20 flex items-center justify-center bg-destructive/80 backdrop-blur-sm">
+            <span className="text-4xl sm:text-5xl md:text-6xl font-black text-destructive-foreground uppercase tracking-widest -rotate-12 drop-shadow-lg">
+              SOLD
+            </span>
           </div>
         )}
 
