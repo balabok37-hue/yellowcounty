@@ -21,6 +21,7 @@ import silverado5500hdBoxImage from '@/assets/machines/chevrolet-silverado-5500h
 import mackGu713Image from '@/assets/machines/mack-gu713.png';
 import komatsuWa3208Image from '@/assets/machines/komatsu-wa320-8.png';
 import fordF750DumpImage from '@/assets/machines/ford-f750-dump.png';
+import caterpillarCb16Image from '@/assets/machines/caterpillar-cb16.png';
 
 export const featuredMachines: Machine[] = [
   {
@@ -772,6 +773,35 @@ export const catalogMachines: Machine[] = [
     },
     gallery: [
       fordF750DumpImage,
+    ],
+  },
+  {
+    id: 23,
+    name: '2019 Caterpillar CB16 Tandem Vibratory Roller',
+    year: 2019,
+    hours: 4929,
+    location: 'USA Stock',
+    price: 66240,
+    originalPrice: 72000,
+    discount: 8,
+    image: caterpillarCb16Image,
+    description: 'The 2019 Caterpillar CB16 – 84-inch tandem vibratory roller, 4929 original hours, open ROPS with canopy, work lights, and rotating beacon. Cat C4.4 Tier 4 Final 142 hp engine (no DEF), hydrostatic drive, dual amplitude/frequency, water spray system with triple filtration, pressurized water tank, cocoa mats, drum edge lights, and offset drum capability. Fresh full service, drums 95%, no leaks, no welds, ice-cold A/C cab version also available. Runs perfect, compacts like new. Ships nationwide (#A8006064). Same-spec 2019–2020 CB16 units with 4–6k hours still bringing $76–84k at Ritchie Bros, IronPlanet, and Alex Lyon auctions.',
+    specs: {
+      engine: 'Cat C4.4 142 hp (Tier 4 Final – no DEF)',
+      weight: '33,420 lb (15,160 kg)',
+      drumWidth: '84 in (2,134 mm)',
+      frequency: '3,800 / 2,520 vpm (high/low)',
+      centrifugalForce: '19,400 lb / 14,600 lb (high/low)',
+      travelSpeed: '8 mph (13 km/h)',
+      turningRadius: '12 ft 6 in (3.81 m)',
+      waterTank: '264 gal (1,000 L)',
+      cabRops: 'Open ROPS + canopy (A/C cab available)',
+      features: 'Offset drum, edge cutter, LED lights, mats',
+      status: 'Fully serviced, compaction-ready, ships nationwide',
+      stockNumber: 'A8006064',
+    },
+    gallery: [
+      caterpillarCb16Image,
     ],
   },
 ];
