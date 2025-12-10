@@ -28,6 +28,7 @@ import johnDeere310slImage from '@/assets/machines/john-deere-310sl.png';
 import caterpillarTl943cImage from '@/assets/machines/caterpillar-tl943c.png';
 import chevroletColoradoZ71Image from '@/assets/machines/chevrolet-colorado-z71.png';
 import caterpillar289d3Image from '@/assets/machines/caterpillar-289d3.png';
+import chevroletSilverado2500hdImage from '@/assets/machines/chevrolet-silverado-2500hd-ltz.png';
 
 export const featuredMachines: Machine[] = [
   {
@@ -884,6 +885,34 @@ export const catalogMachines: Machine[] = [
     },
     gallery: [
       caterpillar289d3Image,
+    ],
+  },
+  {
+    id: 33,
+    name: '2021 Chevrolet Silverado 2500HD LTZ Crew Cab 4×4',
+    year: 2021,
+    hours: 131,
+    location: 'USA Stock',
+    price: 49772,
+    originalPrice: 58555,
+    discount: 15,
+    image: chevroletSilverado2500hdImage,
+    description: 'The 2021 Chevrolet Silverado 2500HD LTZ Crew Cab 4×4 Z71 – basically brand-new, only 131 original delivery miles, never titled or registered! Duramax 6.6L V8 Turbo Diesel 445 hp / 910 lb-ft + Allison 10-speed automatic, LTZ Premium + Z71 Off-Road packages, heated/cooled leather buckets, heated rear seats, Bose audio, dual-zone climate, wireless CarPlay/Android Auto, heads-up display, safety suite (blind-spot, lane-keep, front/rear park assist), power running boards, spray-in bedliner, 20" polished wheels with brand-new Goodyear Wrangler tires, LED cargo + bed lights. 100% remaining GM factory warranty (5 yr/100k powertrain + 5 yr/100k Duramax). Ships nationwide (#A3488409). Identical untitled/low-mile 2021 2500HD LTZ Duramax units still trading $62–68k at Manheim, ADESA and dealer auctions. This is the deepest discount on a brand-new 2021 Duramax in the country right now.',
+    specs: {
+      engine: 'Duramax 6.6L V8 Turbo Diesel',
+      power: '445 hp / 910 lb-ft torque',
+      transmission: 'Allison 10-speed automatic',
+      package: 'LTZ Premium + Z71 Off-Road + Safety packages',
+      interior: 'Perforated leather heated/cooled, Bose, HUD',
+      towingCapacity: '18,500 lb (conventional) / 36,000 lb (gooseneck)',
+      tires: '20" polished aluminum + Goodyear (100%)',
+      warranty: 'Full factory 5 yr/100k powertrain + Duramax',
+      carfax: '0 owners, never titled',
+      status: 'Brand-new condition, ships nationwide',
+      stockNumber: 'A3488409',
+    },
+    gallery: [
+      chevroletSilverado2500hdImage,
     ],
   },
 ];
