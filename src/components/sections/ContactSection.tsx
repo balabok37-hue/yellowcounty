@@ -131,30 +131,32 @@ export function ContactSection() {
                 />
               </div>
 
-              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-                <CardReveal index={0}>
-                  <div className="glass-card p-4 sm:p-6 text-center h-full">
-                    <MapPin className="w-6 h-6 sm:w-8 sm:h-8 text-primary mx-auto mb-2 sm:mb-3" />
-                    <div className="text-xs sm:text-sm text-muted-foreground">Location</div>
-                    <div className="font-semibold text-foreground text-xs sm:text-sm">
-                      5150 Midland Rd,<br />Billings, MT 59101
+              <div className="space-y-4">
+                <div className="grid grid-cols-2 gap-4">
+                  <CardReveal index={0}>
+                    <div className="glass-card p-4 sm:p-6 text-center h-full">
+                      <MapPin className="w-6 h-6 sm:w-8 sm:h-8 text-primary mx-auto mb-2 sm:mb-3" />
+                      <div className="text-xs sm:text-sm text-muted-foreground">Location</div>
+                      <div className="font-semibold text-foreground text-xs sm:text-sm">
+                        5150 Midland Rd,<br />Billings, MT 59101
+                      </div>
                     </div>
-                  </div>
-                </CardReveal>
-                <CardReveal index={1}>
-                  <div className="glass-card p-4 sm:p-6 text-center h-full">
-                    <Phone className="w-6 h-6 sm:w-8 sm:h-8 text-primary mx-auto mb-2 sm:mb-3" />
-                    <div className="text-xs sm:text-sm text-muted-foreground">Phone</div>
-                    <a href="tel:+12402427810" className="font-semibold text-foreground hover:text-primary transition-colors text-xs sm:text-sm">
-                      +1 (240) 242-7810
-                    </a>
-                  </div>
-                </CardReveal>
+                  </CardReveal>
+                  <CardReveal index={1}>
+                    <div className="glass-card p-4 sm:p-6 text-center h-full">
+                      <Phone className="w-6 h-6 sm:w-8 sm:h-8 text-primary mx-auto mb-2 sm:mb-3" />
+                      <div className="text-xs sm:text-sm text-muted-foreground">Phone</div>
+                      <a href="tel:+12402427810" className="font-semibold text-foreground hover:text-primary transition-colors text-xs sm:text-sm">
+                        +1 (240) 242-7810
+                      </a>
+                    </div>
+                  </CardReveal>
+                </div>
                 <CardReveal index={2}>
-                  <div className="glass-card p-4 sm:p-6 text-center h-full sm:col-span-2 lg:col-span-2">
+                  <div className="glass-card p-4 sm:p-6 text-center">
                     <Mail className="w-6 h-6 sm:w-8 sm:h-8 text-primary mx-auto mb-2 sm:mb-3" />
                     <div className="text-xs sm:text-sm text-muted-foreground">Email</div>
-                    <a href="mailto:sales@yellowcounty.com" className="font-semibold text-foreground hover:text-primary transition-colors text-sm sm:text-base">
+                    <a href="mailto:sales@yellowcounty.com" className="font-semibold text-foreground hover:text-primary transition-colors text-sm sm:text-lg">
                       sales@yellowcounty.com
                     </a>
                   </div>
