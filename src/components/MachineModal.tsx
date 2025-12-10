@@ -20,23 +20,22 @@ export function MachineModal({ machine, isOpen, onClose }: MachineModalProps) {
     onClose();
   }, [onClose]);
 
-  if (!machine) return null;
-
-  const images = machine.gallery || [machine.image];
-  
   const scrollToContact = useCallback((prefillMessage?: string) => {
     handleClose();
     setTimeout(() => {
       const contactSection = document.getElementById('contact');
       if (contactSection) {
         contactSection.scrollIntoView({ behavior: 'smooth' });
-        // Dispatch event to prefill the form
         if (prefillMessage) {
           window.dispatchEvent(new CustomEvent('prefillContactForm', { detail: { message: prefillMessage } }));
         }
       }
     }, 300);
   }, [handleClose]);
+
+  if (!machine) return null;
+
+  const images = machine.gallery || [machine.image];
 
   const handleRequestQuote = () => {
     const message = `Hi! I'm interested in the ${machine.year} ${machine.name} listed at $${machine.price.toLocaleString()}. Is it still available?`;
