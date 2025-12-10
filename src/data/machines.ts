@@ -24,6 +24,7 @@ import fordF750DumpImage from '@/assets/machines/ford-f750-dump.png';
 import caterpillarCb16Image from '@/assets/machines/caterpillar-cb16.png';
 import genieGth1056Image from '@/assets/machines/genie-gth1056.png';
 import gehlRs642Image from '@/assets/machines/gehl-rs6-42.png';
+import johnDeere310slImage from '@/assets/machines/john-deere-310sl.png';
 
 export const featuredMachines: Machine[] = [
   {
@@ -756,6 +757,38 @@ export const catalogMachines: Machine[] = [
     },
     gallery: [
       gehlRs642Image,
+    ],
+  },
+  {
+    id: 29,
+    name: '2016 John Deere 310SL Backhoe Loader',
+    year: 2016,
+    hours: 2164,
+    location: 'USA Stock',
+    price: 36586,
+    originalPrice: 41575,
+    discount: 12,
+    image: johnDeere310slImage,
+    description: 'The 2016 John Deere 310SL – premium low-hour backhoe loader that\'s been babied on light municipal duty, with just 2,164 original hours and a spotless service history. Iconic John Deere 4.5L PowerTech diesel (Tier 4 Final, no DEF headaches), 100 hp, sync-shuttle transmission with 4F/4R speeds, 4WD, powershift on the go, extendable stick (up to 19 ft 5 in dig depth), 92 in loader bucket with bolt-on teeth, enclosed cab with heat/AC/joystick controls/Bluetooth/radio, ride control, quick-attach loader ends, fresh tracks and tires at 90%+, no leaks, no welds, tight as a drum. Fresh full service, DOT-ready for any trenching, loading, or demo job. Ships nationwide (#A8195987). Similar low-hour 2016 310SL units with 2–3k hours still fetching $46–52k at Ritchie Bros, IronPlanet, and JJ Kane auctions – this one\'s undervalued big time.',
+    specs: {
+      engine: 'John Deere PowerTech 4.5L (Tier 4 Final)',
+      power: '100 hp (74.6 kW) @ 2,000 rpm',
+      weight: '16,500 lb (7,484 kg)',
+      bucketCapacity: '1.0 yd³ (0.76 m³)',
+      breakoutForce: '9,612 lb (42.8 kN)',
+      liftHeight: '11 ft 3 in (3.43 m)',
+      maxDiggingDepth: '19 ft 5 in (5.92 m) extendable / 14 ft 8 in (4.47 m) std',
+      transmission: 'Sync-shuttle 4F/4R with powershift',
+      driveSteer: '4WD with limited-slip diffs',
+      tires: '14-17.5 front / 19.5L-24 rear (90%+)',
+      fuelTank: '42 gal (159 L)',
+      hydraulicFlow: '27 gpm loader / 28 gpm backhoe',
+      cab: 'Enclosed OPG, heat/AC, joystick, Bluetooth',
+      status: 'Fully serviced, tight machine, ships nationwide',
+      stockNumber: 'A8195987',
+    },
+    gallery: [
+      johnDeere310slImage,
     ],
   },
 ];
