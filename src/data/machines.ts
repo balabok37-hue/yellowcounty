@@ -36,6 +36,7 @@ import johnDeere210gImage from '@/assets/machines/john-deere-210g.png';
 import caterpillar950mImage from '@/assets/machines/caterpillar-950m.png';
 import johnDeere544pImage from '@/assets/machines/john-deere-544p.png';
 import volvoL120hImage from '@/assets/machines/volvo-l120h.png';
+import caterpillarD6Image from '@/assets/machines/caterpillar-d6.png';
 
 // Category definitions with labels and icons
 export const categoryInfo: Record<MachineCategory, { label: string; labelRu?: string }> = {
@@ -1147,6 +1148,35 @@ export const allMachines: Machine[] = [
       volvoL120hImage,
     ],
   },
+  {
+    id: 51,
+    name: '2019 Caterpillar D6 Dozer',
+    year: 2019,
+    hours: 4680,
+    location: 'Denver, Colorado',
+    price: 96750,
+    originalPrice: 129000,
+    discount: 25,
+    category: 'earthmoving',
+    image: caterpillarD6Image,
+    isHotOffer: true,
+    isSold: true,
+    description: 'One-owner 2019 CAT D6 (Next Gen) straight from a Colorado utility contractor. Full Cat dealer history, always shedded, zero accidents. Just received full service + new cutting edges. Strong VPAT blade, multi-shank ripper, ice-cold A/C, Grade with 2D. This is the cleanest low-hour D6 on the market right now. Remaining Cat Certified Powertrain warranty transferable.',
+    specs: {
+      engine: 'Cat C9.3B Tier 4 Final',
+      power: '215 hp',
+      weight: '51,800 lbs (23.5 metric tons)',
+      trackWidth: 'SystemOne ≈ 80% remaining',
+      bucketCapacity: '13\'2" VPAT blade (power angle & tilt) – new cutting edges',
+      hydraulicFlow: 'Multi-shank parallelogram ripper with 3 teeth',
+      cab: 'Enclosed ROPS, heat & A/C, heated/ventilated seat, 360° cameras, Cat Grade 2D',
+      features: 'Fresh service, full inspection report, remaining Cat warranty transferable, clean Colorado title',
+      status: 'SOLD',
+    },
+    gallery: [
+      caterpillarD6Image,
+    ],
+  },
 ];
 
 // Category assignments by machine ID
@@ -1158,6 +1188,7 @@ const categoryMap: Record<number, MachineCategory> = {
   45: 'earthmoving', // CAT 336 Excavator
   46: 'earthmoving', // Hitachi ZX350 Excavator
   47: 'earthmoving', // John Deere 210G Excavator
+  51: 'earthmoving', // CAT D6 Dozer (SOLD)
   
   // Loaders (Wheel Loaders, Backhoe Loaders, Track Loaders)
   2: 'loaders', // SW405K Wheel Loader

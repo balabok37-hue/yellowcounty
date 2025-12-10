@@ -18,6 +18,7 @@ export interface Machine {
   image: string;
   imageFit?: 'cover' | 'contain';
   isHotOffer?: boolean;
+  isSold?: boolean;
   imagePosition?: string;
   category?: MachineCategory;
   description?: string;
@@ -145,9 +146,16 @@ export function MachineCard({ machine, index, onViewDetails }: MachineCardProps)
         )}
 
         {/* Hot deal indicator */}
-        {machine.isHotOffer && (
+        {machine.isHotOffer && !machine.isSold && (
           <div className="absolute top-3 right-3 sm:top-4 sm:right-4 px-3 py-1.5 rounded-full bg-destructive text-[10px] sm:text-xs font-bold text-destructive-foreground z-10">
             🔥 HOT OFFER
+          </div>
+        )}
+
+        {/* SOLD badge */}
+        {machine.isSold && (
+          <div className="absolute top-3 right-3 sm:top-4 sm:right-4 px-4 py-2 rounded-lg bg-muted text-sm sm:text-base font-black text-muted-foreground z-10 border-2 border-muted-foreground/30 uppercase tracking-wider">
+            SOLD
           </div>
         )}
 
