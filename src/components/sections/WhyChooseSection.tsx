@@ -1,6 +1,5 @@
-import { motion, useScroll, useTransform, useSpring } from 'framer-motion';
+import { motion } from 'framer-motion';
 import { Shield, Truck, BadgeCheck, Headphones, DollarSign, Wrench } from 'lucide-react';
-import { useRef } from 'react';
 import { CardReveal } from '@/components/ScrollReveal';
 
 const features = [
@@ -43,41 +42,28 @@ const features = [
 ];
 
 export function WhyChooseSection() {
-  const containerRef = useRef<HTMLElement>(null);
-  const { scrollYProgress } = useScroll({
-    target: containerRef,
-    offset: ["start end", "end start"]
-  });
-
-  const springConfig = { stiffness: 100, damping: 30 };
-  const backgroundY = useSpring(useTransform(scrollYProgress, [0, 1], [0, -150]), springConfig);
-  const headerOpacity = useSpring(useTransform(scrollYProgress, [0, 0.2, 0.8, 1], [0, 1, 1, 0]), springConfig);
-  const headerY = useSpring(useTransform(scrollYProgress, [0, 0.2, 0.8, 1], [60, 0, 0, -60]), springConfig);
-
   return (
-    <section ref={containerRef} className="py-20 md:py-32 relative overflow-hidden">
-      {/* Parallax Background */}
-      <motion.div 
-        className="absolute inset-0" 
-        style={{ y: backgroundY, willChange: 'transform' }}
-      >
+    <section className="py-20 md:py-32 relative overflow-hidden">
+      {/* Background */}
+      <div className="absolute inset-0">
         <div className="absolute inset-0 bg-gradient-to-b from-background via-muted/30 to-background" />
         <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-primary/5 rounded-full blur-3xl" />
         <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-accent/5 rounded-full blur-3xl" />
-      </motion.div>
+      </div>
       
       <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-primary/30 to-transparent" />
       
       <div className="container px-4 relative z-10">
         <motion.div
-          style={{ opacity: headerOpacity, y: headerY, willChange: 'transform, opacity' }}
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
           className="text-center mb-16"
         >
-          <motion.span
-            className="inline-block px-4 py-1.5 mb-4 text-xs sm:text-sm font-semibold text-primary bg-primary/10 rounded-full border border-primary/20"
-          >
+          <span className="inline-block px-4 py-1.5 mb-4 text-xs sm:text-sm font-semibold text-primary bg-primary/10 rounded-full border border-primary/20">
             WHY CHOOSE US
-          </motion.span>
+          </span>
           <h2 className="section-title text-foreground mb-4">
             Why Dealers & Contractors Choose Us
           </h2>
