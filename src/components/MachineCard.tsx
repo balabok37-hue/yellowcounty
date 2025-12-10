@@ -54,6 +54,10 @@ export interface Machine {
     outriggers?: string;
     hydraulicFlow?: string;
     // Forklift specific
+    driveSteer?: string;
+    frameLeveling?: string;
+    tires?: string;
+    capacityAtMaxHeight?: string;
     groundClearance?: string;
     // Tractor specific
     frontAxle?: string;
