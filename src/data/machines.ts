@@ -1,4 +1,4 @@
-import type { Machine } from '@/components/MachineCard';
+import type { Machine, MachineCategory } from '@/components/MachineCard';
 import sanySy80uImage from '@/assets/machines/sany-sy80u.png';
 import sanySw405kImage from '@/assets/machines/sany-sw405k.png';
 import develonDd100Image from '@/assets/machines/develon-dd100.png';
@@ -31,7 +31,17 @@ import caterpillar289d3Image from '@/assets/machines/caterpillar-289d3.png';
 import chevroletSilverado2500hdImage from '@/assets/machines/chevrolet-silverado-2500hd-ltz.png';
 import international7300Image from '@/assets/machines/international-7300.png';
 
-export const featuredMachines: Machine[] = [
+// Category definitions with labels and icons
+export const categoryInfo: Record<MachineCategory, { label: string; labelRu?: string }> = {
+  earthmoving: { label: 'Earthmoving', labelRu: 'Землеройные' },
+  loaders: { label: 'Loaders', labelRu: 'Погрузчики' },
+  telehandlers: { label: 'Telehandlers', labelRu: 'Телескопические' },
+  trucks: { label: 'Trucks', labelRu: 'Грузовики' },
+  specialty: { label: 'Specialty', labelRu: 'Спецтехника' },
+};
+
+// All machines in one array - will be sorted dynamically
+export const allMachines: Machine[] = [
   {
     id: 1,
     name: '2022 Sany SY80U Excavator',
@@ -41,6 +51,7 @@ export const featuredMachines: Machine[] = [
     price: 68000,
     originalPrice: 85000,
     discount: 20,
+    category: 'earthmoving',
     image: sanySy80uImage,
     description: 'The 2022 Sany SY80U is a powerhouse in compact form — built for endurance with reinforced boom, arm, and undercarriage. Powered by a reliable Yanmar 4TNV98CT engine, it delivers 66.4 hp for offset digging in tight spaces. Ideal for urban construction, landscaping, and utilities.',
     specs: {
@@ -74,6 +85,7 @@ export const featuredMachines: Machine[] = [
     price: 116000,
     originalPrice: 145000,
     discount: 20,
+    category: 'loaders',
     image: sanySw405kImage,
     description: 'The 2022 Sany SW405K is a rugged beast engineered for heavy-duty mining and construction, with a reinforced frame for 10,000+ hour service life. Powered by a Deutz TCD7.8 Tier 4 Final engine (252 hp net), it delivers massive 40,466 lbf breakout force and 28,881 lb tipping load for efficient material handling. Features load-sensing hydraulics, 360° camera, ergonomic cab with AC/heat/USB, and quick-coupler for attachments.',
     specs: {
@@ -107,6 +119,7 @@ export const featuredMachines: Machine[] = [
     price: 103200,
     originalPrice: 129000,
     discount: 20,
+    category: 'earthmoving',
     image: develonDd100Image,
     description: 'The 2023 Develon DD100 (Serial #227473) is a next-gen dozer engineered for superior power-to-weight performance. With 122 hp and 24,286 lb operating weight, it delivers exceptional tractive effort and pushing power. Features fully electronic hydraulic controls, 6-way variable angle pitch blade, rearview camera, ECO mode, blade shake function, and premium cab with AC/heat. Low-hour unit ideal for site prep, grading, and land clearing.',
     specs: {
@@ -134,6 +147,7 @@ export const featuredMachines: Machine[] = [
     price: 78400,
     originalPrice: 98000,
     discount: 20,
+    category: 'loaders',
     image: kubotaR640r43Image,
     description: 'The 2023 Kubota R640R43 is a versatile compact powerhouse designed for demanding construction, landscaping, and material handling tasks, with a durable frame built for 8,000+ hour service life. Powered by a Kubota V2607-CR-TE5-WL Tier 4 Final engine (61.1 hp net), it delivers impressive 9,869 lbf breakout force and 7,450 lb static tipping load for precise loading and digging. Features load-sensing hydraulics, 360° visibility cab with AC/heat/USB ports, ergonomic controls, and quick-coupler for attachments. Ideal for urban sites, farms, or aggregate yards.',
     specs: {
@@ -158,9 +172,6 @@ export const featuredMachines: Machine[] = [
       kubotaR640r43Image,
     ],
   },
-];
-
-export const catalogMachines: Machine[] = [
   {
     id: 5,
     name: '2021 Sany SY215C Excavator',
@@ -170,6 +181,7 @@ export const catalogMachines: Machine[] = [
     price: 64000,
     originalPrice: 80000,
     discount: 20,
+    category: 'earthmoving',
     image: sanySy215cImage,
     description: 'The Sany SY215C is a robust medium excavator built for demanding construction, quarrying, and earthmoving applications, featuring a reinforced undercarriage for 10,000+ hour durability. Powered by a Cummins QSB6.7 Tier 4 Final engine (163.6 hp net), it provides exceptional 30,800 lbf arm digging force and 21\' 8" dig depth for superior productivity. Equipped with positive flow load-sensing hydraulics, 360° camera system, spacious cab with AC/heat/USB ports, and quick-change coupler for attachments. Ideal for trenching, loading, or site prep.',
     specs: {
@@ -960,3 +972,69 @@ export const catalogMachines: Machine[] = [
     ],
   },
 ];
+
+// Category assignments by machine ID
+const categoryMap: Record<number, MachineCategory> = {
+  // Earthmoving (Excavators, Dozers)
+  1: 'earthmoving', // SY80U Excavator
+  3: 'earthmoving', // DD100 Dozer
+  5: 'earthmoving', // SY215C Excavator
+  
+  // Loaders (Wheel Loaders, Backhoe Loaders, Track Loaders)
+  2: 'loaders', // SW405K Wheel Loader
+  4: 'loaders', // R640R43 Wheel Loader
+  8: 'loaders', // 310L EP Backhoe
+  13: 'loaders', // ASV VT-70 Track Loader
+  20: 'loaders', // WA320-8 Wheel Loader
+  39: 'loaders', // 310SL Backhoe
+  42: 'loaders', // 289D3 Track Loader
+  
+  // Telehandlers & Forklifts
+  6: 'telehandlers', // MLT 1040
+  7: 'telehandlers', // JCB 940-4
+  9: 'telehandlers', // Merlo P50.18HM
+  37: 'telehandlers', // GTH-1056
+  38: 'telehandlers', // RS6-42
+  40: 'telehandlers', // TL943C
+  
+  // Trucks (All trucks, pickups, commercial vehicles)
+  11: 'trucks', // Peterbilt 389
+  12: 'trucks', // Freightliner M2
+  14: 'trucks', // Silverado 5500HD
+  15: 'trucks', // Silverado 6500HD
+  16: 'trucks', // Silverado 4500HD Service
+  17: 'trucks', // Silverado 4500HD Box
+  18: 'trucks', // Silverado 5500HD Box
+  19: 'trucks', // Mack GU713 Dump
+  35: 'trucks', // Ford F-750 Dump
+  41: 'trucks', // Colorado Z71
+  43: 'trucks', // Silverado 2500HD
+  44: 'trucks', // International 7300
+  
+  // Specialty (Tractors, Rollers, etc.)
+  10: 'specialty', // John Deere 6430 Tractor
+  36: 'specialty', // CB16 Roller
+};
+
+// Apply categories to all machines
+const machinesWithCategories = allMachines.map(machine => ({
+  ...machine,
+  category: machine.category || categoryMap[machine.id] || 'specialty'
+}));
+
+// Sort function: HOT OFFERS first, then by discount (desc), then by year (desc)
+function sortMachines(machines: Machine[]): Machine[] {
+  return [...machines].sort((a, b) => {
+    if (a.isHotOffer && !b.isHotOffer) return -1;
+    if (!a.isHotOffer && b.isHotOffer) return 1;
+    if (b.discount !== a.discount) return b.discount - a.discount;
+    return b.year - a.year;
+  });
+}
+
+// Get sorted machines
+const sortedMachines = sortMachines(machinesWithCategories);
+
+// Export featured (top 4) and catalog (rest)
+export const featuredMachines = sortedMachines.slice(0, 4);
+export const catalogMachines = sortedMachines.slice(4);

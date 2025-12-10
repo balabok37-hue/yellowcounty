@@ -131,29 +131,35 @@ export function ContactSection() {
                 />
               </div>
 
-              <div className="grid sm:grid-cols-3 gap-4">
-                {[
-                  { icon: MapPin, label: 'Location', value: '5150 Midland Rd, Billings, MT 59101', shortValue: 'Billings, MT' },
-                  { icon: Phone, label: 'Phone', value: '+1 (240) 242-7810', href: 'tel:+12402427810' },
-                  { icon: Mail, label: 'Email', value: 'sales@yellowcounty.com', href: 'mailto:sales@yellowcounty.com' }
-                ].map((item, index) => (
-                  <CardReveal key={index} index={index}>
-                    <div className="glass-card p-4 sm:p-6 text-center h-full">
-                      <item.icon className="w-6 h-6 sm:w-8 sm:h-8 text-primary mx-auto mb-2 sm:mb-3" />
-                      <div className="text-xs sm:text-sm text-muted-foreground">{item.label}</div>
-                      {item.href ? (
-                        <a href={item.href} className="font-semibold text-foreground hover:text-primary transition-colors text-xs sm:text-sm md:text-base break-all sm:break-normal">
-                          {item.value}
-                        </a>
-                      ) : (
-                        <div className="font-semibold text-foreground text-xs sm:text-sm">
-                          <span className="hidden sm:inline">{item.value}</span>
-                          <span className="sm:hidden">{item.shortValue || item.value}</span>
-                        </div>
-                      )}
+              <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
+                <CardReveal index={0}>
+                  <div className="glass-card p-4 sm:p-6 text-center h-full">
+                    <MapPin className="w-6 h-6 sm:w-8 sm:h-8 text-primary mx-auto mb-2 sm:mb-3" />
+                    <div className="text-xs sm:text-sm text-muted-foreground">Location</div>
+                    <div className="font-semibold text-foreground text-xs sm:text-sm">
+                      <span className="hidden sm:inline">5150 Midland Rd, Billings, MT 59101</span>
+                      <span className="sm:hidden">Billings, MT</span>
                     </div>
-                  </CardReveal>
-                ))}
+                  </div>
+                </CardReveal>
+                <CardReveal index={1}>
+                  <div className="glass-card p-4 sm:p-6 text-center h-full">
+                    <Phone className="w-6 h-6 sm:w-8 sm:h-8 text-primary mx-auto mb-2 sm:mb-3" />
+                    <div className="text-xs sm:text-sm text-muted-foreground">Phone</div>
+                    <a href="tel:+12402427810" className="font-semibold text-foreground hover:text-primary transition-colors text-xs sm:text-sm">
+                      +1 (240) 242-7810
+                    </a>
+                  </div>
+                </CardReveal>
+                <CardReveal index={2}>
+                  <div className="glass-card p-4 sm:p-6 text-center h-full sm:col-span-1">
+                    <Mail className="w-6 h-6 sm:w-8 sm:h-8 text-primary mx-auto mb-2 sm:mb-3" />
+                    <div className="text-xs sm:text-sm text-muted-foreground">Email</div>
+                    <a href="mailto:sales@yellowcounty.com" className="font-semibold text-foreground hover:text-primary transition-colors text-[11px] sm:text-sm whitespace-nowrap">
+                      sales@yellowcounty.com
+                    </a>
+                  </div>
+                </CardReveal>
               </div>
             </div>
           </ScrollReveal>
