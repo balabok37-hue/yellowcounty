@@ -133,20 +133,23 @@ export function ContactSection() {
 
               <div className="grid sm:grid-cols-3 gap-4">
                 {[
-                  { icon: MapPin, label: 'Location', value: '5150 Midland Rd, Billings, MT 59101' },
+                  { icon: MapPin, label: 'Location', value: '5150 Midland Rd, Billings, MT 59101', shortValue: 'Billings, MT' },
                   { icon: Phone, label: 'Phone', value: '+1 (240) 242-7810', href: 'tel:+12402427810' },
                   { icon: Mail, label: 'Email', value: 'sales@yellowcounty.com', href: 'mailto:sales@yellowcounty.com' }
                 ].map((item, index) => (
                   <CardReveal key={index} index={index}>
-                    <div className="glass-card p-6 text-center h-full">
-                      <item.icon className="w-8 h-8 text-primary mx-auto mb-3" />
-                      <div className="text-sm text-muted-foreground">{item.label}</div>
+                    <div className="glass-card p-4 sm:p-6 text-center h-full">
+                      <item.icon className="w-6 h-6 sm:w-8 sm:h-8 text-primary mx-auto mb-2 sm:mb-3" />
+                      <div className="text-xs sm:text-sm text-muted-foreground">{item.label}</div>
                       {item.href ? (
-                        <a href={item.href} className="font-semibold text-foreground hover:text-primary transition-colors">
+                        <a href={item.href} className="font-semibold text-foreground hover:text-primary transition-colors text-xs sm:text-sm md:text-base break-all sm:break-normal">
                           {item.value}
                         </a>
                       ) : (
-                        <div className="font-semibold text-foreground">{item.value}</div>
+                        <div className="font-semibold text-foreground text-xs sm:text-sm">
+                          <span className="hidden sm:inline">{item.value}</span>
+                          <span className="sm:hidden">{item.shortValue || item.value}</span>
+                        </div>
                       )}
                     </div>
                   </CardReveal>

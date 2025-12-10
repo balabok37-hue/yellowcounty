@@ -132,9 +132,9 @@ export function HeroSection() {
             className="grid grid-cols-3 gap-3 sm:gap-6 pt-8 sm:pt-14 max-w-3xl mx-auto"
           >
             {[
-              { value: '500+', label: 'Units Sold', icon: TrendingUp },
-              { value: '$50M+', label: 'Equipment Value', icon: Award },
-              { value: '98%', label: 'Satisfaction', icon: Star },
+              { value: '150+', label: 'Units Sold', icon: TrendingUp },
+              { value: '$15M+', label: 'Equipment Value', icon: Award },
+              { value: '99.9%', label: 'Satisfaction', icon: Star },
             ].map((stat, index) => (
               <motion.div 
                 key={index} 
