@@ -1,4 +1,4 @@
-import { useState, useEffect, Suspense, lazy } from 'react';
+import { useState, useEffect, Suspense, lazy, useCallback } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Header } from '@/components/Header';
 import { HeroSection } from '@/components/sections/HeroSection';
@@ -12,6 +12,8 @@ import { MachineModal } from '@/components/MachineModal';
 import { LoadingScreen } from '@/components/LoadingScreen';
 import { GeometricShapes } from '@/components/GeometricShapes';
 import { useLenis } from '@/hooks/useLenis';
+import { preloadImages } from '@/hooks/useImagePreloader';
+import { featuredMachines, catalogMachines } from '@/data/machines';
 import type { Machine } from '@/components/MachineCard';
 
 // Lazy load the particle background for performance
@@ -33,22 +35,46 @@ const Index = () => {
   const [catalogOpen, setCatalogOpen] = useState(false);
   const [selectedMachine, setSelectedMachine] = useState<Machine | null>(null);
   const [modalOpen, setModalOpen] = useState(false);
+  const [catalogPreloaded, setCatalogPreloaded] = useState(false);
 
   // Initialize smooth scroll
   useLenis();
 
-  // Preload critical assets
+  // Preload critical assets including featured images
   useEffect(() => {
     const loadAssets = async () => {
+      // Preload hero image first
       const heroModule = await import('@/assets/hero-background.jpg');
       await preloadImage(heroModule.default);
-      await new Promise(resolve => setTimeout(resolve, 800));
+      
+      // Preload featured machine images in parallel
+      const featuredImages = featuredMachines.map(m => m.image);
+      await preloadImages(featuredImages);
+      
+      // Minimum loading time for smooth UX
+      await new Promise(resolve => setTimeout(resolve, 600));
       setIsLoading(false);
       setTimeout(() => setShowContent(true), 50);
     };
 
     loadAssets();
   }, []);
+
+  // Preload catalog images when hovering on button or opening catalog
+  const preloadCatalog = useCallback(async () => {
+    if (catalogPreloaded) return;
+    const catalogImages = catalogMachines.map(m => m.image);
+    await preloadImages(catalogImages);
+    setCatalogPreloaded(true);
+  }, [catalogPreloaded]);
+
+  const handleCatalogToggle = async () => {
+    if (!catalogOpen) {
+      // Start preloading when opening
+      preloadCatalog();
+    }
+    setCatalogOpen(!catalogOpen);
+  };
 
   const handleViewDetails = (machine: Machine) => {
     setSelectedMachine(machine);
@@ -89,7 +115,8 @@ const Index = () => {
               <FeaturedSection onViewDetails={handleViewDetails} />
               <CatalogSection
                 isOpen={catalogOpen}
-                onToggle={() => setCatalogOpen(!catalogOpen)}
+                onToggle={handleCatalogToggle}
+                onHoverButton={preloadCatalog}
                 onViewDetails={handleViewDetails}
               />
               <WhyChooseSection />

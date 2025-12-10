@@ -228,7 +228,7 @@ export function MachineModal({ machine, isOpen, onClose }: MachineModalProps) {
                     <div className="flex flex-wrap gap-3 sm:gap-4">
                       <span className="flex items-center gap-2 text-sm sm:text-base text-muted-foreground bg-muted/50 px-3 py-1.5 rounded-full">
                         <Clock className="w-4 h-4 text-primary" />
-                        {machine.year} • {machine.hours.toLocaleString()} hrs
+                        {machine.year} • {machine.miles ? `${machine.miles.toLocaleString()} mi` : `${machine.hours.toLocaleString()} hrs`}
                       </span>
                       <span className="flex items-center gap-2 text-sm sm:text-base text-muted-foreground bg-muted/50 px-3 py-1.5 rounded-full">
                         <MapPin className="w-4 h-4 text-accent" />
@@ -334,8 +334,8 @@ export function MachineModal({ machine, isOpen, onClose }: MachineModalProps) {
                         <p className="font-bold text-lg text-foreground">{machine.year}</p>
                       </div>
                       <div className="p-4 rounded-xl bg-muted/30 border border-border/30">
-                        <span className="text-xs text-muted-foreground uppercase tracking-wide">Hours</span>
-                        <p className="font-bold text-lg text-foreground">{machine.hours.toLocaleString()}</p>
+                        <span className="text-xs text-muted-foreground uppercase tracking-wide">{machine.miles ? 'Miles' : 'Hours'}</span>
+                        <p className="font-bold text-lg text-foreground">{machine.miles ? machine.miles.toLocaleString() : machine.hours.toLocaleString()}</p>
                       </div>
                       <div className="p-4 rounded-xl bg-muted/30 border border-border/30">
                         <span className="text-xs text-muted-foreground uppercase tracking-wide">Condition</span>

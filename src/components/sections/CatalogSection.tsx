@@ -1,5 +1,5 @@
 import { motion, AnimatePresence, useScroll, useTransform, useSpring } from 'framer-motion';
-import { useRef } from 'react';
+import { useRef, useMemo } from 'react';
 import { MachineCard } from '@/components/MachineCard';
 import { catalogMachines } from '@/data/machines';
 import { Button } from '@/components/ui/button';
@@ -10,10 +10,26 @@ import type { Machine } from '@/components/MachineCard';
 interface CatalogSectionProps {
   isOpen: boolean;
   onToggle: () => void;
+  onHoverButton?: () => void;
   onViewDetails: (machine: Machine) => void;
 }
 
-export function CatalogSection({ isOpen, onToggle, onViewDetails }: CatalogSectionProps) {
+// Sort catalog: HOT OFFERS first, then by discount (desc), then by year (desc)
+function sortCatalog(machines: Machine[]): Machine[] {
+  return [...machines].sort((a, b) => {
+    // Hot offers first
+    if (a.isHotOffer && !b.isHotOffer) return -1;
+    if (!a.isHotOffer && b.isHotOffer) return 1;
+    
+    // Then by discount (highest first)
+    if (b.discount !== a.discount) return b.discount - a.discount;
+    
+    // Then by year (newest first)
+    return b.year - a.year;
+  });
+}
+
+export function CatalogSection({ isOpen, onToggle, onHoverButton, onViewDetails }: CatalogSectionProps) {
   const sectionRef = useRef<HTMLElement>(null);
   const { scrollYProgress } = useScroll({
     target: sectionRef,
@@ -23,6 +39,10 @@ export function CatalogSection({ isOpen, onToggle, onViewDetails }: CatalogSecti
   const springConfig = { stiffness: 100, damping: 30 };
   const opacity = useSpring(useTransform(scrollYProgress, [0, 0.15, 0.85, 1], [0, 1, 1, 0]), springConfig);
   const y = useSpring(useTransform(scrollYProgress, [0, 0.15, 0.85, 1], [80, 0, 0, -80]), springConfig);
+
+  // Sort and memoize catalog
+  const sortedCatalog = useMemo(() => sortCatalog(catalogMachines), []);
+  const catalogCount = sortedCatalog.length;
 
   return (
     <section ref={sectionRef} className="pb-12 sm:pb-20 md:pb-32">
@@ -35,6 +55,7 @@ export function CatalogSection({ isOpen, onToggle, onViewDetails }: CatalogSecti
           <motion.div
             whileTap={{ scale: 0.97 }}
             whileHover={{ scale: 1.02 }}
+            onHoverStart={onHoverButton}
           >
             <Button
               size="lg"
@@ -48,8 +69,8 @@ export function CatalogSection({ isOpen, onToggle, onViewDetails }: CatalogSecti
                 </>
               ) : (
                 <>
-                  <span className="hidden sm:inline">VIEW FULL CATALOG → 16 MORE PREMIUM UNITS</span>
-                  <span className="sm:hidden">VIEW ALL 16+ UNITS</span>
+                  <span className="hidden sm:inline">VIEW FULL CATALOG → {catalogCount} MORE PREMIUM UNITS</span>
+                  <span className="sm:hidden">VIEW ALL {catalogCount}+ UNITS</span>
                   <ChevronDown className="ml-2 w-5 h-5" />
                 </>
               )}
@@ -78,13 +99,13 @@ export function CatalogSection({ isOpen, onToggle, onViewDetails }: CatalogSecti
                   FULL INVENTORY
                 </h2>
                 <p className="text-sm sm:text-lg text-muted-foreground px-4">
-                  16 more hand-picked machines ready for immediate delivery
+                  {catalogCount} more hand-picked machines ready for immediate delivery
                 </p>
               </motion.div>
 
               {/* Grid */}
               <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-4 sm:gap-6">
-                {catalogMachines.map((machine, index) => (
+                {sortedCatalog.map((machine, index) => (
                   <CardReveal key={machine.id} index={index}>
                     <MachineCard
                       machine={machine}
