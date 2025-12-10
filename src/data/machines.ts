@@ -43,6 +43,7 @@ import johnDeere35pTierImage from '@/assets/machines/john-deere-35-p-tier.png';
 import johnDeere35pTier2024Image from '@/assets/machines/john-deere-35-p-tier-2024.png';
 import johnDeere35pTier2024bImage from '@/assets/machines/john-deere-35-p-tier-2024-b.png';
 import case321fImage from '@/assets/machines/case-321f.png';
+import case321f2023Image from '@/assets/machines/case-321f-2023.png';
 
 // Category definitions with labels and icons
 export const categoryInfo: Record<MachineCategory, { label: string; labelRu?: string }> = {
@@ -1351,6 +1352,34 @@ export const allMachines: Machine[] = [
       case321fImage,
     ],
   },
+  {
+    id: 58,
+    name: '2023 Case 321F Wheel Loader',
+    year: 2023,
+    hours: 980,
+    location: 'Indianapolis, Indiana',
+    price: 88320,
+    originalPrice: 96000,
+    discount: 8,
+    category: 'loaders',
+    image: case321f2023Image,
+    isHotOffer: false,
+    description: '2023 Case 321F with only light municipal use. Still covered by full Case ProCare warranty until 2026 / 3,000 hours. Basically brand-new condition – fresh service, zero damage, perfect paint. Quick coupler, forks + bucket, deluxe cab. Save big vs new price.',
+    specs: {
+      engine: 'FPT 3.4L Tier 4 Final',
+      power: '74 hp',
+      weight: '14,100 lbs (6.4 metric tons)',
+      trackWidth: '405/70R20 tires ≈ 96% remaining',
+      bucketCapacity: '1.7 yd³ GP bucket with bolt-on edge',
+      hydraulicFlow: 'Parallel lift Z-bar, skid-steer style QC, 3rd & 4th function',
+      cab: 'Premium enclosed, heat & A/C, air-ride seat, rear camera, Bluetooth',
+      features: 'Full Case ProCare warranty until 2026/3,000h, fresh service, clean Indiana title',
+      status: 'In stock – ships worldwide',
+    },
+    gallery: [
+      case321f2023Image,
+    ],
+  },
 ];
 
 // Category assignments by machine ID
@@ -1380,7 +1409,8 @@ const categoryMap: Record<number, MachineCategory> = {
   48: 'loaders', // CAT 950M Wheel Loader
   49: 'loaders', // JD 544 P-Tier Wheel Loader
   50: 'loaders', // Volvo L120H Wheel Loader
-  57: 'loaders', // Case 321F Wheel Loader
+  57: 'loaders', // Case 321F Wheel Loader (2019)
+  58: 'loaders', // Case 321F Wheel Loader (2023)
   
   // Telehandlers & Forklifts
   6: 'telehandlers', // MLT 1040
