@@ -7,8 +7,7 @@ export interface Machine {
   id: number;
   name: string;
   year: number;
-  hours?: number;
-  miles?: number;
+  hours: number;
   location: string;
   price: number;
   originalPrice: number;
