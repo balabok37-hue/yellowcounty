@@ -2,6 +2,7 @@ import { motion, useMotionValue, useSpring, useTransform } from 'framer-motion';
 import { MapPin, Clock, Eye } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { OptimizedImage } from './OptimizedImage';
+import { categoryInfo } from '@/data/machines';
 
 export type MachineCategory = 'earthmoving' | 'loaders' | 'telehandlers' | 'trucks' | 'specialty';
 
@@ -237,6 +238,13 @@ export function MachineCard({ machine, index, onViewDetails }: MachineCardProps)
         >
           −{machine.discount}%
         </motion.div>
+
+        {/* Category Badge */}
+        {machine.category && (
+          <div className="absolute top-12 left-3 sm:top-14 sm:left-4 px-2.5 py-1 rounded-full bg-background/80 backdrop-blur-sm border border-border/50 text-[10px] sm:text-xs font-medium text-muted-foreground z-10">
+            {categoryInfo[machine.category]?.label || machine.category}
+          </div>
+        )}
 
         {/* Premium hot deal indicator - only show for hot offers */}
         {machine.isHotOffer && (
