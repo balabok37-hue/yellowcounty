@@ -1,6 +1,7 @@
 import { motion } from 'framer-motion';
-import { Star, Quote } from 'lucide-react';
-import { useState, useEffect } from 'react';
+import { Star, Quote, ChevronLeft, ChevronRight } from 'lucide-react';
+import { useState, useCallback } from 'react';
+import useEmblaCarousel from 'embla-carousel-react';
 
 const testimonials = [
   {
@@ -62,17 +63,33 @@ const testimonials = [
 ];
 
 export function TestimonialsSection() {
-  const [activeIndex, setActiveIndex] = useState(0);
+  const [emblaRef, emblaApi] = useEmblaCarousel({ loop: true, align: 'center' });
+  const [selectedIndex, setSelectedIndex] = useState(0);
 
-  useEffect(() => {
-    const timer = setInterval(() => {
-      setActiveIndex((prev) => (prev + 1) % testimonials.length);
-    }, 5000);
-    return () => clearInterval(timer);
-  }, []);
+  const scrollPrev = useCallback(() => {
+    if (emblaApi) emblaApi.scrollPrev();
+  }, [emblaApi]);
+
+  const scrollNext = useCallback(() => {
+    if (emblaApi) emblaApi.scrollNext();
+  }, [emblaApi]);
+
+  const scrollTo = useCallback((index: number) => {
+    if (emblaApi) emblaApi.scrollTo(index);
+  }, [emblaApi]);
+
+  const onSelect = useCallback(() => {
+    if (!emblaApi) return;
+    setSelectedIndex(emblaApi.selectedScrollSnap());
+  }, [emblaApi]);
+
+  // Set up the onSelect callback
+  if (emblaApi) {
+    emblaApi.on('select', onSelect);
+  }
 
   return (
-    <section className="py-20 md:py-32">
+    <section className="py-20 md:py-32 overflow-hidden">
       <div className="container px-4">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -94,56 +111,73 @@ export function TestimonialsSection() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.4, delay: 0.1 }}
-          className="max-w-4xl mx-auto"
+          className="relative"
         >
-          <div className="relative min-h-[300px]">
-            {testimonials.map((testimonial, index) => (
-              <div
-                key={index}
-                className={`transition-opacity duration-300 ${
-                  index === activeIndex 
-                    ? 'opacity-100 relative' 
-                    : 'opacity-0 absolute inset-0 pointer-events-none'
-                }`}
-              >
-                <div className="glass-card p-8 md:p-12">
-                  <Quote className="w-12 h-12 text-primary/30 mb-6" />
-                  
-                  <p className="text-lg md:text-xl text-foreground mb-8 leading-relaxed">
-                    "{testimonial.content}"
-                  </p>
+          {/* Carousel */}
+          <div className="overflow-hidden" ref={emblaRef}>
+            <div className="flex touch-pan-y">
+              {testimonials.map((testimonial, index) => (
+                <div
+                  key={index}
+                  className="flex-[0_0_100%] min-w-0 px-4 md:flex-[0_0_80%] lg:flex-[0_0_60%]"
+                >
+                  <div className="glass-card p-8 md:p-12 h-full">
+                    <Quote className="w-12 h-12 text-primary/30 mb-6" />
+                    
+                    <p className="text-lg md:text-xl text-foreground mb-8 leading-relaxed">
+                      "{testimonial.content}"
+                    </p>
 
-                  <div className="flex items-center gap-4">
-                    <img
-                      src={testimonial.image}
-                      alt={testimonial.name}
-                      className="w-14 h-14 rounded-full object-cover border-2 border-primary/30"
-                      loading="lazy"
-                    />
-                    <div>
-                      <div className="font-bold text-foreground">{testimonial.name}</div>
-                      <div className="text-sm text-muted-foreground">{testimonial.role}</div>
-                      <div className="text-sm text-primary">{testimonial.location}</div>
-                    </div>
-                    <div className="ml-auto flex gap-1">
-                      {[...Array(testimonial.rating)].map((_, i) => (
-                        <Star key={i} className="w-5 h-5 fill-primary text-primary" />
-                      ))}
+                    <div className="flex items-center gap-4">
+                      <img
+                        src={testimonial.image}
+                        alt={testimonial.name}
+                        className="w-14 h-14 rounded-full object-cover border-2 border-primary/30"
+                        loading="lazy"
+                      />
+                      <div>
+                        <div className="font-bold text-foreground">{testimonial.name}</div>
+                        <div className="text-sm text-muted-foreground">{testimonial.role}</div>
+                        <div className="text-sm text-primary">{testimonial.location}</div>
+                      </div>
+                      <div className="ml-auto flex gap-1">
+                        {[...Array(testimonial.rating)].map((_, i) => (
+                          <Star key={i} className="w-5 h-5 fill-primary text-primary" />
+                        ))}
+                      </div>
                     </div>
                   </div>
                 </div>
-              </div>
-            ))}
+              ))}
+            </div>
           </div>
 
+          {/* Navigation Buttons */}
+          <button
+            onClick={scrollPrev}
+            className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-2 md:translate-x-0 z-10 w-12 h-12 rounded-full bg-card/80 backdrop-blur border border-border flex items-center justify-center text-foreground hover:bg-card transition-colors"
+            aria-label="Previous testimonial"
+          >
+            <ChevronLeft className="w-6 h-6" />
+          </button>
+          <button
+            onClick={scrollNext}
+            className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-2 md:translate-x-0 z-10 w-12 h-12 rounded-full bg-card/80 backdrop-blur border border-border flex items-center justify-center text-foreground hover:bg-card transition-colors"
+            aria-label="Next testimonial"
+          >
+            <ChevronRight className="w-6 h-6" />
+          </button>
+
+          {/* Dots */}
           <div className="flex justify-center gap-2 mt-8">
             {testimonials.map((_, index) => (
               <button
                 key={index}
-                onClick={() => setActiveIndex(index)}
+                onClick={() => scrollTo(index)}
                 className={`h-3 rounded-full transition-all duration-200 ${
-                  index === activeIndex ? 'bg-primary w-8' : 'bg-muted-foreground/30 w-3'
+                  index === selectedIndex ? 'bg-primary w-8' : 'bg-muted-foreground/30 w-3'
                 }`}
+                aria-label={`Go to testimonial ${index + 1}`}
               />
             ))}
           </div>
