@@ -21,22 +21,13 @@ export function Header() {
 
   return (
     <>
-      <motion.header
-        initial={{ y: -100, opacity: 0 }}
-        animate={{ y: 0, opacity: 1 }}
-        transition={{ duration: 0.6, ease: [0.4, 0, 0.2, 1] }}
-        className="fixed top-0 left-0 right-0 z-50 bg-background/90 backdrop-blur-xl border-b border-border/50"
-      >
+      <header className="fixed top-0 left-0 right-0 z-50 bg-background/90 backdrop-blur-xl border-b border-border/50">
         <div className="container px-4">
           <div className="flex items-center justify-between h-16 sm:h-20">
             {/* Logo */}
-            <motion.a 
-              href="/" 
-              className="text-xl sm:text-2xl font-bold text-foreground"
-              whileTap={{ scale: 0.95 }}
-            >
+            <a href="/" className="text-xl sm:text-2xl font-bold text-foreground">
               Yellow<span className="text-primary">Stone</span>
-            </motion.a>
+            </a>
 
             {/* Desktop Nav */}
             <nav className="hidden md:flex items-center gap-8">
@@ -44,7 +35,7 @@ export function Header() {
                 <a 
                   key={item}
                   href={`#${item.toLowerCase() === 'equipment' ? 'featured' : 'contact'}`}
-                  className="text-foreground/80 hover:text-primary transition-colors"
+                  className="text-foreground/80 hover:text-primary transition-colors duration-200"
                 >
                   {item}
                 </a>
@@ -52,7 +43,7 @@ export function Header() {
               <Button 
                 variant="outline" 
                 size="sm" 
-                className="border-primary/50 text-primary hover:bg-primary/10"
+                className="border-primary/50 text-primary hover:bg-primary/10 transition-colors duration-200"
                 onClick={() => setIsCallModalOpen(true)}
               >
                 <Phone className="w-4 h-4 mr-2" />
@@ -62,14 +53,14 @@ export function Header() {
 
             {/* Mobile Menu Toggle */}
             <button
-              className="md:hidden w-12 h-12 flex items-center justify-center rounded-xl bg-card/50 border border-border/50"
+              className="md:hidden w-12 h-12 flex items-center justify-center rounded-xl bg-card/50 border border-border/50 active:scale-95 transition-transform duration-150"
               onClick={() => setIsMobileMenuOpen(true)}
             >
               <Menu className="w-6 h-6 text-foreground" />
             </button>
           </div>
         </div>
-      </motion.header>
+      </header>
 
       {/* Mobile Menu Overlay */}
       <AnimatePresence>
@@ -78,7 +69,7 @@ export function Header() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            transition={{ duration: 0.3 }}
+            transition={{ duration: 0.2 }}
             className="fixed inset-0 z-[100] bg-background"
           >
             {/* Header */}
@@ -87,7 +78,7 @@ export function Header() {
                 Yellow<span className="text-primary">Stone</span>
               </span>
               <button
-                className="w-12 h-12 flex items-center justify-center rounded-xl bg-card border border-border"
+                className="w-12 h-12 flex items-center justify-center rounded-xl bg-card border border-border active:scale-95 transition-transform duration-150"
                 onClick={() => setIsMobileMenuOpen(false)}
               >
                 <X className="w-6 h-6 text-foreground" />
@@ -102,9 +93,9 @@ export function Header() {
                   href={item.href}
                   initial={{ opacity: 0, x: -20 }}
                   animate={{ opacity: 1, x: 0 }}
-                  transition={{ delay: index * 0.1 }}
+                  transition={{ delay: index * 0.05, duration: 0.25 }}
                   onClick={() => setIsMobileMenuOpen(false)}
-                  className="flex items-center justify-between p-5 rounded-2xl bg-card border border-border/50 active:bg-card/80"
+                  className="flex items-center justify-between p-5 rounded-2xl bg-card border border-border/50 active:bg-card/80 transition-colors duration-150"
                 >
                   <span className="text-lg font-semibold text-foreground">{item.label}</span>
                   <div className="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center">
@@ -115,14 +106,14 @@ export function Header() {
 
               {/* Contact Actions */}
               <motion.div 
-                initial={{ opacity: 0, y: 20 }}
+                initial={{ opacity: 0, y: 10 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.3 }}
+                transition={{ delay: 0.15, duration: 0.25 }}
                 className="pt-6 space-y-3"
               >
                 <a
                   href="tel:+12402427810"
-                  className="flex items-center gap-4 p-5 rounded-2xl bg-primary text-primary-foreground"
+                  className="flex items-center gap-4 p-5 rounded-2xl bg-primary text-primary-foreground active:opacity-90 transition-opacity duration-150"
                 >
                   <div className="w-12 h-12 rounded-full bg-primary-foreground/20 flex items-center justify-center">
                     <Phone className="w-6 h-6" />
@@ -137,7 +128,7 @@ export function Header() {
                   href="https://wa.me/15797013943"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-center gap-4 p-5 rounded-2xl bg-[#25D366] text-white"
+                  className="flex items-center gap-4 p-5 rounded-2xl bg-[#25D366] text-white active:opacity-90 transition-opacity duration-150"
                 >
                   <div className="w-12 h-12 rounded-full bg-white/20 flex items-center justify-center">
                     <MessageCircle className="w-6 h-6" />
@@ -150,7 +141,7 @@ export function Header() {
 
                 <a
                   href="mailto:sales@yellowcounty.com"
-                  className="flex items-center gap-4 p-5 rounded-2xl bg-card border border-border/50"
+                  className="flex items-center gap-4 p-5 rounded-2xl bg-card border border-border/50 active:bg-card/80 transition-colors duration-150"
                 >
                   <div className="w-12 h-12 rounded-full bg-muted flex items-center justify-center">
                     <Mail className="w-6 h-6 text-muted-foreground" />
@@ -175,9 +166,9 @@ export function Header() {
           <div className="space-y-4 pt-4">
             <a 
               href="tel:+12402427810"
-              className="flex items-center gap-4 p-4 rounded-lg bg-primary/10 hover:bg-primary/20 transition-colors group"
+              className="flex items-center gap-4 p-4 rounded-lg bg-primary/10 hover:bg-primary/20 transition-colors duration-200"
             >
-              <div className="w-12 h-12 rounded-full bg-primary/20 flex items-center justify-center group-hover:bg-primary/30 transition-colors">
+              <div className="w-12 h-12 rounded-full bg-primary/20 flex items-center justify-center">
                 <Phone className="w-6 h-6 text-primary" />
               </div>
               <div>
@@ -188,9 +179,9 @@ export function Header() {
             
             <a 
               href="mailto:sales@yellowcounty.com"
-              className="flex items-center gap-4 p-4 rounded-lg bg-muted/50 hover:bg-muted transition-colors group"
+              className="flex items-center gap-4 p-4 rounded-lg bg-muted/50 hover:bg-muted transition-colors duration-200"
             >
-              <div className="w-12 h-12 rounded-full bg-muted flex items-center justify-center group-hover:bg-muted/80 transition-colors">
+              <div className="w-12 h-12 rounded-full bg-muted flex items-center justify-center">
                 <Mail className="w-6 h-6 text-muted-foreground" />
               </div>
               <div>
