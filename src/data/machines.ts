@@ -38,6 +38,7 @@ import johnDeere544pImage from '@/assets/machines/john-deere-544p.png';
 import volvoL120hImage from '@/assets/machines/volvo-l120h.png';
 import caterpillarD6Image from '@/assets/machines/caterpillar-d6.png';
 import komatsuD65pxiImage from '@/assets/machines/komatsu-d65pxi.png';
+import kubotaKx0404Image from '@/assets/machines/kubota-kx040-4.png';
 
 // Category definitions with labels and icons
 export const categoryInfo: Record<MachineCategory, { label: string; labelRu?: string }> = {
@@ -1206,6 +1207,34 @@ export const allMachines: Machine[] = [
       komatsuD65pxiImage,
     ],
   },
+  {
+    id: 53,
+    name: '2024 Kubota KX040-4 Mini Excavator',
+    year: 2024,
+    hours: 380,
+    location: 'Atlanta, Georgia',
+    price: 54900,
+    originalPrice: 61000,
+    discount: 10,
+    category: 'earthmoving',
+    image: kubotaKx0404Image,
+    isHotOffer: false,
+    description: '2024 Kubota KX040-4 demo unit with factory warranty remaining. Only light dealer yard use – basically brand-new. Full KubotaCare coverage until 2027 or 3,000 hours. Zero-turn, angle blade, hydraulic thumb, rubber tracks like new. Still smells new inside the cab.',
+    specs: {
+      engine: 'Kubota V2607 Tier 4 Final',
+      power: '40.4 hp',
+      weight: '9,300 lbs (4.2 metric tons)',
+      trackWidth: 'Rubber tracks ≈ 98% remaining',
+      bucketCapacity: '6-way angle blade, factory hydraulic thumb',
+      hydraulicFlow: '2-way auxiliary + proportional controls',
+      cab: 'Enclosed, heat & ice-cold A/C, Bluetooth radio, deluxe seat',
+      features: 'Full factory warranty until 2027/3,000h, fresh 500-hour service, clean Georgia title',
+      status: 'In stock – ships worldwide',
+    },
+    gallery: [
+      kubotaKx0404Image,
+    ],
+  },
 ];
 
 // Category assignments by machine ID
@@ -1219,6 +1248,7 @@ const categoryMap: Record<number, MachineCategory> = {
   47: 'earthmoving', // John Deere 210G Excavator
   51: 'earthmoving', // CAT D6 Dozer (SOLD)
   52: 'earthmoving', // Komatsu D65PXi Dozer
+  53: 'earthmoving', // Kubota KX040-4 Mini Excavator
   
   // Loaders (Wheel Loaders, Backhoe Loaders, Track Loaders)
   2: 'loaders', // SW405K Wheel Loader
