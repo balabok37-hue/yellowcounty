@@ -85,6 +85,12 @@ export interface Machine {
     waterTank?: string;
     cabRops?: string;
     features?: string;
+    // Pickup truck specific
+    package?: string;
+    interior?: string;
+    towingCapacity?: string;
+    warranty?: string;
+    carfax?: string;
   };
   gallery?: string[];
 }
