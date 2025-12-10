@@ -8,6 +8,7 @@ export interface Machine {
   name: string;
   year: number;
   hours: number;
+  miles?: number; // For trucks - display miles instead of hours
   location: string;
   price: number;
   originalPrice: number;
@@ -272,7 +273,7 @@ export function MachineCard({ machine, index, onViewDetails }: MachineCardProps)
               style={{ textShadow: '0 1px 3px hsl(0 0% 0%)' }}
             >
               <Clock className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-primary" />
-              {machine.year} • {machine.hours.toLocaleString()} hrs
+              {machine.year} • {machine.miles ? `${machine.miles.toLocaleString()} mi` : `${machine.hours.toLocaleString()} hrs`}
             </span>
             <span 
               className="flex items-center gap-1.5 px-2.5 py-1.5 rounded-full bg-background/60 backdrop-blur-sm border border-border/30"
