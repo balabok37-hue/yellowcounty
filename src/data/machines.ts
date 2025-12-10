@@ -31,6 +31,7 @@ import caterpillar289d3Image from '@/assets/machines/caterpillar-289d3.png';
 import chevroletSilverado2500hdImage from '@/assets/machines/chevrolet-silverado-2500hd-ltz.png';
 import international7300Image from '@/assets/machines/international-7300.png';
 import caterpillar336Image from '@/assets/machines/caterpillar-336.png';
+import hitachiZx350Image from '@/assets/machines/hitachi-zx350.png';
 
 // Category definitions with labels and icons
 export const categoryInfo: Record<MachineCategory, { label: string; labelRu?: string }> = {
@@ -1002,6 +1003,34 @@ export const allMachines: Machine[] = [
       caterpillar336Image,
     ],
   },
+  {
+    id: 46,
+    name: '2016 Hitachi ZX350 LC-6N Excavator',
+    year: 2016,
+    hours: 6015,
+    location: 'Lake Worth, Texas',
+    price: 45714,
+    originalPrice: 60150,
+    discount: 24,
+    category: 'earthmoving',
+    image: hitachiZx350Image,
+    isHotOffer: true,
+    description: 'Clean 2016 Hitachi ZX350 LC-6N straight out of a Texas rental fleet. Full service history, no major repairs ever needed. Fresh 500-hour service just completed – all filters, oils, greased, hydraulics 100%. Tight pins & bushings, strong undercarriage (75% remaining), ice-cold A/C. Ready to dig the day it lands. Includes 42" HD bucket.',
+    specs: {
+      engine: 'Isuzu 6HK1 Tier 4 Interim',
+      power: '271 hp',
+      weight: '77,600 lbs (35.2 metric tons)',
+      bucketCapacity: '42" (1.1 m³) HD bucket with teeth',
+      hydraulicFlow: 'High-flow auxiliary circuit (thumb/hammer ready)',
+      cab: 'Enclosed ROPS, A/C, heat, rear-view camera',
+      trackWidth: '≈ 75% undercarriage remaining',
+      features: 'Boom/stick no cracks or welds, fresh 500-hr service, full inspection report, clean Texas title',
+      status: 'In stock – ships worldwide',
+    },
+    gallery: [
+      hitachiZx350Image,
+    ],
+  },
 ];
 
 // Category assignments by machine ID
@@ -1011,6 +1040,7 @@ const categoryMap: Record<number, MachineCategory> = {
   3: 'earthmoving', // DD100 Dozer
   5: 'earthmoving', // SY215C Excavator
   45: 'earthmoving', // CAT 336 Excavator
+  46: 'earthmoving', // Hitachi ZX350 Excavator
   
   // Loaders (Wheel Loaders, Backhoe Loaders, Track Loaders)
   2: 'loaders', // SW405K Wheel Loader
