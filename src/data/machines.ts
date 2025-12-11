@@ -58,6 +58,7 @@ import bobcatE50Image from '@/assets/machines/bobcat-e50.png';
 import caterpillar304e2crImage from '@/assets/machines/caterpillar-304e2-cr.png';
 import kubotaKx0334Image from '@/assets/machines/kubota-kx033-4.png';
 import bobcatE10Image from '@/assets/machines/bobcat-e10.png';
+import johnDeere333gImage from '@/assets/machines/john-deere-333g.png';
 
 // Category definitions with labels and icons
 export const categoryInfo: Record<MachineCategory, { label: string; labelRu?: string }> = {
@@ -1848,6 +1849,38 @@ export const allMachines: Machine[] = [
       bobcatE10Image,
     ],
   },
+  {
+    id: 73,
+    name: '2023 John Deere 333G Compact Track Loader',
+    year: 2023,
+    hours: 1280,
+    location: 'Minneapolis, Minnesota',
+    price: 47520,
+    originalPrice: 54000,
+    discount: 12,
+    category: 'loaders',
+    image: johnDeere333gImage,
+    description: 'Go-to mid-frame vertical-lift compact track loader for heavy construction, landscaping, material handling, and rental fleets – built tough with John Deere\'s legendary reliability. Yanmar 4TNV94FHT Tier 4 Final 100 hp diesel (no DEF issues), hydrostatic two-speed transmission up to 10 mph, 3,700 lb ROC for stacking pallets high, 12 ft 3 in lift height, high-flow hydraulics (32 gpm @ 3,450 psi for mulchers/grapples), electro-hydraulic joystick controls, enclosed cab with heat/AC/Bluetooth radio/rear camera/LED work lights.',
+    specs: {
+      engine: 'Yanmar 4TNV94FHT 100 hp (74.6 kW) Tier 4 Final (no DEF)',
+      power: '100 hp (74.6 kW)',
+      weight: '12,100 lb (5,493 kg) operating weight',
+      maxLiftCapacity: '3,700 lb (1,680 kg) rated operating capacity',
+      tippingLoad: '10,571 lb (4,797 kg)',
+      maxLiftHeight: '12 ft 3 in (3.73 m)',
+      breakoutForce: '8,990 lbf (40 kN)',
+      travelSpeed: '5.7 / 10 mph (2-speed)',
+      trackWidth: '17.7 in (450 mm) steel-embedded rubber (85%+)',
+      hydraulicFlow: 'High-flow 32 gpm (121 L/min) @ 3,450 psi',
+      fuelTank: '24.8 gal (94 L)',
+      cab: 'Enclosed ROPS/FOPS, heat/AC, Bluetooth, camera, EH joysticks',
+      features: 'Quick-attach plate, 84" low-profile bucket with BOE, ride control, reversing fan, 5.1 psi ground pressure',
+      status: 'Dealer-serviced, work-ready, ships in 48 hrs',
+    },
+    gallery: [
+      johnDeere333gImage,
+    ],
+  },
 ];
 
 // Category assignments by machine ID
@@ -1882,6 +1915,7 @@ const categoryMap: Record<number, MachineCategory> = {
   8: 'loaders', // 310L EP Backhoe
   13: 'loaders', // ASV VT-70 Track Loader
   20: 'loaders', // WA320-8 Wheel Loader
+  73: 'loaders', // John Deere 333G Compact Track Loader
   39: 'loaders', // 310SL Backhoe
   42: 'loaders', // 289D3 Track Loader
   48: 'loaders', // CAT 950M Wheel Loader
