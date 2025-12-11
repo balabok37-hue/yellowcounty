@@ -50,6 +50,7 @@ import caterpillar938m2021Image from '@/assets/machines/caterpillar-938m-2021.pn
 import caterpillar938m2022bImage from '@/assets/machines/caterpillar-938m-2022b.png';
 import jcb55z1Image from '@/assets/machines/jcb-55z-1.png';
 import caseCx42dImage from '@/assets/machines/case-cx42d.png';
+import wackerNeusonEz26Image from '@/assets/machines/wacker-neuson-ez26.png';
 
 // Category definitions with labels and icons
 export const categoryInfo: Record<MachineCategory, { label: string; labelRu?: string }> = {
@@ -1586,6 +1587,38 @@ export const allMachines: Machine[] = [
       caseCx42dImage,
     ],
   },
+  {
+    id: 65,
+    name: '2023 Wacker Neuson EZ26 Mini Excavator',
+    year: 2023,
+    hours: 0,
+    location: 'Phoenix, Arizona',
+    price: 27900,
+    originalPrice: 31000,
+    discount: 10,
+    category: 'earthmoving',
+    image: wackerNeusonEz26Image,
+    description: 'Top-tier 2.6-ton zero-tailswing mini excavator – the rental-fleet king. VDS tiltable cab (15°), Stage-V Kubota 20.6 hp (no DPF, no DEF), expandable undercarriage 51"–68", 2-speed travel, proportional aux lines (thumb/grapple ready), hydraulic quick-coupler + 24" digging bucket + grading bucket included, angle blade option, LED lights, Bluetooth radio, load-sensing hydraulics. Full remaining Wacker Neuson factory warranty 3 yr/3,000 hr.',
+    specs: {
+      engine: 'Kubota D1005 Stage V 20.6 hp',
+      power: '20.6 hp',
+      weight: '5,930 lb (2,690 kg)',
+      maxDiggingDepth: '9 ft 2 in (2.80 m)',
+      maxReach: '15 ft 9 in (4.81 m)',
+      maxDumpHeight: '10 ft 8 in (3.25 m)',
+      breakoutForce: '5,350 lbf bucket breakout',
+      tailSwing: 'Zero tail swing',
+      trackWidth: 'Rubber 11.8" – expandable 51"–68"',
+      hydraulicFlow: 'Load-sensing, proportional dual circuit aux',
+      cab: 'Heated & A/C, VDS tiltable (15°), Bluetooth radio',
+      warranty: 'Full 3 yr/3,000 hr remaining',
+      features: 'Hydraulic quick-coupler, 24" digging bucket + grading bucket, LED lights, angle blade option, 2-speed travel',
+      status: 'Brand new (0 hours), in stock Phoenix AZ – ships in 24-48 hrs',
+    },
+    gallery: [
+      wackerNeusonEz26Image,
+    ],
+  },
 ];
 
 // Category assignments by machine ID
@@ -1605,6 +1638,7 @@ const categoryMap: Record<number, MachineCategory> = {
   56: 'earthmoving', // John Deere 35 P-Tier Mini Excavator (2024 B)
   63: 'earthmoving', // JCB 55Z-1 Mini Excavator
   64: 'earthmoving', // CASE CX42D Mini Excavator
+  65: 'earthmoving', // Wacker Neuson EZ26 Mini Excavator
   
   // Loaders (Wheel Loaders, Backhoe Loaders, Track Loaders)
   2: 'loaders', // SW405K Wheel Loader
