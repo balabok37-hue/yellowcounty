@@ -154,7 +154,7 @@ export function MachineCard({ machine, index, onViewDetails }: MachineCardProps)
 
         {/* SOLD overlay */}
         {machine.isSold && (
-          <div className="absolute inset-0 z-20 flex items-center justify-center bg-destructive/80 backdrop-blur-sm">
+          <div className="absolute inset-0 z-20 flex items-center justify-center bg-destructive/30 backdrop-blur-md">
             <span className="text-4xl sm:text-5xl md:text-6xl font-black text-destructive-foreground uppercase tracking-widest -rotate-12 drop-shadow-lg">
               SOLD
             </span>
