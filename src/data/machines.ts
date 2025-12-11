@@ -60,6 +60,7 @@ import kubotaKx0334Image from '@/assets/machines/kubota-kx033-4.png';
 import bobcatE10Image from '@/assets/machines/bobcat-e10.png';
 import johnDeere333gImage from '@/assets/machines/john-deere-333g.png';
 import rippaNdi665Image from '@/assets/machines/rippa-ndi665.png';
+import caterpillar299d2Image from '@/assets/machines/caterpillar-299d2.png';
 
 // Category definitions with labels and icons
 export const categoryInfo: Record<MachineCategory, { label: string; labelRu?: string }> = {
@@ -1915,6 +1916,38 @@ export const allMachines: Machine[] = [
       rippaNdi665Image,
     ],
   },
+  {
+    id: 75,
+    name: '2018 Caterpillar 299D2 Compact Track Loader',
+    year: 2018,
+    hours: 2450,
+    location: 'Kansas City, Missouri',
+    price: 16376,
+    originalPrice: 17800,
+    discount: 8,
+    category: 'loaders',
+    image: caterpillar299d2Image,
+    description: 'Heavy-duty mid-frame radial-lift compact track loader – rental fleet and contractor staple for construction, landscaping, excavation, and material handling. Unbeatable traction on mud/slopes/soft ground with zero downtime features. Cat C3.8 Tier 4 Final 95 hp diesel (no DEF regen hassles), hydrostatic two-speed transmission up to 8.4 mph, 3,200 lb ROC (35% tipping), 9 ft 6 in hinge pin height, high-flow hydraulics (32 gpm @ 3,335 psi for mulchers/grapples/forks), electro-hydraulic joysticks with pattern changer.',
+    specs: {
+      engine: 'Cat C3.8 DIT 95 hp (71 kW) Tier 4 Final (no DEF)',
+      power: '95 hp (71 kW)',
+      weight: '11,608 lb (5,265 kg) operating weight',
+      maxLiftCapacity: '3,200 lb (1,452 kg) at 35% tipping',
+      tippingLoad: '9,143 lb (4,148 kg)',
+      maxLiftHeight: '9 ft 6 in (2.90 m) hinge pin',
+      breakoutForce: '8,200 lbf (36.5 kN)',
+      travelSpeed: '5.2 / 8.4 mph (2-speed)',
+      trackWidth: '15.7 in (400 mm) steel-embedded rubber (80%+)',
+      hydraulicFlow: 'High-flow 32 gpm (121 L/min) @ 3,335 psi',
+      fuelTank: '27.7 gal (105 L)',
+      cab: 'Enclosed ROPS/FOPS, heat/AC, Bluetooth, camera, EH joysticks',
+      features: 'Quick-attach plate, 78" dirt bucket with BOE, ride control, reversing fan, pattern changer, 5.9 psi ground pressure',
+      status: 'Dealer-serviced, work-ready, ships in 48 hrs',
+    },
+    gallery: [
+      caterpillar299d2Image,
+    ],
+  },
 ];
 
 // Category assignments by machine ID
@@ -1951,6 +1984,7 @@ const categoryMap: Record<number, MachineCategory> = {
   20: 'loaders', // WA320-8 Wheel Loader
   73: 'loaders', // John Deere 333G Compact Track Loader
   74: 'loaders', // Rippa NDI665 Mini Track Loader
+  75: 'loaders', // CAT 299D2 Compact Track Loader
   39: 'loaders', // 310SL Backhoe
   42: 'loaders', // 289D3 Track Loader
   48: 'loaders', // CAT 950M Wheel Loader
