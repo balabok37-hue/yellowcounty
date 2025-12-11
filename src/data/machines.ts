@@ -52,6 +52,7 @@ import jcb55z1Image from '@/assets/machines/jcb-55z-1.png';
 import caseCx42dImage from '@/assets/machines/case-cx42d.png';
 import wackerNeusonEz26Image from '@/assets/machines/wacker-neuson-ez26.png';
 import machproMp319Image from '@/assets/machines/machpro-mp319.png';
+import machproMp319LaImage from '@/assets/machines/machpro-mp319-la.png';
 
 // Category definitions with labels and icons
 export const categoryInfo: Record<MachineCategory, { label: string; labelRu?: string }> = {
@@ -1652,6 +1653,38 @@ export const allMachines: Machine[] = [
       machproMp319Image,
     ],
   },
+  {
+    id: 67,
+    name: '2025 MachPro MP319 Mini Excavator',
+    year: 2025,
+    hours: 0,
+    location: 'Los Angeles, California',
+    price: 5355,
+    originalPrice: 5950,
+    discount: 10,
+    category: 'earthmoving',
+    image: machproMp319LaImage,
+    description: 'Budget-busting 1.9-ton mini excavator exploding in the 2025 rental and small contractor market – zero-tailswing design crushes tight urban jobs, landscaping, and farm digs without breaking the bank. Kubota D1703 Stage V 25 hp diesel (no DEF, no DPF downtime), expandable tracks 39"–52", 2-speed travel up to 2.8 mph, swing boom for max reach, hydraulic quick-coupler + 16" tooth digging bucket + 36" smooth grading bucket + factory hydraulic thumb included, dozer blade with float, enclosed cab with heat/AC/Bluetooth radio/LED work lights/joystick controls, proportional aux hydraulics (20 gpm). Full 1-year / 2,000 hr warranty.',
+    specs: {
+      engine: 'Kubota D1703 25 hp Stage V (no DEF)',
+      power: '25 hp',
+      weight: '4,200 lb (1,900 kg)',
+      maxDiggingDepth: '8 ft 6 in (2.60 m)',
+      maxReach: '14 ft 6 in (4.42 m)',
+      maxDumpHeight: '9 ft 6 in (2.90 m)',
+      breakoutForce: '4,950 lbf (22 kN) bucket breakout',
+      tailSwing: 'Zero tail swing',
+      trackWidth: 'Expandable rubber 39"–52" (100%)',
+      hydraulicFlow: 'Proportional aux 20 gpm',
+      cab: 'Enclosed heat/AC, Bluetooth radio, LED lights, joystick controls',
+      warranty: '1 yr / 2,000 hr full machine',
+      features: '16" tooth bucket + 36" grading bucket + hydraulic thumb + quick-coupler included, swing boom, dozer blade with float, 2-speed travel (2.8 mph)',
+      status: 'Brand new (0 hours), in stock LA port yard – ships in 24-48 hrs',
+    },
+    gallery: [
+      machproMp319LaImage,
+    ],
+  },
 ];
 
 // Category assignments by machine ID
@@ -1672,7 +1705,8 @@ const categoryMap: Record<number, MachineCategory> = {
   63: 'earthmoving', // JCB 55Z-1 Mini Excavator
   64: 'earthmoving', // CASE CX42D Mini Excavator
   65: 'earthmoving', // Wacker Neuson EZ26 Mini Excavator
-  66: 'earthmoving', // MachPro MP319 Mini Excavator
+  66: 'earthmoving', // MachPro MP319 Mini Excavator (Miami)
+  67: 'earthmoving', // MachPro MP319 Mini Excavator (LA)
   
   // Loaders (Wheel Loaders, Backhoe Loaders, Track Loaders)
   2: 'loaders', // SW405K Wheel Loader
