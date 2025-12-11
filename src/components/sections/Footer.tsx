@@ -1,11 +1,74 @@
 import { motion } from 'framer-motion';
-import { Instagram, Phone, Mail, MapPin, MessageCircle, FileText } from 'lucide-react';
-import { Link } from 'react-router-dom';
+import { Phone, Mail, MapPin, MessageCircle, FileText, ShieldCheck, BadgeCheck, Star, Truck } from 'lucide-react';
+import { Link, useNavigate, useLocation } from 'react-router-dom';
 
 export function Footer() {
+  const navigate = useNavigate();
+  const location = useLocation();
+
+  const handleNavClick = (sectionId: string) => {
+    if (location.pathname !== '/') {
+      navigate('/', { state: { scrollTo: sectionId } });
+    } else {
+      const element = document.getElementById(sectionId);
+      element?.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
   return (
     <footer className="py-12 border-t border-border/50">
       <div className="container px-4">
+        {/* Trust Badges & Ratings */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+          viewport={{ once: true }}
+          className="mb-10 pb-10 border-b border-border/30"
+        >
+          {/* Rating Section */}
+          <div className="flex flex-col md:flex-row items-center justify-center gap-6 mb-8">
+            <div className="flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 border border-primary/20">
+              <div className="flex items-center gap-0.5">
+                {[1, 2, 3, 4, 5].map((star) => (
+                  <Star key={star} className={`w-4 h-4 ${star <= 4 ? 'fill-primary text-primary' : 'fill-primary/50 text-primary/50'}`} />
+                ))}
+              </div>
+              <span className="text-sm font-semibold text-foreground">4.8/5</span>
+              <span className="text-xs text-muted-foreground">Average Rating</span>
+            </div>
+            <div className="flex items-center gap-4">
+              <div className="flex items-center gap-1.5 text-sm text-muted-foreground">
+                <ShieldCheck className="w-4 h-4 text-green-500" />
+                <span>Verified Seller</span>
+              </div>
+              <div className="flex items-center gap-1.5 text-sm text-muted-foreground">
+                <BadgeCheck className="w-4 h-4 text-blue-500" />
+                <span>Licensed Dealer</span>
+              </div>
+            </div>
+          </div>
+
+          {/* Shipping Partners */}
+          <div className="text-center">
+            <p className="text-xs text-muted-foreground mb-4 uppercase tracking-wider">Trusted Shipping Partners</p>
+            <div className="flex flex-wrap items-center justify-center gap-6">
+              <div className="flex items-center gap-2 px-4 py-2 rounded-lg bg-card border border-border/50">
+                <Truck className="w-5 h-5 text-primary" />
+                <span className="text-sm font-medium text-foreground">Central Dispatch</span>
+              </div>
+              <div className="flex items-center gap-2 px-4 py-2 rounded-lg bg-card border border-border/50">
+                <Truck className="w-5 h-5 text-primary" />
+                <span className="text-sm font-medium text-foreground">Montway</span>
+              </div>
+              <div className="flex items-center gap-2 px-4 py-2 rounded-lg bg-card border border-border/50">
+                <Truck className="w-5 h-5 text-primary" />
+                <span className="text-sm font-medium text-foreground">Ready Logistics</span>
+              </div>
+            </div>
+          </div>
+        </motion.div>
+
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -23,24 +86,12 @@ export function Footer() {
               Hand-selected machines, verified quality, unbeatable pricing.
             </p>
             <div className="flex gap-4">
-              <a
-                href="https://instagram.com"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="w-10 h-10 rounded-full bg-muted flex items-center justify-center hover:bg-primary hover:text-primary-foreground transition-colors"
-              >
-                <Instagram className="w-5 h-5" />
-              </a>
-              <a
-                href="https://tiktok.com"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="w-10 h-10 rounded-full bg-muted flex items-center justify-center hover:bg-primary hover:text-primary-foreground transition-colors"
-              >
-                <svg className="w-5 h-5" viewBox="0 0 24 24" fill="currentColor">
-                  <path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64 2.93 2.93 0 0 1 .88.13V9.4a6.84 6.84 0 0 0-1-.05A6.33 6.33 0 0 0 5 20.1a6.34 6.34 0 0 0 10.86-4.43v-7a8.16 8.16 0 0 0 4.77 1.52v-3.4a4.85 4.85 0 0 1-1-.1z"/>
-                </svg>
-              </a>
+              <div className="w-10 h-10 rounded-full bg-green-500/10 flex items-center justify-center border border-green-500/20">
+                <ShieldCheck className="w-5 h-5 text-green-500" />
+              </div>
+              <div className="w-10 h-10 rounded-full bg-blue-500/10 flex items-center justify-center border border-blue-500/20">
+                <BadgeCheck className="w-5 h-5 text-blue-500" />
+              </div>
             </div>
           </div>
 
@@ -49,14 +100,20 @@ export function Footer() {
             <h4 className="font-semibold text-foreground mb-4">Quick Links</h4>
             <ul className="space-y-2 text-muted-foreground">
               <li>
-                <a href="#featured" className="hover:text-primary transition-colors">
+                <button 
+                  onClick={() => handleNavClick('featured')}
+                  className="hover:text-primary transition-colors text-left"
+                >
                   Featured Equipment
-                </a>
+                </button>
               </li>
               <li>
-                <a href="#contact" className="hover:text-primary transition-colors">
+                <button 
+                  onClick={() => handleNavClick('contact')}
+                  className="hover:text-primary transition-colors text-left"
+                >
                   Contact Us
-                </a>
+                </button>
               </li>
               <li>
                 <Link to="/documents" className="hover:text-primary transition-colors flex items-center gap-1.5">
@@ -65,9 +122,12 @@ export function Footer() {
                 </Link>
               </li>
               <li>
-                <a href="#" className="hover:text-primary transition-colors">
+                <button 
+                  onClick={() => handleNavClick('contact')}
+                  className="hover:text-primary transition-colors text-left"
+                >
                   Financing Options
-                </a>
+                </button>
               </li>
             </ul>
           </div>

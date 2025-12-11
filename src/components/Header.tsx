@@ -2,7 +2,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { Button } from '@/components/ui/button';
 import { Phone, Menu, X, Mail, MapPin, MessageCircle, FileText, Package, Send } from 'lucide-react';
 import { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate, useLocation } from 'react-router-dom';
 import {
   Dialog,
   DialogContent,
@@ -13,42 +13,66 @@ import {
 export function Header() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isCallModalOpen, setIsCallModalOpen] = useState(false);
+  const navigate = useNavigate();
+  const location = useLocation();
 
   const menuItems = [
-    { label: 'Equipment', href: '#featured', icon: Package },
-    { label: 'Contact', href: '#contact', icon: Send },
+    { label: 'Equipment', href: '/#featured', icon: Package },
+    { label: 'Contact', href: '/#contact', icon: Send },
     { label: 'Documents', href: '/documents', isRoute: true, icon: FileText },
   ];
 
+  const handleNavClick = (href: string, isRoute?: boolean) => {
+    if (isRoute) {
+      navigate(href);
+    } else if (href.startsWith('/#')) {
+      const sectionId = href.substring(2);
+      if (location.pathname !== '/') {
+        navigate('/', { state: { scrollTo: sectionId } });
+      } else {
+        const element = document.getElementById(sectionId);
+        element?.scrollIntoView({ behavior: 'smooth' });
+      }
+    }
+    setIsMobileMenuOpen(false);
+  };
+
   return (
     <>
-      <header className="fixed top-0 left-0 right-0 z-50 bg-background/90 backdrop-blur-xl border-b border-border/50">
+      <motion.header
+        initial={{ y: -100 }}
+        animate={{ y: 0 }}
+        transition={{ duration: 0.5 }}
+        className="fixed top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-xl border-b border-border/50"
+      >
         <div className="container px-4">
-          <div className="flex items-center justify-between h-16 sm:h-20">
+          <div className="flex items-center justify-between h-16 md:h-20">
             {/* Logo */}
-            <Link to="/" className="text-xl sm:text-2xl font-bold text-foreground">
-              Yellow<span className="text-primary">Stone</span>
+            <Link to="/" className="flex items-center gap-3">
+              <div className="text-xl md:text-2xl font-bold text-foreground">
+                Yellow<span className="text-primary">Stone</span>
+              </div>
             </Link>
 
             {/* Desktop Nav */}
             <nav className="hidden md:flex items-center gap-8">
-              <a 
-                href="#featured"
-                className="text-foreground/80 hover:text-primary transition-colors duration-200 flex items-center gap-1.5"
+              <button 
+                onClick={() => handleNavClick('/#featured')}
+                className="text-foreground/80 hover:text-primary transition-colors duration-200 flex items-center gap-1.5 px-3 py-1.5 rounded-lg border border-border/30 hover:border-primary/50 bg-background/50"
               >
                 <Package className="w-4 h-4" />
                 Equipment
-              </a>
-              <a 
-                href="#contact"
-                className="text-foreground/80 hover:text-primary transition-colors duration-200 flex items-center gap-1.5"
+              </button>
+              <button 
+                onClick={() => handleNavClick('/#contact')}
+                className="text-foreground/80 hover:text-primary transition-colors duration-200 flex items-center gap-1.5 px-3 py-1.5 rounded-lg border border-border/30 hover:border-primary/50 bg-background/50"
               >
                 <Send className="w-4 h-4" />
                 Contact
-              </a>
+              </button>
               <Link 
                 to="/documents"
-                className="text-foreground/80 hover:text-primary transition-colors duration-200 flex items-center gap-1.5"
+                className="text-foreground/80 hover:text-primary transition-colors duration-200 flex items-center gap-1.5 px-3 py-1.5 rounded-lg border border-border/30 hover:border-primary/50 bg-background/50"
               >
                 <FileText className="w-4 h-4" />
                 Documents
@@ -73,7 +97,7 @@ export function Header() {
             </button>
           </div>
         </div>
-      </header>
+      </motion.header>
 
       {/* Mobile Menu Overlay */}
       <AnimatePresence>
@@ -101,40 +125,22 @@ export function Header() {
             {/* Menu Content */}
             <div className="p-6 space-y-3">
               {menuItems.map((item, index) => (
-                item.isRoute ? (
-                  <Link
-                    key={item.label}
-                    to={item.href}
-                    onClick={() => setIsMobileMenuOpen(false)}
-                    className="flex items-center justify-between p-5 rounded-2xl bg-card border border-border/50 active:bg-card/80 transition-colors duration-150"
-                  >
-                    <span className="text-lg font-semibold text-foreground flex items-center gap-2">
-                      <FileText className="w-5 h-5" />
-                      {item.label}
-                    </span>
-                    <div className="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center">
-                      <span className="text-primary">→</span>
-                    </div>
-                  </Link>
-                ) : (
-                  <motion.a
-                    key={item.label}
-                    href={item.href}
-                    initial={{ opacity: 0, x: -20 }}
-                    animate={{ opacity: 1, x: 0 }}
-                    transition={{ delay: index * 0.05, duration: 0.25 }}
-                    onClick={() => setIsMobileMenuOpen(false)}
-                    className="flex items-center justify-between p-5 rounded-2xl bg-card border border-border/50 active:bg-card/80 transition-colors duration-150"
-                  >
-                    <span className="text-lg font-semibold text-foreground flex items-center gap-2">
-                      {item.icon && <item.icon className="w-5 h-5" />}
-                      {item.label}
-                    </span>
-                    <div className="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center">
-                      <span className="text-primary">→</span>
-                    </div>
-                  </motion.a>
-                )
+                <motion.button
+                  key={item.label}
+                  initial={{ opacity: 0, x: -20 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  transition={{ delay: index * 0.05, duration: 0.25 }}
+                  onClick={() => handleNavClick(item.href, item.isRoute)}
+                  className="flex items-center justify-between p-5 rounded-2xl bg-card border border-border/50 active:bg-card/80 transition-colors duration-150 w-full text-left"
+                >
+                  <span className="text-lg font-semibold text-foreground flex items-center gap-2">
+                    {item.icon && <item.icon className="w-5 h-5" />}
+                    {item.label}
+                  </span>
+                  <div className="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center">
+                    <span className="text-primary">→</span>
+                  </div>
+                </motion.button>
               ))}
 
               {/* Contact Actions */}
