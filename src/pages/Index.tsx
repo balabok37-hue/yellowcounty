@@ -1,5 +1,6 @@
 import { useState, useEffect, useCallback, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
+import { useLocation } from 'react-router-dom';
 import { Header } from '@/components/Header';
 import { HeroSection } from '@/components/sections/HeroSection';
 import { FeaturedSection } from '@/components/sections/FeaturedSection';
@@ -35,9 +36,23 @@ const Index = () => {
   const [modalOpen, setModalOpen] = useState(false);
   const [catalogPreloaded, setCatalogPreloaded] = useState(false);
   const featuredRef = useRef<HTMLDivElement>(null);
+  const location = useLocation();
 
   // Initialize smooth scroll
   useLenis();
+
+  // Handle scroll to section when navigating from other pages
+  useEffect(() => {
+    if (showContent && location.state?.scrollTo) {
+      const sectionId = location.state.scrollTo;
+      setTimeout(() => {
+        const element = document.getElementById(sectionId);
+        element?.scrollIntoView({ behavior: 'smooth' });
+      }, 100);
+      // Clear the state to prevent re-scrolling on refresh
+      window.history.replaceState({}, document.title);
+    }
+  }, [showContent, location.state]);
 
   // Preload critical assets including featured images
   useEffect(() => {
