@@ -49,6 +49,7 @@ import caterpillar938mImage from '@/assets/machines/caterpillar-938m.png';
 import caterpillar938m2021Image from '@/assets/machines/caterpillar-938m-2021.png';
 import caterpillar938m2022bImage from '@/assets/machines/caterpillar-938m-2022b.png';
 import jcb55z1Image from '@/assets/machines/jcb-55z-1.png';
+import caseCx42dImage from '@/assets/machines/case-cx42d.png';
 
 // Category definitions with labels and icons
 export const categoryInfo: Record<MachineCategory, { label: string; labelRu?: string }> = {
@@ -1553,6 +1554,38 @@ export const allMachines: Machine[] = [
       jcb55z1Image,
     ],
   },
+  {
+    id: 64,
+    name: '2023 CASE CX42D Mini Excavator',
+    year: 2023,
+    hours: 0,
+    location: 'Atlanta, Georgia',
+    price: 47200,
+    originalPrice: 59000,
+    discount: 20,
+    category: 'earthmoving',
+    image: caseCx42dImage,
+    description: 'Brand-new 4.2-ton zero-tailswing mini excavator. FPT 37.4 hp Tier 4 Final (no DEF/AdBlue), 2-speed travel, 16" rubber tracks 100%, enclosed cab with heat/AC/touchscreen joysticks/Bluetooth/radio/rear camera, proportional aux hydraulics (thumb/grapple ready), hydraulic quick-coupler + 24" digging bucket included, LED work lights, auto-idle, float blade. 100% under full CASE ProCare factory warranty: 3 yr/3,000 hr bumper-to-bumper + 5 yr powertrain.',
+    specs: {
+      engine: 'FPT 37.4 hp Tier 4 Final (no DEF)',
+      power: '37.4 hp',
+      weight: '9,260 lb (4,200 kg)',
+      maxDiggingDepth: '12 ft 4 in (3.76 m)',
+      maxReach: '20 ft 2 in (6.15 m)',
+      maxDumpHeight: '13 ft 9 in (4.19 m)',
+      breakoutForce: '8,400 lbf bucket breakout',
+      tailSwing: 'Zero tail swing',
+      trackWidth: '16" rubber tracks 100%',
+      hydraulicFlow: 'Proportional 1st & 2nd circuit aux hydraulics',
+      cab: 'Enclosed heat/AC, touchscreen joysticks, Bluetooth, radio, rear camera',
+      warranty: 'Full CASE ProCare 3 yr/3,000 hr + 5 yr powertrain',
+      features: 'Hydraulic quick-coupler, 24" digging bucket, LED work lights, auto-idle, float blade, 2-speed travel',
+      status: 'Brand new (0 hours), in stock Atlanta GA – ready to ship in 48 hrs',
+    },
+    gallery: [
+      caseCx42dImage,
+    ],
+  },
 ];
 
 // Category assignments by machine ID
@@ -1571,6 +1604,7 @@ const categoryMap: Record<number, MachineCategory> = {
   55: 'earthmoving', // John Deere 35 P-Tier Mini Excavator (2024)
   56: 'earthmoving', // John Deere 35 P-Tier Mini Excavator (2024 B)
   63: 'earthmoving', // JCB 55Z-1 Mini Excavator
+  64: 'earthmoving', // CASE CX42D Mini Excavator
   
   // Loaders (Wheel Loaders, Backhoe Loaders, Track Loaders)
   2: 'loaders', // SW405K Wheel Loader
