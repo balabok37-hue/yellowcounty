@@ -1,7 +1,8 @@
 import { motion, AnimatePresence } from 'framer-motion';
 import { Button } from '@/components/ui/button';
-import { Phone, Menu, X, Mail, MapPin, MessageCircle } from 'lucide-react';
+import { Phone, Menu, X, Mail, MapPin, MessageCircle, FileText } from 'lucide-react';
 import { useState } from 'react';
+import { Link } from 'react-router-dom';
 import {
   Dialog,
   DialogContent,
@@ -17,6 +18,7 @@ export function Header() {
     { label: 'Equipment', href: '#featured' },
     { label: 'Why Us', href: '#contact' },
     { label: 'Contact', href: '#contact' },
+    { label: 'Documents', href: '/documents', isRoute: true },
   ];
 
   return (
@@ -25,9 +27,9 @@ export function Header() {
         <div className="container px-4">
           <div className="flex items-center justify-between h-16 sm:h-20">
             {/* Logo */}
-            <a href="/" className="text-xl sm:text-2xl font-bold text-foreground">
+            <Link to="/" className="text-xl sm:text-2xl font-bold text-foreground">
               Yellow<span className="text-primary">Stone</span>
-            </a>
+            </Link>
 
             {/* Desktop Nav */}
             <nav className="hidden md:flex items-center gap-8">
@@ -40,6 +42,13 @@ export function Header() {
                   {item}
                 </a>
               ))}
+              <Link 
+                to="/documents"
+                className="text-foreground/80 hover:text-primary transition-colors duration-200 flex items-center gap-1.5"
+              >
+                <FileText className="w-4 h-4" />
+                Documents
+              </Link>
               <Button 
                 variant="outline" 
                 size="sm" 
@@ -88,20 +97,37 @@ export function Header() {
             {/* Menu Content */}
             <div className="p-6 space-y-3">
               {menuItems.map((item, index) => (
-                <motion.a
-                  key={item.label}
-                  href={item.href}
-                  initial={{ opacity: 0, x: -20 }}
-                  animate={{ opacity: 1, x: 0 }}
-                  transition={{ delay: index * 0.05, duration: 0.25 }}
-                  onClick={() => setIsMobileMenuOpen(false)}
-                  className="flex items-center justify-between p-5 rounded-2xl bg-card border border-border/50 active:bg-card/80 transition-colors duration-150"
-                >
-                  <span className="text-lg font-semibold text-foreground">{item.label}</span>
-                  <div className="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center">
-                    <span className="text-primary">→</span>
-                  </div>
-                </motion.a>
+                item.isRoute ? (
+                  <Link
+                    key={item.label}
+                    to={item.href}
+                    onClick={() => setIsMobileMenuOpen(false)}
+                    className="flex items-center justify-between p-5 rounded-2xl bg-card border border-border/50 active:bg-card/80 transition-colors duration-150"
+                  >
+                    <span className="text-lg font-semibold text-foreground flex items-center gap-2">
+                      <FileText className="w-5 h-5" />
+                      {item.label}
+                    </span>
+                    <div className="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center">
+                      <span className="text-primary">→</span>
+                    </div>
+                  </Link>
+                ) : (
+                  <motion.a
+                    key={item.label}
+                    href={item.href}
+                    initial={{ opacity: 0, x: -20 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    transition={{ delay: index * 0.05, duration: 0.25 }}
+                    onClick={() => setIsMobileMenuOpen(false)}
+                    className="flex items-center justify-between p-5 rounded-2xl bg-card border border-border/50 active:bg-card/80 transition-colors duration-150"
+                  >
+                    <span className="text-lg font-semibold text-foreground">{item.label}</span>
+                    <div className="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center">
+                      <span className="text-primary">→</span>
+                    </div>
+                  </motion.a>
+                )
               ))}
 
               {/* Contact Actions */}
