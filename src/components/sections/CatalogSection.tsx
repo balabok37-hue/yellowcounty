@@ -119,11 +119,6 @@ export function CatalogSection({ isOpen, onToggle, onHoverButton, onViewDetails 
       machines = machines.filter(m => m.category === activeCategory);
     }
     
-    // Filter by brand
-    if (activeBrand !== 'all') {
-      machines = machines.filter(m => extractBrand(m.name) === activeBrand);
-    }
-    
     // Fuzzy search
     if (searchQuery.trim()) {
       const query = searchQuery.trim();
@@ -135,8 +130,25 @@ export function CatalogSection({ isOpen, onToggle, onHoverButton, onViewDetails 
       );
     }
     
+    // Sort by brand (matching brand first) - don't filter, just reorder
+    if (activeBrand !== 'all') {
+      machines = [...machines].sort((a, b) => {
+        const aMatches = extractBrand(a.name) === activeBrand;
+        const bMatches = extractBrand(b.name) === activeBrand;
+        if (aMatches && !bMatches) return -1;
+        if (!aMatches && bMatches) return 1;
+        return 0;
+      });
+    }
+    
     return machines;
   }, [activeCategory, activeBrand, searchQuery]);
+  
+  // Helper to check if machine matches selected brand
+  const isBrandMatch = (machine: Machine) => {
+    if (activeBrand === 'all') return true;
+    return extractBrand(machine.name) === activeBrand;
+  };
 
   const catalogCount = catalogMachines.length;
 
@@ -277,6 +289,7 @@ export function CatalogSection({ isOpen, onToggle, onHoverButton, onViewDetails 
                       machine={machine}
                       index={index}
                       onViewDetails={onViewDetails}
+                      isDimmed={!isBrandMatch(machine)}
                     />
                   </CardReveal>
                 ))}
