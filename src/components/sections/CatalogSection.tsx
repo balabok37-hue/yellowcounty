@@ -1,10 +1,10 @@
 import { motion, AnimatePresence } from 'framer-motion';
-import { useMemo, useState } from 'react';
+import { useMemo, useState, useRef } from 'react';
 import { MachineCard } from '@/components/MachineCard';
 import { catalogMachines, categoryInfo } from '@/data/machines';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
-import { ChevronDown, ChevronUp, Shovel, Truck, Forklift, Cog, Loader, Search, X, Factory } from 'lucide-react';
+import { ChevronDown, ChevronUp, Shovel, Truck, Forklift, Cog, Loader, Search, X, Factory, ArrowUpDown, ArrowUp } from 'lucide-react';
 import { CardReveal } from '@/components/ScrollReveal';
 import {
   Select,
@@ -14,6 +14,8 @@ import {
   SelectValue,
 } from '@/components/ui/select';
 import type { Machine, MachineCategory } from '@/components/MachineCard';
+
+type SortOption = 'hot-first' | 'price-low' | 'price-high' | 'discount' | 'newest' | 'lowest-hours';
 
 interface CatalogSectionProps {
   isOpen: boolean;
@@ -29,6 +31,15 @@ const categoryIcons: Record<MachineCategory, React.ElementType> = {
   trucks: Truck,
   specialty: Cog,
 };
+
+const sortOptions: { value: SortOption; label: string }[] = [
+  { value: 'hot-first', label: 'Hot Offers First' },
+  { value: 'discount', label: 'Biggest Discount' },
+  { value: 'price-low', label: 'Price: Low to High' },
+  { value: 'price-high', label: 'Price: High to Low' },
+  { value: 'newest', label: 'Newest First' },
+  { value: 'lowest-hours', label: 'Lowest Hours' },
+];
 
 // Extract brand from machine name (e.g., "2022 Sany SY80U" → "Sany")
 const extractBrand = (name: string): string => {
@@ -104,10 +115,38 @@ const fuzzyWordMatch = (text: string, query: string): boolean => {
   return false;
 };
 
+// Sort machines based on selected option
+const sortMachines = (machines: Machine[], sortBy: SortOption): Machine[] => {
+  const sorted = [...machines];
+  
+  switch (sortBy) {
+    case 'hot-first':
+      return sorted.sort((a, b) => {
+        if (a.isHotOffer && !b.isHotOffer) return -1;
+        if (!a.isHotOffer && b.isHotOffer) return 1;
+        return (b.discount || 0) - (a.discount || 0);
+      });
+    case 'discount':
+      return sorted.sort((a, b) => (b.discount || 0) - (a.discount || 0));
+    case 'price-low':
+      return sorted.sort((a, b) => a.price - b.price);
+    case 'price-high':
+      return sorted.sort((a, b) => b.price - a.price);
+    case 'newest':
+      return sorted.sort((a, b) => b.year - a.year);
+    case 'lowest-hours':
+      return sorted.sort((a, b) => (a.hours || 0) - (b.hours || 0));
+    default:
+      return sorted;
+  }
+};
+
 export function CatalogSection({ isOpen, onToggle, onHoverButton, onViewDetails }: CatalogSectionProps) {
   const [activeCategory, setActiveCategory] = useState<MachineCategory | 'all'>('all');
   const [activeBrand, setActiveBrand] = useState<string>('all');
   const [searchQuery, setSearchQuery] = useState('');
+  const [sortBy, setSortBy] = useState<SortOption>('hot-first');
+  const filterRef = useRef<HTMLDivElement>(null);
 
   const uniqueBrands = useMemo(() => getUniqueBrands(), []);
 
@@ -135,8 +174,13 @@ export function CatalogSection({ isOpen, onToggle, onHoverButton, onViewDetails 
       );
     }
     
-    return machines;
-  }, [activeCategory, activeBrand, searchQuery]);
+    // Apply sorting
+    return sortMachines(machines, sortBy);
+  }, [activeCategory, activeBrand, searchQuery, sortBy]);
+
+  const scrollToFilters = () => {
+    filterRef.current?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  };
 
   const catalogCount = catalogMachines.length;
 
@@ -193,7 +237,7 @@ export function CatalogSection({ isOpen, onToggle, onHoverButton, onViewDetails 
                 </h2>
                 
                 {/* Search Input */}
-                <div className="max-w-md mx-auto mb-6 relative">
+                <div ref={filterRef} className="max-w-md mx-auto mb-6 relative scroll-mt-24">
                   <Search className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-muted-foreground pointer-events-none" />
                   <Input
                     type="text"
@@ -212,10 +256,10 @@ export function CatalogSection({ isOpen, onToggle, onHoverButton, onViewDetails 
                   )}
                 </div>
 
-                {/* Brand Filter Dropdown */}
-                <div className="flex justify-center mb-6">
+                {/* Brand & Sort Dropdowns */}
+                <div className="flex flex-wrap justify-center gap-3 mb-6">
                   <Select value={activeBrand} onValueChange={setActiveBrand}>
-                    <SelectTrigger className="w-[200px] sm:w-[240px] bg-background/50 border-border/50 rounded-full">
+                    <SelectTrigger className="w-[180px] sm:w-[200px] bg-background/50 border-border/50 rounded-full">
                       <Factory className="w-4 h-4 mr-2 text-muted-foreground" />
                       <SelectValue placeholder="All Brands" />
                     </SelectTrigger>
@@ -229,6 +273,20 @@ export function CatalogSection({ isOpen, onToggle, onHoverButton, onViewDetails 
                           </SelectItem>
                         );
                       })}
+                    </SelectContent>
+                  </Select>
+
+                  <Select value={sortBy} onValueChange={(v) => setSortBy(v as SortOption)}>
+                    <SelectTrigger className="w-[180px] sm:w-[200px] bg-background/50 border-border/50 rounded-full">
+                      <ArrowUpDown className="w-4 h-4 mr-2 text-muted-foreground" />
+                      <SelectValue placeholder="Sort by" />
+                    </SelectTrigger>
+                    <SelectContent className="bg-background border-border z-50">
+                      {sortOptions.map(option => (
+                        <SelectItem key={option.value} value={option.value}>
+                          {option.label}
+                        </SelectItem>
+                      ))}
                     </SelectContent>
                   </Select>
                 </div>
@@ -281,6 +339,26 @@ export function CatalogSection({ isOpen, onToggle, onHoverButton, onViewDetails 
                   </CardReveal>
                 ))}
               </div>
+
+              {/* Scroll to Top Button */}
+              {filteredMachines.length > 8 && (
+                <motion.div
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  transition={{ delay: 0.3 }}
+                  className="flex justify-center mt-8"
+                >
+                  <Button
+                    variant="outline"
+                    size="sm"
+                    onClick={scrollToFilters}
+                    className="rounded-full border-border/50 hover:bg-muted/50"
+                  >
+                    <ArrowUp className="w-4 h-4 mr-2" />
+                    Back to Filters
+                  </Button>
+                </motion.div>
+              )}
             </motion.div>
           )}
         </AnimatePresence>

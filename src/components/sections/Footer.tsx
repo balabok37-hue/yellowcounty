@@ -1,5 +1,6 @@
 import { motion } from 'framer-motion';
-import { Instagram, Phone, Mail, MapPin, MessageCircle } from 'lucide-react';
+import { Instagram, Phone, Mail, MapPin, MessageCircle, FileText } from 'lucide-react';
+import { Link } from 'react-router-dom';
 
 export function Footer() {
   return (
@@ -58,13 +59,14 @@ export function Footer() {
                 </a>
               </li>
               <li>
-                <a href="#" className="hover:text-primary transition-colors">
-                  Financing Options
-                </a>
+                <Link to="/documents" className="hover:text-primary transition-colors flex items-center gap-1.5">
+                  <FileText className="w-3.5 h-3.5" />
+                  Company Documents
+                </Link>
               </li>
               <li>
                 <a href="#" className="hover:text-primary transition-colors">
-                  Sell Your Equipment
+                  Financing Options
                 </a>
               </li>
             </ul>
