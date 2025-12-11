@@ -150,7 +150,13 @@ export function CatalogSection({ isOpen, onToggle, onHoverButton, onViewDetails 
     return extractBrand(machine.name) === activeBrand;
   };
 
-  const catalogCount = catalogMachines.length;
+  // Get machines filtered only by brand (for category counts)
+  const machinesFilteredByBrand = useMemo(() => {
+    if (activeBrand === 'all') return catalogMachines;
+    return catalogMachines.filter(m => extractBrand(m.name) === activeBrand);
+  }, [activeBrand]);
+
+  const catalogCount = machinesFilteredByBrand.length;
 
   return (
     <section className="pb-12 sm:pb-20 md:pb-32">
@@ -257,7 +263,7 @@ export function CatalogSection({ isOpen, onToggle, onHoverButton, onViewDetails 
                   </Button>
                   {(Object.keys(categoryInfo) as MachineCategory[]).map(cat => {
                     const Icon = categoryIcons[cat];
-                    const count = catalogMachines.filter(m => m.category === cat).length;
+                    const count = machinesFilteredByBrand.filter(m => m.category === cat).length;
                     if (count === 0) return null;
                     return (
                       <Button
