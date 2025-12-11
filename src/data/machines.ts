@@ -56,6 +56,7 @@ import machproMp319LaImage from '@/assets/machines/machpro-mp319-la.png';
 import caterpillar303ecrImage from '@/assets/machines/caterpillar-303e-cr.png';
 import bobcatE50Image from '@/assets/machines/bobcat-e50.png';
 import caterpillar304e2crImage from '@/assets/machines/caterpillar-304e2-cr.png';
+import kubotaKx0334Image from '@/assets/machines/kubota-kx033-4.png';
 
 // Category definitions with labels and icons
 export const categoryInfo: Record<MachineCategory, { label: string; labelRu?: string }> = {
@@ -1782,6 +1783,38 @@ export const allMachines: Machine[] = [
       caterpillar304e2crImage,
     ],
   },
+  {
+    id: 71,
+    name: '2020 Kubota KX033-4 Compact Excavator',
+    year: 2020,
+    hours: 1920,
+    location: 'Dallas, Texas',
+    price: 31838,
+    originalPrice: 42450,
+    discount: 25,
+    category: 'earthmoving',
+    image: kubotaKx0334Image,
+    description: 'Premium compact excavator dominating the rental and small-site market – zero tail swing for ultimate maneuverability in tight urban digs, landscaping, utilities, and trenching. Kubota D1703M-DI-E4 Tier 4 Final 23.3 hp (no DEF hassles), load-sensing hydraulics with up to 15.8 gpm aux flow for thumbs/grapples/hammers, extendable dipper for +20" dig depth/reach, hydraulic angle blade with float, quick-coupler + 24" tooth bucket included, enclosed ROPS cab with heat/AC/joystick controls/Bluetooth radio/rear camera/LED lights.',
+    specs: {
+      engine: 'Kubota D1703M-DI-E4 23.3 hp Tier 4 Final (no DEF)',
+      power: '23.3 hp',
+      weight: '7,938 lb (3,600 kg)',
+      maxDiggingDepth: '10 ft 6 in (3.20 m) extendable',
+      maxReach: '16 ft 10 in (5.13 m)',
+      maxDumpHeight: '11 ft 2 in (3.40 m)',
+      breakoutForce: '8,138 lbf (3,694 kgf) bucket / 3,867 lbf (1,756 kgf) arm',
+      tailSwing: 'Zero tail swing',
+      trackWidth: '12" rubber tracks (85%+)',
+      hydraulicFlow: '15.8 gpm proportional aux',
+      cab: 'Enclosed ROPS/FOPS, heat/AC, Bluetooth, rear camera, LED lights',
+      warranty: 'Remaining Kubota components',
+      features: 'Hydraulic angle blade with float, quick-coupler, 24" tooth bucket, extendable dipper (+20"), 2-speed travel, joystick controls',
+      status: 'Dealer-serviced, work-ready, ships in 48 hrs',
+    },
+    gallery: [
+      kubotaKx0334Image,
+    ],
+  },
 ];
 
 // Category assignments by machine ID
@@ -1807,6 +1840,7 @@ const categoryMap: Record<number, MachineCategory> = {
   68: 'earthmoving', // CAT 303E CR Mini Excavator
   69: 'earthmoving', // Bobcat E50 Compact Excavator
   70: 'earthmoving', // CAT 304E2 CR Mini Excavator
+  71: 'earthmoving', // Kubota KX033-4 Compact Excavator
   
   // Loaders (Wheel Loaders, Backhoe Loaders, Track Loaders)
   2: 'loaders', // SW405K Wheel Loader
