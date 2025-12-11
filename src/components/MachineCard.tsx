@@ -99,9 +99,10 @@ interface MachineCardProps {
   machine: Machine;
   index: number;
   onViewDetails: (machine: Machine) => void;
+  isDimmed?: boolean;
 }
 
-export function MachineCard({ machine, index, onViewDetails }: MachineCardProps) {
+export function MachineCard({ machine, index, onViewDetails, isDimmed = false }: MachineCardProps) {
   return (
     <motion.div
       initial={{ opacity: 0, y: 40 }}
@@ -113,9 +114,9 @@ export function MachineCard({ machine, index, onViewDetails }: MachineCardProps)
         ease: [0.25, 0.1, 0.25, 1]
       }}
       onClick={() => onViewDetails(machine)}
-      className="group cursor-pointer touch-manipulation"
+      className={`group cursor-pointer touch-manipulation transition-all duration-300 ${isDimmed ? 'opacity-40 grayscale' : ''}`}
     >
-      <div className="glass-card overflow-hidden relative transition-transform duration-200 ease-out active:scale-[0.98] hover:scale-[1.02]">
+      <div className={`glass-card overflow-hidden relative transition-transform duration-200 ease-out active:scale-[0.98] hover:scale-[1.02] ${isDimmed ? 'scale-[0.97]' : ''}`}>
         {/* Full background image */}
         <div className="absolute inset-0 overflow-hidden">
           <div className="w-full h-full transition-transform duration-300 ease-out group-hover:scale-105">
