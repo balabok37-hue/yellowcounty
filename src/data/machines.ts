@@ -46,6 +46,7 @@ import case321fImage from '@/assets/machines/case-321f.png';
 import case321f2023Image from '@/assets/machines/case-321f-2023.png';
 import case321f2024Image from '@/assets/machines/case-321f-2024.png';
 import caterpillar938mImage from '@/assets/machines/caterpillar-938m.png';
+import caterpillar938m2021Image from '@/assets/machines/caterpillar-938m-2021.png';
 
 // Category definitions with labels and icons
 export const categoryInfo: Record<MachineCategory, { label: string; labelRu?: string }> = {
@@ -1450,6 +1451,40 @@ export const allMachines: Machine[] = [
       caterpillar938mImage,
     ],
   },
+  {
+    id: 61,
+    name: '2021 Caterpillar 938M Wheel Loader',
+    year: 2021,
+    hours: 1420,
+    location: 'Billings, Montana',
+    price: 184000,
+    originalPrice: 230000,
+    discount: 20,
+    category: 'loaders',
+    image: caterpillar938m2021Image,
+    isSold: true,
+    description: 'Ultra-low-hour dealer-maintained unicorn with only 1,420 original hours and remaining Cat Platinum warranty until 2026/6,000 hrs. Features Fusion coupler, 4.2 yd³ spade-nose bucket + BOE, ride control, high-lift z-bar, 23.5R25 Michelin XHA2 tires 95%+, high-flow XPS hydraulics + 3rd/4th valve, reversing fan, Autodig + Cat Payload with printer, LED 360° lighting, deluxe cab with touchscreen. Zero damage, zero leaks, fresh TA2 & SOS – runs like the day it left the factory.',
+    specs: {
+      engine: 'Cat C7.1 190 hp (Tier 4 Final)',
+      power: '190 hp',
+      weight: '36,667 lb (16,632 kg) operating weight',
+      bucketCapacity: '4.2 yd³ Fusion spade-nose + BOE',
+      breakoutForce: '35,800 lbf (159 kN)',
+      maxLiftCapacity: '25,850 lb (11,725 kg) static tipping load',
+      maxDumpHeight: '10 ft 8 in (3.25 m) high-lift dump clearance',
+      transmission: 'Powershift 5F/3R lock-up torque converter',
+      travelSpeed: '25 mph (40 km/h)',
+      trackWidth: '23.5R25 Michelin XHA2 (95%+)',
+      hydraulicFlow: 'High-flow XPS + 3rd/4th function',
+      cab: 'Deluxe enclosed – heat/AC, heated air-ride seat, Bluetooth, camera, touchscreen, Cat Payload with printer, LED 360° lighting',
+      warranty: 'Cat Platinum EPP until 2026 or 6,000 hrs',
+      features: 'Fusion coupler, ride control, high-lift z-bar, reversing fan, Autodig, block heater, cold-weather package',
+      status: 'SOLD – Dealer-maintained, like-new, zero damage/leaks',
+    },
+    gallery: [
+      caterpillar938m2021Image,
+    ],
+  },
 ];
 
 // Category assignments by machine ID
@@ -1482,7 +1517,8 @@ const categoryMap: Record<number, MachineCategory> = {
   57: 'loaders', // Case 321F Wheel Loader (2019)
   58: 'loaders', // Case 321F Wheel Loader (2023)
   59: 'loaders', // Case 321F Wheel Loader (2024)
-  60: 'loaders', // CAT 938M Wheel Loader (SOLD)
+  60: 'loaders', // CAT 938M Wheel Loader 2022 (SOLD)
+  61: 'loaders', // CAT 938M Wheel Loader 2021 (SOLD)
   
   // Telehandlers & Forklifts
   6: 'telehandlers', // MLT 1040
