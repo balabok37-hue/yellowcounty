@@ -47,6 +47,7 @@ import case321f2023Image from '@/assets/machines/case-321f-2023.png';
 import case321f2024Image from '@/assets/machines/case-321f-2024.png';
 import caterpillar938mImage from '@/assets/machines/caterpillar-938m.png';
 import caterpillar938m2021Image from '@/assets/machines/caterpillar-938m-2021.png';
+import caterpillar938m2022bImage from '@/assets/machines/caterpillar-938m-2022b.png';
 
 // Category definitions with labels and icons
 export const categoryInfo: Record<MachineCategory, { label: string; labelRu?: string }> = {
@@ -1485,6 +1486,39 @@ export const allMachines: Machine[] = [
       caterpillar938m2021Image,
     ],
   },
+  {
+    id: 62,
+    name: '2022 Caterpillar 938M Wheel Loader',
+    year: 2022,
+    hours: 2680,
+    location: 'Billings, Montana',
+    price: 162900,
+    originalPrice: 181000,
+    discount: 10,
+    category: 'loaders',
+    image: caterpillar938m2022bImage,
+    description: 'Immaculate one-owner, low-hour dealer-maintained machine with only 2,680 original hours and remaining Cat Platinum warranty until 2027/7,500 hrs. Features Fusion quick-coupler, 4.0 yd³ GP bucket + BOE, ride control, standard z-bar, 23.5R25 Michelin XLD tires at 90-95%, high-flow hydraulics + 3rd valve, reversing fan, LED lights, deluxe cab with Cat Payload. Fresh full service and SOS clean.',
+    specs: {
+      engine: 'Cat C7.1 Acert 190 hp (Tier 4 Final)',
+      power: '190 hp',
+      weight: '36,216 lb (16,427 kg) operating weight',
+      bucketCapacity: '4.0 yd³ Fusion GP + BOE',
+      breakoutForce: '34,200 lbf (152 kN)',
+      maxLiftCapacity: '24,800 lb (11,250 kg) static tipping load',
+      maxDumpHeight: '9 ft 10 in (3.00 m) standard lift dump clearance',
+      transmission: 'Powershift 5F/3R lock-up torque converter',
+      travelSpeed: '25 mph (40 km/h)',
+      trackWidth: '23.5R25 Michelin XLD (90-95%)',
+      hydraulicFlow: 'High-flow + 3rd function',
+      cab: 'Deluxe enclosed – heat/AC, heated air-ride seat, Bluetooth, camera, Cat Payload',
+      warranty: 'Cat Platinum EPP until 2027 or 7,500 hrs',
+      features: 'Fusion quick-coupler, ride control, standard z-bar, reversing fan, block heater, LED lights',
+      status: 'Dealer-serviced, zero issues, ready to ship',
+    },
+    gallery: [
+      caterpillar938m2022bImage,
+    ],
+  },
 ];
 
 // Category assignments by machine ID
@@ -1519,6 +1553,7 @@ const categoryMap: Record<number, MachineCategory> = {
   59: 'loaders', // Case 321F Wheel Loader (2024)
   60: 'loaders', // CAT 938M Wheel Loader 2022 (SOLD)
   61: 'loaders', // CAT 938M Wheel Loader 2021 (SOLD)
+  62: 'loaders', // CAT 938M Wheel Loader 2022 (2,680 hrs)
   
   // Telehandlers & Forklifts
   6: 'telehandlers', // MLT 1040
