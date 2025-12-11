@@ -63,6 +63,7 @@ import rippaNdi665Image from '@/assets/machines/rippa-ndi665.png';
 import caterpillar299d2Image from '@/assets/machines/caterpillar-299d2.png';
 import caterpillar299d3Image from '@/assets/machines/caterpillar-299d3.png';
 import caterpillar279d3Image from '@/assets/machines/caterpillar-279d3.png';
+import caseTr310bImage from '@/assets/machines/case-tr310b.png';
 
 // Category definitions with labels and icons
 export const categoryInfo: Record<MachineCategory, { label: string; labelRu?: string }> = {
@@ -2011,6 +2012,38 @@ export const allMachines: Machine[] = [
       caterpillar279d3Image,
     ],
   },
+  {
+    id: 78,
+    name: '2022 CASE TR310B',
+    year: 2022,
+    hours: 1950,
+    location: 'Houston, Texas',
+    price: 49020,
+    originalPrice: 57000,
+    discount: 14,
+    category: 'loaders',
+    image: caseTr310bImage,
+    description: 'The powerhouse medium-frame radial-lift compact track loader that\'s a rental fleet and contractor favorite for construction, landscaping, material handling, and excavation – wider tracks deliver unbeatable stability and low ground pressure (4.4 psi) on soft or uneven terrain, while the 3,100 lb ROC crushes pallet stacking and truck loading. FPT 74 hp Tier 4 Final diesel (maintenance-free, no DPF/DEF fluids or filter service), hydrostatic two-speed transmission up to 8.2 mph, high-flow auxiliary hydraulics (32.4 gpm @ 3,050 psi for mulchers/grapples/forks), electro-hydraulic joysticks with selectable ISO/H-pattern controls, enclosed ROPS/FOPS cab with heat/AC/Bluetooth radio/rear camera/8-inch LCD display/LED work lights, 17.7" steel-embedded rubber tracks at 85%+, quick-attach plate + 84" low-profile bucket with bolt-on edge included, ride control, reversing fan, fresh full service, tight undercarriage, no leaks, no welds – ready to lift heavy and run all day.',
+    specs: {
+      engine: 'FPT 74 hp (55 kW) Tier 4 Final (no DPF/DEF service)',
+      power: '74 hp (55 kW)',
+      weight: '8,880 lb (4,027 kg)',
+      capacity: '3,100 lb (1,406 kg) @ 50% tipping load',
+      tippingLoad: '6,200 lb (2,812 kg)',
+      liftHeight: '11 ft 10 in (3.61 m) hinge pin',
+      breakoutForce: '8,700 lbf (38.7 kN)',
+      travelSpeed: '5.3 / 8.2 mph (2-speed)',
+      hydraulicFlow: 'High-flow 32.4 gpm (123 L/min) @ 3,050 psi',
+      fuelTank: '25.3 gal (96 L)',
+      trackWidth: '17.7 in (450 mm) steel-embedded rubber (85%+)',
+      cab: 'Enclosed ROPS/FOPS, heat/AC, Bluetooth, camera, EH joysticks',
+      features: 'Ride control, reversing fan, 8-inch LCD display, LED work lights, quick-attach + 84" low-profile bucket with BOE. Ground pressure: 4.4 psi (30.3 kPa)',
+      status: 'Dealer-serviced, work-ready, ships in 48 hrs',
+    },
+    gallery: [
+      caseTr310bImage,
+    ],
+  },
 ];
 
 // Category assignments by machine ID
@@ -2050,6 +2083,7 @@ const categoryMap: Record<number, MachineCategory> = {
   75: 'loaders', // CAT 299D2 Compact Track Loader
   76: 'loaders', // CAT 299D3 Compact Track Loader
   77: 'loaders', // CAT 279D3 Compact Track Loader
+  78: 'loaders', // CASE TR310B Compact Track Loader
   39: 'loaders', // 310SL Backhoe
   42: 'loaders', // 289D3 Track Loader
   48: 'loaders', // CAT 950M Wheel Loader
