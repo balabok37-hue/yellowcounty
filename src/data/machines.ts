@@ -53,6 +53,7 @@ import caseCx42dImage from '@/assets/machines/case-cx42d.png';
 import wackerNeusonEz26Image from '@/assets/machines/wacker-neuson-ez26.png';
 import machproMp319Image from '@/assets/machines/machpro-mp319.png';
 import machproMp319LaImage from '@/assets/machines/machpro-mp319-la.png';
+import caterpillar303ecrImage from '@/assets/machines/caterpillar-303e-cr.png';
 
 // Category definitions with labels and icons
 export const categoryInfo: Record<MachineCategory, { label: string; labelRu?: string }> = {
@@ -1685,6 +1686,38 @@ export const allMachines: Machine[] = [
       machproMp319LaImage,
     ],
   },
+  {
+    id: 68,
+    name: '2019 Caterpillar 303E CR Mini Excavator',
+    year: 2019,
+    hours: 1850,
+    location: 'Denver, Colorado',
+    price: 21250,
+    originalPrice: 25000,
+    discount: 15,
+    category: 'earthmoving',
+    image: caterpillar303ecrImage,
+    description: 'Iconic compact radius mini excavator – rental fleet favorite for tight urban digs, landscaping, utilities, and light demo. Zero tail swing means zero headaches on confined sites. Cat C1.8 Tier 4 Final 35 hp (no DEF regen issues), load-sensing hydraulics with 17.4 gpm aux flow for hammers/thumbs, 2-speed travel up to 3 mph, swing boom for max reach, hydraulic quick-coupler + 12" thumb-ready bucket included, dozer blade with float, enclosed ROPS cab with heat/AC/joystick controls/Bluetooth radio/rear camera/LED work lights, 12" rubber tracks at 85%+.',
+    specs: {
+      engine: 'Cat C1.8 35 hp (Tier 4 Final, no DEF)',
+      power: '35 hp',
+      weight: '7,800 lb (3,538 kg)',
+      maxDiggingDepth: '9 ft (2.75 m)',
+      maxReach: '15 ft 9 in (4.81 m)',
+      maxDumpHeight: '10 ft 2 in (3.10 m)',
+      breakoutForce: '6,400 lbf (28.5 kN) bucket breakout',
+      tailSwing: 'Compact radius (zero tail swing)',
+      trackWidth: '12" rubber tracks (85%+)',
+      hydraulicFlow: '17.4 gpm proportional aux',
+      cab: 'Enclosed ROPS/FOPS, heat/AC, Bluetooth, rear camera, LED lights',
+      warranty: 'Remaining Cat components',
+      features: 'Hydraulic quick-coupler, 12" thumb-ready bucket, dozer blade with float, swing boom, 2-speed travel (3 mph), joystick controls',
+      status: 'Dealer-serviced, tight machine, fresh service, ships in 48 hrs',
+    },
+    gallery: [
+      caterpillar303ecrImage,
+    ],
+  },
 ];
 
 // Category assignments by machine ID
@@ -1707,6 +1740,7 @@ const categoryMap: Record<number, MachineCategory> = {
   65: 'earthmoving', // Wacker Neuson EZ26 Mini Excavator
   66: 'earthmoving', // MachPro MP319 Mini Excavator (Miami)
   67: 'earthmoving', // MachPro MP319 Mini Excavator (LA)
+  68: 'earthmoving', // CAT 303E CR Mini Excavator
   
   // Loaders (Wheel Loaders, Backhoe Loaders, Track Loaders)
   2: 'loaders', // SW405K Wheel Loader
