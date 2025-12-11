@@ -61,6 +61,7 @@ import bobcatE10Image from '@/assets/machines/bobcat-e10.png';
 import johnDeere333gImage from '@/assets/machines/john-deere-333g.png';
 import rippaNdi665Image from '@/assets/machines/rippa-ndi665.png';
 import caterpillar299d2Image from '@/assets/machines/caterpillar-299d2.png';
+import caterpillar299d3Image from '@/assets/machines/caterpillar-299d3.png';
 
 // Category definitions with labels and icons
 export const categoryInfo: Record<MachineCategory, { label: string; labelRu?: string }> = {
@@ -1948,6 +1949,38 @@ export const allMachines: Machine[] = [
       caterpillar299d2Image,
     ],
   },
+  {
+    id: 76,
+    name: '2022 Caterpillar 299D3 Compact Track Loader',
+    year: 2022,
+    hours: 2180,
+    location: 'St. Louis, Missouri',
+    price: 46800,
+    originalPrice: 52000,
+    discount: 10,
+    category: 'loaders',
+    image: caterpillar299d3Image,
+    description: 'Premium mid-frame vertical-lift compact track loader – contractor and rental fleet essential for construction, landscaping, excavation, and material handling. Suspended undercarriage delivers unmatched traction, flotation, and stability on mud, slopes, or rough terrain. Cat C3.8 Tier 4 Final 95 hp diesel (no DEF regen downtime), hydrostatic two-speed transmission up to 8.4 mph, 3,480 lb ROC (35% tipping), 10 ft 6 in hinge pin height, high-flow hydraulics (32 gpm @ 3,335 psi for mulchers/grapples/forks), electro-hydraulic joysticks with ISO/SAE pattern changer.',
+    specs: {
+      engine: 'Cat C3.8 DIT 95 hp (71 kW) Tier 4 Final (no DEF)',
+      power: '95 hp (71 kW)',
+      weight: '11,464 lb (5,200 kg) operating weight',
+      maxLiftCapacity: '3,480 lb (1,580 kg) at 35% tipping',
+      tippingLoad: '9,945 lb (4,510 kg)',
+      maxLiftHeight: '10 ft 6 in (3.20 m) hinge pin',
+      breakoutForce: '7,270 lbf (32.4 kN) tilt / 6,162 lbf (27.4 kN) lift',
+      travelSpeed: '5.2 / 8.4 mph (2-speed)',
+      trackWidth: '17.7 in (450 mm) steel-embedded rubber (85%+)',
+      hydraulicFlow: 'High-flow 32 gpm (121 L/min) @ 3,335 psi',
+      fuelTank: '27.7 gal (105 L)',
+      cab: 'Enclosed ROPS/FOPS, heat/AC, Bluetooth, camera, EH joysticks',
+      features: 'Vertical lift, quick-attach plate, 84" low-profile bucket with BOE, ride control, reversing fan, pattern changer, 5.9 psi ground pressure',
+      status: 'Dealer-serviced, work-ready, ships in 48 hrs',
+    },
+    gallery: [
+      caterpillar299d3Image,
+    ],
+  },
 ];
 
 // Category assignments by machine ID
@@ -1985,6 +2018,7 @@ const categoryMap: Record<number, MachineCategory> = {
   73: 'loaders', // John Deere 333G Compact Track Loader
   74: 'loaders', // Rippa NDI665 Mini Track Loader
   75: 'loaders', // CAT 299D2 Compact Track Loader
+  76: 'loaders', // CAT 299D3 Compact Track Loader
   39: 'loaders', // 310SL Backhoe
   42: 'loaders', // 289D3 Track Loader
   48: 'loaders', // CAT 950M Wheel Loader
