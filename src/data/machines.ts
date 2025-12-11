@@ -44,6 +44,7 @@ import johnDeere35pTier2024Image from '@/assets/machines/john-deere-35-p-tier-20
 import johnDeere35pTier2024bImage from '@/assets/machines/john-deere-35-p-tier-2024-b.png';
 import case321fImage from '@/assets/machines/case-321f.png';
 import case321f2023Image from '@/assets/machines/case-321f-2023.png';
+import case321f2024Image from '@/assets/machines/case-321f-2024.png';
 
 // Category definitions with labels and icons
 export const categoryInfo: Record<MachineCategory, { label: string; labelRu?: string }> = {
@@ -1380,6 +1381,39 @@ export const allMachines: Machine[] = [
       case321f2023Image,
     ],
   },
+  {
+    id: 59,
+    name: '2024 Case 321F Compact Wheel Loader',
+    year: 2024,
+    hours: 0,
+    location: 'Billings, Montana',
+    price: 75600,
+    originalPrice: 84000,
+    discount: 10,
+    category: 'loaders',
+    image: case321f2024Image,
+    isHotOffer: true,
+    description: 'Brand-new 2024 Case 321F – top-selling F Series compact wheel loader. Z-Bar linkage delivers 8,000+ lb full-height lift and 11,000 lb bucket breakout in a super-compact 8\'10" frame. Tier 4 Final FPT 74 hp engine (no DEF), hydrostatic transmission with 25 mph top speed, ride control, skid-steer coupler, enhanced auxiliary hydraulics. Zero hours, deluxe cab with heat/AC/air suspension seat/Bluetooth/camera, LED lights, cold weather package. Includes 1.3 yd³ GP bucket + pallet forks. Full CASE factory warranty (2 yr/2,000 hr bumper-to-bumper + 3 yr/3,000 hr powertrain).',
+    specs: {
+      engine: 'FPT 74 hp Tier 4 Final (no DEF required)',
+      power: '74 hp',
+      weight: '12,800 lbs operating weight',
+      trackWidth: '20.5R25 Michelin tires (100% tread)',
+      bucketCapacity: '1.3 yd³ GP bucket + pallet forks included',
+      maxLiftCapacity: '8,000+ lb full-height lift capacity',
+      breakoutForce: '11,000 lb bucket breakout force',
+      hydraulicFlow: 'Enhanced auxiliary hydraulics for grapples/mulchers, electro-hydraulic joystick',
+      cab: 'Deluxe enclosed cab – heat/AC, air suspension seat, Bluetooth radio, rear camera, LED lights, cold weather package',
+      transmission: 'Hydrostatic with high-speed axles, up to 25 mph, ride control',
+      transportDimensions: '8 ft 10 in overall length – fits tight sites',
+      features: 'Standard skid-steer coupler, Z-Bar linkage, brand-new zero hours',
+      warranty: 'Full CASE factory warranty: 2 yr/2,000 hr bumper-to-bumper + 3 yr/3,000 hr powertrain',
+      status: 'In stock – ready to deploy',
+    },
+    gallery: [
+      case321f2024Image,
+    ],
+  },
 ];
 
 // Category assignments by machine ID
@@ -1411,6 +1445,7 @@ const categoryMap: Record<number, MachineCategory> = {
   50: 'loaders', // Volvo L120H Wheel Loader
   57: 'loaders', // Case 321F Wheel Loader (2019)
   58: 'loaders', // Case 321F Wheel Loader (2023)
+  59: 'loaders', // Case 321F Wheel Loader (2024)
   
   // Telehandlers & Forklifts
   6: 'telehandlers', // MLT 1040
