@@ -55,6 +55,7 @@ import machproMp319Image from '@/assets/machines/machpro-mp319.png';
 import machproMp319LaImage from '@/assets/machines/machpro-mp319-la.png';
 import caterpillar303ecrImage from '@/assets/machines/caterpillar-303e-cr.png';
 import bobcatE50Image from '@/assets/machines/bobcat-e50.png';
+import caterpillar304e2crImage from '@/assets/machines/caterpillar-304e2-cr.png';
 
 // Category definitions with labels and icons
 export const categoryInfo: Record<MachineCategory, { label: string; labelRu?: string }> = {
@@ -1749,6 +1750,38 @@ export const allMachines: Machine[] = [
       bobcatE50Image,
     ],
   },
+  {
+    id: 70,
+    name: '2020 Caterpillar 304E2 CR Mini Excavator',
+    year: 2020,
+    hours: 1650,
+    location: 'Seattle, Washington',
+    price: 28105,
+    originalPrice: 40150,
+    discount: 30,
+    category: 'earthmoving',
+    image: caterpillar304e2crImage,
+    description: 'Versatile compact radius mini excavator – staple for urban construction, landscaping, utilities, and rental fleets. Zero tail swing for zero headaches in tight spots. Cat C2.4 Tier 4 Final 40.2 hp (no DEF downtime), load-sensing hydraulics with 17 gpm aux flow for thumbs/hammers, swing boom for max reach, hydraulic quick-coupler + 24" digging bucket included, dozer blade with float, enclosed ROPS cab with heat/AC/joystick controls/Bluetooth radio/rear camera/LED lights, 14" rubber tracks at 85%+.',
+    specs: {
+      engine: 'Cat C2.4 40.2 hp Tier 4 Final (no DEF)',
+      power: '40.2 hp',
+      weight: '8,996 lb (4,080 kg)',
+      maxDiggingDepth: '10 ft 3 in (3.13 m) long stick',
+      maxReach: '17 ft 2 in (5.22 m)',
+      maxDumpHeight: '10 ft 8 in (3.25 m)',
+      breakoutForce: '8,470 lbf (37.8 kN) bucket breakout',
+      tailSwing: 'Compact radius (zero tail swing)',
+      trackWidth: '14" rubber tracks (85%+)',
+      hydraulicFlow: '17 gpm proportional aux',
+      cab: 'Enclosed ROPS/FOPS, heat/AC, Bluetooth, rear camera, LED lights',
+      warranty: 'Remaining Cat components',
+      features: 'Hydraulic quick-coupler, 24" digging bucket, dozer blade with float, swing boom, 2-speed travel, joystick controls',
+      status: 'Dealer-serviced, work-ready, ships in 48 hrs',
+    },
+    gallery: [
+      caterpillar304e2crImage,
+    ],
+  },
 ];
 
 // Category assignments by machine ID
@@ -1773,6 +1806,7 @@ const categoryMap: Record<number, MachineCategory> = {
   67: 'earthmoving', // MachPro MP319 Mini Excavator (LA)
   68: 'earthmoving', // CAT 303E CR Mini Excavator
   69: 'earthmoving', // Bobcat E50 Compact Excavator
+  70: 'earthmoving', // CAT 304E2 CR Mini Excavator
   
   // Loaders (Wheel Loaders, Backhoe Loaders, Track Loaders)
   2: 'loaders', // SW405K Wheel Loader
