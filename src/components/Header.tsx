@@ -82,13 +82,13 @@ export function Header() {
                 <Truck className="w-4 h-4" />
                 Partners
               </button>
-              <Link 
-                to="/documents"
+              <button 
+                onClick={() => handleNavClick('/documents', true)}
                 className="text-foreground/80 hover:text-primary transition-colors duration-200 flex items-center gap-1.5 px-3 py-1.5 rounded-lg border border-border/30 hover:border-primary/50 bg-background/50"
               >
                 <FileText className="w-4 h-4" />
                 Documents
-              </Link>
+              </button>
               <Button 
                 variant="outline" 
                 size="sm" 

@@ -1,6 +1,7 @@
 import { motion } from 'framer-motion';
-import { Phone, Mail, MapPin, MessageCircle, FileText, ShieldCheck, BadgeCheck, Star, Truck } from 'lucide-react';
+import { Phone, Mail, MapPin, MessageCircle, FileText, ShieldCheck, BadgeCheck, Star } from 'lucide-react';
 import { Link, useNavigate, useLocation } from 'react-router-dom';
+import centralDispatchLogo from '@/assets/partners/central-dispatch.svg';
 
 export function Footer() {
   const navigate = useNavigate();
@@ -52,19 +53,31 @@ export function Footer() {
           {/* Shipping Partners */}
           <div id="partners" className="text-center scroll-mt-24">
             <p className="text-xs text-muted-foreground mb-4 uppercase tracking-wider">Trusted Shipping Partners</p>
-            <div className="flex flex-wrap items-center justify-center gap-6">
-              <div className="flex items-center gap-2 px-4 py-2 rounded-lg bg-card border border-border/50">
-                <Truck className="w-5 h-5 text-primary" />
-                <span className="text-sm font-medium text-foreground">Central Dispatch</span>
-              </div>
-              <div className="flex items-center gap-2 px-4 py-2 rounded-lg bg-card border border-border/50">
-                <Truck className="w-5 h-5 text-primary" />
-                <span className="text-sm font-medium text-foreground">Montway</span>
-              </div>
-              <div className="flex items-center gap-2 px-4 py-2 rounded-lg bg-card border border-border/50">
-                <Truck className="w-5 h-5 text-primary" />
-                <span className="text-sm font-medium text-foreground">Ready Logistics</span>
-              </div>
+            <div className="flex flex-wrap items-center justify-center gap-4 md:gap-6">
+              <a 
+                href="https://www.centraldispatch.com" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="flex items-center justify-center px-5 py-3 rounded-xl bg-white border border-border/50 hover:border-primary/50 transition-colors h-14 min-w-[160px]"
+              >
+                <img src={centralDispatchLogo} alt="Central Dispatch" className="h-6 w-auto" />
+              </a>
+              <a 
+                href="https://www.montway.com" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="flex items-center justify-center px-5 py-3 rounded-xl bg-[#00263A] border border-border/50 hover:border-primary/50 transition-colors h-14 min-w-[160px]"
+              >
+                <span className="text-white font-bold text-lg tracking-tight">MONTWAY</span>
+              </a>
+              <a 
+                href="https://www.readylogistics.com" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="flex items-center justify-center px-5 py-3 rounded-xl bg-[#950e14] border border-border/50 hover:border-primary/50 transition-colors h-14 min-w-[160px]"
+              >
+                <span className="text-white font-bold text-lg tracking-tight">Ready Logistics</span>
+              </a>
             </div>
           </div>
         </motion.div>
