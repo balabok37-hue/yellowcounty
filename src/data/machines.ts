@@ -48,6 +48,7 @@ import case321f2024Image from '@/assets/machines/case-321f-2024.png';
 import caterpillar938mImage from '@/assets/machines/caterpillar-938m.png';
 import caterpillar938m2021Image from '@/assets/machines/caterpillar-938m-2021.png';
 import caterpillar938m2022bImage from '@/assets/machines/caterpillar-938m-2022b.png';
+import jcb55z1Image from '@/assets/machines/jcb-55z-1.png';
 
 // Category definitions with labels and icons
 export const categoryInfo: Record<MachineCategory, { label: string; labelRu?: string }> = {
@@ -1519,6 +1520,39 @@ export const allMachines: Machine[] = [
       caterpillar938m2022bImage,
     ],
   },
+  {
+    id: 63,
+    name: '2022 JCB 55Z-1 Mini Excavator',
+    year: 2022,
+    hours: 1500,
+    location: 'Billings, Montana',
+    price: 56700,
+    originalPrice: 63000,
+    discount: 10,
+    category: 'earthmoving',
+    image: jcb55z1Image,
+    description: 'Zero-tailswing mini excavator powerhouse built for tight urban digs, landscaping, utilities, and rental fleets where maneuverability is king. Kohler Tier 4 Final KDI 1903 diesel cranks 48.3 hp with no AdBlue/DEF hassles, delivering massive 6,435 lbf bucket breakout and 181° rotation for unbeatable spoil retention. Full JCB service history, enclosed cab with heat/AC/joystick controls/Bluetooth/camera, 4-way dozer blade with float, high/low-flow aux hydraulics, quick-hitch ready.',
+    specs: {
+      engine: 'Kohler KDI 1903 TCR Tier 4 Final',
+      power: '48.3 hp @ 2,200 rpm',
+      weight: '11,830 lb (5,365 kg)',
+      maxDiggingDepth: '12 ft 7 in (3.84 m)',
+      maxReach: '20 ft 4 in (6.20 m)',
+      maxDumpHeight: '13 ft 9 in (4.19 m)',
+      breakoutForce: '6,435 lbf bucket / 5,512 lbf dipper',
+      travelSpeed: '1.6 / 2.9 mph',
+      tailSwing: 'Zero tail swing',
+      trackWidth: '16" rubber tracks (90%+)',
+      hydraulicFlow: '33.3 gpm main, 23.8 gpm aux',
+      fuelTank: '20.1 gal',
+      cab: 'Enclosed heat/AC/Bluetooth/camera, joystick controls',
+      features: '4-way dozer blade with float, quick-hitch ready 1570 mm dipper, LED lights, high/low-flow aux hydraulics',
+      status: 'Low hours, fully serviced, ready to ship',
+    },
+    gallery: [
+      jcb55z1Image,
+    ],
+  },
 ];
 
 // Category assignments by machine ID
@@ -1536,6 +1570,7 @@ const categoryMap: Record<number, MachineCategory> = {
   54: 'earthmoving', // John Deere 35 P-Tier Mini Excavator (2023)
   55: 'earthmoving', // John Deere 35 P-Tier Mini Excavator (2024)
   56: 'earthmoving', // John Deere 35 P-Tier Mini Excavator (2024 B)
+  63: 'earthmoving', // JCB 55Z-1 Mini Excavator
   
   // Loaders (Wheel Loaders, Backhoe Loaders, Track Loaders)
   2: 'loaders', // SW405K Wheel Loader
