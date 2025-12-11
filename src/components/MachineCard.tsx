@@ -114,9 +114,10 @@ export function MachineCard({ machine, index, onViewDetails, isDimmed = false }:
         ease: [0.25, 0.1, 0.25, 1]
       }}
       onClick={() => onViewDetails(machine)}
-      className={`group cursor-pointer touch-manipulation transition-all duration-300 ${isDimmed ? 'opacity-40 grayscale' : ''}`}
+      className={`group cursor-pointer touch-manipulation transition-all duration-300 ${isDimmed ? 'opacity-60' : ''}`}
+      style={isDimmed ? { filter: 'blur(2px)' } : undefined}
     >
-      <div className={`glass-card overflow-hidden relative transition-transform duration-200 ease-out active:scale-[0.98] hover:scale-[1.02] ${isDimmed ? 'scale-[0.97]' : ''}`}>
+      <div className={`glass-card overflow-hidden relative transition-transform duration-200 ease-out active:scale-[0.98] hover:scale-[1.02]`}>
         {/* Full background image */}
         <div className="absolute inset-0 overflow-hidden">
           <div className="w-full h-full transition-transform duration-300 ease-out group-hover:scale-105">
