@@ -54,6 +54,7 @@ import wackerNeusonEz26Image from '@/assets/machines/wacker-neuson-ez26.png';
 import machproMp319Image from '@/assets/machines/machpro-mp319.png';
 import machproMp319LaImage from '@/assets/machines/machpro-mp319-la.png';
 import caterpillar303ecrImage from '@/assets/machines/caterpillar-303e-cr.png';
+import bobcatE50Image from '@/assets/machines/bobcat-e50.png';
 
 // Category definitions with labels and icons
 export const categoryInfo: Record<MachineCategory, { label: string; labelRu?: string }> = {
@@ -1718,6 +1719,36 @@ export const allMachines: Machine[] = [
       caterpillar303ecrImage,
     ],
   },
+  {
+    id: 69,
+    name: '2017 Bobcat E50 Compact Excavator',
+    year: 2017,
+    hours: 2410,
+    location: 'Chicago, Illinois',
+    price: 29750,
+    originalPrice: 35000,
+    discount: 15,
+    category: 'earthmoving',
+    image: bobcatE50Image,
+    description: 'Ultimate 5-ton compact excavator for tight jobs, landscaping, utilities, and rental fleets. Kubota V2403 Tier 4 Final 49.8 hp (no DEF), X-frame undercarriage, long-arm package (12 ft 11 in dig depth), hydraulic pin-grabber coupler + 18" digging bucket + 36" grading bucket + 2023 hydraulic thumb, angle blade option, proportional aux hydraulics (perfect for grapples/hammers), enclosed cab with heat/AC/Bluetooth radio/rear camera/LED lights, 16" rubber tracks at 80-85%.',
+    specs: {
+      engine: 'Kubota V2403 49.8 hp Tier 4 Final (no DEF)',
+      power: '49.8 hp',
+      weight: '11,357 lb (5,150 kg)',
+      maxDiggingDepth: '12 ft 11 in (3.94 m) long arm',
+      maxReach: '19 ft 8 in (6.00 m)',
+      maxDumpHeight: '13 ft 6 in (4.11 m)',
+      breakoutForce: '9,601 lbf bucket breakout',
+      trackWidth: '16" rubber tracks (80-85%)',
+      hydraulicFlow: 'Proportional aux hydraulics',
+      cab: 'Enclosed heat/AC, Bluetooth, rear camera, LED lights',
+      features: 'Hydraulic thumb + pin-grabber coupler + 18" digging bucket + 36" grading bucket, angle blade option, X-frame undercarriage, 2-speed travel',
+      status: 'Fully serviced, work-ready, ships in 48 hrs from Chicago',
+    },
+    gallery: [
+      bobcatE50Image,
+    ],
+  },
 ];
 
 // Category assignments by machine ID
@@ -1741,6 +1772,7 @@ const categoryMap: Record<number, MachineCategory> = {
   66: 'earthmoving', // MachPro MP319 Mini Excavator (Miami)
   67: 'earthmoving', // MachPro MP319 Mini Excavator (LA)
   68: 'earthmoving', // CAT 303E CR Mini Excavator
+  69: 'earthmoving', // Bobcat E50 Compact Excavator
   
   // Loaders (Wheel Loaders, Backhoe Loaders, Track Loaders)
   2: 'loaders', // SW405K Wheel Loader
