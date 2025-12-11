@@ -57,6 +57,7 @@ import caterpillar303ecrImage from '@/assets/machines/caterpillar-303e-cr.png';
 import bobcatE50Image from '@/assets/machines/bobcat-e50.png';
 import caterpillar304e2crImage from '@/assets/machines/caterpillar-304e2-cr.png';
 import kubotaKx0334Image from '@/assets/machines/kubota-kx033-4.png';
+import bobcatE10Image from '@/assets/machines/bobcat-e10.png';
 
 // Category definitions with labels and icons
 export const categoryInfo: Record<MachineCategory, { label: string; labelRu?: string }> = {
@@ -1815,6 +1816,38 @@ export const allMachines: Machine[] = [
       kubotaKx0334Image,
     ],
   },
+  {
+    id: 72,
+    name: '2025 Bobcat E10 Mini Excavator',
+    year: 2025,
+    hours: 0,
+    location: 'Orlando, Florida',
+    price: 18000,
+    originalPrice: 20000,
+    discount: 10,
+    category: 'earthmoving',
+    image: bobcatE10Image,
+    description: 'Smallest beast in Bobcat\'s lineup – ultra-compact 1-ton zero-tailswing mini excavator revolutionizing tight-space digs, landscaping, utilities, and rental fleets where hand tools are the only alternative. Kubota D722 Tier 4 Final 10.2 hp diesel (no DEF, no regen downtime), retractable undercarriage from 28" to 43" for doorways/trailers, 2-speed travel up to 1.7 mph, hydraulic quick-coupler + 8" thumb-ready digging bucket included, dozer blade with float, open ROPS canopy with joystick controls/LED work lights.',
+    specs: {
+      engine: 'Kubota D722 10.2 hp Tier 4 Final (no DEF)',
+      power: '10.2 hp',
+      weight: '2,593 lb (1,176 kg)',
+      maxDiggingDepth: '6 ft (1.83 m)',
+      maxReach: '10 ft 2 in (3.10 m) at ground level',
+      maxDumpHeight: '6 ft (1.83 m)',
+      breakoutForce: '1,865 lbf (8.29 kN) bucket / 1,248 lbf (5.55 kN) arm',
+      tailSwing: 'Zero tail swing',
+      trackWidth: '7.1" rubber retractable (28"–43" width, 100%)',
+      hydraulicFlow: '5.3 gpm @ 2,756 psi proportional aux',
+      cab: 'Open ROPS canopy, joystick controls, LED lights',
+      warranty: 'Full Bobcat 2 yr/1,500 hr + 5 yr powertrain',
+      features: 'Hydraulic quick-coupler, 8" thumb-ready digging bucket, dozer blade with float, retractable undercarriage, 2-speed travel (1.7 mph), auto-idle',
+      status: 'Brand new (0 hours), in stock Orlando FL – ships in 24-48 hrs',
+    },
+    gallery: [
+      bobcatE10Image,
+    ],
+  },
 ];
 
 // Category assignments by machine ID
@@ -1841,6 +1874,7 @@ const categoryMap: Record<number, MachineCategory> = {
   69: 'earthmoving', // Bobcat E50 Compact Excavator
   70: 'earthmoving', // CAT 304E2 CR Mini Excavator
   71: 'earthmoving', // Kubota KX033-4 Compact Excavator
+  72: 'earthmoving', // Bobcat E10 Mini Excavator
   
   // Loaders (Wheel Loaders, Backhoe Loaders, Track Loaders)
   2: 'loaders', // SW405K Wheel Loader
