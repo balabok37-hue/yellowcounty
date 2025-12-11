@@ -7,17 +7,17 @@ interface ScrollToTopProps {
   showAfter?: number;
 }
 
-export function ScrollToTop({ targetRef, showAfter = 800 }: ScrollToTopProps) {
+export function ScrollToTop({ targetRef, showAfter = 1200 }: ScrollToTopProps) {
   const [isVisible, setIsVisible] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
-      // Show after scrolling past 2 card rows (~800px)
+      // Show after scrolling past 2 card rows in catalog (~1200px)
       setIsVisible(window.scrollY > showAfter);
     };
 
     window.addEventListener('scroll', handleScroll, { passive: true });
-    handleScroll(); // Check initial position
+    handleScroll();
     return () => window.removeEventListener('scroll', handleScroll);
   }, [showAfter]);
 
@@ -33,18 +33,26 @@ export function ScrollToTop({ targetRef, showAfter = 800 }: ScrollToTopProps) {
     <AnimatePresence mode="wait">
       {isVisible && (
         <motion.button
-          initial={{ opacity: 0, y: 20, scale: 0.9 }}
-          animate={{ opacity: 1, y: 0, scale: 1 }}
-          exit={{ opacity: 0, y: 20, scale: 0.9 }}
+          initial={{ opacity: 0, scale: 0.5, y: 40 }}
+          animate={{ 
+            opacity: 1, 
+            scale: 1, 
+            y: 0,
+          }}
+          exit={{ opacity: 0, scale: 0.5, y: 40 }}
           transition={{ 
-            duration: 0.3, 
-            ease: [0.4, 0, 0.2, 1]
+            type: "spring",
+            stiffness: 300,
+            damping: 20,
+            duration: 0.5
           }}
           onClick={scrollToTop}
-          className="fixed bottom-6 right-6 z-50 w-12 h-12 rounded-full bg-primary text-primary-foreground shadow-lg hover:bg-primary/90 active:scale-95 transition-all duration-150 flex items-center justify-center"
+          className="fixed bottom-6 right-6 z-50 w-14 h-14 md:w-16 md:h-16 rounded-full bg-primary text-primary-foreground shadow-2xl hover:bg-primary/90 active:scale-95 transition-all duration-150 flex items-center justify-center ring-4 ring-primary/30 hover:ring-primary/50"
           aria-label="Scroll to top"
+          whileHover={{ scale: 1.1 }}
+          whileTap={{ scale: 0.95 }}
         >
-          <ArrowUp className="w-5 h-5" />
+          <ArrowUp className="w-6 h-6 md:w-7 md:h-7" strokeWidth={2.5} />
         </motion.button>
       )}
     </AnimatePresence>

@@ -259,8 +259,8 @@ export function CatalogSection({ isOpen, onToggle, onHoverButton, onViewDetails 
                 {/* Brand & Sort Dropdowns */}
                 <div className="flex flex-wrap justify-center gap-3 mb-6">
                   <Select value={activeBrand} onValueChange={setActiveBrand}>
-                    <SelectTrigger className="w-[180px] sm:w-[200px] bg-background/50 border-border/50 rounded-full">
-                      <Factory className="w-4 h-4 mr-2 text-muted-foreground" />
+                    <SelectTrigger className="w-[180px] sm:w-[200px] bg-card/80 border-primary/30 rounded-full hover:border-primary/60 transition-colors shadow-sm">
+                      <Factory className="w-4 h-4 mr-2 text-primary" />
                       <SelectValue placeholder="All Brands" />
                     </SelectTrigger>
                     <SelectContent className="bg-background border-border z-50">
@@ -277,8 +277,8 @@ export function CatalogSection({ isOpen, onToggle, onHoverButton, onViewDetails 
                   </Select>
 
                   <Select value={sortBy} onValueChange={(v) => setSortBy(v as SortOption)}>
-                    <SelectTrigger className="w-[180px] sm:w-[200px] bg-background/50 border-border/50 rounded-full">
-                      <ArrowUpDown className="w-4 h-4 mr-2 text-muted-foreground" />
+                    <SelectTrigger className="w-[180px] sm:w-[200px] bg-card/80 border-primary/30 rounded-full hover:border-primary/60 transition-colors shadow-sm">
+                      <ArrowUpDown className="w-4 h-4 mr-2 text-primary" />
                       <SelectValue placeholder="Sort by" />
                     </SelectTrigger>
                     <SelectContent className="bg-background border-border z-50">
@@ -297,7 +297,7 @@ export function CatalogSection({ isOpen, onToggle, onHoverButton, onViewDetails 
                     variant={activeCategory === 'all' ? 'default' : 'outline'}
                     size="sm"
                     onClick={() => setActiveCategory('all')}
-                    className={`rounded-full px-4 sm:px-6 transition-colors duration-150 ${activeCategory === 'all' ? 'bg-primary text-primary-foreground' : 'border-border/50'}`}
+                    className={`rounded-full px-4 sm:px-6 transition-all duration-200 shadow-sm ${activeCategory === 'all' ? 'bg-primary text-primary-foreground shadow-md ring-2 ring-primary/30' : 'border-primary/40 bg-card/80 hover:bg-primary/10 hover:border-primary/60 text-foreground'}`}
                   >
                     All ({catalogCount})
                   </Button>
@@ -311,7 +311,7 @@ export function CatalogSection({ isOpen, onToggle, onHoverButton, onViewDetails 
                         variant={activeCategory === cat ? 'default' : 'outline'}
                         size="sm"
                         onClick={() => setActiveCategory(cat)}
-                        className={`rounded-full px-3 sm:px-5 transition-colors duration-150 ${activeCategory === cat ? 'bg-primary text-primary-foreground' : 'border-border/50'}`}
+                        className={`rounded-full px-3 sm:px-5 transition-all duration-200 shadow-sm ${activeCategory === cat ? 'bg-primary text-primary-foreground shadow-md ring-2 ring-primary/30' : 'border-primary/40 bg-card/80 hover:bg-primary/10 hover:border-primary/60 text-foreground'}`}
                       >
                         <Icon className="w-4 h-4 mr-1.5" />
                         <span className="hidden sm:inline">{categoryInfo[cat].label}</span>
