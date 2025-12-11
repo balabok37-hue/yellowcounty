@@ -1,4 +1,4 @@
-import { useState, useEffect, useCallback } from 'react';
+import { useState, useEffect, useCallback, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Header } from '@/components/Header';
 import { HeroSection } from '@/components/sections/HeroSection';
@@ -11,6 +11,7 @@ import { Footer } from '@/components/sections/Footer';
 import { MachineModal } from '@/components/MachineModal';
 import { LoadingScreen } from '@/components/LoadingScreen';
 import { StaticGeometricShapes } from '@/components/StaticGeometricShapes';
+import { ScrollToTop } from '@/components/ScrollToTop';
 import { useLenis } from '@/hooks/useLenis';
 import { preloadImages } from '@/hooks/useImagePreloader';
 import { featuredMachines, catalogMachines } from '@/data/machines';
@@ -33,6 +34,7 @@ const Index = () => {
   const [selectedMachine, setSelectedMachine] = useState<Machine | null>(null);
   const [modalOpen, setModalOpen] = useState(false);
   const [catalogPreloaded, setCatalogPreloaded] = useState(false);
+  const featuredRef = useRef<HTMLDivElement>(null);
 
   // Initialize smooth scroll
   useLenis();
@@ -104,7 +106,9 @@ const Index = () => {
             {/* Main Content */}
             <main className="relative z-[2]">
               <HeroSection />
-              <FeaturedSection onViewDetails={handleViewDetails} />
+              <div ref={featuredRef}>
+                <FeaturedSection onViewDetails={handleViewDetails} />
+              </div>
               <CatalogSection
                 isOpen={catalogOpen}
                 onToggle={handleCatalogToggle}
@@ -115,6 +119,9 @@ const Index = () => {
               <TestimonialsSection />
               <ContactSection />
             </main>
+
+            {/* Scroll to Top Button */}
+            <ScrollToTop targetRef={featuredRef} showAfter={600} />
 
             {/* Footer */}
             <Footer />

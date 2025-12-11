@@ -1,6 +1,6 @@
 import { motion, AnimatePresence } from 'framer-motion';
 import { Button } from '@/components/ui/button';
-import { Phone, Menu, X, Mail, MapPin, MessageCircle, FileText } from 'lucide-react';
+import { Phone, Menu, X, Mail, MapPin, MessageCircle, FileText, Package, Send } from 'lucide-react';
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import {
@@ -15,10 +15,9 @@ export function Header() {
   const [isCallModalOpen, setIsCallModalOpen] = useState(false);
 
   const menuItems = [
-    { label: 'Equipment', href: '#featured' },
-    { label: 'Why Us', href: '#contact' },
-    { label: 'Contact', href: '#contact' },
-    { label: 'Documents', href: '/documents', isRoute: true },
+    { label: 'Equipment', href: '#featured', icon: Package },
+    { label: 'Contact', href: '#contact', icon: Send },
+    { label: 'Documents', href: '/documents', isRoute: true, icon: FileText },
   ];
 
   return (
@@ -33,15 +32,20 @@ export function Header() {
 
             {/* Desktop Nav */}
             <nav className="hidden md:flex items-center gap-8">
-              {['Equipment', 'Contact'].map((item) => (
-                <a 
-                  key={item}
-                  href={`#${item.toLowerCase() === 'equipment' ? 'featured' : 'contact'}`}
-                  className="text-foreground/80 hover:text-primary transition-colors duration-200"
-                >
-                  {item}
-                </a>
-              ))}
+              <a 
+                href="#featured"
+                className="text-foreground/80 hover:text-primary transition-colors duration-200 flex items-center gap-1.5"
+              >
+                <Package className="w-4 h-4" />
+                Equipment
+              </a>
+              <a 
+                href="#contact"
+                className="text-foreground/80 hover:text-primary transition-colors duration-200 flex items-center gap-1.5"
+              >
+                <Send className="w-4 h-4" />
+                Contact
+              </a>
               <Link 
                 to="/documents"
                 className="text-foreground/80 hover:text-primary transition-colors duration-200 flex items-center gap-1.5"
@@ -122,7 +126,10 @@ export function Header() {
                     onClick={() => setIsMobileMenuOpen(false)}
                     className="flex items-center justify-between p-5 rounded-2xl bg-card border border-border/50 active:bg-card/80 transition-colors duration-150"
                   >
-                    <span className="text-lg font-semibold text-foreground">{item.label}</span>
+                    <span className="text-lg font-semibold text-foreground flex items-center gap-2">
+                      {item.icon && <item.icon className="w-5 h-5" />}
+                      {item.label}
+                    </span>
                     <div className="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center">
                       <span className="text-primary">→</span>
                     </div>
