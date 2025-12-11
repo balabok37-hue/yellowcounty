@@ -64,6 +64,7 @@ import caterpillar299d2Image from '@/assets/machines/caterpillar-299d2.png';
 import caterpillar299d3Image from '@/assets/machines/caterpillar-299d3.png';
 import caterpillar279d3Image from '@/assets/machines/caterpillar-279d3.png';
 import caseTr310bImage from '@/assets/machines/case-tr310b.png';
+import kubotaSvl753Image from '@/assets/machines/kubota-svl75-3.png';
 
 // Category definitions with labels and icons
 export const categoryInfo: Record<MachineCategory, { label: string; labelRu?: string }> = {
@@ -2044,6 +2045,38 @@ export const allMachines: Machine[] = [
       caseTr310bImage,
     ],
   },
+  {
+    id: 79,
+    name: '2023 Kubota SVL75-3',
+    year: 2023,
+    hours: 1450,
+    location: 'Omaha, Nebraska',
+    price: 28800,
+    originalPrice: 32000,
+    discount: 10,
+    category: 'loaders',
+    image: kubotaSvl753Image,
+    description: 'The #1-selling compact track loader in the USA – a mid-frame vertical-lift powerhouse for construction, landscaping, material handling, and rental fleets, with unmatched traction on mud/slopes/soft ground and zero downtime reliability. Kubota V3307-CR-TE5A Tier 4 Final 74.3 hp diesel (no DEF regen hassles), hydrostatic two-speed transmission up to 8 mph, 2,490 lb ROC (35% tipping) for high stacking, 10 ft 2 in hinge pin height for easy truck loading, high-flow hydraulics (29.8 gpm @ 3,185 psi for mulchers/grapples/forks), electro-hydraulic joysticks with pattern changer, enclosed ROPS/FOPS cab with heat/AC/Bluetooth radio/rear camera/7-inch LCD touchscreen/LED work lights, 15.8" steel-embedded rubber tracks at 85%+, quick-attach plate + 74" low-profile bucket with bolt-on edge included, ride control, reversing fan, Advanced Multifunction Valve (AMV) for smooth multi-function operation.',
+    specs: {
+      engine: 'Kubota V3307-CR-TE5A 74.3 hp (55.2 kW) Tier 4 Final (no DEF)',
+      power: '74.3 hp (55.2 kW)',
+      weight: '9,420 lb (4,273 kg)',
+      capacity: '2,490 lb (1,130 kg) @ 35% tipping load',
+      tippingLoad: '7,110 lb (3,226 kg)',
+      liftHeight: '10 ft 2 in (3.11 m) hinge pin',
+      breakoutForce: '6,191 lbf (27.5 kN) bucket',
+      travelSpeed: '4.2 / 8 mph (2-speed)',
+      hydraulicFlow: 'High-flow 29.8 gpm (112.9 L/min) @ 3,185 psi',
+      fuelTank: '24.8 gal (94 L)',
+      trackWidth: '15.8 in (400 mm) steel-embedded rubber (85%+)',
+      cab: 'Enclosed ROPS/FOPS, heat/AC, Bluetooth, camera, 7" LCD touchscreen',
+      features: 'Ride control, reversing fan, AMV, Electronic Travel Torque Management, quick-attach + 74" bucket with BOE. Ground pressure: 5.3 psi (36.5 kPa)',
+      status: 'Dealer-serviced, work-ready, ships in 48 hrs',
+    },
+    gallery: [
+      kubotaSvl753Image,
+    ],
+  },
 ];
 
 // Category assignments by machine ID
@@ -2084,6 +2117,7 @@ const categoryMap: Record<number, MachineCategory> = {
   76: 'loaders', // CAT 299D3 Compact Track Loader
   77: 'loaders', // CAT 279D3 Compact Track Loader
   78: 'loaders', // CASE TR310B Compact Track Loader
+  79: 'loaders', // Kubota SVL75-3 Compact Track Loader
   39: 'loaders', // 310SL Backhoe
   42: 'loaders', // 289D3 Track Loader
   48: 'loaders', // CAT 950M Wheel Loader
