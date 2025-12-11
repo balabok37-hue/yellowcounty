@@ -51,6 +51,7 @@ import caterpillar938m2022bImage from '@/assets/machines/caterpillar-938m-2022b.
 import jcb55z1Image from '@/assets/machines/jcb-55z-1.png';
 import caseCx42dImage from '@/assets/machines/case-cx42d.png';
 import wackerNeusonEz26Image from '@/assets/machines/wacker-neuson-ez26.png';
+import machproMp319Image from '@/assets/machines/machpro-mp319.png';
 
 // Category definitions with labels and icons
 export const categoryInfo: Record<MachineCategory, { label: string; labelRu?: string }> = {
@@ -1619,6 +1620,38 @@ export const allMachines: Machine[] = [
       wackerNeusonEz26Image,
     ],
   },
+  {
+    id: 66,
+    name: '2025 MachPro MP319 Mini Excavator',
+    year: 2025,
+    hours: 0,
+    location: 'Miami, Florida',
+    price: 5400,
+    originalPrice: 6000,
+    discount: 10,
+    category: 'earthmoving',
+    image: machproMp319Image,
+    description: 'Chinese-built 1.9-ton mini excavator dominating the budget/rental segment in 2025. Kubota D1703 Stage V 25 hp (no DEF, no regen), zero-tailswing, expandable tracks 39"–52", 2-speed travel, hydraulic quick-coupler + 16" digging bucket + 36" grading bucket + hydraulic thumb included, swing boom, dozer blade, enclosed cab with heat/AC/Bluetooth radio, LED lights, proportional aux lines. Full 1-year / 2,000 hr factory warranty.',
+    specs: {
+      engine: 'Kubota D1703 25 hp Stage V',
+      power: '25 hp',
+      weight: '4,200 lb (1,900 kg)',
+      maxDiggingDepth: '8 ft 6 in (2.60 m)',
+      maxReach: '14 ft 6 in (4.42 m)',
+      maxDumpHeight: '9 ft 6 in (2.90 m)',
+      breakoutForce: '4,950 lbf bucket breakout',
+      tailSwing: 'Zero tail swing',
+      trackWidth: 'Expandable 39"–52" rubber tracks',
+      hydraulicFlow: 'Proportional aux lines',
+      cab: 'Enclosed heat/AC, Bluetooth radio',
+      warranty: '1 yr / 2,000 hr full machine',
+      features: '16" dig bucket + 36" grading bucket + hydraulic thumb + quick-coupler included, swing boom, dozer blade, LED lights, 2-speed travel',
+      status: 'Brand new (0 hours), in stock Miami FL port yard – ships in 24-48 hrs',
+    },
+    gallery: [
+      machproMp319Image,
+    ],
+  },
 ];
 
 // Category assignments by machine ID
@@ -1639,6 +1672,7 @@ const categoryMap: Record<number, MachineCategory> = {
   63: 'earthmoving', // JCB 55Z-1 Mini Excavator
   64: 'earthmoving', // CASE CX42D Mini Excavator
   65: 'earthmoving', // Wacker Neuson EZ26 Mini Excavator
+  66: 'earthmoving', // MachPro MP319 Mini Excavator
   
   // Loaders (Wheel Loaders, Backhoe Loaders, Track Loaders)
   2: 'loaders', // SW405K Wheel Loader
