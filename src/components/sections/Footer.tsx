@@ -31,10 +31,10 @@ export function Footer() {
             <div className="flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 border border-primary/20">
               <div className="flex items-center gap-0.5">
                 {[1, 2, 3, 4, 5].map((star) => (
-                  <Star key={star} className={`w-4 h-4 ${star <= 4 ? 'fill-primary text-primary' : 'fill-primary/50 text-primary/50'}`} />
+                  <Star key={star} className={`w-4 h-4 ${star <= 5 ? 'fill-primary text-primary' : 'fill-primary/50 text-primary/50'}`} />
                 ))}
               </div>
-              <span className="text-sm font-semibold text-foreground">4.8/5</span>
+              <span className="text-sm font-semibold text-foreground">4.9/5</span>
               <span className="text-xs text-muted-foreground">Average Rating</span>
             </div>
             <div className="flex items-center gap-4">
@@ -50,7 +50,7 @@ export function Footer() {
           </div>
 
           {/* Shipping Partners */}
-          <div className="text-center">
+          <div id="partners" className="text-center scroll-mt-24">
             <p className="text-xs text-muted-foreground mb-4 uppercase tracking-wider">Trusted Shipping Partners</p>
             <div className="flex flex-wrap items-center justify-center gap-6">
               <div className="flex items-center gap-2 px-4 py-2 rounded-lg bg-card border border-border/50">

@@ -1,6 +1,6 @@
 import { motion, AnimatePresence } from 'framer-motion';
 import { Button } from '@/components/ui/button';
-import { Phone, Menu, X, Mail, MapPin, MessageCircle, FileText, Package, Send } from 'lucide-react';
+import { Phone, Menu, X, Mail, MapPin, MessageCircle, FileText, Package, Send, Truck } from 'lucide-react';
 import { useState } from 'react';
 import { Link, useNavigate, useLocation } from 'react-router-dom';
 import {
@@ -19,12 +19,17 @@ export function Header() {
   const menuItems = [
     { label: 'Equipment', href: '/#featured', icon: Package },
     { label: 'Contact', href: '/#contact', icon: Send },
+    { label: 'Partners', href: '/#partners', icon: Truck },
     { label: 'Documents', href: '/documents', isRoute: true, icon: FileText },
   ];
 
   const handleNavClick = (href: string, isRoute?: boolean) => {
     if (isRoute) {
-      navigate(href);
+      if (href === '/documents' && location.pathname === '/documents') {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      } else {
+        navigate(href);
+      }
     } else if (href.startsWith('/#')) {
       const sectionId = href.substring(2);
       if (location.pathname !== '/') {
@@ -69,6 +74,13 @@ export function Header() {
               >
                 <Send className="w-4 h-4" />
                 Contact
+              </button>
+              <button 
+                onClick={() => handleNavClick('/#partners')}
+                className="text-foreground/80 hover:text-primary transition-colors duration-200 flex items-center gap-1.5 px-3 py-1.5 rounded-lg border border-border/30 hover:border-primary/50 bg-background/50"
+              >
+                <Truck className="w-4 h-4" />
+                Partners
               </button>
               <Link 
                 to="/documents"
