@@ -62,6 +62,7 @@ import johnDeere333gImage from '@/assets/machines/john-deere-333g.png';
 import rippaNdi665Image from '@/assets/machines/rippa-ndi665.png';
 import caterpillar299d2Image from '@/assets/machines/caterpillar-299d2.png';
 import caterpillar299d3Image from '@/assets/machines/caterpillar-299d3.png';
+import caterpillar279d3Image from '@/assets/machines/caterpillar-279d3.png';
 
 // Category definitions with labels and icons
 export const categoryInfo: Record<MachineCategory, { label: string; labelRu?: string }> = {
@@ -1981,6 +1982,35 @@ export const allMachines: Machine[] = [
       caterpillar299d3Image,
     ],
   },
+  {
+    id: 77,
+    name: '2021 Caterpillar 279D3',
+    year: 2021,
+    hours: 2340,
+    location: 'Tampa, Florida',
+    price: 23368,
+    originalPrice: 25400,
+    discount: 8,
+    category: 'loaders',
+    image: caterpillar279d3Image,
+    description: 'The perfect mid-frame radial-lift track loader for landscaping, construction, and rental fleets – 2,940 lb ROC, 10 ft 1 in hinge pin height, and legendary Cat undercarriage traction. Cat C3.8 Tier 4 Final 74 hp (no DEF), high-flow XPS hydraulics (30 gpm @ 3,500 psi), 15.7" tracks at 85%+, ride control, reversing fan, advanced display with rear camera, Bluetooth radio, air-ride seat, self-leveling, quick-attach + 78" bucket with BOE included. Fresh full service, zero leaks, tight machine.',
+    specs: {
+      engine: 'Cat C3.8 74 hp Tier 4 Final (no DEF)',
+      power: '74 hp (55 kW)',
+      weight: '10,095 lb (4,579 kg)',
+      capacity: '2,940 lb (1,334 kg) @ 35% tipping load',
+      tippingLoad: '8,400 lb',
+      liftHeight: '10 ft 1 in hinge pin',
+      hydraulicFlow: 'High-flow XPS 30 gpm @ 3,500 psi',
+      trackWidth: '15.7 in steel-embedded rubber (85%+)',
+      cab: 'Enclosed heat/AC, Bluetooth, rear camera, air-ride seat',
+      features: '2-speed, ride control, reversing fan, self-leveling, quick-attach + 78" bucket with BOE included',
+      status: 'Florida-kept, dealer-serviced, ships in 24–48 hrs',
+    },
+    gallery: [
+      caterpillar279d3Image,
+    ],
+  },
 ];
 
 // Category assignments by machine ID
@@ -2019,6 +2049,7 @@ const categoryMap: Record<number, MachineCategory> = {
   74: 'loaders', // Rippa NDI665 Mini Track Loader
   75: 'loaders', // CAT 299D2 Compact Track Loader
   76: 'loaders', // CAT 299D3 Compact Track Loader
+  77: 'loaders', // CAT 279D3 Compact Track Loader
   39: 'loaders', // 310SL Backhoe
   42: 'loaders', // 289D3 Track Loader
   48: 'loaders', // CAT 950M Wheel Loader
