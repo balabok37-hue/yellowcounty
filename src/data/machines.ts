@@ -59,6 +59,7 @@ import caterpillar304e2crImage from '@/assets/machines/caterpillar-304e2-cr.png'
 import kubotaKx0334Image from '@/assets/machines/kubota-kx033-4.png';
 import bobcatE10Image from '@/assets/machines/bobcat-e10.png';
 import johnDeere333gImage from '@/assets/machines/john-deere-333g.png';
+import rippaNdi665Image from '@/assets/machines/rippa-ndi665.png';
 
 // Category definitions with labels and icons
 export const categoryInfo: Record<MachineCategory, { label: string; labelRu?: string }> = {
@@ -1881,6 +1882,39 @@ export const allMachines: Machine[] = [
       johnDeere333gImage,
     ],
   },
+  {
+    id: 74,
+    name: '2025 Rippa NDI665 Mini Track Loader',
+    year: 2025,
+    hours: 0,
+    location: 'Strafford, Missouri',
+    price: 12360,
+    originalPrice: 15450,
+    discount: 20,
+    category: 'loaders',
+    image: rippaNdi665Image,
+    description: 'Budget-crushing mini track loader exploding in the 2025 rental, landscaping, and small construction market – compact 2,500 lb frame with 800 lb lift capacity crushes tight jobs like mulching, grading, and material handling without the big-brand price tag. Kubota D1105 Tier 4 Final 24 hp diesel (no DEF, no regen downtime, plus 2-year/2,000 hr Kubota engine warranty), hydrostatic drive with 2-speed up to 7 mph, joystick pilot controls, inverted hydraulic cylinder for max dump clearance, 3-pump hydraulic system.',
+    specs: {
+      engine: 'Kubota D1105 24 hp Tier 4 Final (no DEF)',
+      power: '24 hp',
+      weight: '2,500 lb (1,134 kg) operating weight',
+      maxLiftCapacity: '800 lb (363 kg) rated operating capacity',
+      tippingLoad: '2,285 lb (1,036 kg)',
+      maxLiftHeight: '8 ft 2 in (2.49 m)',
+      breakoutForce: '2,200 lbf',
+      travelSpeed: '4.3 / 7 mph (2-speed)',
+      trackWidth: '9 in (230 mm) rubber tracks (100%)',
+      hydraulicFlow: '10 gpm aux @ 2,800 psi (3-pump system)',
+      fuelTank: '7.4 gal (28 L)',
+      cab: 'Enclosed ROPS canopy, joystick pilots, LED lights, Bluetooth',
+      warranty: '1 yr parts/labor + 2 yr/2,000 hr Kubota engine',
+      features: 'Quick-attach plate, 60" low-profile bucket, inverted hydraulic cylinder, auto-idle, cold-start package, 4.2 psi ground pressure',
+      status: 'Brand new (0 hours), in stock Strafford MO – ships in 24-48 hrs',
+    },
+    gallery: [
+      rippaNdi665Image,
+    ],
+  },
 ];
 
 // Category assignments by machine ID
@@ -1916,6 +1950,7 @@ const categoryMap: Record<number, MachineCategory> = {
   13: 'loaders', // ASV VT-70 Track Loader
   20: 'loaders', // WA320-8 Wheel Loader
   73: 'loaders', // John Deere 333G Compact Track Loader
+  74: 'loaders', // Rippa NDI665 Mini Track Loader
   39: 'loaders', // 310SL Backhoe
   42: 'loaders', // 289D3 Track Loader
   48: 'loaders', // CAT 950M Wheel Loader
