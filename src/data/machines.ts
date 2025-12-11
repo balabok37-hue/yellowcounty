@@ -65,6 +65,7 @@ import caterpillar299d3Image from '@/assets/machines/caterpillar-299d3.png';
 import caterpillar279d3Image from '@/assets/machines/caterpillar-279d3.png';
 import caseTr310bImage from '@/assets/machines/case-tr310b.png';
 import kubotaSvl753Image from '@/assets/machines/kubota-svl75-3.png';
+import bobcatA300Image from '@/assets/machines/bobcat-a300.png';
 
 // Category definitions with labels and icons
 export const categoryInfo: Record<MachineCategory, { label: string; labelRu?: string }> = {
@@ -2077,6 +2078,38 @@ export const allMachines: Machine[] = [
       kubotaSvl753Image,
     ],
   },
+  {
+    id: 80,
+    name: '2004 Bobcat A300',
+    year: 2004,
+    hours: 4200,
+    location: 'Phoenix, Arizona',
+    price: 21750,
+    originalPrice: 29000,
+    discount: 25,
+    category: 'loaders',
+    image: bobcatA300Image,
+    description: 'The legendary all-wheel steer skid steer loader that\'s a game-changer for tight-site maneuvering and zero turf damage – perfect for landscaping, construction, agriculture, and rental fleets where traditional skid steers tear up the ground. Pre-emissions Kubota V3300-T turbo diesel cranks 81 hp with no DEF/regen downtime, hydrostatic two-speed transmission up to 7 mph, 3,000 lb ROC for heavy pallet stacking, 8 ft 3 in hinge pin height for easy truck loading, high-flow hydraulics (30.7 gpm @ 3,300 psi for mulchers/grapples/forks), all-wheel steering for crab, circle, or coordinated modes, enclosed ROPS/FOPS cab with heat/AC/Bluetooth radio/LED work lights, 12-16.5 HD tires at 75%+, quick-attach plate + 72" tooth bucket with bolt-on edge included.',
+    specs: {
+      engine: 'Kubota V3300-T Turbo Diesel 81 hp (pre-emissions, no DEF)',
+      power: '81 hp',
+      weight: '8,673 lb (3,934 kg)',
+      capacity: '3,000 lb (1,360 kg)',
+      tippingLoad: '6,111 lb (2,772 kg)',
+      liftHeight: '8 ft 3 in (2.51 m) hinge pin',
+      breakoutForce: '5,500 lbf (24.5 kN)',
+      travelSpeed: '6.9 mph (2-speed)',
+      hydraulicFlow: 'High-flow 30.7 gpm (116 L/min) @ 3,300 psi',
+      fuelTank: '24 gal (91 L)',
+      tireSize: '12-16.5 HD (75%+)',
+      cab: 'Enclosed ROPS/FOPS, heat/AC, Bluetooth, LED lights',
+      features: 'All-wheel steering (crab, circle, coordinated modes), joystick controls, quick-attach + 72" tooth bucket with BOE',
+      status: 'Dealer-serviced, work-ready, ships in 48 hrs',
+    },
+    gallery: [
+      bobcatA300Image,
+    ],
+  },
 ];
 
 // Category assignments by machine ID
@@ -2118,6 +2151,7 @@ const categoryMap: Record<number, MachineCategory> = {
   77: 'loaders', // CAT 279D3 Compact Track Loader
   78: 'loaders', // CASE TR310B Compact Track Loader
   79: 'loaders', // Kubota SVL75-3 Compact Track Loader
+  80: 'loaders', // Bobcat A300 All-Wheel Steer Skid Steer
   39: 'loaders', // 310SL Backhoe
   42: 'loaders', // 289D3 Track Loader
   48: 'loaders', // CAT 950M Wheel Loader
