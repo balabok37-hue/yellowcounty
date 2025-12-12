@@ -16,6 +16,7 @@ import { ScrollToTop } from '@/components/ScrollToTop';
 import { useLenis } from '@/hooks/useLenis';
 import { preloadImages } from '@/hooks/useImagePreloader';
 import { featuredMachines, catalogMachines, allMachines } from '@/data/machines';
+import { generateMachineSlug, findMachineBySlug } from '@/lib/machine-utils';
 import type { Machine } from '@/components/MachineCard';
 
 // Preload hero image
@@ -46,15 +47,18 @@ const Index = () => {
   useEffect(() => {
     if (!showContent) return;
     
-    const machineId = searchParams.get('machine');
-    if (machineId) {
-      const machine = allMachines.find(m => m.id === Number(machineId));
+    const machineSlug = searchParams.get('machine');
+    if (machineSlug) {
+      const machine = findMachineBySlug(allMachines, machineSlug);
       if (machine) {
-        setSelectedMachine(machine);
-        setModalOpen(true);
-        // If machine is in catalog, open catalog section
-        if (catalogMachines.some(m => m.id === machine.id)) {
-          setCatalogOpen(true);
+        const fullMachine = allMachines.find(m => m.id === machine.id);
+        if (fullMachine) {
+          setSelectedMachine(fullMachine);
+          setModalOpen(true);
+          // If machine is in catalog, open catalog section
+          if (catalogMachines.some(m => m.id === fullMachine.id)) {
+            setCatalogOpen(true);
+          }
         }
       }
     }
@@ -112,8 +116,8 @@ const Index = () => {
   const handleViewDetails = (machine: Machine) => {
     setSelectedMachine(machine);
     setModalOpen(true);
-    // Update URL with machine parameter
-    setSearchParams({ machine: String(machine.id) });
+    // Update URL with pretty machine slug
+    setSearchParams({ machine: generateMachineSlug(machine.name) });
   };
 
   const handleCloseModal = () => {
