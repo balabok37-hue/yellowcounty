@@ -7,9 +7,14 @@ import { Button } from '@/components/ui/button';
 import { CheckCircle2, Phone, MessageCircle, ArrowLeft } from 'lucide-react';
 
 export default function ThankYou() {
-  // Scroll to top on mount
+  // Scroll to top and track Lead conversion on mount
   useEffect(() => {
     window.scrollTo({ top: 0, behavior: 'instant' });
+    
+    // Facebook Pixel Lead event
+    if (typeof window !== 'undefined' && (window as any).fbq) {
+      (window as any).fbq('track', 'Lead');
+    }
   }, []);
 
   return (
