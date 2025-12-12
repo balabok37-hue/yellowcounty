@@ -1,6 +1,6 @@
 import { useState, useEffect, useCallback, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { useLocation } from 'react-router-dom';
+import { useLocation, useSearchParams } from 'react-router-dom';
 import { Header } from '@/components/Header';
 import { HeroSection } from '@/components/sections/HeroSection';
 import { FeaturedSection } from '@/components/sections/FeaturedSection';
@@ -15,7 +15,7 @@ import { StaticGeometricShapes } from '@/components/StaticGeometricShapes';
 import { ScrollToTop } from '@/components/ScrollToTop';
 import { useLenis } from '@/hooks/useLenis';
 import { preloadImages } from '@/hooks/useImagePreloader';
-import { featuredMachines, catalogMachines } from '@/data/machines';
+import { featuredMachines, catalogMachines, allMachines } from '@/data/machines';
 import type { Machine } from '@/components/MachineCard';
 
 // Preload hero image
@@ -37,9 +37,28 @@ const Index = () => {
   const [catalogPreloaded, setCatalogPreloaded] = useState(false);
   const featuredRef = useRef<HTMLDivElement>(null);
   const location = useLocation();
+  const [searchParams, setSearchParams] = useSearchParams();
 
   // Initialize smooth scroll
   useLenis();
+
+  // Handle URL parameter for direct machine links
+  useEffect(() => {
+    if (!showContent) return;
+    
+    const machineId = searchParams.get('machine');
+    if (machineId) {
+      const machine = allMachines.find(m => m.id === Number(machineId));
+      if (machine) {
+        setSelectedMachine(machine);
+        setModalOpen(true);
+        // If machine is in catalog, open catalog section
+        if (catalogMachines.some(m => m.id === machine.id)) {
+          setCatalogOpen(true);
+        }
+      }
+    }
+  }, [showContent, searchParams]);
 
   // Handle scroll to section when navigating from other pages
   useEffect(() => {
@@ -93,11 +112,15 @@ const Index = () => {
   const handleViewDetails = (machine: Machine) => {
     setSelectedMachine(machine);
     setModalOpen(true);
+    // Update URL with machine parameter
+    setSearchParams({ machine: String(machine.id) });
   };
 
   const handleCloseModal = () => {
     setModalOpen(false);
     setSelectedMachine(null);
+    // Remove machine parameter from URL
+    setSearchParams({});
   };
 
   return (
