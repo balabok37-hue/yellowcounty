@@ -1,19 +1,15 @@
 import { motion } from 'framer-motion';
+import { useNavigate } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
-import { MapPin, Phone, Mail, Send, Loader2, CheckCircle2, MessageCircle } from 'lucide-react';
+import { MapPin, Phone, Mail, Send, Loader2, MessageCircle } from 'lucide-react';
 import { useState, useEffect } from 'react';
 import { ScrollReveal, CardReveal } from '@/components/ScrollReveal';
 import { supabase } from '@/integrations/supabase/client';
-import {
-  Dialog,
-  DialogContent,
-  DialogHeader,
-  DialogTitle,
-} from '@/components/ui/dialog';
 
 export function ContactSection() {
+  const navigate = useNavigate();
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -21,7 +17,6 @@ export function ContactSection() {
     message: '',
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
-  const [showSuccessModal, setShowSuccessModal] = useState(false);
 
   // Listen for prefill events from MachineModal
   useEffect(() => {
@@ -66,8 +61,9 @@ export function ContactSection() {
         console.error('Telegram notification error:', fnError);
       }
 
-      setShowSuccessModal(true);
+      // Redirect to thank you page
       setFormData({ name: '', email: '', phone: '', message: '' });
+      navigate('/thank-you');
     } catch (error) {
       console.error('Form submission error:', error);
     } finally {
@@ -236,28 +232,6 @@ export function ContactSection() {
         </div>
       </div>
 
-      {/* Success Modal */}
-      <Dialog open={showSuccessModal} onOpenChange={setShowSuccessModal}>
-        <DialogContent className="sm:max-w-md">
-          <DialogHeader>
-            <DialogTitle className="flex items-center gap-3 text-xl">
-              <CheckCircle2 className="w-8 h-8 text-green-500" />
-              Message Sent!
-            </DialogTitle>
-          </DialogHeader>
-          <div className="text-center py-4">
-            <p className="text-lg text-foreground mb-2">
-              Thank you for your inquiry!
-            </p>
-            <p className="text-muted-foreground">
-              We will call you back within <span className="font-bold text-primary">15 minutes</span>
-            </p>
-          </div>
-          <Button onClick={() => setShowSuccessModal(false)} className="w-full">
-            Got it
-          </Button>
-        </DialogContent>
-      </Dialog>
     </section>
   );
 }
