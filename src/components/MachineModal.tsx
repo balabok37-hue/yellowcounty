@@ -290,7 +290,7 @@ export function MachineModal({ machine, isOpen, onClose }: MachineModalProps) {
                   )}
 
                   {/* Trust badges + CTA Buttons */}
-                  <div className="mt-auto pt-2 space-y-3">
+                  <div className="mt-auto pt-2 space-y-3" style={{ paddingBottom: 'max(0.75rem, env(safe-area-inset-bottom))' }}>
                     <div className="flex gap-4">
                       <div className="flex items-center gap-1.5 text-[10px] text-muted-foreground">
                         <Shield className="w-3 h-3 text-green-500" />
