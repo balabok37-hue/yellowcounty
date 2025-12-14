@@ -162,45 +162,43 @@ export function MachineCard({ machine, index, onViewDetails }: MachineCardProps)
         )}
 
         {/* Spacer */}
-        <div className="h-64 sm:h-72 md:h-80" />
+        <div className="h-40 sm:h-48 md:h-52" />
 
         {/* Content */}
-        <div className="p-4 sm:p-6 space-y-3 sm:space-y-4 relative z-10">
+        <div className="p-3 sm:p-4 space-y-2 sm:space-y-3 relative z-10">
           <h3 
-            className="text-lg sm:text-xl font-bold text-foreground leading-tight line-clamp-2 min-h-[2.75rem] sm:min-h-[3rem]"
+            className="text-base sm:text-lg font-bold text-foreground leading-tight line-clamp-2"
             style={{ textShadow: '0 2px 8px hsl(0 0% 0%)' }}
           >
             {machine.name}
           </h3>
 
-          <div className="flex flex-wrap gap-2 sm:gap-3 text-xs sm:text-sm">
-            <span className="flex items-center gap-1.5 px-2.5 py-1.5 rounded-full bg-background/60 backdrop-blur-sm border border-border/30">
-              <Clock className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-primary" />
+          <div className="flex flex-wrap gap-1.5 sm:gap-2 text-[10px] sm:text-xs">
+            <span className="flex items-center gap-1 px-2 py-1 rounded-full bg-background/60 backdrop-blur-sm border border-border/30">
+              <Clock className="w-3 h-3 sm:w-3.5 sm:h-3.5 text-primary" />
               {machine.year} • {machine.miles ? `${machine.miles.toLocaleString()} mi` : `${machine.hours.toLocaleString()} hrs`}
             </span>
-            <span className="flex items-center gap-1.5 px-2.5 py-1.5 rounded-full bg-background/60 backdrop-blur-sm border border-border/30">
-              <MapPin className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-muted-foreground" />
+            <span className="flex items-center gap-1 px-2 py-1 rounded-full bg-background/60 backdrop-blur-sm border border-border/30">
+              <MapPin className="w-3 h-3 sm:w-3.5 sm:h-3.5 text-muted-foreground" />
               {machine.location}
             </span>
           </div>
 
-          <div className="flex items-baseline gap-2 sm:gap-3">
-            <span className="text-2xl sm:text-3xl font-black text-primary">
+          <div className="flex items-baseline gap-2">
+            <span className="text-xl sm:text-2xl font-black text-primary">
               ${machine.price.toLocaleString()}
             </span>
-            <span className="text-sm sm:text-lg line-through text-muted-foreground">
+            <span className="text-xs sm:text-sm line-through text-muted-foreground">
               ${machine.originalPrice.toLocaleString()}
             </span>
           </div>
 
-          <div className="pt-2">
-            <Button
-              className="w-full h-12 sm:h-14 text-base sm:text-lg font-bold rounded-xl bg-primary text-primary-foreground hover:bg-primary/90 transition-colors duration-200"
-            >
-              <Eye className="w-5 h-5 mr-2" />
-              View Details
-            </Button>
-          </div>
+          <Button
+            className="w-full h-10 sm:h-11 text-sm sm:text-base font-bold rounded-lg bg-primary text-primary-foreground hover:bg-primary/90 transition-colors duration-200"
+          >
+            <Eye className="w-4 h-4 mr-1.5" />
+            View Details
+          </Button>
         </div>
       </div>
     </motion.div>
