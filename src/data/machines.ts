@@ -21,7 +21,11 @@ import silverado6500hd4Image from '@/assets/machines/chevrolet-silverado-6500hd-
 import silverado4500hdImage from '@/assets/machines/chevrolet-silverado-4500hd.png';
 import silverado4500hdBoxImage from '@/assets/machines/chevrolet-silverado-4500hd-box.png';
 import silverado5500hdBoxImage from '@/assets/machines/chevrolet-silverado-5500hd-box.png';
-import mackGu713Image from '@/assets/machines/mack-gu713.png';
+import mackGu713Image1 from '@/assets/machines/mack-gu713-1.png';
+import mackGu713Image2 from '@/assets/machines/mack-gu713-2.png';
+import mackGu713Image3 from '@/assets/machines/mack-gu713-3.png';
+import mackGu713Image4 from '@/assets/machines/mack-gu713-4.png';
+import mackGu713Image5 from '@/assets/machines/mack-gu713-5.png';
 import komatsuWa3208Image1 from '@/assets/machines/komatsu-wa320-8-1.png';
 import komatsuWa3208Image2 from '@/assets/machines/komatsu-wa320-8-2.png';
 import komatsuWa3208Image3 from '@/assets/machines/komatsu-wa320-8-3.png';
@@ -663,7 +667,7 @@ export const allMachines: Machine[] = [
     originalPrice: 82450,
     discount: 25,
     isHotOffer: true,
-    image: mackGu713Image,
+    image: mackGu713Image1,
     description: 'The 2013 Mack GU713 Tri-Axle Dump Truck – bulletproof Mack pedigree, ready to go straight to work tomorrow. MP8 505C 505 hp / 1,860 lb-ft, Mack mDrive 12-speed automated transmission, 18k front, 46k Camelback rears, 3.98 ratio, double frame, 20 ft heated steel body with electric tarp, pintle hitch, air tailgate. Only 325,435 miles, fresh DOT, no rust, 85%+ virgin steers, 70%+ drives/caps. Ice-cold A/C, power mirrors, heated seat, Bluetooth radio. Runs flawless – no blow-by, no leaks, no stories. Ships nationwide (#A6491997). Same-spec 2013–2014 GU713 tri-axles still bringing $58–64k all day at Ritchie Bros and JJ Kane auctions.',
     specs: {
       engine: 'Mack MP8 505C (505 hp / 1,860 lb-ft)',
@@ -681,7 +685,11 @@ export const allMachines: Machine[] = [
       status: 'Fresh DOT, work-ready, ships nationwide',
     },
     gallery: [
-      mackGu713Image,
+      mackGu713Image1,
+      mackGu713Image2,
+      mackGu713Image3,
+      mackGu713Image4,
+      mackGu713Image5,
     ],
   },
   {
