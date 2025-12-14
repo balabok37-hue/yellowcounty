@@ -86,7 +86,11 @@ import machproMp319Image from '@/assets/machines/machpro-mp319.png';
 import machproMp319LaImage from '@/assets/machines/machpro-mp319-la.png';
 import caterpillar303ecrImage from '@/assets/machines/caterpillar-303e-cr.png';
 import bobcatE50Image from '@/assets/machines/bobcat-e50.png';
-import caterpillar304e2crImage from '@/assets/machines/caterpillar-304e2-cr.png';
+import caterpillar304e2crImage1 from '@/assets/machines/caterpillar-304e2-cr-1.png';
+import caterpillar304e2crImage2 from '@/assets/machines/caterpillar-304e2-cr-2.png';
+import caterpillar304e2crImage3 from '@/assets/machines/caterpillar-304e2-cr-3.png';
+import caterpillar304e2crImage4 from '@/assets/machines/caterpillar-304e2-cr-4.png';
+import caterpillar304e2crImage5 from '@/assets/machines/caterpillar-304e2-cr-5.png';
 import kubotaKx0334Image from '@/assets/machines/kubota-kx033-4.png';
 import bobcatE10Image from '@/assets/machines/bobcat-e10.png';
 import johnDeere333gImage from '@/assets/machines/john-deere-333g.png';
@@ -1831,7 +1835,7 @@ export const allMachines: Machine[] = [
     originalPrice: 40150,
     discount: 30,
     category: 'earthmoving',
-    image: caterpillar304e2crImage,
+    image: caterpillar304e2crImage1,
     description: 'Versatile compact radius mini excavator – staple for urban construction, landscaping, utilities, and rental fleets. Zero tail swing for zero headaches in tight spots. Cat C2.4 Tier 4 Final 40.2 hp (no DEF downtime), load-sensing hydraulics with 17 gpm aux flow for thumbs/hammers, swing boom for max reach, hydraulic quick-coupler + 24" digging bucket included, dozer blade with float, enclosed ROPS cab with heat/AC/joystick controls/Bluetooth radio/rear camera/LED lights, 14" rubber tracks at 85%+.',
     specs: {
       engine: 'Cat C2.4 40.2 hp Tier 4 Final (no DEF)',
@@ -1850,7 +1854,11 @@ export const allMachines: Machine[] = [
       status: 'Dealer-serviced, work-ready, ships in 48 hrs',
     },
     gallery: [
-      caterpillar304e2crImage,
+      caterpillar304e2crImage1,
+      caterpillar304e2crImage2,
+      caterpillar304e2crImage3,
+      caterpillar304e2crImage4,
+      caterpillar304e2crImage5,
     ],
   },
   {
