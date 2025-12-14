@@ -43,7 +43,10 @@ import chevroletSilverado2500hdImage from '@/assets/machines/chevrolet-silverado
 import international7300Image1 from '@/assets/machines/international-7300-1.png';
 import international7300Image2 from '@/assets/machines/international-7300-2.png';
 import international7300Image3 from '@/assets/machines/international-7300-3.png';
-import caterpillar336Image from '@/assets/machines/caterpillar-336.png';
+import caterpillar336Image1 from '@/assets/machines/caterpillar-336-1.png';
+import caterpillar336Image2 from '@/assets/machines/caterpillar-336-2.png';
+import caterpillar336Image3 from '@/assets/machines/caterpillar-336-3.png';
+import caterpillar336Image4 from '@/assets/machines/caterpillar-336-4.png';
 import hitachiZx350Image1 from '@/assets/machines/hitachi-zx350-1.png';
 import hitachiZx350Image2 from '@/assets/machines/hitachi-zx350-2.png';
 import hitachiZx350Image3 from '@/assets/machines/hitachi-zx350-3.png';
@@ -1049,13 +1052,13 @@ export const allMachines: Machine[] = [
     id: 45,
     name: '2019 Caterpillar 336 Excavator',
     year: 2019,
-    hours: 8522,
+    hours: 6769,
     location: 'Lake Worth, Texas',
-    price: 149760,
-    originalPrice: 192000,
+    price: 76450,
+    originalPrice: 98013,
     discount: 22,
     category: 'earthmoving',
-    image: caterpillar336Image,
+    image: caterpillar336Image1,
     isHotOffer: true,
     description: '2019 CAT 336 straight from a Texas pipeline contractor. One-owner machine, no salt exposure, full Cat dealer history. Just received fresh 1,000-hour service, all pins & bushings tight, undercarriage strong (70% remaining). Runs quiet and powerful – ready to load on a lowboy today. Includes 54" HD bucket + hydraulic thumb. Clean Texas title & ownership docs.',
     specs: {
@@ -1070,7 +1073,10 @@ export const allMachines: Machine[] = [
       status: 'In stock – ships worldwide',
     },
     gallery: [
-      caterpillar336Image,
+      caterpillar336Image1,
+      caterpillar336Image2,
+      caterpillar336Image3,
+      caterpillar336Image4,
     ],
   },
   {
