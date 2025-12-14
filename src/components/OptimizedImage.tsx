@@ -1,5 +1,4 @@
 import { useState, useRef, useEffect } from 'react';
-import { motion } from 'framer-motion';
 
 interface OptimizedImageProps {
   src: string;
@@ -44,35 +43,22 @@ export function OptimizedImage({
 
   return (
     <div ref={imgRef} className={`relative overflow-hidden ${aspectRatio}`}>
-      {/* Blur placeholder */}
+      {/* Placeholder */}
       <div 
-        className={`absolute inset-0 bg-gradient-to-br from-muted via-muted/80 to-muted/60 transition-opacity duration-500 ${
+        className={`absolute inset-0 bg-muted transition-opacity duration-300 ${
           isLoaded ? 'opacity-0' : 'opacity-100'
         }`}
-      >
-        {/* Shimmer effect */}
-        <motion.div
-          className="absolute inset-0 bg-gradient-to-r from-transparent via-foreground/5 to-transparent"
-          animate={{ x: ['-100%', '100%'] }}
-          transition={{ duration: 1.5, repeat: Infinity, ease: 'linear' }}
-        />
-      </div>
+      />
 
       {/* Actual image */}
       {isInView && (
-        <motion.img
+        <img
           src={src}
           alt={alt}
-          className={`w-full h-full ${fit === 'contain' ? 'object-contain bg-muted/30' : 'object-cover'} ${className}`}
+          className={`w-full h-full ${fit === 'contain' ? 'object-contain bg-muted/30' : 'object-cover'} ${className} transition-opacity duration-300 ${isLoaded ? 'opacity-100' : 'opacity-0'}`}
           loading={priority ? 'eager' : 'lazy'}
           decoding="async"
           onLoad={() => setIsLoaded(true)}
-          initial={{ opacity: 0, scale: 1.1 }}
-          animate={{ 
-            opacity: isLoaded ? 1 : 0, 
-            scale: isLoaded ? 1 : 1.1 
-          }}
-          transition={{ duration: 0.6, ease: 'easeOut' }}
         />
       )}
     </div>
