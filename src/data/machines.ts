@@ -70,7 +70,12 @@ import johnDeere35pTier2024Image from '@/assets/machines/john-deere-35-p-tier-20
 import johnDeere35pTier2024bImage from '@/assets/machines/john-deere-35-p-tier-2024-b.png';
 import case321fImage from '@/assets/machines/case-321f.png';
 import case321f2023Image from '@/assets/machines/case-321f-2023.png';
-import case321f2024Image from '@/assets/machines/case-321f-2024.png';
+import case321f2024Image1 from '@/assets/machines/case-321f-2024-1.png';
+import case321f2024Image2 from '@/assets/machines/case-321f-2024-2.png';
+import case321f2024Image3 from '@/assets/machines/case-321f-2024-3.png';
+import case321f2024Image4 from '@/assets/machines/case-321f-2024-4.png';
+import case321f2024Image5 from '@/assets/machines/case-321f-2024-5.png';
+import case321f2024Image6 from '@/assets/machines/case-321f-2024-6.png';
 import caterpillar938mImage from '@/assets/machines/caterpillar-938m.png';
 import caterpillar938m2021Image from '@/assets/machines/caterpillar-938m-2021.png';
 import caterpillar938m2022bImage from '@/assets/machines/caterpillar-938m-2022b.png';
@@ -1464,7 +1469,7 @@ export const allMachines: Machine[] = [
     originalPrice: 84000,
     discount: 10,
     category: 'loaders',
-    image: case321f2024Image,
+    image: case321f2024Image1,
     isHotOffer: true,
     description: 'Brand-new 2024 Case 321F – top-selling F Series compact wheel loader. Z-Bar linkage delivers 8,000+ lb full-height lift and 11,000 lb bucket breakout in a super-compact 8\'10" frame. Tier 4 Final FPT 74 hp engine (no DEF), hydrostatic transmission with 25 mph top speed, ride control, skid-steer coupler, enhanced auxiliary hydraulics. Zero hours, deluxe cab with heat/AC/air suspension seat/Bluetooth/camera, LED lights, cold weather package. Includes 1.3 yd³ GP bucket + pallet forks. Full CASE factory warranty (2 yr/2,000 hr bumper-to-bumper + 3 yr/3,000 hr powertrain).',
     specs: {
@@ -1484,7 +1489,12 @@ export const allMachines: Machine[] = [
       status: 'In stock – ready to deploy',
     },
     gallery: [
-      case321f2024Image,
+      case321f2024Image1,
+      case321f2024Image2,
+      case321f2024Image3,
+      case321f2024Image4,
+      case321f2024Image5,
+      case321f2024Image6,
     ],
   },
   {
