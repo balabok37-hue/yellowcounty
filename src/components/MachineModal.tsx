@@ -80,7 +80,7 @@ export function MachineModal({ machine, isOpen, onClose }: MachineModalProps) {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: 100 }}
             transition={{ duration: 0.25, ease: [0.25, 0.1, 0.25, 1] }}
-            className="relative w-full sm:max-w-4xl max-h-[95vh] sm:max-h-[90vh] overflow-hidden rounded-t-3xl sm:rounded-3xl bg-card border border-border/50 shadow-2xl"
+            className="relative w-full sm:max-w-4xl max-h-[95vh] sm:max-h-[85vh] overflow-hidden rounded-t-3xl sm:rounded-3xl bg-card border border-border/50 shadow-2xl"
             onClick={(e) => e.stopPropagation()}
           >
             {/* Close button */}
@@ -96,10 +96,10 @@ export function MachineModal({ machine, isOpen, onClose }: MachineModalProps) {
               <div className="w-12 h-1 bg-muted-foreground/30 rounded-full" />
             </div>
 
-            <div className="overflow-y-auto max-h-[95vh] sm:max-h-[90vh]">
+            <div className="overflow-y-auto max-h-[95vh] sm:max-h-[85vh]">
               <div className="grid md:grid-cols-2 gap-0">
                 {/* Image Gallery */}
-                <div className="relative aspect-[4/3] sm:aspect-square md:aspect-auto md:min-h-[400px] overflow-hidden bg-muted/20 flex items-center justify-center">
+                <div className="relative aspect-[4/3] sm:aspect-square md:aspect-auto md:h-full md:min-h-[350px] overflow-hidden bg-muted/20 flex items-center justify-center">
                   <AnimatePresence mode="wait" initial={false}>
                     <motion.div
                       key={currentImageIndex}
@@ -173,7 +173,7 @@ export function MachineModal({ machine, isOpen, onClose }: MachineModalProps) {
                 </div>
 
                 {/* Details */}
-                <div className="p-4 sm:p-6 space-y-3">
+                <div className="p-4 sm:p-5 space-y-2.5 flex flex-col h-full">
                   <div>
                     <h2 className="text-xl sm:text-2xl font-black text-foreground mb-2 leading-tight">
                       {machine.name}
@@ -214,56 +214,56 @@ export function MachineModal({ machine, isOpen, onClose }: MachineModalProps) {
 
                   {/* Specs */}
                   {machine.specs && Object.keys(machine.specs).length > 3 && (
-                    <div className="space-y-2">
+                    <div className="space-y-2 flex-1">
                       <h3 className="text-xs font-bold text-foreground uppercase tracking-wide flex items-center gap-1.5">
                         <span className="w-1.5 h-1.5 rounded-full bg-primary" />
                         Technical Specifications
                       </h3>
-                      <div className="grid grid-cols-1 gap-1 text-xs max-h-[140px] overflow-y-auto pr-1">
+                      <div className="grid grid-cols-1 gap-0.5 text-xs overflow-y-auto pr-1" style={{ maxHeight: 'calc(100% - 24px)' }}>
                         {machine.specs.engine && (
-                          <div className="flex justify-between py-1.5 border-b border-border/30">
+                          <div className="flex justify-between py-1 border-b border-border/30">
                             <span className="text-muted-foreground">Engine</span>
                             <span className="font-medium text-foreground text-right max-w-[60%]">{machine.specs.engine}</span>
                           </div>
                         )}
                         {machine.specs.power && (
-                          <div className="flex justify-between py-1.5 border-b border-border/30">
+                          <div className="flex justify-between py-1 border-b border-border/30">
                             <span className="text-muted-foreground">Power</span>
                             <span className="font-medium text-foreground">{machine.specs.power}</span>
                           </div>
                         )}
                         {machine.specs.weight && (
-                          <div className="flex justify-between py-1.5 border-b border-border/30">
+                          <div className="flex justify-between py-1 border-b border-border/30">
                             <span className="text-muted-foreground">Operating Weight</span>
                             <span className="font-medium text-foreground">{machine.specs.weight}</span>
                           </div>
                         )}
                         {machine.specs.maxDiggingDepth && (
-                          <div className="flex justify-between py-1.5 border-b border-border/30">
+                          <div className="flex justify-between py-1 border-b border-border/30">
                             <span className="text-muted-foreground">Max Digging Depth</span>
                             <span className="font-medium text-foreground">{machine.specs.maxDiggingDepth}</span>
                           </div>
                         )}
                         {machine.specs.maxReach && (
-                          <div className="flex justify-between py-1.5 border-b border-border/30">
+                          <div className="flex justify-between py-1 border-b border-border/30">
                             <span className="text-muted-foreground">Max Reach</span>
                             <span className="font-medium text-foreground">{machine.specs.maxReach}</span>
                           </div>
                         )}
                         {machine.specs.bucketCapacity && (
-                          <div className="flex justify-between py-1.5 border-b border-border/30">
+                          <div className="flex justify-between py-1 border-b border-border/30">
                             <span className="text-muted-foreground">Bucket Capacity</span>
                             <span className="font-medium text-foreground">{machine.specs.bucketCapacity}</span>
                           </div>
                         )}
                         {machine.specs.travelSpeed && (
-                          <div className="flex justify-between py-1.5 border-b border-border/30">
+                          <div className="flex justify-between py-1 border-b border-border/30">
                             <span className="text-muted-foreground">Travel Speed</span>
                             <span className="font-medium text-foreground">{machine.specs.travelSpeed}</span>
                           </div>
                         )}
                         {machine.specs.fuelTank && (
-                          <div className="flex justify-between py-1.5 border-b border-border/30">
+                          <div className="flex justify-between py-1 border-b border-border/30">
                             <span className="text-muted-foreground">Fuel Tank</span>
                             <span className="font-medium text-foreground">{machine.specs.fuelTank}</span>
                           </div>
@@ -295,7 +295,7 @@ export function MachineModal({ machine, isOpen, onClose }: MachineModalProps) {
                   )}
 
                   {/* Trust badges */}
-                  <div className="flex gap-3 py-2">
+                  <div className="flex gap-3 py-1.5 mt-auto">
                     <div className="flex items-center gap-1.5 text-[10px] text-muted-foreground">
                       <Shield className="w-3 h-3 text-green-500" />
                       150-Point Inspection
@@ -307,7 +307,7 @@ export function MachineModal({ machine, isOpen, onClose }: MachineModalProps) {
                   </div>
 
                   {/* CTA Buttons */}
-                  <div className="flex gap-2 pt-1">
+                  <div className="flex gap-2">
                     <Button
                       onClick={handleRequestQuote}
                       size="lg"
