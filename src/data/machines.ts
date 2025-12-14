@@ -42,7 +42,11 @@ import hitachiZx350Image from '@/assets/machines/hitachi-zx350.png';
 import johnDeere210gImage from '@/assets/machines/john-deere-210g.png';
 import caterpillar950mImage from '@/assets/machines/caterpillar-950m.png';
 import johnDeere544pImage from '@/assets/machines/john-deere-544p.png';
-import volvoL120hImage from '@/assets/machines/volvo-l120h.png';
+import volvoL120hImage1 from '@/assets/machines/volvo-l120h-1.png';
+import volvoL120hImage2 from '@/assets/machines/volvo-l120h-2.png';
+import volvoL120hImage3 from '@/assets/machines/volvo-l120h-3.png';
+import volvoL120hImage4 from '@/assets/machines/volvo-l120h-4.png';
+import volvoL120hImage5 from '@/assets/machines/volvo-l120h-5.png';
 import caterpillarD6Image from '@/assets/machines/caterpillar-d6.png';
 import komatsuD65pxiImage from '@/assets/machines/komatsu-d65pxi.png';
 import kubotaKx0404Image from '@/assets/machines/kubota-kx040-4.png';
@@ -1173,7 +1177,7 @@ export const allMachines: Machine[] = [
     originalPrice: 85450,
     discount: 26,
     category: 'loaders',
-    image: volvoL120hImage,
+    image: volvoL120hImage1,
     isHotOffer: true,
     description: 'Super-clean 2016 Volvo L120H from a single-owner mining support fleet. Always dealer-serviced, stored indoors when not in use. Fresh 500-hour service completed, zero leaks, excellent Michelin tires (85% remaining). Ice-cold A/C, Comfort Drive Control, Boom Suspension. Comes with 5.0 yd³ rehandling bucket + bolt-on edge. Ready to load trucks the day it arrives.',
     specs: {
@@ -1188,7 +1192,11 @@ export const allMachines: Machine[] = [
       status: 'In stock – ships worldwide',
     },
     gallery: [
-      volvoL120hImage,
+      volvoL120hImage1,
+      volvoL120hImage2,
+      volvoL120hImage3,
+      volvoL120hImage4,
+      volvoL120hImage5,
     ],
   },
   {
