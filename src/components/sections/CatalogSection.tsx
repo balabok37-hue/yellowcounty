@@ -1,5 +1,5 @@
 import { motion, AnimatePresence } from 'framer-motion';
-import { useMemo, useState, useRef } from 'react';
+import { useMemo, useState, useRef, useEffect } from 'react';
 import { MachineCard } from '@/components/MachineCard';
 import { catalogMachines, categoryInfo } from '@/data/machines';
 import { Button } from '@/components/ui/button';
@@ -22,6 +22,8 @@ interface CatalogSectionProps {
   onToggle: () => void;
   onHoverButton?: () => void;
   onViewDetails: (machine: Machine) => void;
+  urlSearchQuery?: string;
+  onSearchChange?: (query: string) => void;
 }
 
 const categoryIcons: Record<MachineCategory, React.ElementType> = {
@@ -141,12 +143,22 @@ const sortMachines = (machines: Machine[], sortBy: SortOption): Machine[] => {
   }
 };
 
-export function CatalogSection({ isOpen, onToggle, onHoverButton, onViewDetails }: CatalogSectionProps) {
+export function CatalogSection({ isOpen, onToggle, onHoverButton, onViewDetails, urlSearchQuery = '', onSearchChange }: CatalogSectionProps) {
   const [activeCategory, setActiveCategory] = useState<MachineCategory | 'all'>('all');
   const [activeBrand, setActiveBrand] = useState<string>('all');
-  const [searchQuery, setSearchQuery] = useState('');
+  const [searchQuery, setSearchQuery] = useState(urlSearchQuery);
   const [sortBy, setSortBy] = useState<SortOption>('hot-first');
   const filterRef = useRef<HTMLDivElement>(null);
+
+  // Sync with URL search query
+  useEffect(() => {
+    setSearchQuery(urlSearchQuery);
+  }, [urlSearchQuery]);
+
+  const handleSearchChange = (value: string) => {
+    setSearchQuery(value);
+    onSearchChange?.(value);
+  };
 
   const uniqueBrands = useMemo(() => getUniqueBrands(), []);
 
@@ -185,7 +197,7 @@ export function CatalogSection({ isOpen, onToggle, onHoverButton, onViewDetails 
   const catalogCount = catalogMachines.length;
 
   return (
-    <section className="pb-12 sm:pb-20 md:pb-32">
+    <section id="catalog" className="pb-12 sm:pb-20 md:pb-32 scroll-mt-20">
       <div className="container px-4 sm:px-6">
         {/* Toggle Button */}
         <motion.div
@@ -243,12 +255,12 @@ export function CatalogSection({ isOpen, onToggle, onHoverButton, onViewDetails 
                     type="text"
                     placeholder="Search by name, brand, model, year..."
                     value={searchQuery}
-                    onChange={(e) => setSearchQuery(e.target.value)}
+                    onChange={(e) => handleSearchChange(e.target.value)}
                     className="pl-12 pr-10 py-3 bg-background/50 border-border/50 rounded-full text-base"
                   />
                   {searchQuery && (
                     <button
-                      onClick={() => setSearchQuery('')}
+                      onClick={() => handleSearchChange('')}
                       className="absolute right-4 top-1/2 -translate-y-1/2 text-muted-foreground hover:text-foreground transition-colors duration-150"
                     >
                       <X className="w-5 h-5" />
