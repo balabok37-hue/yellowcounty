@@ -43,11 +43,24 @@ const Index = () => {
   // Initialize smooth scroll
   useLenis();
 
-  // Handle URL parameter for direct machine links
+  // Get search query from URL
+  const urlSearchQuery = searchParams.get('search') || '';
+
+  // Preload catalog images when hovering on button or opening catalog
+  const preloadCatalog = useCallback(async () => {
+    if (catalogPreloaded) return;
+    const catalogImages = catalogMachines.map(m => m.image);
+    await preloadImages(catalogImages);
+    setCatalogPreloaded(true);
+  }, [catalogPreloaded]);
+
+  // Handle URL parameter for direct machine links and search
   useEffect(() => {
     if (!showContent) return;
     
     const machineSlug = searchParams.get('machine');
+    const searchQuery = searchParams.get('search');
+    
     if (machineSlug) {
       const machine = findMachineBySlug(allMachines, machineSlug);
       if (machine) {
@@ -62,7 +75,17 @@ const Index = () => {
         }
       }
     }
-  }, [showContent, searchParams]);
+    
+    // If there's a search query, open catalog and scroll to it
+    if (searchQuery) {
+      setCatalogOpen(true);
+      preloadCatalog();
+      setTimeout(() => {
+        const catalogEl = document.getElementById('catalog');
+        catalogEl?.scrollIntoView({ behavior: 'smooth' });
+      }, 150);
+    }
+  }, [showContent, searchParams, preloadCatalog]);
 
   // Handle scroll to section when navigating from other pages
   useEffect(() => {
@@ -96,14 +119,6 @@ const Index = () => {
 
     loadAssets();
   }, []);
-
-  // Preload catalog images when hovering on button or opening catalog
-  const preloadCatalog = useCallback(async () => {
-    if (catalogPreloaded) return;
-    const catalogImages = catalogMachines.map(m => m.image);
-    await preloadImages(catalogImages);
-    setCatalogPreloaded(true);
-  }, [catalogPreloaded]);
 
   const handleCatalogToggle = async () => {
     if (!catalogOpen) {
@@ -156,6 +171,14 @@ const Index = () => {
                 onToggle={handleCatalogToggle}
                 onHoverButton={preloadCatalog}
                 onViewDetails={handleViewDetails}
+                urlSearchQuery={urlSearchQuery}
+                onSearchChange={(query) => {
+                  if (query) {
+                    setSearchParams({ search: query });
+                  } else {
+                    setSearchParams({});
+                  }
+                }}
               />
               <WhyChooseSection />
               <TestimonialsSection />
