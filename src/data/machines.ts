@@ -36,7 +36,9 @@ import caterpillarTl943cImage from '@/assets/machines/caterpillar-tl943c.png';
 import chevroletColoradoZ71Image from '@/assets/machines/chevrolet-colorado-z71.png';
 import caterpillar289d3Image from '@/assets/machines/caterpillar-289d3.png';
 import chevroletSilverado2500hdImage from '@/assets/machines/chevrolet-silverado-2500hd-ltz.png';
-import international7300Image from '@/assets/machines/international-7300.png';
+import international7300Image1 from '@/assets/machines/international-7300-1.png';
+import international7300Image2 from '@/assets/machines/international-7300-2.png';
+import international7300Image3 from '@/assets/machines/international-7300-3.png';
 import caterpillar336Image from '@/assets/machines/caterpillar-336.png';
 import hitachiZx350Image from '@/assets/machines/hitachi-zx350.png';
 import johnDeere210gImage from '@/assets/machines/john-deere-210g.png';
@@ -1005,7 +1007,7 @@ export const allMachines: Machine[] = [
     price: 54000,
     originalPrice: 72000,
     discount: 25,
-    image: international7300Image,
+    image: international7300Image1,
     isHotOffer: true,
     description: 'The 2017 International 7300 4×4 SFA Crew Cab Service Truck – ex-utility fleet, one-owner, only 79,134 miles / ~7,800 engine hours, Altec AT40M 45 ft material-handling boom (fully tested, current ANSI/dielectric), MaxxForce DT 300 hp (no DEF, pre-emissions), Allison 3000 RDS automatic, 14k front, 40k rears, 4.88 ratio, full double frame, 11 ft utility body with flip-tops, master locks, inverter, bottle racks, pipe vise, LED compartment lights, strobes. Ice-cold A/C, power windows, cruise, heated mirrors, air-ride seats. Fresh DOT, current boom inspection, no leaks, no rust. Ships nationwide (#A0764404). Identical 2017–2018 7300 4×4 crew Altec units with under 100k miles still bringing $78–92k at JJ Kane, Utility Fleet Sales, and Ritchie Bros auctions. This is the deepest discount on a turn-key 4×4 bucket truck in the country right now.',
     specs: {
@@ -1024,7 +1026,9 @@ export const allMachines: Machine[] = [
       stockNumber: 'A0764404',
     },
     gallery: [
-      international7300Image,
+      international7300Image1,
+      international7300Image2,
+      international7300Image3,
     ],
   },
   {
