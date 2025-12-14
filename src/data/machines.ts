@@ -44,7 +44,10 @@ import international7300Image1 from '@/assets/machines/international-7300-1.png'
 import international7300Image2 from '@/assets/machines/international-7300-2.png';
 import international7300Image3 from '@/assets/machines/international-7300-3.png';
 import caterpillar336Image from '@/assets/machines/caterpillar-336.png';
-import hitachiZx350Image from '@/assets/machines/hitachi-zx350.png';
+import hitachiZx350Image1 from '@/assets/machines/hitachi-zx350-1.png';
+import hitachiZx350Image2 from '@/assets/machines/hitachi-zx350-2.png';
+import hitachiZx350Image3 from '@/assets/machines/hitachi-zx350-3.png';
+import hitachiZx350Image4 from '@/assets/machines/hitachi-zx350-4.png';
 import johnDeere210gImage from '@/assets/machines/john-deere-210g.png';
 import caterpillar950mImage from '@/assets/machines/caterpillar-950m.png';
 import johnDeere544pImage from '@/assets/machines/john-deere-544p.png';
@@ -1073,11 +1076,11 @@ export const allMachines: Machine[] = [
     year: 2016,
     hours: 6015,
     location: 'Lake Worth, Texas',
-    price: 45714,
-    originalPrice: 60150,
-    discount: 24,
+    price: 131250,
+    originalPrice: 175000,
+    discount: 25,
     category: 'earthmoving',
-    image: hitachiZx350Image,
+    image: hitachiZx350Image1,
     isHotOffer: true,
     description: 'Clean 2016 Hitachi ZX350 LC-6N straight out of a Texas rental fleet. Full service history, no major repairs ever needed. Fresh 500-hour service just completed – all filters, oils, greased, hydraulics 100%. Tight pins & bushings, strong undercarriage (75% remaining), ice-cold A/C. Ready to dig the day it lands. Includes 42" HD bucket.',
     specs: {
@@ -1092,7 +1095,10 @@ export const allMachines: Machine[] = [
       status: 'In stock – ships worldwide',
     },
     gallery: [
-      hitachiZx350Image,
+      hitachiZx350Image1,
+      hitachiZx350Image2,
+      hitachiZx350Image3,
+      hitachiZx350Image4,
     ],
   },
   {
