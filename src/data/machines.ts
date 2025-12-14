@@ -48,7 +48,10 @@ import hitachiZx350Image1 from '@/assets/machines/hitachi-zx350-1.png';
 import hitachiZx350Image2 from '@/assets/machines/hitachi-zx350-2.png';
 import hitachiZx350Image3 from '@/assets/machines/hitachi-zx350-3.png';
 import hitachiZx350Image4 from '@/assets/machines/hitachi-zx350-4.png';
-import johnDeere210gImage from '@/assets/machines/john-deere-210g.png';
+import johnDeere210gImage1 from '@/assets/machines/john-deere-210g-1.png';
+import johnDeere210gImage2 from '@/assets/machines/john-deere-210g-2.png';
+import johnDeere210gImage3 from '@/assets/machines/john-deere-210g-3.png';
+import johnDeere210gImage4 from '@/assets/machines/john-deere-210g-4.png';
 import caterpillar950mImage from '@/assets/machines/caterpillar-950m.png';
 import johnDeere544pImage from '@/assets/machines/john-deere-544p.png';
 import volvoL120hImage1 from '@/assets/machines/volvo-l120h-1.png';
@@ -1107,11 +1110,11 @@ export const allMachines: Machine[] = [
     year: 2015,
     hours: 6920,
     location: 'Belleville, Michigan',
-    price: 75924,
-    originalPrice: 99900,
+    price: 62000,
+    originalPrice: 81500,
     discount: 24,
     category: 'earthmoving',
-    image: johnDeere210gImage,
+    image: johnDeere210gImage1,
     isHotOffer: true,
     description: 'One-owner 2015 John Deere 210G LC from Midwest municipal work. Full dealer service history, no salt exposure, clean southern undercarriage (78% remaining). Just completed full service – new filters, oils, greased, hydraulics tested 100%. Cold A/C, tight boom/stick, ready to load trucks or dig foundations tomorrow.',
     specs: {
@@ -1126,7 +1129,10 @@ export const allMachines: Machine[] = [
       status: 'In stock – ships worldwide',
     },
     gallery: [
-      johnDeere210gImage,
+      johnDeere210gImage1,
+      johnDeere210gImage2,
+      johnDeere210gImage3,
+      johnDeere210gImage4,
     ],
   },
   {
