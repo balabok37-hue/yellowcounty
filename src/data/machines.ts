@@ -22,7 +22,11 @@ import silverado4500hdImage from '@/assets/machines/chevrolet-silverado-4500hd.p
 import silverado4500hdBoxImage from '@/assets/machines/chevrolet-silverado-4500hd-box.png';
 import silverado5500hdBoxImage from '@/assets/machines/chevrolet-silverado-5500hd-box.png';
 import mackGu713Image from '@/assets/machines/mack-gu713.png';
-import komatsuWa3208Image from '@/assets/machines/komatsu-wa320-8.png';
+import komatsuWa3208Image1 from '@/assets/machines/komatsu-wa320-8-1.png';
+import komatsuWa3208Image2 from '@/assets/machines/komatsu-wa320-8-2.png';
+import komatsuWa3208Image3 from '@/assets/machines/komatsu-wa320-8-3.png';
+import komatsuWa3208Image4 from '@/assets/machines/komatsu-wa320-8-4.png';
+import komatsuWa3208Image5 from '@/assets/machines/komatsu-wa320-8-5.png';
 import fordF750DumpImage from '@/assets/machines/ford-f750-dump.png';
 import caterpillarCb16Image from '@/assets/machines/caterpillar-cb16.png';
 import genieGth1056Image from '@/assets/machines/genie-gth1056.png';
@@ -684,7 +688,7 @@ export const allMachines: Machine[] = [
     originalPrice: 125499,
     discount: 28,
     isHotOffer: true,
-    image: komatsuWa3208Image,
+    image: komatsuWa3208Image2,
     description: 'The 2019 Komatsu WA320-8 – one of the cleanest, tightest mid-size wheel loaders left in North America. Only 7,361 original hours, full Komatsu CARE history, no leaks, no welds, no excuses. 170 hp Komatsu SAA6D107E-3 Tier 4 Final (DEF), powershift transmission with auto-shift + traction control, limited-slip diffs, 3.6 yd³ pin-on bucket with bolt-on edge, ride control, enclosed ROPS cab with heat/AC/Bluetooth/camera, LED lights all around. Fresh service, 20.5R25 Michelin XHA2 tires at 80–90%, tight center, strong hydraulics, ice-cold A/C. Work-ready tomorrow. Ships nationwide (#B6525762). Same-year / similar-hour WA320-8 units still bringing $52–58k at Ritchie Bros, IronPlanet and Alex Lyon auctions.',
     specs: {
       engine: 'Komatsu SAA6D107E-3 (Tier 4 Final)',
@@ -702,7 +706,11 @@ export const allMachines: Machine[] = [
       status: 'Full service history, tight, ships nationwide',
     },
     gallery: [
-      komatsuWa3208Image,
+      komatsuWa3208Image2,
+      komatsuWa3208Image1,
+      komatsuWa3208Image3,
+      komatsuWa3208Image4,
+      komatsuWa3208Image5,
     ],
   },
   {
