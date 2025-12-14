@@ -14,7 +14,10 @@ import peterbilt389Image from '@/assets/machines/peterbilt-389.png';
 import freightlinerM2Image from '@/assets/machines/freightliner-m2-106.png';
 import asvVt70hoImage from '@/assets/machines/asv-vt70ho.png';
 import silverado5500hdImage from '@/assets/machines/chevrolet-silverado-5500hd.png';
-import silverado6500hdImage from '@/assets/machines/chevrolet-silverado-6500hd.png';
+import silverado6500hd1Image from '@/assets/machines/chevrolet-silverado-6500hd-1.png';
+import silverado6500hd2Image from '@/assets/machines/chevrolet-silverado-6500hd-2.png';
+import silverado6500hd3Image from '@/assets/machines/chevrolet-silverado-6500hd-3.png';
+import silverado6500hd4Image from '@/assets/machines/chevrolet-silverado-6500hd-4.png';
 import silverado4500hdImage from '@/assets/machines/chevrolet-silverado-4500hd.png';
 import silverado4500hdBoxImage from '@/assets/machines/chevrolet-silverado-4500hd-box.png';
 import silverado5500hdBoxImage from '@/assets/machines/chevrolet-silverado-5500hd-box.png';
@@ -527,7 +530,7 @@ export const allMachines: Machine[] = [
     originalPrice: 65000,
     discount: 30,
     isHotOffer: true,
-    image: silverado6500hdImage,
+    image: silverado6500hd3Image,
     description: 'The 2024 Chevrolet Silverado 6500HD 4×4 Crew Cab – essentially new, only 100 engine hours (delivery + test hours), never titled, zero miles on the odometer still reads 000100! Fully loaded LCF chassis with the bulletproof Duramax 6.6L V8 Turbo Diesel 350 hp / 700 lb-ft + Allison 10-speed automatic, 4WD, snow plow prep, block heater, power everything, remote start, LED lights, backup camera, 19.5" polished wheels. Ready for immediate upfit: dump body, flatbed, service body, stake, or box. Full remaining Chevrolet factory warranty (5 yr/100k powertrain + 5 yr/100k Duramax). Unreal liquidation deal – identical brand-new 2024 6500HD crew cabs are still stickering $92–105k at dealers and trading $80k+ at Manheim heavy-truck lanes.',
     specs: {
       engine: 'Duramax 6.6L V8 Turbo Diesel',
@@ -543,7 +546,10 @@ export const allMachines: Machine[] = [
       status: 'Brand-new condition, full factory 5 yr/100k powertrain + Duramax warranty, ready for any upfit',
     },
     gallery: [
-      silverado6500hdImage,
+      silverado6500hd3Image,
+      silverado6500hd1Image,
+      silverado6500hd2Image,
+      silverado6500hd4Image,
     ],
   },
   {
