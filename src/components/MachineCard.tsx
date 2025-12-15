@@ -19,6 +19,7 @@ export interface Machine {
   imageFit?: 'cover' | 'contain';
   isHotOffer?: boolean;
   isSold?: boolean;
+  isReserved?: boolean;
   imagePosition?: string;
   category?: MachineCategory;
   description?: string;
