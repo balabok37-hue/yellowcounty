@@ -99,7 +99,11 @@ import caterpillar938mImage from '@/assets/machines/caterpillar-938m.png';
 import caterpillar938m2021Image from '@/assets/machines/caterpillar-938m-2021.png';
 import caterpillar938m2022bImage from '@/assets/machines/caterpillar-938m-2022b.png';
 import jcb55z1Image from '@/assets/machines/jcb-55z-1.png';
-import caseCx42dImage from '@/assets/machines/case-cx42d.png';
+import caseCx42dImage1 from '@/assets/machines/case-cx42d-1.png';
+import caseCx42dImage2 from '@/assets/machines/case-cx42d-2.png';
+import caseCx42dImage3 from '@/assets/machines/case-cx42d-3.png';
+import caseCx42dImage4 from '@/assets/machines/case-cx42d-4.png';
+import caseCx42dImage5 from '@/assets/machines/case-cx42d-5.png';
 import wackerNeusonEz26Image from '@/assets/machines/wacker-neuson-ez26.png';
 import machproMp319Image from '@/assets/machines/machpro-mp319.png';
 import machproMp319LaImage from '@/assets/machines/machpro-mp319-la.png';
@@ -1678,15 +1682,15 @@ export const allMachines: Machine[] = [
   },
   {
     id: 64,
-    name: '2023 CASE CX42D Mini Excavator',
-    year: 2023,
-    hours: 85,
+    name: '2025 CASE CX42D Mini Excavator',
+    year: 2025,
+    hours: 45,
     location: 'Atlanta, Georgia',
-    price: 47200,
-    originalPrice: 59000,
+    price: 44500,
+    originalPrice: 55600,
     discount: 20,
     category: 'earthmoving',
-    image: caseCx42dImage,
+    image: caseCx42dImage1,
     description: 'Brand-new 4.2-ton zero-tailswing mini excavator. FPT 37.4 hp Tier 4 Final (no DEF/AdBlue), 2-speed travel, 16" rubber tracks 100%, enclosed cab with heat/AC/touchscreen joysticks/Bluetooth/radio/rear camera, proportional aux hydraulics (thumb/grapple ready), hydraulic quick-coupler + 24" digging bucket included, LED work lights, auto-idle, float blade. 100% under full CASE ProCare factory warranty: 3 yr/3,000 hr bumper-to-bumper + 5 yr powertrain.',
     specs: {
       engine: 'FPT 37.4 hp Tier 4 Final (no DEF)',
@@ -1702,10 +1706,14 @@ export const allMachines: Machine[] = [
       cab: 'Enclosed heat/AC, touchscreen joysticks, Bluetooth, radio, rear camera',
       warranty: 'Full CASE ProCare 3 yr/3,000 hr + 5 yr powertrain',
       features: 'Hydraulic quick-coupler, 24" digging bucket, LED work lights, auto-idle, float blade, 2-speed travel',
-      status: 'Brand new (0 hours), in stock Atlanta GA – ready to ship in 48 hrs',
+      status: 'Brand new, in stock Atlanta GA – ready to ship in 48 hrs',
     },
     gallery: [
-      caseCx42dImage,
+      caseCx42dImage1,
+      caseCx42dImage2,
+      caseCx42dImage3,
+      caseCx42dImage4,
+      caseCx42dImage5,
     ],
   },
   {
