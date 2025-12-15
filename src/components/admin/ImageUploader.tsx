@@ -3,7 +3,7 @@ import { useMutation, useQueryClient } from '@tanstack/react-query';
 import { supabase } from '@/integrations/supabase/client';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
-import { Upload, Trash2, Star, Loader2, GripVertical, ArrowUp, ArrowDown } from 'lucide-react';
+import { Upload, Trash2, Star, Loader2, ArrowUp, ArrowDown, RefreshCw } from 'lucide-react';
 import { toast } from 'sonner';
 import ImageCropper from './ImageCropper';
 
@@ -23,16 +23,18 @@ interface ImageUploaderProps {
 export default function ImageUploader({ machineId, images, onImagesChange }: ImageUploaderProps) {
   const [isUploading, setIsUploading] = useState(false);
   const [cropImage, setCropImage] = useState<string | null>(null);
+  const [replaceImageId, setReplaceImageId] = useState<string | null>(null);
   const queryClient = useQueryClient();
 
   const sortedImages = [...images].sort((a, b) => a.position - b.position);
 
-  const handleFileSelect = (e: React.ChangeEvent<HTMLInputElement>) => {
+  const handleFileSelect = (e: React.ChangeEvent<HTMLInputElement>, replaceId?: string) => {
     const file = e.target.files?.[0];
     if (file) {
       const reader = new FileReader();
       reader.onload = () => {
         setCropImage(reader.result as string);
+        setReplaceImageId(replaceId || null);
       };
       reader.readAsDataURL(file);
     }
@@ -43,6 +45,16 @@ export default function ImageUploader({ machineId, images, onImagesChange }: Ima
     setIsUploading(true);
     try {
       const fileName = `${machineId}/${Date.now()}.jpg`;
+      
+      // If replacing existing image, delete old file first
+      if (replaceImageId) {
+        const existingImage = images.find(img => img.id === replaceImageId);
+        if (existingImage) {
+          const urlParts = existingImage.url.split('/');
+          const oldFilePath = urlParts.slice(-2).join('/');
+          await supabase.storage.from('machine-images').remove([oldFilePath]);
+        }
+      }
       
       const { error: uploadError } = await supabase.storage
         .from('machine-images')
@@ -56,31 +68,50 @@ export default function ImageUploader({ machineId, images, onImagesChange }: Ima
         .from('machine-images')
         .getPublicUrl(fileName);
 
-      const newPosition = images.length;
-      const isPrimary = images.length === 0;
+      if (replaceImageId) {
+        // Update existing image record with new URL
+        const { error: updateError } = await supabase
+          .from('machine_images')
+          .update({ url: publicUrl })
+          .eq('id', replaceImageId);
 
-      const { data: newImage, error: insertError } = await supabase
-        .from('machine_images')
-        .insert({
-          machine_id: machineId,
-          url: publicUrl,
-          position: newPosition,
-          is_primary: isPrimary,
-        })
-        .select()
-        .single();
+        if (updateError) throw updateError;
 
-      if (insertError) throw insertError;
+        onImagesChange(images.map(img => 
+          img.id === replaceImageId ? { ...img, url: publicUrl } : img
+        ));
+        toast.success('Image replaced successfully');
+      } else {
+        // Create new image record
+        const newPosition = images.length;
+        const isPrimary = images.length === 0;
 
-      onImagesChange([...images, newImage as MachineImage]);
+        const { data: newImage, error: insertError } = await supabase
+          .from('machine_images')
+          .insert({
+            machine_id: machineId,
+            url: publicUrl,
+            position: newPosition,
+            is_primary: isPrimary,
+          })
+          .select()
+          .single();
+
+        if (insertError) throw insertError;
+
+        onImagesChange([...images, newImage as MachineImage]);
+        toast.success('Image uploaded successfully');
+      }
+      
       queryClient.invalidateQueries({ queryKey: ['admin-machine-images'] });
-      toast.success('Image uploaded successfully');
+      queryClient.invalidateQueries({ queryKey: ['machine-images', machineId] });
     } catch (error) {
       console.error('Upload error:', error);
       toast.error('Failed to upload image');
     } finally {
       setIsUploading(false);
       setCropImage(null);
+      setReplaceImageId(null);
     }
   };
 
@@ -219,17 +250,31 @@ export default function ImageUploader({ machineId, images, onImagesChange }: Ima
               {sortedImages.map((image, index) => (
                 <div
                   key={image.id}
-                  className={`flex items-center gap-3 p-2 rounded-lg border ${
+                  className={`flex items-center gap-3 p-3 rounded-lg border ${
                     image.is_primary ? 'border-primary bg-primary/5' : 'border-border'
                   }`}
                 >
-                  {/* Thumbnail */}
-                  <div className="w-24 h-16 rounded overflow-hidden bg-muted flex-shrink-0">
+                  {/* Thumbnail with replace button */}
+                  <div className="relative w-28 h-20 rounded overflow-hidden bg-muted flex-shrink-0 group">
                     <img
                       src={image.url}
                       alt=""
                       className="w-full h-full object-cover"
                     />
+                    {/* Replace overlay */}
+                    <label className="absolute inset-0 bg-background/80 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center cursor-pointer">
+                      <div className="flex flex-col items-center gap-1 text-xs">
+                        <RefreshCw className="h-4 w-4" />
+                        <span>Replace</span>
+                      </div>
+                      <input
+                        type="file"
+                        accept="image/*"
+                        className="hidden"
+                        onChange={(e) => handleFileSelect(e, image.id)}
+                        disabled={isUploading}
+                      />
+                    </label>
                   </div>
 
                   {/* Info */}
