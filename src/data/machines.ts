@@ -2171,9 +2171,10 @@ export const allMachines: Machine[] = [
   },
   {
     id: 80,
-    name: '2004 Bobcat A300',
-    year: 2004,
-    hours: 5680,
+    name: '2014 Bobcat A300',
+    year: 2014,
+    hours: 2450,
+    isReserved: true,
     location: 'Phoenix, Arizona',
     price: 21750,
     originalPrice: 29000,
