@@ -5,7 +5,10 @@ import sanySy80uImage3 from '@/assets/machines/sany-sy80u-3.png';
 import sanySy80uImage4 from '@/assets/machines/sany-sy80u-4.png';
 import sanySy80uImage5 from '@/assets/machines/sany-sy80u-5.png';
 import sanySw405kImage from '@/assets/machines/sany-sw405k.png';
-import develonDd100Image from '@/assets/machines/develon-dd100.png';
+import develonDd100Image1 from '@/assets/machines/develon-dd100-1.png';
+import develonDd100Image2 from '@/assets/machines/develon-dd100-2.png';
+import develonDd100Image3 from '@/assets/machines/develon-dd100-3.png';
+import develonDd100Image4 from '@/assets/machines/develon-dd100-4.png';
 import kubotaR640r43Image from '@/assets/machines/kubota-r640r43.png';
 import sanySy215cImage from '@/assets/machines/sany-sy215c.png';
 import manitouMlt1040Image from '@/assets/machines/manitou-mlt1040.png';
@@ -206,11 +209,11 @@ export const allMachines: Machine[] = [
     year: 2023,
     hours: 1420,
     location: 'USA Stock',
-    price: 103200,
-    originalPrice: 129000,
-    discount: 20,
+    price: 92450,
+    originalPrice: 92450,
+    discount: 0,
     category: 'earthmoving',
-    image: develonDd100Image,
+    image: develonDd100Image1,
     description: 'The 2023 Develon DD100 (Serial #227473) is a next-gen dozer engineered for superior power-to-weight performance. With 122 hp and 24,286 lb operating weight, it delivers exceptional tractive effort and pushing power. Features fully electronic hydraulic controls, 6-way variable angle pitch blade, rearview camera, ECO mode, blade shake function, and premium cab with AC/heat. Low-hour unit ideal for site prep, grading, and land clearing.',
     specs: {
       engine: 'Doosan DL06P (Tier 4 Final)',
@@ -225,7 +228,10 @@ export const allMachines: Machine[] = [
       hydraulicTank: '23.8 gal (90 L)',
     },
     gallery: [
-      develonDd100Image,
+      develonDd100Image1,
+      develonDd100Image2,
+      develonDd100Image3,
+      develonDd100Image4,
     ],
   },
   {
@@ -1996,6 +2002,7 @@ export const allMachines: Machine[] = [
     price: 12360,
     originalPrice: 15450,
     discount: 20,
+    isSold: true,
     category: 'loaders',
     image: rippaNdi665Image,
     description: 'Budget-crushing mini track loader exploding in the 2025 rental, landscaping, and small construction market – compact 2,500 lb frame with 800 lb lift capacity crushes tight jobs like mulching, grading, and material handling without the big-brand price tag. Kubota D1105 Tier 4 Final 24 hp diesel (no DEF, no regen downtime, plus 2-year/2,000 hr Kubota engine warranty), hydrostatic drive with 2-speed up to 7 mph, joystick pilot controls, inverted hydraulic cylinder for max dump clearance, 3-pump hydraulic system.',
