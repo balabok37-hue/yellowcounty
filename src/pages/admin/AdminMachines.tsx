@@ -3,11 +3,10 @@ import { useQuery, useMutation, useQueryClient } from '@tanstack/react-query';
 import { supabase } from '@/integrations/supabase/client';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
+import { Card, CardContent, CardHeader } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
-import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '@/components/ui/table';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
-import { Plus, Search, Edit, Trash2, Flame, CheckCircle, XCircle, Loader2 } from 'lucide-react';
+import { Plus, Search, Edit, Trash2, Flame, CheckCircle, XCircle, Loader2, Star, ImageOff } from 'lucide-react';
 import { toast } from 'sonner';
 import { useNavigate } from 'react-router-dom';
 import {
@@ -34,6 +33,13 @@ type Machine = {
   is_featured: boolean;
 };
 
+type MachineImage = {
+  id: string;
+  machine_id: string;
+  url: string;
+  is_primary: boolean;
+};
+
 export default function AdminMachines() {
   const [search, setSearch] = useState('');
   const [categoryFilter, setCategoryFilter] = useState<string>('all');
@@ -54,13 +60,47 @@ export default function AdminMachines() {
     },
   });
 
+  // Fetch primary images for all machines
+  const { data: machineImages } = useQuery({
+    queryKey: ['admin-machine-images'],
+    queryFn: async () => {
+      const { data, error } = await supabase
+        .from('machine_images')
+        .select('*')
+        .eq('is_primary', true);
+      
+      if (error) throw error;
+      return data as MachineImage[];
+    },
+  });
+
+  const getImageForMachine = (machineId: string) => {
+    return machineImages?.find(img => img.machine_id === machineId)?.url;
+  };
+
   const deleteMutation = useMutation({
     mutationFn: async (id: string) => {
+      // First delete associated images from storage and database
+      const { data: images } = await supabase
+        .from('machine_images')
+        .select('url')
+        .eq('machine_id', id);
+      
+      if (images && images.length > 0) {
+        const filePaths = images.map(img => {
+          const urlParts = img.url.split('/');
+          return urlParts.slice(-2).join('/');
+        });
+        await supabase.storage.from('machine-images').remove(filePaths);
+        await supabase.from('machine_images').delete().eq('machine_id', id);
+      }
+      
       const { error } = await supabase.from('machines').delete().eq('id', id);
       if (error) throw error;
     },
     onSuccess: () => {
       queryClient.invalidateQueries({ queryKey: ['admin-machines'] });
+      queryClient.invalidateQueries({ queryKey: ['admin-machine-images'] });
       toast.success('Machine deleted successfully');
       setDeleteId(null);
     },
@@ -98,7 +138,9 @@ export default function AdminMachines() {
       <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
         <div>
           <h1 className="text-3xl font-bold">Machines</h1>
-          <p className="text-muted-foreground">Manage your equipment catalog</p>
+          <p className="text-muted-foreground">
+            {machines?.length || 0} units in catalog
+          </p>
         </div>
         <Button onClick={() => navigate('/admin/machines/new')}>
           <Plus className="mr-2 h-4 w-4" />
@@ -141,86 +183,134 @@ export default function AdminMachines() {
               No machines found. Add your first machine to get started.
             </div>
           ) : (
-            <div className="overflow-x-auto">
-              <Table>
-                <TableHeader>
-                  <TableRow>
-                    <TableHead>Name</TableHead>
-                    <TableHead>Year</TableHead>
-                    <TableHead>Hours/Miles</TableHead>
-                    <TableHead>Price</TableHead>
-                    <TableHead>Category</TableHead>
-                    <TableHead>Status</TableHead>
-                    <TableHead className="text-right">Actions</TableHead>
-                  </TableRow>
-                </TableHeader>
-                <TableBody>
-                  {filteredMachines?.map((machine) => (
-                    <TableRow key={machine.id}>
-                      <TableCell className="font-medium max-w-[200px] truncate">
-                        {machine.name}
-                      </TableCell>
-                      <TableCell>{machine.year}</TableCell>
-                      <TableCell>
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
+              {filteredMachines?.map((machine) => {
+                const imageUrl = getImageForMachine(machine.id);
+                return (
+                  <div
+                    key={machine.id}
+                    className="group relative bg-card rounded-lg border overflow-hidden hover:shadow-lg transition-shadow"
+                  >
+                    {/* Image */}
+                    <div className="aspect-[4/3] relative bg-muted">
+                      {imageUrl ? (
+                        <img
+                          src={imageUrl}
+                          alt={machine.name}
+                          className="w-full h-full object-cover"
+                        />
+                      ) : (
+                        <div className="w-full h-full flex items-center justify-center">
+                          <ImageOff className="h-12 w-12 text-muted-foreground/50" />
+                        </div>
+                      )}
+                      
+                      {/* Status badges */}
+                      <div className="absolute top-2 left-2 flex flex-col gap-1">
+                        {machine.is_hot_offer && (
+                          <Badge className="bg-primary text-primary-foreground">
+                            <Flame className="h-3 w-3 mr-1" />
+                            HOT
+                          </Badge>
+                        )}
+                        {machine.is_featured && (
+                          <Badge variant="secondary">
+                            <Star className="h-3 w-3 mr-1" />
+                            Featured
+                          </Badge>
+                        )}
+                        {machine.is_sold && (
+                          <Badge variant="destructive">SOLD</Badge>
+                        )}
+                      </div>
+
+                      {/* Quick actions overlay */}
+                      <div className="absolute inset-0 bg-background/80 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center gap-2">
+                        <Button
+                          size="sm"
+                          onClick={() => navigate(`/admin/machines/${machine.id}`)}
+                        >
+                          <Edit className="h-4 w-4 mr-1" />
+                          Edit
+                        </Button>
+                        <Button
+                          size="sm"
+                          variant="destructive"
+                          onClick={() => setDeleteId(machine.id)}
+                        >
+                          <Trash2 className="h-4 w-4" />
+                        </Button>
+                      </div>
+                    </div>
+
+                    {/* Info */}
+                    <div className="p-3 space-y-2">
+                      <div className="flex items-start justify-between gap-2">
+                        <h3 className="font-semibold text-sm line-clamp-2 leading-tight">
+                          {machine.year} {machine.name}
+                        </h3>
+                      </div>
+                      
+                      <div className="flex items-center justify-between">
+                        <div className="text-lg font-bold text-primary">
+                          ${machine.price.toLocaleString()}
+                        </div>
+                        <Badge variant="outline" className="text-xs">
+                          {machine.category}
+                        </Badge>
+                      </div>
+
+                      <div className="text-xs text-muted-foreground">
                         {machine.hours ? `${machine.hours.toLocaleString()} hrs` : 
-                         machine.miles ? `${machine.miles.toLocaleString()} mi` : '-'}
-                      </TableCell>
-                      <TableCell>${machine.price.toLocaleString()}</TableCell>
-                      <TableCell>
-                        <Badge variant="outline">{machine.category}</Badge>
-                      </TableCell>
-                      <TableCell>
-                        <div className="flex gap-1">
-                          <Button
-                            variant={machine.is_hot_offer ? 'default' : 'outline'}
-                            size="icon"
-                            className="h-7 w-7"
-                            onClick={() => toggleMutation.mutate({
-                              id: machine.id,
-                              field: 'is_hot_offer',
-                              value: !machine.is_hot_offer
-                            })}
-                            title="Hot Offer"
-                          >
-                            <Flame className="h-3 w-3" />
-                          </Button>
-                          <Button
-                            variant={machine.is_sold ? 'destructive' : 'outline'}
-                            size="icon"
-                            className="h-7 w-7"
-                            onClick={() => toggleMutation.mutate({
-                              id: machine.id,
-                              field: 'is_sold',
-                              value: !machine.is_sold
-                            })}
-                            title="Sold"
-                          >
-                            {machine.is_sold ? <XCircle className="h-3 w-3" /> : <CheckCircle className="h-3 w-3" />}
-                          </Button>
-                        </div>
-                      </TableCell>
-                      <TableCell className="text-right">
-                        <div className="flex justify-end gap-1">
-                          <Button
-                            variant="ghost"
-                            size="icon"
-                            onClick={() => navigate(`/admin/machines/${machine.id}`)}
-                          >
-                            <Edit className="h-4 w-4" />
-                          </Button>
-                          <Button
-                            variant="ghost"
-                            size="icon"
-                            onClick={() => setDeleteId(machine.id)}
-                          >
-                            <Trash2 className="h-4 w-4 text-destructive" />
-                          </Button>
-                        </div>
-                      </TableCell>
-                    </TableRow>
-                  ))}
-                </TableBody>
-              </Table>
+                         machine.miles ? `${machine.miles.toLocaleString()} mi` : 'No hours/miles'}
+                      </div>
+
+                      {/* Quick toggles */}
+                      <div className="flex gap-1 pt-2 border-t">
+                        <Button
+                          variant={machine.is_hot_offer ? 'default' : 'outline'}
+                          size="sm"
+                          className="flex-1 h-8 text-xs"
+                          onClick={() => toggleMutation.mutate({
+                            id: machine.id,
+                            field: 'is_hot_offer',
+                            value: !machine.is_hot_offer
+                          })}
+                        >
+                          <Flame className="h-3 w-3 mr-1" />
+                          Hot
+                        </Button>
+                        <Button
+                          variant={machine.is_featured ? 'secondary' : 'outline'}
+                          size="sm"
+                          className="flex-1 h-8 text-xs"
+                          onClick={() => toggleMutation.mutate({
+                            id: machine.id,
+                            field: 'is_featured',
+                            value: !machine.is_featured
+                          })}
+                        >
+                          <Star className="h-3 w-3 mr-1" />
+                          Featured
+                        </Button>
+                        <Button
+                          variant={machine.is_sold ? 'destructive' : 'outline'}
+                          size="sm"
+                          className="flex-1 h-8 text-xs"
+                          onClick={() => toggleMutation.mutate({
+                            id: machine.id,
+                            field: 'is_sold',
+                            value: !machine.is_sold
+                          })}
+                        >
+                          {machine.is_sold ? <XCircle className="h-3 w-3 mr-1" /> : <CheckCircle className="h-3 w-3 mr-1" />}
+                          Sold
+                        </Button>
+                      </div>
+                    </div>
+                  </div>
+                );
+              })}
             </div>
           )}
         </CardContent>
@@ -232,6 +322,7 @@ export default function AdminMachines() {
             <AlertDialogTitle>Delete Machine</AlertDialogTitle>
             <AlertDialogDescription>
               Are you sure you want to delete this machine? This action cannot be undone.
+              All associated images will also be deleted.
             </AlertDialogDescription>
           </AlertDialogHeader>
           <AlertDialogFooter>
