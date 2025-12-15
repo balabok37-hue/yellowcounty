@@ -10,6 +10,7 @@ import { Plus, Search, Edit, Trash2, Flame, CheckCircle, XCircle, Loader2, Star,
 import { toast } from 'sonner';
 import { useNavigate } from 'react-router-dom';
 import { allMachines as staticMachines } from '@/data/machines';
+import { getStaticGalleryForMachine } from '@/lib/admin-static-gallery';
 import {
   AlertDialog,
   AlertDialogAction,
@@ -45,34 +46,26 @@ type MachineImage = {
 // Build a map from machine name to static image
 const staticImageMap = new Map<string, string>();
 staticMachines.forEach(m => {
-  // Extract key from name (e.g., "2022 Sany SY80U Excavator" -> "sany sy80u")
   const nameLower = m.name.toLowerCase();
   staticImageMap.set(nameLower, m.image);
 });
 
 // Find matching static image by name similarity
 const findStaticImage = (machineName: string): string | undefined => {
+  const gallery = getStaticGalleryForMachine(machineName);
+  if (gallery.length) return gallery[0];
+
   const nameLower = machineName.toLowerCase();
-  
-  // First try exact match
-  if (staticImageMap.has(nameLower)) {
-    return staticImageMap.get(nameLower);
-  }
-  
-  // Find by partial match - check if static name contains DB name parts
+  if (staticImageMap.has(nameLower)) return staticImageMap.get(nameLower);
+
   for (const [staticName, image] of staticImageMap.entries()) {
-    // Extract model parts (skip year)
     const staticParts = staticName.split(' ').slice(1).join(' ');
     const dbParts = nameLower.split(' ').slice(0).join(' ');
-    
-    if (staticParts && dbParts.includes(staticParts.split(' ')[0])) {
-      return image;
-    }
-    if (dbParts && staticName.includes(dbParts.split(' ')[0])) {
-      return image;
-    }
+
+    if (staticParts && dbParts.includes(staticParts.split(' ')[0])) return image;
+    if (dbParts && staticName.includes(dbParts.split(' ')[0])) return image;
   }
-  
+
   return undefined;
 };
 
@@ -166,6 +159,47 @@ export default function AdminMachines() {
     },
   });
 
+  const importAllCatalogPhotosMutation = useMutation({
+    mutationFn: async () => {
+      const { data: machinesData, error: machinesError } = await supabase
+        .from('machines')
+        .select('id,name,year')
+        .order('sort_order', { ascending: true });
+      if (machinesError) throw machinesError;
+
+      const { data: existingImages, error: imagesError } = await supabase
+        .from('machine_images')
+        .select('machine_id');
+      if (imagesError) throw imagesError;
+
+      const existingSet = new Set((existingImages || []).map(r => r.machine_id));
+
+      const rows: { machine_id: string; url: string; position: number; is_primary: boolean }[] = [];
+      for (const m of machinesData || []) {
+        if (existingSet.has(m.id)) continue;
+        const gallery = getStaticGalleryForMachine(m.name, m.year);
+        if (!gallery.length) continue;
+        gallery.forEach((url, idx) => {
+          rows.push({ machine_id: m.id, url, position: idx, is_primary: idx === 0 });
+        });
+      }
+
+      if (!rows.length) return 0;
+
+      const { error: insertError } = await supabase.from('machine_images').insert(rows);
+      if (insertError) throw insertError;
+
+      return rows.length;
+    },
+    onSuccess: (count) => {
+      queryClient.invalidateQueries({ queryKey: ['admin-machine-images'] });
+      toast.success(count ? `Imported ${count} photos` : 'Nothing to import');
+    },
+    onError: () => {
+      toast.error('Failed to import catalog photos');
+    },
+  });
+
   const filteredMachines = machines?.filter((machine) => {
     const matchesSearch = machine.name.toLowerCase().includes(search.toLowerCase());
     const matchesCategory = categoryFilter === 'all' || machine.category === categoryFilter;
@@ -183,10 +217,22 @@ export default function AdminMachines() {
             {machines?.length || 0} units in catalog
           </p>
         </div>
-        <Button onClick={() => navigate('/admin/machines/new')}>
-          <Plus className="mr-2 h-4 w-4" />
-          Add Machine
-        </Button>
+        <div className="flex flex-col sm:flex-row gap-2 w-full sm:w-auto">
+          <Button
+            variant="outline"
+            onClick={() => importAllCatalogPhotosMutation.mutate()}
+            disabled={importAllCatalogPhotosMutation.isPending}
+          >
+            {importAllCatalogPhotosMutation.isPending ? (
+              <Loader2 className="mr-2 h-4 w-4 animate-spin" />
+            ) : null}
+            Import catalog photos
+          </Button>
+          <Button onClick={() => navigate('/admin/machines/new')}>
+            <Plus className="mr-2 h-4 w-4" />
+            Add Machine
+          </Button>
+        </div>
       </div>
 
       <Card>
@@ -264,7 +310,7 @@ export default function AdminMachines() {
                           <Badge variant="destructive">SOLD</Badge>
                         )}
                         {machine.is_reserved && !machine.is_sold && (
-                          <Badge className="bg-orange-500 text-white">RESERVED</Badge>
+                          <Badge variant="outline">RESERVED</Badge>
                         )}
                       </div>
 
@@ -338,9 +384,9 @@ export default function AdminMachines() {
                           Featured
                         </Button>
                         <Button
-                          variant={machine.is_reserved ? 'default' : 'outline'}
+                          variant={machine.is_reserved ? 'secondary' : 'outline'}
                           size="sm"
-                          className={`flex-1 h-8 text-xs ${machine.is_reserved ? 'bg-orange-500 hover:bg-orange-600' : ''}`}
+                          className="flex-1 h-8 text-xs"
                           onClick={() => toggleMutation.mutate({
                             id: machine.id,
                             field: 'is_reserved',
