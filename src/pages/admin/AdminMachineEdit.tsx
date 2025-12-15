@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useMemo } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import { useQuery, useMutation, useQueryClient } from '@tanstack/react-query';
 import { supabase } from '@/integrations/supabase/client';
@@ -10,11 +10,12 @@ import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 import { Switch } from '@/components/ui/switch';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
-import { ArrowLeft, Loader2, Save, Plus, Trash2, GripVertical } from 'lucide-react';
+import { ArrowLeft, Loader2, Save } from 'lucide-react';
 import { toast } from 'sonner';
 import ImageUploader from '@/components/admin/ImageUploader';
 import SpecsEditor from '@/components/admin/SpecsEditor';
 import { Json } from '@/integrations/supabase/types';
+import { getStaticGalleryForMachine } from '@/lib/admin-static-gallery';
 
 const categories = ['earthmoving', 'loaders', 'telehandlers', 'trucks', 'specialty'];
 
@@ -111,6 +112,11 @@ export default function AdminMachineEdit() {
     }
   }, [machineImages]);
 
+  const staticGallery = useMemo(() => {
+    if (!machine) return [];
+    return getStaticGalleryForMachine(machine.name, machine.year);
+  }, [machine]);
+
   const saveMutation = useMutation({
     mutationFn: async () => {
       const payload = {
@@ -168,6 +174,42 @@ export default function AdminMachineEdit() {
   const handleInputChange = (field: string, value: string | number | boolean) => {
     setFormData(prev => ({ ...prev, [field]: value }));
   };
+
+  const importStaticImagesMutation = useMutation({
+    mutationFn: async () => {
+      if (!id || !machine) return [] as MachineImage[];
+      if (staticGallery.length === 0) {
+        throw new Error('No static images found for this machine');
+      }
+
+      // Avoid duplicates
+      await supabase.from('machine_images').delete().eq('machine_id', id);
+
+      const rows = staticGallery.map((url, idx) => ({
+        machine_id: id,
+        url,
+        position: idx,
+        is_primary: idx === 0,
+      }));
+
+      const { data, error } = await supabase
+        .from('machine_images')
+        .insert(rows)
+        .select();
+
+      if (error) throw error;
+      return (data || []) as MachineImage[];
+    },
+    onSuccess: (newImages) => {
+      setImages(newImages);
+      queryClient.invalidateQueries({ queryKey: ['machine-images', id] });
+      queryClient.invalidateQueries({ queryKey: ['admin-machine-images'] });
+      toast.success('Catalog images imported');
+    },
+    onError: () => {
+      toast.error('Failed to import catalog images');
+    },
+  });
 
   if (isLoading) {
     return (
@@ -379,9 +421,36 @@ export default function AdminMachineEdit() {
           </Card>
         </TabsContent>
 
-        <TabsContent value="images">
+        <TabsContent value="images" className="space-y-4">
           {!isNew && id && (
-            <ImageUploader machineId={id} images={images} onImagesChange={setImages} />
+            <>
+              {images.length === 0 && staticGallery.length > 0 && (
+                <Card>
+                  <CardHeader>
+                    <CardTitle>Catalog photos found</CardTitle>
+                  </CardHeader>
+                  <CardContent className="space-y-3">
+                    <p className="text-sm text-muted-foreground">
+                      В базе пока нет записей о фото для этой техники, но я нашёл фото из основного каталога.
+                      Нажми «Import» — и они появятся в админке (после этого ты сможешь удалять/заменять/сортировать).
+                    </p>
+                    <div className="flex flex-wrap gap-2">
+                      <Button
+                        onClick={() => importStaticImagesMutation.mutate()}
+                        disabled={importStaticImagesMutation.isPending}
+                      >
+                        {importStaticImagesMutation.isPending ? (
+                          <Loader2 className="mr-2 h-4 w-4 animate-spin" />
+                        ) : null}
+                        Import catalog photos
+                      </Button>
+                    </div>
+                  </CardContent>
+                </Card>
+              )}
+
+              <ImageUploader machineId={id} images={images} onImagesChange={setImages} />
+            </>
           )}
         </TabsContent>
 
