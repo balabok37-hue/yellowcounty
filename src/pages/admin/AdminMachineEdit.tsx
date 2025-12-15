@@ -45,6 +45,7 @@ export default function AdminMachineEdit() {
     is_hot_offer: false,
     is_sold: false,
     is_featured: false,
+    is_reserved: false,
     image_position: '',
     specs: {} as Record<string, string>,
   });
@@ -97,6 +98,7 @@ export default function AdminMachineEdit() {
         is_hot_offer: machine.is_hot_offer || false,
         is_sold: machine.is_sold || false,
         is_featured: machine.is_featured || false,
+        is_reserved: (machine as any).is_reserved || false,
         image_position: machine.image_position || '',
         specs: (machine.specs as Record<string, string>) || {},
       });
@@ -125,6 +127,7 @@ export default function AdminMachineEdit() {
         is_hot_offer: formData.is_hot_offer,
         is_sold: formData.is_sold,
         is_featured: formData.is_featured,
+        is_reserved: formData.is_reserved,
         image_position: formData.image_position || null,
         specs: formData.specs as Json,
       };
@@ -350,6 +353,16 @@ export default function AdminMachineEdit() {
                 <Switch
                   checked={formData.is_featured}
                   onCheckedChange={(checked) => handleInputChange('is_featured', checked)}
+                />
+              </div>
+              <div className="flex items-center justify-between">
+                <div>
+                  <Label>Reserved</Label>
+                  <p className="text-sm text-muted-foreground">Mark as reserved for a buyer</p>
+                </div>
+                <Switch
+                  checked={formData.is_reserved}
+                  onCheckedChange={(checked) => handleInputChange('is_reserved', checked)}
                 />
               </div>
               <div className="flex items-center justify-between">
