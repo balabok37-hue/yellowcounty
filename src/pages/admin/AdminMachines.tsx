@@ -6,7 +6,7 @@ import { Input } from '@/components/ui/input';
 import { Card, CardContent, CardHeader } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
-import { Plus, Search, Edit, Trash2, Flame, CheckCircle, XCircle, Loader2, Star, ImageOff } from 'lucide-react';
+import { Plus, Search, Edit, Trash2, Flame, CheckCircle, XCircle, Loader2, Star, ImageOff, Clock } from 'lucide-react';
 import { toast } from 'sonner';
 import { useNavigate } from 'react-router-dom';
 import { allMachines as staticMachines } from '@/data/machines';
@@ -32,6 +32,7 @@ type Machine = {
   is_hot_offer: boolean;
   is_sold: boolean;
   is_featured: boolean;
+  is_reserved: boolean;
 };
 
 type MachineImage = {
@@ -262,6 +263,9 @@ export default function AdminMachines() {
                         {machine.is_sold && (
                           <Badge variant="destructive">SOLD</Badge>
                         )}
+                        {machine.is_reserved && !machine.is_sold && (
+                          <Badge className="bg-orange-500 text-white">RESERVED</Badge>
+                        )}
                       </div>
 
                       {/* Quick actions overlay */}
@@ -287,7 +291,7 @@ export default function AdminMachines() {
                     <div className="p-3 space-y-2">
                       <div className="flex items-start justify-between gap-2">
                         <h3 className="font-semibold text-sm line-clamp-2 leading-tight">
-                          {machine.year} {machine.name}
+                          {machine.name}
                         </h3>
                       </div>
                       
@@ -332,6 +336,19 @@ export default function AdminMachines() {
                         >
                           <Star className="h-3 w-3 mr-1" />
                           Featured
+                        </Button>
+                        <Button
+                          variant={machine.is_reserved ? 'default' : 'outline'}
+                          size="sm"
+                          className={`flex-1 h-8 text-xs ${machine.is_reserved ? 'bg-orange-500 hover:bg-orange-600' : ''}`}
+                          onClick={() => toggleMutation.mutate({
+                            id: machine.id,
+                            field: 'is_reserved',
+                            value: !machine.is_reserved
+                          })}
+                        >
+                          <Clock className="h-3 w-3 mr-1" />
+                          Rsv
                         </Button>
                         <Button
                           variant={machine.is_sold ? 'destructive' : 'outline'}

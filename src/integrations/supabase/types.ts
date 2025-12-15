@@ -87,6 +87,7 @@ export type Database = {
           image_position: string | null
           is_featured: boolean | null
           is_hot_offer: boolean | null
+          is_reserved: boolean | null
           is_sold: boolean | null
           location: string
           miles: number | null
@@ -108,6 +109,7 @@ export type Database = {
           image_position?: string | null
           is_featured?: boolean | null
           is_hot_offer?: boolean | null
+          is_reserved?: boolean | null
           is_sold?: boolean | null
           location?: string
           miles?: number | null
@@ -129,6 +131,7 @@ export type Database = {
           image_position?: string | null
           is_featured?: boolean | null
           is_hot_offer?: boolean | null
+          is_reserved?: boolean | null
           is_sold?: boolean | null
           location?: string
           miles?: number | null
