@@ -1,5 +1,9 @@
 import type { Machine, MachineCategory } from '@/components/MachineCard';
-import sanySy80uImage from '@/assets/machines/sany-sy80u.png';
+import sanySy80uImage from '@/assets/machines/sany-sy80u-1.png';
+import sanySy80uImage2 from '@/assets/machines/sany-sy80u-2.png';
+import sanySy80uImage3 from '@/assets/machines/sany-sy80u-3.png';
+import sanySy80uImage4 from '@/assets/machines/sany-sy80u-4.png';
+import sanySy80uImage5 from '@/assets/machines/sany-sy80u-5.png';
 import sanySw405kImage from '@/assets/machines/sany-sw405k.png';
 import develonDd100Image from '@/assets/machines/develon-dd100.png';
 import kubotaR640r43Image from '@/assets/machines/kubota-r640r43.png';
@@ -32,7 +36,11 @@ import komatsuWa3208Image3 from '@/assets/machines/komatsu-wa320-8-3.png';
 import komatsuWa3208Image4 from '@/assets/machines/komatsu-wa320-8-4.png';
 import komatsuWa3208Image5 from '@/assets/machines/komatsu-wa320-8-5.png';
 import fordF750DumpImage from '@/assets/machines/ford-f750-dump.png';
-import caterpillarCb16Image from '@/assets/machines/caterpillar-cb16.png';
+import caterpillarCb16Image from '@/assets/machines/caterpillar-cb16-1.png';
+import caterpillarCb16Image2 from '@/assets/machines/caterpillar-cb16-2.png';
+import caterpillarCb16Image3 from '@/assets/machines/caterpillar-cb16-3.png';
+import caterpillarCb16Image4 from '@/assets/machines/caterpillar-cb16-4.png';
+import caterpillarCb16Image5 from '@/assets/machines/caterpillar-cb16-5.png';
 import genieGth1056Image from '@/assets/machines/genie-gth1056.png';
 import gehlRs642Image from '@/assets/machines/gehl-rs6-42.png';
 import johnDeere310slImage from '@/assets/machines/john-deere-310sl.png';
@@ -91,7 +99,10 @@ import caterpillar304e2crImage2 from '@/assets/machines/caterpillar-304e2-cr-2.p
 import caterpillar304e2crImage3 from '@/assets/machines/caterpillar-304e2-cr-3.png';
 import caterpillar304e2crImage4 from '@/assets/machines/caterpillar-304e2-cr-4.png';
 import caterpillar304e2crImage5 from '@/assets/machines/caterpillar-304e2-cr-5.png';
-import kubotaKx0334Image from '@/assets/machines/kubota-kx033-4.png';
+import kubotaKx0334Image from '@/assets/machines/kubota-kx033-4-1.png';
+import kubotaKx0334Image2 from '@/assets/machines/kubota-kx033-4-2.png';
+import kubotaKx0334Image3 from '@/assets/machines/kubota-kx033-4-3.png';
+import kubotaKx0334Image4 from '@/assets/machines/kubota-kx033-4-4.png';
 import bobcatE10Image from '@/assets/machines/bobcat-e10.png';
 import johnDeere333gImage from '@/assets/machines/john-deere-333g.png';
 import rippaNdi665Image from '@/assets/machines/rippa-ndi665.png';
@@ -145,6 +156,10 @@ export const allMachines: Machine[] = [
     },
     gallery: [
       sanySy80uImage,
+      sanySy80uImage2,
+      sanySy80uImage3,
+      sanySy80uImage4,
+      sanySy80uImage5,
     ],
   },
   {
@@ -805,6 +820,10 @@ export const allMachines: Machine[] = [
     },
     gallery: [
       caterpillarCb16Image,
+      caterpillarCb16Image2,
+      caterpillarCb16Image3,
+      caterpillarCb16Image4,
+      caterpillarCb16Image5,
     ],
   },
   {
@@ -1863,9 +1882,9 @@ export const allMachines: Machine[] = [
   },
   {
     id: 71,
-    name: '2020 Kubota KX033-4 Compact Excavator',
-    year: 2020,
-    hours: 1920,
+    name: '2023 Kubota KX033-4 Compact Excavator',
+    year: 2023,
+    hours: 1013,
     location: 'Dallas, Texas',
     price: 31838,
     originalPrice: 42450,
@@ -1891,6 +1910,9 @@ export const allMachines: Machine[] = [
     },
     gallery: [
       kubotaKx0334Image,
+      kubotaKx0334Image2,
+      kubotaKx0334Image3,
+      kubotaKx0334Image4,
     ],
   },
   {
