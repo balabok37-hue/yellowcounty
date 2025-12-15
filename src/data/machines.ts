@@ -9,7 +9,11 @@ import develonDd100Image1 from '@/assets/machines/develon-dd100-1.png';
 import develonDd100Image2 from '@/assets/machines/develon-dd100-2.png';
 import develonDd100Image3 from '@/assets/machines/develon-dd100-3.png';
 import develonDd100Image4 from '@/assets/machines/develon-dd100-4.png';
-import kubotaR640r43Image from '@/assets/machines/kubota-r640r43.png';
+import kubotaR640r43Image1 from '@/assets/machines/kubota-r640r43-1.png';
+import kubotaR640r43Image2 from '@/assets/machines/kubota-r640r43-2.png';
+import kubotaR640r43Image3 from '@/assets/machines/kubota-r640r43-3.png';
+import kubotaR640r43Image4 from '@/assets/machines/kubota-r640r43-4.png';
+import kubotaR640r43Image5 from '@/assets/machines/kubota-r640r43-5.png';
 import sanySy215cImage from '@/assets/machines/sany-sy215c.png';
 import manitouMlt1040Image from '@/assets/machines/manitou-mlt1040.png';
 import manitouMlt1040Image2 from '@/assets/machines/manitou-mlt1040-2.jpg';
@@ -236,16 +240,16 @@ export const allMachines: Machine[] = [
   },
   {
     id: 4,
-    name: '2023 Kubota R640R43 Wheel Loader',
-    year: 2023,
-    hours: 1680,
+    name: '2025 Kubota R640R43 Wheel Loader',
+    year: 2025,
+    hours: 320,
     location: 'USA Stock',
-    price: 78400,
-    originalPrice: 98000,
+    price: 72500,
+    originalPrice: 90600,
     discount: 20,
     category: 'loaders',
-    image: kubotaR640r43Image,
-    description: 'The 2023 Kubota R640R43 is a versatile compact powerhouse designed for demanding construction, landscaping, and material handling tasks, with a durable frame built for 8,000+ hour service life. Powered by a Kubota V2607-CR-TE5-WL Tier 4 Final engine (61.1 hp net), it delivers impressive 9,869 lbf breakout force and 7,450 lb static tipping load for precise loading and digging. Features load-sensing hydraulics, 360° visibility cab with AC/heat/USB ports, ergonomic controls, and quick-coupler for attachments. Ideal for urban sites, farms, or aggregate yards.',
+    image: kubotaR640r43Image1,
+    description: 'The 2025 Kubota R640R43 is a versatile compact powerhouse designed for demanding construction, landscaping, and material handling tasks, with a durable frame built for 8,000+ hour service life. Powered by a Kubota V2607-CR-TE5-WL Tier 4 Final engine (61.1 hp net), it delivers impressive 9,869 lbf breakout force and 7,450 lb static tipping load for precise loading and digging. Features load-sensing hydraulics, 360° visibility cab with AC/heat/USB ports, ergonomic controls, and quick-coupler for attachments. Ideal for urban sites, farms, or aggregate yards.',
     specs: {
       engine: 'Kubota V2607-CR-TE5-WL (Tier 4 Final)',
       power: '61.1 hp (45.6 kW) @ 2,400 rpm',
@@ -265,7 +269,11 @@ export const allMachines: Machine[] = [
       transportDimensions: '18 ft x 5 ft 11 in x 8 ft 2 in',
     },
     gallery: [
-      kubotaR640r43Image,
+      kubotaR640r43Image1,
+      kubotaR640r43Image2,
+      kubotaR640r43Image3,
+      kubotaR640r43Image4,
+      kubotaR640r43Image5,
     ],
   },
   {
