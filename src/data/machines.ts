@@ -127,6 +127,12 @@ import caterpillar279d3Image from '@/assets/machines/caterpillar-279d3.png';
 import caseTr310bImage from '@/assets/machines/case-tr310b.png';
 import kubotaSvl753Image from '@/assets/machines/kubota-svl75-3.png';
 import bobcatA300Image from '@/assets/machines/bobcat-a300.png';
+import caterpillar305crImage1 from '@/assets/machines/caterpillar-305cr-1.png';
+import caterpillar305crImage2 from '@/assets/machines/caterpillar-305cr-2.png';
+import caterpillar305crImage3 from '@/assets/machines/caterpillar-305cr-3.png';
+import caterpillar305crImage4 from '@/assets/machines/caterpillar-305cr-4.png';
+import caterpillar305crImage5 from '@/assets/machines/caterpillar-305cr-5.png';
+
 
 // Category definitions with labels and icons
 export const categoryInfo: Record<MachineCategory, { label: string; labelRu?: string }> = {
@@ -2233,6 +2239,47 @@ export const allMachines: Machine[] = [
       bobcatA300Image,
     ],
   },
+  {
+    id: 81,
+    name: '2023 Caterpillar 305CR Mini Excavator',
+    year: 2023,
+    hours: 420,
+    location: 'Atlanta, Georgia',
+    price: 43460,
+    originalPrice: 53000,
+    discount: 18,
+    category: 'earthmoving',
+    image: caterpillar305crImage1,
+    description: 'Versatile 5-ton mini excavator with near-zero tail swing design for tight-space excavation. Cat C2.4 Tier 4 Final diesel delivers 42.6 hp with no DEF required, enclosed cab with heat/AC/Bluetooth radio/rear-view camera, joystick controls with proportional auxiliary hydraulics for thumb or grapple, standard blade with float, rubber tracks at 90%+, quick-coupler with 24" bucket included. Ideal for residential excavation, utility work, landscaping, and farm applications.',
+    specs: {
+      engine: 'Cat C2.4 Tier 4 Final 42.6 hp (no DEF)',
+      power: '42.6 hp (31.8 kW)',
+      weight: '11,662 lb (5,290 kg)',
+      maxDiggingDepth: '11 ft 10 in (3.61 m)',
+      maxReach: '18 ft 8 in (5.69 m)',
+      maxDumpHeight: '12 ft 8 in (3.86 m)',
+      bucketCapacity: '0.14 - 0.33 yd³ (0.11 - 0.25 m³)',
+      bucketDiggingForce: '8,543 lbf (38 kN)',
+      armDiggingForce: '5,620 lbf (25 kN)',
+      swingSpeed: '8.5 rpm',
+      travelSpeed: '2.8 mph (4.5 km/h)',
+      tailSwing: '4 ft 6 in (1.37 m) – near-zero tail swing',
+      trackWidth: '15.7 in (400 mm) rubber tracks',
+      groundClearance: '13 in (330 mm)',
+      fuelTank: '18.5 gal (70 L)',
+      hydraulicTank: '13.2 gal (50 L)',
+      cab: 'Enclosed ROPS/FOPS cab, heat/AC, Bluetooth radio, rear-view camera',
+      features: 'Quick-coupler, 24" bucket, proportional aux hydraulics, float blade, LED work lights, auto-idle',
+      status: 'In stock Atlanta GA – ready to ship in 48 hrs',
+    },
+    gallery: [
+      caterpillar305crImage1,
+      caterpillar305crImage2,
+      caterpillar305crImage3,
+      caterpillar305crImage4,
+      caterpillar305crImage5,
+    ],
+  },
 ];
 
 // Category assignments by machine ID
@@ -2260,6 +2307,7 @@ const categoryMap: Record<number, MachineCategory> = {
   70: 'earthmoving', // CAT 304E2 CR Mini Excavator
   71: 'earthmoving', // Kubota KX033-4 Compact Excavator
   72: 'earthmoving', // Bobcat E10 Mini Excavator
+  81: 'earthmoving', // CAT 305CR Mini Excavator
   
   // Loaders (Wheel Loaders, Backhoe Loaders, Track Loaders)
   2: 'loaders', // SW405K Wheel Loader
