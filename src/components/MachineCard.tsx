@@ -162,6 +162,15 @@ export function MachineCard({ machine, index, onViewDetails }: MachineCardProps)
           </div>
         )}
 
+        {/* RESERVED overlay */}
+        {machine.isReserved && !machine.isSold && (
+          <div className="absolute inset-0 z-20 flex items-center justify-center bg-muted/50 backdrop-blur-md">
+            <span className="text-3xl sm:text-4xl md:text-5xl font-black text-muted-foreground uppercase tracking-widest -rotate-12 drop-shadow-lg">
+              RESERVED
+            </span>
+          </div>
+        )}
+
         {/* Spacer */}
         <div className="h-40 sm:h-48 md:h-52" />
 
