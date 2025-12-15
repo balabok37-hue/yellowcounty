@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useAuth } from '@/hooks/useAuth';
+import { supabase } from '@/integrations/supabase/client';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
@@ -12,6 +13,7 @@ export default function AdminLogin() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [isSignUp, setIsSignUp] = useState(false);
   const { signIn } = useAuth();
   const navigate = useNavigate();
 
@@ -26,13 +28,30 @@ export default function AdminLogin() {
     setIsSubmitting(true);
 
     try {
-      const { error } = await signIn(email, password);
-      
-      if (error) {
-        toast.error(error.message || 'Invalid credentials');
+      if (isSignUp) {
+        const { error } = await supabase.auth.signUp({
+          email,
+          password,
+          options: {
+            emailRedirectTo: `${window.location.origin}/admin`
+          }
+        });
+        
+        if (error) {
+          toast.error(error.message);
+        } else {
+          toast.success('Account created! You can now sign in.');
+          setIsSignUp(false);
+        }
       } else {
-        toast.success('Logged in successfully');
-        navigate('/admin');
+        const { error } = await signIn(email, password);
+        
+        if (error) {
+          toast.error(error.message || 'Invalid credentials');
+        } else {
+          toast.success('Logged in successfully');
+          navigate('/admin');
+        }
       }
     } catch (err) {
       toast.error('An error occurred');
@@ -47,7 +66,7 @@ export default function AdminLogin() {
         <CardHeader className="space-y-1 text-center">
           <CardTitle className="text-2xl font-bold">Admin Panel</CardTitle>
           <CardDescription>
-            Sign in to manage your equipment catalog
+            {isSignUp ? 'Create an account to get started' : 'Sign in to manage your equipment catalog'}
           </CardDescription>
         </CardHeader>
         <CardContent>
@@ -86,13 +105,22 @@ export default function AdminLogin() {
               {isSubmitting ? (
                 <>
                   <Loader2 className="mr-2 h-4 w-4 animate-spin" />
-                  Signing in...
+                  {isSignUp ? 'Creating account...' : 'Signing in...'}
                 </>
               ) : (
-                'Sign In'
+                isSignUp ? 'Sign Up' : 'Sign In'
               )}
             </Button>
           </form>
+          <div className="mt-4 text-center">
+            <button
+              type="button"
+              onClick={() => setIsSignUp(!isSignUp)}
+              className="text-sm text-muted-foreground hover:text-primary transition-colors"
+            >
+              {isSignUp ? 'Already have an account? Sign in' : "Don't have an account? Sign up"}
+            </button>
+          </div>
         </CardContent>
       </Card>
     </div>
