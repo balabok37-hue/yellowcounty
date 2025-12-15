@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useMemo } from 'react';
 import { useQuery, useMutation, useQueryClient } from '@tanstack/react-query';
 import { supabase } from '@/integrations/supabase/client';
 import { Button } from '@/components/ui/button';
@@ -9,6 +9,7 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@
 import { Plus, Search, Edit, Trash2, Flame, CheckCircle, XCircle, Loader2, Star, ImageOff } from 'lucide-react';
 import { toast } from 'sonner';
 import { useNavigate } from 'react-router-dom';
+import { allMachines as staticMachines } from '@/data/machines';
 import {
   AlertDialog,
   AlertDialogAction,
@@ -40,6 +41,40 @@ type MachineImage = {
   is_primary: boolean;
 };
 
+// Build a map from machine name to static image
+const staticImageMap = new Map<string, string>();
+staticMachines.forEach(m => {
+  // Extract key from name (e.g., "2022 Sany SY80U Excavator" -> "sany sy80u")
+  const nameLower = m.name.toLowerCase();
+  staticImageMap.set(nameLower, m.image);
+});
+
+// Find matching static image by name similarity
+const findStaticImage = (machineName: string): string | undefined => {
+  const nameLower = machineName.toLowerCase();
+  
+  // First try exact match
+  if (staticImageMap.has(nameLower)) {
+    return staticImageMap.get(nameLower);
+  }
+  
+  // Find by partial match - check if static name contains DB name parts
+  for (const [staticName, image] of staticImageMap.entries()) {
+    // Extract model parts (skip year)
+    const staticParts = staticName.split(' ').slice(1).join(' ');
+    const dbParts = nameLower.split(' ').slice(0).join(' ');
+    
+    if (staticParts && dbParts.includes(staticParts.split(' ')[0])) {
+      return image;
+    }
+    if (dbParts && staticName.includes(dbParts.split(' ')[0])) {
+      return image;
+    }
+  }
+  
+  return undefined;
+};
+
 export default function AdminMachines() {
   const [search, setSearch] = useState('');
   const [categoryFilter, setCategoryFilter] = useState<string>('all');
@@ -60,7 +95,7 @@ export default function AdminMachines() {
     },
   });
 
-  // Fetch primary images for all machines
+  // Fetch primary images from DB
   const { data: machineImages } = useQuery({
     queryKey: ['admin-machine-images'],
     queryFn: async () => {
@@ -74,8 +109,13 @@ export default function AdminMachines() {
     },
   });
 
-  const getImageForMachine = (machineId: string) => {
-    return machineImages?.find(img => img.machine_id === machineId)?.url;
+  // Get image: first try DB, then fallback to static
+  const getImageForMachine = (machineId: string, machineName: string) => {
+    const dbImage = machineImages?.find(img => img.machine_id === machineId)?.url;
+    if (dbImage) return dbImage;
+    
+    // Fallback to static image
+    return findStaticImage(machineName);
   };
 
   const deleteMutation = useMutation({
@@ -185,7 +225,7 @@ export default function AdminMachines() {
           ) : (
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
               {filteredMachines?.map((machine) => {
-                const imageUrl = getImageForMachine(machine.id);
+                const imageUrl = getImageForMachine(machine.id, machine.name);
                 return (
                   <div
                     key={machine.id}
