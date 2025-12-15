@@ -41,15 +41,143 @@ export type Database = {
         }
         Relationships: []
       }
+      machine_images: {
+        Row: {
+          created_at: string
+          id: string
+          is_primary: boolean | null
+          machine_id: string
+          position: number
+          url: string
+        }
+        Insert: {
+          created_at?: string
+          id?: string
+          is_primary?: boolean | null
+          machine_id: string
+          position?: number
+          url: string
+        }
+        Update: {
+          created_at?: string
+          id?: string
+          is_primary?: boolean | null
+          machine_id?: string
+          position?: number
+          url?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "machine_images_machine_id_fkey"
+            columns: ["machine_id"]
+            isOneToOne: false
+            referencedRelation: "machines"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      machines: {
+        Row: {
+          category: string
+          created_at: string
+          description: string | null
+          discount: number | null
+          hours: number | null
+          id: string
+          image_position: string | null
+          is_featured: boolean | null
+          is_hot_offer: boolean | null
+          is_sold: boolean | null
+          location: string
+          miles: number | null
+          name: string
+          original_price: number | null
+          price: number
+          sort_order: number | null
+          specs: Json | null
+          updated_at: string
+          year: number
+        }
+        Insert: {
+          category: string
+          created_at?: string
+          description?: string | null
+          discount?: number | null
+          hours?: number | null
+          id?: string
+          image_position?: string | null
+          is_featured?: boolean | null
+          is_hot_offer?: boolean | null
+          is_sold?: boolean | null
+          location?: string
+          miles?: number | null
+          name: string
+          original_price?: number | null
+          price: number
+          sort_order?: number | null
+          specs?: Json | null
+          updated_at?: string
+          year: number
+        }
+        Update: {
+          category?: string
+          created_at?: string
+          description?: string | null
+          discount?: number | null
+          hours?: number | null
+          id?: string
+          image_position?: string | null
+          is_featured?: boolean | null
+          is_hot_offer?: boolean | null
+          is_sold?: boolean | null
+          location?: string
+          miles?: number | null
+          name?: string
+          original_price?: number | null
+          price?: number
+          sort_order?: number | null
+          specs?: Json | null
+          updated_at?: string
+          year?: number
+        }
+        Relationships: []
+      }
+      user_roles: {
+        Row: {
+          created_at: string
+          id: string
+          role: Database["public"]["Enums"]["app_role"]
+          user_id: string
+        }
+        Insert: {
+          created_at?: string
+          id?: string
+          role: Database["public"]["Enums"]["app_role"]
+          user_id: string
+        }
+        Update: {
+          created_at?: string
+          id?: string
+          role?: Database["public"]["Enums"]["app_role"]
+          user_id?: string
+        }
+        Relationships: []
+      }
     }
     Views: {
       [_ in never]: never
     }
     Functions: {
-      [_ in never]: never
+      has_role: {
+        Args: {
+          _role: Database["public"]["Enums"]["app_role"]
+          _user_id: string
+        }
+        Returns: boolean
+      }
     }
     Enums: {
-      [_ in never]: never
+      app_role: "admin" | "user"
     }
     CompositeTypes: {
       [_ in never]: never
@@ -176,6 +304,8 @@ export type CompositeTypes<
 
 export const Constants = {
   public: {
-    Enums: {},
+    Enums: {
+      app_role: ["admin", "user"],
+    },
   },
 } as const
