@@ -104,7 +104,10 @@ import caterpillarD6Image from '@/assets/machines/caterpillar-d6.png';
 import komatsuD65pxiImage from '@/assets/machines/komatsu-d65pxi.png';
 import kubotaKx0404Image from '@/assets/machines/kubota-kx040-4.png';
 import johnDeere35pTierImage from '@/assets/machines/john-deere-35-p-tier.png';
-import johnDeere35pTier2024Image from '@/assets/machines/john-deere-35-p-tier-2024.png';
+import johnDeere35pTier2024Image1 from '@/assets/machines/john-deere-35-p-tier-2024-1.png';
+import johnDeere35pTier2024Image2 from '@/assets/machines/john-deere-35-p-tier-2024-2.png';
+import johnDeere35pTier2024Image3 from '@/assets/machines/john-deere-35-p-tier-2024-3.png';
+import johnDeere35pTier2024Image4 from '@/assets/machines/john-deere-35-p-tier-2024-4.png';
 import johnDeere35pTier2024bImage from '@/assets/machines/john-deere-35-p-tier-2024-b.png';
 import case321fImage from '@/assets/machines/case-321f.png';
 import case321f2023Image from '@/assets/machines/case-321f-2023.png';
@@ -1459,7 +1462,7 @@ const allMachinesRaw: Array<Omit<Machine, 'category'> & { category?: string }> =
     originalPrice: 52000,
     discount: 15,
     category: 'earthmoving',
-    image: johnDeere35pTier2024Image,
+    image: johnDeere35pTier2024Image1,
     isHotOffer: false,
     description: '2024 John Deere 35 P-Tier demo unit with only dealer yard hours. Still has full factory warranty until 2028 / 3,000 h. Zero tail swing, expandable tracks, 6-way blade, factory hydraulic thumb, deluxe cab. Literally looks and smells new – save thousands vs buying brand-new.',
     specs: {
@@ -1474,7 +1477,10 @@ const allMachinesRaw: Array<Omit<Machine, 'category'> & { category?: string }> =
       status: 'In stock – ships worldwide',
     },
     gallery: [
-      johnDeere35pTier2024Image,
+      johnDeere35pTier2024Image1,
+      johnDeere35pTier2024Image2,
+      johnDeere35pTier2024Image3,
+      johnDeere35pTier2024Image4,
     ],
   },
   {
