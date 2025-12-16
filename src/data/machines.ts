@@ -2422,6 +2422,46 @@ const allMachinesRaw: Array<Omit<Machine, 'category'> & { category?: string }> =
       kubotaKx0404Image5,
     ],
   },
+  {
+    id: 85,
+    name: '2024 Volvo L120H Wheel Loader',
+    year: 2024,
+    hours: 180,
+    location: 'Billings, MT',
+    price: 145400,
+    originalPrice: 175000,
+    discount: 17,
+    category: 'wheel-loaders',
+    image: volvoL120hImage1,
+    isHotOffer: true,
+    description: 'Nearly-new 2024 Volvo L120H with factory warranty remaining. Volvo D8M Tier 4 Final engine delivers 245 hp with industry-leading fuel efficiency and smooth power delivery. Full spec cab with heated/ventilated leather seat, touchscreen display, rear camera, Comfort Drive Control, and Boom Suspension for smooth loads. Includes 5.2 yd³ GP bucket, ride control, auto-idle, LED lights throughout. Only 180 hours - practically brand new condition.',
+    specs: {
+      engine: 'Volvo D8M Tier 4 Final 245 hp',
+      power: '245 hp (183 kW)',
+      weight: '45,635 lb (20,700 kg)',
+      bucketCapacity: '5.2 yd³ (4.0 m³)',
+      breakoutForce: '36,155 lbf (160.8 kN)',
+      tippingLoad: '32,408 lb (14,700 kg) straight / 28,219 lb (12,800 kg) full turn',
+      maxLiftCapacity: '27,337 lb (12,400 kg) at full height',
+      maxDumpHeight: '9 ft 10 in (3.0 m)',
+      maxReach: '4 ft 3 in (1.3 m) dump reach',
+      travelSpeed: '23 mph (37 km/h)',
+      turningRadius: '19 ft 8 in (6.0 m)',
+      tireSize: '23.5R25 L3',
+      fuelTank: '92 gal (350 L)',
+      hydraulicTank: '34 gal (130 L)',
+      cab: 'Premium cab, heated/ventilated leather seat, touchscreen, rear camera, Bluetooth',
+      features: '5.2 yd³ GP bucket, Comfort Drive Control, Boom Suspension, ride control, auto-idle, LED lights, factory warranty',
+      status: 'In stock Billings MT – factory warranty active',
+    },
+    gallery: [
+      volvoL120hImage1,
+      volvoL120hImage2,
+      volvoL120hImage3,
+      volvoL120hImage4,
+      volvoL120hImage5,
+    ],
+  },
 ];
 
 // Category assignments by machine ID - prioritized over inline category values
@@ -2462,7 +2502,8 @@ const categoryMap: Record<number, MachineCategory> = {
   20: 'wheel-loaders', // WA320-8 Wheel Loader
   48: 'wheel-loaders', // CAT 950M Wheel Loader
   49: 'wheel-loaders', // JD 544 P-Tier Wheel Loader
-  50: 'wheel-loaders', // Volvo L120H Wheel Loader
+  50: 'wheel-loaders', // Volvo L120H Wheel Loader (2016)
+  85: 'wheel-loaders', // Volvo L120H Wheel Loader (2024)
   57: 'wheel-loaders', // Case 321F Wheel Loader (2019)
   58: 'wheel-loaders', // Case 321F Wheel Loader (2023)
   59: 'wheel-loaders', // Case 321F Wheel Loader (2024)
