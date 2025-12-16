@@ -138,8 +138,13 @@ const Index = () => {
   const handleCloseModal = () => {
     setModalOpen(false);
     setSelectedMachine(null);
-    // Remove machine parameter from URL
-    setSearchParams({});
+    // Remove machine parameter from URL, but preserve search query
+    const currentSearch = searchParams.get('search');
+    if (currentSearch) {
+      setSearchParams({ search: currentSearch });
+    } else {
+      setSearchParams({});
+    }
   };
 
   return (
