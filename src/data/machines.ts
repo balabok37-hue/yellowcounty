@@ -153,6 +153,10 @@ import caterpillar299d32023Image2 from '@/assets/machines/caterpillar-299d3-2023
 import caterpillar299d32023Image3 from '@/assets/machines/caterpillar-299d3-2023-3.png';
 import caterpillar299d32023Image4 from '@/assets/machines/caterpillar-299d3-2023-4.png';
 import caterpillar299d32023Image5 from '@/assets/machines/caterpillar-299d3-2023-5.png';
+import caterpillar303eCr2021Image1 from '@/assets/machines/caterpillar-303e-cr-2021-1.png';
+import caterpillar303eCr2021Image2 from '@/assets/machines/caterpillar-303e-cr-2021-2.png';
+import caterpillar303eCr2021Image3 from '@/assets/machines/caterpillar-303e-cr-2021-3.png';
+import caterpillar303eCr2021Image4 from '@/assets/machines/caterpillar-303e-cr-2021-4.png';
 import caterpillar279d3Image from '@/assets/machines/caterpillar-279d3.png';
 import caseTr310bImage from '@/assets/machines/case-tr310b.png';
 import kubotaSvl753Image from '@/assets/machines/kubota-svl75-3.png';
@@ -2751,6 +2755,46 @@ const allMachinesRaw: Array<Omit<Machine, 'category'> & { category?: string }> =
       caterpillar299d32023Image5,
     ],
   },
+  {
+    id: 92,
+    name: '2021 Caterpillar 303E CR Mini Excavator',
+    year: 2021,
+    hours: 2187,
+    location: 'Billings, MT',
+    price: 32499,
+    originalPrice: 40122,
+    discount: 19,
+    category: 'excavators',
+    image: caterpillar303eCr2021Image1,
+    isHotOffer: true,
+    description: 'Well-maintained 2021 CAT 303E CR mini excavator – the ultimate compact reduced tail swing machine for tight jobsites. Cat C1.1 Tier 4 Final diesel engine delivers 23.5 hp with excellent fuel efficiency. Features ROPS/FOPS canopy, adjustable suspension seat, and intuitive joystick controls. Expandable undercarriage for enhanced stability when digging. Includes 18" bucket, mechanical quick coupler, and dozer blade. Ideal for residential construction, landscaping, and utility work.',
+    specs: {
+      engine: 'Cat C1.1 Tier 4 Final',
+      power: '23.5 hp (17.5 kW)',
+      weight: '7,913 lb (3,589 kg)',
+      maxDiggingDepth: '10 ft 10 in (3.30 m)',
+      maxReach: '16 ft 1 in (4.90 m) at ground',
+      maxDumpingHeight: '10 ft 2 in (3.10 m)',
+      bucketCapacity: '0.10 yd³ (0.08 m³)',
+      bucketDiggingForce: '5,846 lbf (26 kN)',
+      armDiggingForce: '3,597 lbf (16 kN)',
+      swingSpeed: '9.5 rpm',
+      travelSpeed: '2.8 mph (4.5 km/h)',
+      tailSwing: '2 ft 9 in (840 mm) tail swing radius',
+      trackWidth: '9.8 in (250 mm) rubber, expandable 39-51 in',
+      fuelTank: '6.9 gal (26 L)',
+      hydraulicFlow: '15.3 gpm (58 L/min)',
+      cab: 'ROPS/FOPS canopy, suspension seat, dual pattern controls',
+      features: '18" bucket, mechanical quick coupler, dozer blade, LED work lights',
+      status: 'In stock Billings MT – work ready, dealer maintained',
+    },
+    gallery: [
+      caterpillar303eCr2021Image1,
+      caterpillar303eCr2021Image2,
+      caterpillar303eCr2021Image3,
+      caterpillar303eCr2021Image4,
+    ],
+  },
 ];
 
 // Category assignments by machine ID - prioritized over inline category values
@@ -2781,6 +2825,7 @@ const categoryMap: Record<number, MachineCategory> = {
   89: 'excavators', // CAT 305E2 CR Mini Excavator (2020)
   90: 'excavators', // CAT 305E2 CR Mini Excavator (2021 #2)
   84: 'excavators', // Kubota KX040-4 Mini Excavator (2024)
+  92: 'excavators', // CAT 303E CR Mini Excavator (2021)
   
   // Dozers
   3: 'dozers', // Develon DD100 Dozer
