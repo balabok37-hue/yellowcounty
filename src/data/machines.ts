@@ -161,6 +161,11 @@ import caterpillar305e2cr2022Image2 from '@/assets/machines/caterpillar-305e2-cr
 import caterpillar305e2cr2022Image3 from '@/assets/machines/caterpillar-305e2-cr-2022-3.png';
 import caterpillar305e2cr2022Image4 from '@/assets/machines/caterpillar-305e2-cr-2022-4.png';
 import caterpillar305e2cr2022Image5 from '@/assets/machines/caterpillar-305e2-cr-2022-5.png';
+import caterpillar305e2cr2020Image1 from '@/assets/machines/caterpillar-305e2-cr-2020-1.png';
+import caterpillar305e2cr2020Image2 from '@/assets/machines/caterpillar-305e2-cr-2020-2.png';
+import caterpillar305e2cr2020Image3 from '@/assets/machines/caterpillar-305e2-cr-2020-3.png';
+import caterpillar305e2cr2020Image4 from '@/assets/machines/caterpillar-305e2-cr-2020-4.png';
+import caterpillar305e2cr2020Image5 from '@/assets/machines/caterpillar-305e2-cr-2020-5.png';
 import kubotaKx0404Image1 from '@/assets/machines/kubota-kx040-4-1.png';
 import kubotaKx0404Image2 from '@/assets/machines/kubota-kx040-4-2.png';
 import kubotaKx0404Image3 from '@/assets/machines/kubota-kx040-4-3.png';
@@ -2322,7 +2327,7 @@ const allMachinesRaw: Array<Omit<Machine, 'category'> & { category?: string }> =
     id: 82,
     name: '2021 Caterpillar 305E2 CR Mini Excavator',
     year: 2021,
-    hours: 2850,
+    hours: 1121,
     location: 'Billings, MT',
     price: 35000,
     originalPrice: 42200,
@@ -2363,10 +2368,10 @@ const allMachinesRaw: Array<Omit<Machine, 'category'> & { category?: string }> =
     id: 83,
     name: '2022 Caterpillar 305E2 CR Mini Excavator',
     year: 2022,
-    hours: 1650,
+    hours: 838,
     location: 'Billings, MT',
-    price: 52000,
-    originalPrice: 65000,
+    price: 38500,
+    originalPrice: 48000,
     discount: 20,
     category: 'earthmoving',
     image: caterpillar305e2cr2022Image1,
@@ -2398,6 +2403,47 @@ const allMachinesRaw: Array<Omit<Machine, 'category'> & { category?: string }> =
       caterpillar305e2cr2022Image3,
       caterpillar305e2cr2022Image4,
       caterpillar305e2cr2022Image5,
+    ],
+  },
+  {
+    id: 89,
+    name: '2020 Caterpillar 305E2 CR Mini Excavator',
+    year: 2020,
+    hours: 1243,
+    location: 'Billings, MT',
+    price: 29800,
+    originalPrice: 29800,
+    discount: 0,
+    category: 'earthmoving',
+    image: caterpillar305e2cr2020Image1,
+    description: 'Reliable 5-ton mini excavator with zero tail swing design for tight-space excavation. Cat C2.4 Tier 4 Final diesel delivers 40.2 hp with excellent fuel efficiency. Open ROPS canopy with joystick controls, proportional auxiliary hydraulics, standard blade with float, rubber tracks with good tread remaining. Well-maintained unit ready for utility work, landscaping, trenching, and foundation excavation.',
+    specs: {
+      engine: 'Cat C2.4 Tier 4 Final 40.2 hp',
+      power: '40.2 hp (30 kW)',
+      weight: '11,354 lb (5,150 kg)',
+      maxDiggingDepth: '11 ft 8 in (3.56 m)',
+      maxReach: '18 ft 4 in (5.59 m)',
+      maxDumpHeight: '12 ft 6 in (3.81 m)',
+      bucketCapacity: '0.13 - 0.31 yd³ (0.10 - 0.24 m³)',
+      bucketDiggingForce: '8,320 lbf (37 kN)',
+      armDiggingForce: '5,400 lbf (24 kN)',
+      swingSpeed: '8.3 rpm',
+      travelSpeed: '2.7 mph (4.3 km/h)',
+      tailSwing: 'Zero tail swing design',
+      trackWidth: '15.7 in (400 mm) rubber tracks',
+      groundClearance: '12.6 in (320 mm)',
+      fuelTank: '18.5 gal (70 L)',
+      hydraulicTank: '12.7 gal (48 L)',
+      cab: 'Open ROPS canopy, high-back seat',
+      features: 'Blade with float, proportional aux hydraulics, LED work lights',
+      status: 'In stock Billings MT – ready to ship',
+    },
+    gallery: [
+      caterpillar305e2cr2020Image1,
+      caterpillar305e2cr2020Image2,
+      caterpillar305e2cr2020Image3,
+      caterpillar305e2cr2020Image4,
+      caterpillar305e2cr2020Image5,
     ],
   },
   {
@@ -2630,6 +2676,7 @@ const categoryMap: Record<number, MachineCategory> = {
   81: 'excavators', // CAT 305CR Mini Excavator
   82: 'excavators', // CAT 305E2 CR Mini Excavator (2021)
   83: 'excavators', // CAT 305E2 CR Mini Excavator (2022)
+  89: 'excavators', // CAT 305E2 CR Mini Excavator (2020)
   84: 'excavators', // Kubota KX040-4 Mini Excavator (2024)
   
   // Dozers
