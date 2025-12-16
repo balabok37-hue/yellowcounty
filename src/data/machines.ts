@@ -119,7 +119,10 @@ import case321f2024Image5 from '@/assets/machines/case-321f-2024-5.png';
 import case321f2024Image6 from '@/assets/machines/case-321f-2024-6.png';
 import caterpillar938mImage from '@/assets/machines/caterpillar-938m.png';
 import caterpillar938m2021Image from '@/assets/machines/caterpillar-938m-2021.png';
-import caterpillar938m2022bImage from '@/assets/machines/caterpillar-938m-2022b.png';
+import caterpillar938m2022Image1 from '@/assets/machines/caterpillar-938m-2022-1.png';
+import caterpillar938m2022Image2 from '@/assets/machines/caterpillar-938m-2022-2.png';
+import caterpillar938m2022Image3 from '@/assets/machines/caterpillar-938m-2022-3.png';
+import caterpillar938m2022Image4 from '@/assets/machines/caterpillar-938m-2022-4.png';
 import jcb55z1Image from '@/assets/machines/jcb-55z-1.png';
 import caseCx42dImage1 from '@/assets/machines/case-cx42d-1.png';
 import caseCx42dImage2 from '@/assets/machines/case-cx42d-2.png';
@@ -1683,7 +1686,7 @@ const allMachinesRaw: Array<Omit<Machine, 'category'> & { category?: string }> =
     originalPrice: 181000,
     discount: 10,
     category: 'loaders',
-    image: caterpillar938m2022bImage,
+    image: caterpillar938m2022Image1,
     description: 'Immaculate one-owner, low-hour dealer-maintained machine with only 2,680 original hours and remaining Cat Platinum warranty until 2027/7,500 hrs. Features Fusion quick-coupler, 4.0 yd³ GP bucket + BOE, ride control, standard z-bar, 23.5R25 Michelin XLD tires at 90-95%, high-flow hydraulics + 3rd valve, reversing fan, LED lights, deluxe cab with Cat Payload. Fresh full service and SOS clean.',
     specs: {
       engine: 'Cat C7.1 Acert 190 hp (Tier 4 Final)',
@@ -1703,7 +1706,10 @@ const allMachinesRaw: Array<Omit<Machine, 'category'> & { category?: string }> =
       status: 'Dealer-serviced, zero issues, ready to ship',
     },
     gallery: [
-      caterpillar938m2022bImage,
+      caterpillar938m2022Image1,
+      caterpillar938m2022Image2,
+      caterpillar938m2022Image3,
+      caterpillar938m2022Image4,
     ],
   },
   {
