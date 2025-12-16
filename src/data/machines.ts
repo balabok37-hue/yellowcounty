@@ -148,6 +148,11 @@ import johnDeere333gImage from '@/assets/machines/john-deere-333g.png';
 import rippaNdi665Image from '@/assets/machines/rippa-ndi665.png';
 import caterpillar299d2Image from '@/assets/machines/caterpillar-299d2.png';
 import caterpillar299d3Image from '@/assets/machines/caterpillar-299d3.png';
+import caterpillar299d32023Image1 from '@/assets/machines/caterpillar-299d3-2023-1.png';
+import caterpillar299d32023Image2 from '@/assets/machines/caterpillar-299d3-2023-2.png';
+import caterpillar299d32023Image3 from '@/assets/machines/caterpillar-299d3-2023-3.png';
+import caterpillar299d32023Image4 from '@/assets/machines/caterpillar-299d3-2023-4.png';
+import caterpillar299d32023Image5 from '@/assets/machines/caterpillar-299d3-2023-5.png';
 import caterpillar279d3Image from '@/assets/machines/caterpillar-279d3.png';
 import caseTr310bImage from '@/assets/machines/case-tr310b.png';
 import kubotaSvl753Image from '@/assets/machines/kubota-svl75-3.png';
@@ -2705,6 +2710,47 @@ const allMachinesRaw: Array<Omit<Machine, 'category'> & { category?: string }> =
       johnDeere333g2022Image5,
     ],
   },
+  {
+    id: 91,
+    name: '2023 Caterpillar 299D3 Compact Track Loader',
+    year: 2023,
+    hours: 1299,
+    location: 'Billings, MT',
+    price: 58999,
+    originalPrice: 71083,
+    discount: 17,
+    category: 'track-loaders',
+    image: caterpillar299d32023Image1,
+    isHotOffer: true,
+    description: 'Top-of-the-line 2023 CAT 299D3 XE compact track loader – the largest and most powerful in Cat\'s CTL lineup. Cat C3.8 Tier 4 Final engine delivers 110 gross hp with excellent fuel efficiency. Factory XE drivetrain with continuously variable transmission for smooth operation. Pressurized cab with heat/AC, suspension seat, touchscreen display, and rear camera. High-flow hydraulics with dual-direction self-leveling, ride control, and 2-speed travel. Ready for the most demanding jobs.',
+    specs: {
+      engine: 'Cat C3.8 Tier 4 Final',
+      power: '110 hp (82 kW)',
+      weight: '14,114 lb (6,402 kg)',
+      capacity: '4,200 lb (1,905 kg) ROC @ 50%',
+      tippingLoad: '8,400 lb (3,810 kg)',
+      bucketCapacity: '1.1 yd³ (0.84 m³)',
+      breakoutForce: '10,476 lbf (46.6 kN)',
+      maxLiftCapacity: '8,400 lb at full height',
+      maxLiftHeight: '11 ft 2 in (3.40 m) hinge pin',
+      maxReach: '3 ft 8 in (1.12 m) at full height',
+      travelSpeed: '7.6 mph (12.2 km/h) 2-speed',
+      hydraulicFlow: '40.3 gpm (153 L/min) XPS high-flow',
+      trackWidth: '20 in (508 mm)',
+      groundClearance: '13.4 in (340 mm)',
+      fuelTank: '37 gal (140 L)',
+      cab: 'Deluxe pressurized cab, heat/AC, suspension seat, touchscreen, rear camera',
+      features: '84" GP bucket, ride control, 2-speed, XE CVT drivetrain, dual-direction self-leveling, LED lights',
+      status: 'In stock Billings MT – excellent condition, dealer serviced',
+    },
+    gallery: [
+      caterpillar299d32023Image1,
+      caterpillar299d32023Image2,
+      caterpillar299d32023Image3,
+      caterpillar299d32023Image4,
+      caterpillar299d32023Image5,
+    ],
+  },
 ];
 
 // Category assignments by machine ID - prioritized over inline category values
@@ -2768,6 +2814,7 @@ const categoryMap: Record<number, MachineCategory> = {
   78: 'track-loaders', // CASE TR310B Compact Track Loader
   79: 'track-loaders', // Kubota SVL75-3 Compact Track Loader
   88: 'track-loaders', // John Deere 333G Compact Track Loader (2022)
+  91: 'track-loaders', // CAT 299D3 Compact Track Loader (2023)
   
   // Backhoes
   8: 'backhoes', // 310L EP Backhoe
