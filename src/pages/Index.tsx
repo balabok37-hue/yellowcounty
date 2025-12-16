@@ -132,7 +132,7 @@ const Index = () => {
     setSelectedMachine(machine);
     setModalOpen(true);
     // Update URL with pretty machine slug
-    setSearchParams({ machine: generateMachineSlug(machine.name) });
+    setSearchParams({ machine: generateMachineSlug(machine) });
   };
 
   const handleCloseModal = () => {
