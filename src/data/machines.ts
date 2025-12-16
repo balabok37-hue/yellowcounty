@@ -1755,7 +1755,7 @@ const allMachinesRaw: Array<Omit<Machine, 'category'> & { category?: string }> =
     originalPrice: 55600,
     discount: 20,
     category: 'earthmoving',
-    image: caseCx42dImage1,
+    image: caseCx42dImage5,
     description: 'Brand-new 4.2-ton zero-tailswing mini excavator. FPT 37.4 hp Tier 4 Final (no DEF/AdBlue), 2-speed travel, 16" rubber tracks 100%, enclosed cab with heat/AC/touchscreen joysticks/Bluetooth/radio/rear camera, proportional aux hydraulics (thumb/grapple ready), hydraulic quick-coupler + 24" digging bucket included, LED work lights, auto-idle, float blade. 100% under full CASE ProCare factory warranty: 3 yr/3,000 hr bumper-to-bumper + 5 yr powertrain.',
     specs: {
       engine: 'FPT 37.4 hp Tier 4 Final (no DEF)',
@@ -1774,11 +1774,11 @@ const allMachinesRaw: Array<Omit<Machine, 'category'> & { category?: string }> =
       status: 'Brand new, in stock Atlanta GA – ready to ship in 48 hrs',
     },
     gallery: [
+      caseCx42dImage5,
       caseCx42dImage1,
       caseCx42dImage2,
       caseCx42dImage3,
       caseCx42dImage4,
-      caseCx42dImage5,
     ],
   },
   {
