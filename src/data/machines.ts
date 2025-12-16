@@ -85,6 +85,11 @@ import manitouMlt1040145Image1 from '@/assets/machines/manitou-mlt1040-145-1.png
 import manitouMlt1040145Image2 from '@/assets/machines/manitou-mlt1040-145-2.png';
 import manitouMlt1040145Image3 from '@/assets/machines/manitou-mlt1040-145-3.png';
 import manitouMlt1040145Image4 from '@/assets/machines/manitou-mlt1040-145-4.png';
+import johnDeere310sl2023Image1 from '@/assets/machines/john-deere-310sl-2023-1.png';
+import johnDeere310sl2023Image2 from '@/assets/machines/john-deere-310sl-2023-2.png';
+import johnDeere310sl2023Image3 from '@/assets/machines/john-deere-310sl-2023-3.png';
+import johnDeere310sl2023Image4 from '@/assets/machines/john-deere-310sl-2023-4.png';
+import johnDeere310sl2023Image5 from '@/assets/machines/john-deere-310sl-2023-5.png';
 import caterpillarD6Image from '@/assets/machines/caterpillar-d6.png';
 import komatsuD65pxiImage from '@/assets/machines/komatsu-d65pxi.png';
 import kubotaKx0404Image from '@/assets/machines/kubota-kx040-4.png';
@@ -2505,6 +2510,48 @@ const allMachinesRaw: Array<Omit<Machine, 'category'> & { category?: string }> =
       manitouMlt1040145Image4,
     ],
   },
+  {
+    id: 87,
+    name: '2023 John Deere 310SL Backhoe Loader',
+    year: 2023,
+    hours: 1420,
+    location: 'Billings, MT',
+    price: 62200,
+    originalPrice: 75900,
+    discount: 18,
+    category: 'backhoes',
+    image: johnDeere310sl2023Image1,
+    isHotOffer: true,
+    description: 'Low-hour 2023 John Deere 310SL backhoe loader in excellent condition. PowerTech 4.5L Tier 4 Final engine delivers 93 hp with smooth power and excellent fuel economy. Full deluxe cab with heat/AC, air-ride seat, rear camera, and excellent visibility. Includes 1.15 yd³ loader bucket, 24" backhoe bucket, auxiliary hydraulics, ride control, and extendahoe. Perfect for utility work, landscaping, and construction.',
+    specs: {
+      engine: 'John Deere PowerTech 4.5L Tier 4 Final',
+      power: '93 hp (69 kW)',
+      weight: '17,280 lb (7,838 kg)',
+      bucketCapacity: '1.15 yd³ (0.88 m³) loader',
+      breakoutForce: '10,160 lbf (45.2 kN) loader',
+      maxLiftCapacity: '7,660 lb (3,475 kg) at full height',
+      maxDumpHeight: '10 ft 4 in (3.15 m)',
+      maxDiggingDepth: '14 ft 6 in (4.42 m) backhoe',
+      maxReach: '18 ft 6 in (5.64 m) backhoe',
+      bucketDiggingForce: '8,900 lbf (39.6 kN) backhoe',
+      transmission: 'Powershift 4F/4R',
+      travelSpeed: '23 mph (37 km/h)',
+      turningRadius: '13 ft 4 in (4.06 m)',
+      tireSize: '12.5/80-18 front, 19.5L-24 rear',
+      fuelTank: '37 gal (140 L)',
+      hydraulicTank: '21 gal (80 L)',
+      cab: 'Deluxe cab, heat/AC, air-ride seat, rear camera, Bluetooth radio',
+      features: 'Extendahoe, ride control, aux hydraulics, pilot controls, 24" backhoe bucket, LED work lights',
+      status: 'In stock Billings MT – serviced and ready',
+    },
+    gallery: [
+      johnDeere310sl2023Image1,
+      johnDeere310sl2023Image2,
+      johnDeere310sl2023Image3,
+      johnDeere310sl2023Image4,
+      johnDeere310sl2023Image5,
+    ],
+  },
 ];
 
 // Category assignments by machine ID - prioritized over inline category values
@@ -2569,6 +2616,7 @@ const categoryMap: Record<number, MachineCategory> = {
   // Backhoes
   8: 'backhoes', // 310L EP Backhoe
   39: 'backhoes', // 310SL Backhoe
+  87: 'backhoes', // John Deere 310SL Backhoe (2023)
   
   // Telehandlers & Forklifts
   6: 'telehandlers', // MLT 1040
