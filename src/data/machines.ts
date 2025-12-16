@@ -132,6 +132,11 @@ import caterpillar305crImage2 from '@/assets/machines/caterpillar-305cr-2.png';
 import caterpillar305crImage3 from '@/assets/machines/caterpillar-305cr-3.png';
 import caterpillar305crImage4 from '@/assets/machines/caterpillar-305cr-4.png';
 import caterpillar305crImage5 from '@/assets/machines/caterpillar-305cr-5.png';
+import caterpillar305e2crImage1 from '@/assets/machines/caterpillar-305e2-cr-1.png';
+import caterpillar305e2crImage2 from '@/assets/machines/caterpillar-305e2-cr-2.png';
+import caterpillar305e2crImage3 from '@/assets/machines/caterpillar-305e2-cr-3.png';
+import caterpillar305e2crImage4 from '@/assets/machines/caterpillar-305e2-cr-4.png';
+import caterpillar305e2crImage5 from '@/assets/machines/caterpillar-305e2-cr-5.png';
 
 
 // Category definitions with labels and icons
@@ -2284,6 +2289,47 @@ const allMachinesRaw: Array<Omit<Machine, 'category'> & { category?: string }> =
       caterpillar305crImage5,
     ],
   },
+  {
+    id: 82,
+    name: '2021 Caterpillar 305E2 CR Mini Excavator',
+    year: 2021,
+    hours: 2850,
+    location: 'Billings, MT',
+    price: 35000,
+    originalPrice: 42200,
+    discount: 17,
+    category: 'earthmoving',
+    image: caterpillar305e2crImage1,
+    description: 'Compact 5-ton mini excavator with zero tail swing design, perfect for residential and commercial jobsites with limited space. Cat C2.4 Tier 4 Final diesel delivers 40.2 hp with excellent fuel efficiency, enclosed cab with heat/AC, joystick controls with proportional auxiliary hydraulics, standard blade with float, rubber tracks at 80%+, quick-coupler with 24" bucket included. Ideal for utility work, landscaping, trenching, and foundation excavation.',
+    specs: {
+      engine: 'Cat C2.4 Tier 4 Final 40.2 hp',
+      power: '40.2 hp (30 kW)',
+      weight: '11,354 lb (5,150 kg)',
+      maxDiggingDepth: '11 ft 8 in (3.56 m)',
+      maxReach: '18 ft 4 in (5.59 m)',
+      maxDumpHeight: '12 ft 6 in (3.81 m)',
+      bucketCapacity: '0.13 - 0.31 yd³ (0.10 - 0.24 m³)',
+      bucketDiggingForce: '8,320 lbf (37 kN)',
+      armDiggingForce: '5,400 lbf (24 kN)',
+      swingSpeed: '8.3 rpm',
+      travelSpeed: '2.7 mph (4.3 km/h)',
+      tailSwing: 'Zero tail swing design',
+      trackWidth: '15.7 in (400 mm) rubber tracks',
+      groundClearance: '12.6 in (320 mm)',
+      fuelTank: '18.5 gal (70 L)',
+      hydraulicTank: '12.7 gal (48 L)',
+      cab: 'Enclosed ROPS/FOPS cab, heat/AC, high-back seat',
+      features: 'Quick-coupler, 24" bucket, proportional aux hydraulics, float blade, LED work lights',
+      status: 'In stock Billings MT – ready to ship in 48 hrs',
+    },
+    gallery: [
+      caterpillar305e2crImage1,
+      caterpillar305e2crImage2,
+      caterpillar305e2crImage3,
+      caterpillar305e2crImage4,
+      caterpillar305e2crImage5,
+    ],
+  },
 ];
 
 // Category assignments by machine ID - prioritized over inline category values
@@ -2309,6 +2355,7 @@ const categoryMap: Record<number, MachineCategory> = {
   71: 'excavators', // Kubota KX033-4 Compact Excavator
   72: 'excavators', // Bobcat E10 Mini Excavator
   81: 'excavators', // CAT 305CR Mini Excavator
+  82: 'excavators', // CAT 305E2 CR Mini Excavator
   
   // Dozers
   3: 'dozers', // Develon DD100 Dozer
