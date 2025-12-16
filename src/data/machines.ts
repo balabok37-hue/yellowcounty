@@ -136,15 +136,19 @@ import caterpillar305crImage5 from '@/assets/machines/caterpillar-305cr-5.png';
 
 // Category definitions with labels and icons
 export const categoryInfo: Record<MachineCategory, { label: string; labelRu?: string }> = {
-  earthmoving: { label: 'Earthmoving', labelRu: 'Землеройные' },
-  loaders: { label: 'Loaders', labelRu: 'Погрузчики' },
+  excavators: { label: 'Excavators', labelRu: 'Экскаваторы' },
+  dozers: { label: 'Dozers', labelRu: 'Бульдозеры' },
+  'wheel-loaders': { label: 'Wheel Loaders', labelRu: 'Колёсные погрузчики' },
+  'track-loaders': { label: 'Track Loaders', labelRu: 'Гусеничные погрузчики' },
+  backhoes: { label: 'Backhoes', labelRu: 'Экскаваторы-погрузчики' },
   telehandlers: { label: 'Telehandlers', labelRu: 'Телескопические' },
   trucks: { label: 'Trucks', labelRu: 'Грузовики' },
-  specialty: { label: 'Specialty', labelRu: 'Спецтехника' },
+  compaction: { label: 'Compaction', labelRu: 'Уплотнение' },
 };
 
 // All machines in one array - will be sorted dynamically
-export const allMachines: Machine[] = [
+// Note: category values here are legacy, categoryMap below defines actual categories
+const allMachinesRaw: Array<Omit<Machine, 'category'> & { category?: string }> = [
   {
     id: 1,
     name: '2022 Sany SY80U Excavator',
@@ -2282,63 +2286,70 @@ export const allMachines: Machine[] = [
   },
 ];
 
-// Category assignments by machine ID
+// Category assignments by machine ID - prioritized over inline category values
 const categoryMap: Record<number, MachineCategory> = {
-  // Earthmoving (Excavators, Dozers)
-  1: 'earthmoving', // SY80U Excavator
-  3: 'earthmoving', // DD100 Dozer
-  5: 'earthmoving', // SY215C Excavator
-  45: 'earthmoving', // CAT 336 Excavator
-  46: 'earthmoving', // Hitachi ZX350 Excavator
-  47: 'earthmoving', // John Deere 210G Excavator
-  51: 'earthmoving', // CAT D6 Dozer (SOLD)
-  52: 'earthmoving', // Komatsu D65PXi Dozer
-  53: 'earthmoving', // Kubota KX040-4 Mini Excavator
-  54: 'earthmoving', // John Deere 35 P-Tier Mini Excavator (2023)
-  55: 'earthmoving', // John Deere 35 P-Tier Mini Excavator (2024)
-  56: 'earthmoving', // John Deere 35 P-Tier Mini Excavator (2024 B)
-  63: 'earthmoving', // JCB 55Z-1 Mini Excavator
-  64: 'earthmoving', // CASE CX42D Mini Excavator
-  65: 'earthmoving', // Wacker Neuson EZ26 Mini Excavator
-  66: 'earthmoving', // MachPro MP319 Mini Excavator (Miami)
-  67: 'earthmoving', // MachPro MP319 Mini Excavator (LA)
-  68: 'earthmoving', // CAT 303E CR Mini Excavator
-  69: 'earthmoving', // Bobcat E50 Compact Excavator
-  70: 'earthmoving', // CAT 304E2 CR Mini Excavator
-  71: 'earthmoving', // Kubota KX033-4 Compact Excavator
-  72: 'earthmoving', // Bobcat E10 Mini Excavator
-  81: 'earthmoving', // CAT 305CR Mini Excavator
+  // Excavators (Mini, Compact, Hydraulic)
+  1: 'excavators', // SY80U Excavator
+  5: 'excavators', // SY215C Excavator
+  45: 'excavators', // CAT 336 Excavator
+  46: 'excavators', // Hitachi ZX350 Excavator
+  47: 'excavators', // John Deere 210G Excavator
+  53: 'excavators', // Kubota KX040-4 Mini Excavator
+  54: 'excavators', // John Deere 35 P-Tier Mini Excavator (2023)
+  55: 'excavators', // John Deere 35 P-Tier Mini Excavator (2024)
+  56: 'excavators', // John Deere 35 P-Tier Mini Excavator (2024 B)
+  63: 'excavators', // JCB 55Z-1 Mini Excavator
+  64: 'excavators', // CASE CX42D Mini Excavator
+  65: 'excavators', // Wacker Neuson EZ26 Mini Excavator
+  66: 'excavators', // MachPro MP319 Mini Excavator (Miami)
+  67: 'excavators', // MachPro MP319 Mini Excavator (LA)
+  68: 'excavators', // CAT 303E CR Mini Excavator
+  69: 'excavators', // Bobcat E50 Compact Excavator
+  70: 'excavators', // CAT 304E2 CR Mini Excavator
+  71: 'excavators', // Kubota KX033-4 Compact Excavator
+  72: 'excavators', // Bobcat E10 Mini Excavator
+  81: 'excavators', // CAT 305CR Mini Excavator
   
-  // Loaders (Wheel Loaders, Backhoe Loaders, Track Loaders)
-  2: 'loaders', // SW405K Wheel Loader
-  4: 'loaders', // R640R43 Wheel Loader
-  8: 'loaders', // 310L EP Backhoe
-  13: 'loaders', // ASV VT-70 Track Loader
-  20: 'loaders', // WA320-8 Wheel Loader
-  73: 'loaders', // John Deere 333G Compact Track Loader
-  74: 'loaders', // Rippa NDI665 Mini Track Loader
-  75: 'loaders', // CAT 299D2 Compact Track Loader
-  76: 'loaders', // CAT 299D3 Compact Track Loader
-  77: 'loaders', // CAT 279D3 Compact Track Loader
-  78: 'loaders', // CASE TR310B Compact Track Loader
-  79: 'loaders', // Kubota SVL75-3 Compact Track Loader
-  80: 'loaders', // Bobcat A300 All-Wheel Steer Skid Steer
-  39: 'loaders', // 310SL Backhoe
-  42: 'loaders', // 289D3 Track Loader
-  48: 'loaders', // CAT 950M Wheel Loader
-  49: 'loaders', // JD 544 P-Tier Wheel Loader
-  50: 'loaders', // Volvo L120H Wheel Loader
-  57: 'loaders', // Case 321F Wheel Loader (2019)
-  58: 'loaders', // Case 321F Wheel Loader (2023)
-  59: 'loaders', // Case 321F Wheel Loader (2024)
-  60: 'loaders', // CAT 938M Wheel Loader 2022 (SOLD)
-  61: 'loaders', // CAT 938M Wheel Loader 2021 (SOLD)
-  62: 'loaders', // CAT 938M Wheel Loader 2022 (2,680 hrs)
+  // Dozers
+  3: 'dozers', // Develon DD100 Dozer
+  51: 'dozers', // CAT D6 Dozer (SOLD)
+  52: 'dozers', // Komatsu D65PXi Dozer
+  
+  // Wheel Loaders
+  2: 'wheel-loaders', // SW405K Wheel Loader
+  4: 'wheel-loaders', // R640R43 Wheel Loader
+  20: 'wheel-loaders', // WA320-8 Wheel Loader
+  48: 'wheel-loaders', // CAT 950M Wheel Loader
+  49: 'wheel-loaders', // JD 544 P-Tier Wheel Loader
+  50: 'wheel-loaders', // Volvo L120H Wheel Loader
+  57: 'wheel-loaders', // Case 321F Wheel Loader (2019)
+  58: 'wheel-loaders', // Case 321F Wheel Loader (2023)
+  59: 'wheel-loaders', // Case 321F Wheel Loader (2024)
+  60: 'wheel-loaders', // CAT 938M Wheel Loader 2022 (SOLD)
+  61: 'wheel-loaders', // CAT 938M Wheel Loader 2021 (SOLD)
+  62: 'wheel-loaders', // CAT 938M Wheel Loader 2022 (2,680 hrs)
+  80: 'wheel-loaders', // Bobcat A300 All-Wheel Steer Skid Steer
+  
+  // Track Loaders (Compact Track Loaders, Skid Steers)
+  13: 'track-loaders', // ASV VT-70 Track Loader
+  42: 'track-loaders', // 289D3 Track Loader
+  73: 'track-loaders', // John Deere 333G Compact Track Loader
+  74: 'track-loaders', // Rippa NDI665 Mini Track Loader
+  75: 'track-loaders', // CAT 299D2 Compact Track Loader
+  76: 'track-loaders', // CAT 299D3 Compact Track Loader
+  77: 'track-loaders', // CAT 279D3 Compact Track Loader
+  78: 'track-loaders', // CASE TR310B Compact Track Loader
+  79: 'track-loaders', // Kubota SVL75-3 Compact Track Loader
+  
+  // Backhoes
+  8: 'backhoes', // 310L EP Backhoe
+  39: 'backhoes', // 310SL Backhoe
   
   // Telehandlers & Forklifts
   6: 'telehandlers', // MLT 1040
   7: 'telehandlers', // JCB 940-4
   9: 'telehandlers', // Merlo P50.18HM
+  10: 'telehandlers', // John Deere 6430 (agricultural telehandler)
   37: 'telehandlers', // GTH-1056
   38: 'telehandlers', // RS6-42
   40: 'telehandlers', // TL943C
@@ -2357,15 +2368,14 @@ const categoryMap: Record<number, MachineCategory> = {
   43: 'trucks', // Silverado 2500HD
   44: 'trucks', // International 7300
   
-  // Specialty (Tractors, Rollers, etc.)
-  10: 'specialty', // John Deere 6430 Tractor
-  36: 'specialty', // CB16 Roller
+  // Compaction (Rollers)
+  36: 'compaction', // CB16 Roller
 };
 
-// Apply categories to all machines
-const machinesWithCategories = allMachines.map(machine => ({
+// Apply categories to all machines - categoryMap takes priority
+const machinesWithCategories: Machine[] = allMachinesRaw.map(machine => ({
   ...machine,
-  category: machine.category || categoryMap[machine.id] || 'specialty'
+  category: categoryMap[machine.id] || 'excavators'
 }));
 
 // Sort function: HOT OFFERS first, then by discount (desc), then by year (desc)
@@ -2381,6 +2391,7 @@ function sortMachines(machines: Machine[]): Machine[] {
 // Get sorted machines
 const sortedMachines = sortMachines(machinesWithCategories);
 
-// Export featured (top 4) and catalog (all machines)
+// Export all machines and sorted variants
+export const allMachines = machinesWithCategories;
 export const featuredMachines = sortedMachines.slice(0, 4);
 export const catalogMachines = sortedMachines;
