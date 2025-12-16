@@ -76,11 +76,16 @@ import johnDeere210gImage3 from '@/assets/machines/john-deere-210g-3.png';
 import johnDeere210gImage4 from '@/assets/machines/john-deere-210g-4.png';
 import caterpillar950mImage from '@/assets/machines/caterpillar-950m.png';
 import johnDeere544pImage from '@/assets/machines/john-deere-544p.png';
-import volvoL120hImage1 from '@/assets/machines/volvo-l120h-1.png';
-import volvoL120hImage2 from '@/assets/machines/volvo-l120h-2.png';
-import volvoL120hImage3 from '@/assets/machines/volvo-l120h-3.png';
-import volvoL120hImage4 from '@/assets/machines/volvo-l120h-4.png';
-import volvoL120hImage5 from '@/assets/machines/volvo-l120h-5.png';
+import volvoL120h2016Image1 from '@/assets/machines/volvo-l120h-2016-1.png';
+import volvoL120h2016Image2 from '@/assets/machines/volvo-l120h-2016-2.png';
+import volvoL120h2016Image3 from '@/assets/machines/volvo-l120h-2016-3.png';
+import volvoL120h2016Image4 from '@/assets/machines/volvo-l120h-2016-4.png';
+import volvoL120h2016Image5 from '@/assets/machines/volvo-l120h-2016-5.png';
+import volvoL120h2024Image1 from '@/assets/machines/volvo-l120h-2024-1.png';
+import volvoL120h2024Image2 from '@/assets/machines/volvo-l120h-2024-2.png';
+import volvoL120h2024Image3 from '@/assets/machines/volvo-l120h-2024-3.png';
+import volvoL120h2024Image4 from '@/assets/machines/volvo-l120h-2024-4.png';
+import volvoL120h2024Image5 from '@/assets/machines/volvo-l120h-2024-5.png';
 import manitouMlt1040145Image1 from '@/assets/machines/manitou-mlt1040-145-1.png';
 import manitouMlt1040145Image2 from '@/assets/machines/manitou-mlt1040-145-2.png';
 import manitouMlt1040145Image3 from '@/assets/machines/manitou-mlt1040-145-3.png';
@@ -1300,7 +1305,7 @@ const allMachinesRaw: Array<Omit<Machine, 'category'> & { category?: string }> =
     originalPrice: 85450,
     discount: 26,
     category: 'loaders',
-    image: volvoL120hImage1,
+    image: volvoL120h2016Image1,
     isHotOffer: true,
     description: 'Super-clean 2016 Volvo L120H from a single-owner mining support fleet. Always dealer-serviced, stored indoors when not in use. Fresh 500-hour service completed, zero leaks, excellent Michelin tires (85% remaining). Ice-cold A/C, Comfort Drive Control, Boom Suspension. Comes with 5.0 yd³ rehandling bucket + bolt-on edge. Ready to load trucks the day it arrives.',
     specs: {
@@ -1315,11 +1320,11 @@ const allMachinesRaw: Array<Omit<Machine, 'category'> & { category?: string }> =
       status: 'In stock – ships worldwide',
     },
     gallery: [
-      volvoL120hImage1,
-      volvoL120hImage2,
-      volvoL120hImage3,
-      volvoL120hImage4,
-      volvoL120hImage5,
+      volvoL120h2016Image1,
+      volvoL120h2016Image2,
+      volvoL120h2016Image3,
+      volvoL120h2016Image4,
+      volvoL120h2016Image5,
     ],
   },
   {
@@ -2446,7 +2451,7 @@ const allMachinesRaw: Array<Omit<Machine, 'category'> & { category?: string }> =
     originalPrice: 175000,
     discount: 17,
     category: 'wheel-loaders',
-    image: volvoL120hImage1,
+    image: volvoL120h2024Image1,
     isHotOffer: true,
     description: 'Nearly-new 2024 Volvo L120H with factory warranty remaining. Volvo D8M Tier 4 Final engine delivers 245 hp with industry-leading fuel efficiency and smooth power delivery. Full spec cab with heated/ventilated leather seat, touchscreen display, rear camera, Comfort Drive Control, and Boom Suspension for smooth loads. Includes 5.2 yd³ GP bucket, ride control, auto-idle, LED lights throughout. Only 180 hours - practically brand new condition.',
     specs: {
@@ -2469,11 +2474,11 @@ const allMachinesRaw: Array<Omit<Machine, 'category'> & { category?: string }> =
       status: 'In stock Billings MT – factory warranty active',
     },
     gallery: [
-      volvoL120hImage1,
-      volvoL120hImage2,
-      volvoL120hImage3,
-      volvoL120hImage4,
-      volvoL120hImage5,
+      volvoL120h2024Image1,
+      volvoL120h2024Image2,
+      volvoL120h2024Image3,
+      volvoL120h2024Image4,
+      volvoL120h2024Image5,
     ],
   },
   {
