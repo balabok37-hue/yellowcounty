@@ -1157,8 +1157,8 @@ const allMachinesRaw: Array<Omit<Machine, 'category'> & { category?: string }> =
   },
   {
     id: 45,
-    name: '2019 Caterpillar 336 Excavator',
-    year: 2019,
+    name: '2022 Caterpillar 336 Excavator',
+    year: 2022,
     hours: 6769,
     location: 'Lake Worth, Texas',
     price: 76450,
