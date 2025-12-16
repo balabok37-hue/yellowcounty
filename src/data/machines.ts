@@ -2581,7 +2581,7 @@ const allMachinesRaw: Array<Omit<Machine, 'category'> & { category?: string }> =
     originalPrice: 74700,
     discount: 20,
     category: 'telehandlers',
-    image: manitouMlt1040145Image1,
+    image: manitouMlt1040145Image2,
     isHotOffer: true,
     description: 'Well-maintained 2020 Manitou MLT1040-145 PS+L with premium specs. Deutz 4-cylinder Tier 4 Final engine delivers 145 hp with excellent torque for heavy loads. Full cab with heat/AC, suspended seat, rear view camera, and joystick controls. Powershift transmission with 4WD, crab-steer capability, and frame leveling. Includes pallet forks and carriage - ready for immediate work. Strong service history with all maintenance records.',
     specs: {
@@ -2604,8 +2604,8 @@ const allMachinesRaw: Array<Omit<Machine, 'category'> & { category?: string }> =
       status: 'In stock Billings MT – full service records',
     },
     gallery: [
-      manitouMlt1040145Image1,
       manitouMlt1040145Image2,
+      manitouMlt1040145Image1,
       manitouMlt1040145Image3,
       manitouMlt1040145Image4,
     ],
