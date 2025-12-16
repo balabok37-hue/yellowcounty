@@ -90,6 +90,11 @@ import johnDeere310sl2023Image2 from '@/assets/machines/john-deere-310sl-2023-2.
 import johnDeere310sl2023Image3 from '@/assets/machines/john-deere-310sl-2023-3.png';
 import johnDeere310sl2023Image4 from '@/assets/machines/john-deere-310sl-2023-4.png';
 import johnDeere310sl2023Image5 from '@/assets/machines/john-deere-310sl-2023-5.png';
+import johnDeere333g2022Image1 from '@/assets/machines/john-deere-333g-2022-1.png';
+import johnDeere333g2022Image2 from '@/assets/machines/john-deere-333g-2022-2.png';
+import johnDeere333g2022Image3 from '@/assets/machines/john-deere-333g-2022-3.png';
+import johnDeere333g2022Image4 from '@/assets/machines/john-deere-333g-2022-4.png';
+import johnDeere333g2022Image5 from '@/assets/machines/john-deere-333g-2022-5.png';
 import caterpillarD6Image from '@/assets/machines/caterpillar-d6.png';
 import komatsuD65pxiImage from '@/assets/machines/komatsu-d65pxi.png';
 import kubotaKx0404Image from '@/assets/machines/kubota-kx040-4.png';
@@ -2552,6 +2557,47 @@ const allMachinesRaw: Array<Omit<Machine, 'category'> & { category?: string }> =
       johnDeere310sl2023Image5,
     ],
   },
+  {
+    id: 88,
+    name: '2022 John Deere 333G Compact Track Loader',
+    year: 2022,
+    hours: 1850,
+    location: 'Billings, MT',
+    price: 44250,
+    originalPrice: 53300,
+    discount: 17,
+    category: 'track-loaders',
+    image: johnDeere333g2022Image1,
+    isHotOffer: true,
+    description: 'Powerful 2022 John Deere 333G compact track loader with excellent condition and service history. Yanmar 3.3L Tier 4 Final engine delivers 100 hp with smooth power delivery. Full cab with heat/AC, suspension seat, rear camera, and excellent visibility. High-flow hydraulics, 2-speed travel, electrohydraulic joysticks. Includes 84" bucket, quick-attach system, and LED work lights. Ready for landscaping, construction, and ag work.',
+    specs: {
+      engine: 'Yanmar 3.3L Tier 4 Final',
+      power: '100 hp (75 kW)',
+      weight: '11,850 lb (5,375 kg)',
+      capacity: '3,700 lb (1,678 kg) @ 50% tipping load',
+      tippingLoad: '7,400 lb (3,357 kg)',
+      bucketCapacity: '0.95 yd³ (0.73 m³)',
+      breakoutForce: '9,113 lbf (40.5 kN)',
+      maxLiftCapacity: '7,400 lb (3,357 kg) at full height',
+      maxLiftHeight: '10 ft 9 in (3.28 m) hinge pin',
+      maxReach: '3 ft 4 in (1.02 m) at full height',
+      travelSpeed: '7.5 mph (12 km/h) 2-speed',
+      hydraulicFlow: '30.6 gpm (116 L/min) high-flow',
+      trackWidth: '17.7 in (450 mm)',
+      groundClearance: '10.3 in (262 mm)',
+      fuelTank: '28 gal (106 L)',
+      cab: 'Premium cab, heat/AC, suspension seat, rear camera, touchscreen display',
+      features: '84" bucket, quick-attach, 2-speed, high-flow hydraulics, EH joysticks, LED lights, auto-idle',
+      status: 'In stock Billings MT – dealer maintained',
+    },
+    gallery: [
+      johnDeere333g2022Image1,
+      johnDeere333g2022Image2,
+      johnDeere333g2022Image3,
+      johnDeere333g2022Image4,
+      johnDeere333g2022Image5,
+    ],
+  },
 ];
 
 // Category assignments by machine ID - prioritized over inline category values
@@ -2612,6 +2658,7 @@ const categoryMap: Record<number, MachineCategory> = {
   77: 'track-loaders', // CAT 279D3 Compact Track Loader
   78: 'track-loaders', // CASE TR310B Compact Track Loader
   79: 'track-loaders', // Kubota SVL75-3 Compact Track Loader
+  88: 'track-loaders', // John Deere 333G Compact Track Loader (2022)
   
   // Backhoes
   8: 'backhoes', // 310L EP Backhoe
