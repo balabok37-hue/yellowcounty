@@ -81,6 +81,10 @@ import volvoL120hImage2 from '@/assets/machines/volvo-l120h-2.png';
 import volvoL120hImage3 from '@/assets/machines/volvo-l120h-3.png';
 import volvoL120hImage4 from '@/assets/machines/volvo-l120h-4.png';
 import volvoL120hImage5 from '@/assets/machines/volvo-l120h-5.png';
+import manitouMlt1040145Image1 from '@/assets/machines/manitou-mlt1040-145-1.png';
+import manitouMlt1040145Image2 from '@/assets/machines/manitou-mlt1040-145-2.png';
+import manitouMlt1040145Image3 from '@/assets/machines/manitou-mlt1040-145-3.png';
+import manitouMlt1040145Image4 from '@/assets/machines/manitou-mlt1040-145-4.png';
 import caterpillarD6Image from '@/assets/machines/caterpillar-d6.png';
 import komatsuD65pxiImage from '@/assets/machines/komatsu-d65pxi.png';
 import kubotaKx0404Image from '@/assets/machines/kubota-kx040-4.png';
@@ -2462,6 +2466,45 @@ const allMachinesRaw: Array<Omit<Machine, 'category'> & { category?: string }> =
       volvoL120hImage5,
     ],
   },
+  {
+    id: 86,
+    name: '2020 Manitou MLT1040-145 PS+L Telehandler',
+    year: 2020,
+    hours: 2850,
+    location: 'Billings, MT',
+    price: 59750,
+    originalPrice: 74700,
+    discount: 20,
+    category: 'telehandlers',
+    image: manitouMlt1040145Image1,
+    isHotOffer: true,
+    description: 'Well-maintained 2020 Manitou MLT1040-145 PS+L with premium specs. Deutz 4-cylinder Tier 4 Final engine delivers 145 hp with excellent torque for heavy loads. Full cab with heat/AC, suspended seat, rear view camera, and joystick controls. Powershift transmission with 4WD, crab-steer capability, and frame leveling. Includes pallet forks and carriage - ready for immediate work. Strong service history with all maintenance records.',
+    specs: {
+      engine: 'Deutz TCD 3.6 L4 Tier 4 Final 145 hp',
+      power: '145 hp (108 kW)',
+      weight: '21,164 lb (9,600 kg)',
+      maxLiftCapacity: '8,818 lb (4,000 kg)',
+      maxLiftHeight: '32 ft 10 in (10.0 m)',
+      forwardReach: '21 ft 4 in (6.5 m) at 2,205 lb',
+      capacityAtMaxHeight: '8,818 lb (4,000 kg)',
+      capacityAtMaxReach: '2,205 lb (1,000 kg)',
+      transmission: 'Powershift 4F/3R',
+      travelSpeed: '25 mph (40 km/h)',
+      turningRadius: '13 ft 1 in (4.0 m) outside',
+      tireSize: '460/70 R24',
+      fuelTank: '47.5 gal (180 L)',
+      hydraulicFlow: '34.3 gpm (130 L/min)',
+      cab: 'Enclosed cab, heat/AC, suspended seat, rear camera, joystick controls',
+      features: '4WS/2WS/Crab steer modes, frame leveling, pallet forks, carriage, 4WD, auto-idle, work lights',
+      status: 'In stock Billings MT – full service records',
+    },
+    gallery: [
+      manitouMlt1040145Image1,
+      manitouMlt1040145Image2,
+      manitouMlt1040145Image3,
+      manitouMlt1040145Image4,
+    ],
+  },
 ];
 
 // Category assignments by machine ID - prioritized over inline category values
@@ -2535,7 +2578,7 @@ const categoryMap: Record<number, MachineCategory> = {
   37: 'telehandlers', // GTH-1056
   38: 'telehandlers', // RS6-42
   40: 'telehandlers', // TL943C
-  
+  86: 'telehandlers', // Manitou MLT1040-145 PS+L
   // Trucks (All trucks, pickups, commercial vehicles)
   11: 'trucks', // Peterbilt 389
   12: 'trucks', // Freightliner M2
