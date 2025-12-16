@@ -157,6 +157,11 @@ import caterpillar303eCr2021Image1 from '@/assets/machines/caterpillar-303e-cr-2
 import caterpillar303eCr2021Image2 from '@/assets/machines/caterpillar-303e-cr-2021-2.png';
 import caterpillar303eCr2021Image3 from '@/assets/machines/caterpillar-303e-cr-2021-3.png';
 import caterpillar303eCr2021Image4 from '@/assets/machines/caterpillar-303e-cr-2021-4.png';
+import caterpillar305e2cr2019Image1 from '@/assets/machines/caterpillar-305e2-cr-2019-1.png';
+import caterpillar305e2cr2019Image2 from '@/assets/machines/caterpillar-305e2-cr-2019-2.png';
+import caterpillar305e2cr2019Image3 from '@/assets/machines/caterpillar-305e2-cr-2019-3.png';
+import caterpillar305e2cr2019Image4 from '@/assets/machines/caterpillar-305e2-cr-2019-4.png';
+import caterpillar305e2cr2019Image5 from '@/assets/machines/caterpillar-305e2-cr-2019-5.png';
 import caterpillar279d3Image from '@/assets/machines/caterpillar-279d3.png';
 import caseTr310bImage from '@/assets/machines/case-tr310b.png';
 import kubotaSvl753Image from '@/assets/machines/kubota-svl75-3.png';
@@ -2795,6 +2800,47 @@ const allMachinesRaw: Array<Omit<Machine, 'category'> & { category?: string }> =
       caterpillar303eCr2021Image4,
     ],
   },
+  {
+    id: 93,
+    name: '2019 Caterpillar 305E2 CR Mini Excavator',
+    year: 2019,
+    hours: 3412,
+    location: 'Billings, MT',
+    price: 38800,
+    originalPrice: 49744,
+    discount: 22,
+    category: 'excavators',
+    image: caterpillar305e2cr2019Image1,
+    isHotOffer: true,
+    description: 'Well-maintained 2019 CAT 305E2 CR mini excavator – the industry-leading 5-ton class machine with compact reduced tail swing. Cat C2.4 Tier 4 Final diesel delivers 40.7 hp with excellent fuel efficiency and no DEF required. Features enclosed ROPS/FOPS cab with heat/AC, suspension seat, and intuitive joystick controls. Expandable undercarriage for enhanced stability. Includes 24" bucket, mechanical quick coupler, and hydraulic thumb-ready circuit. Ideal for residential, commercial, and utility work.',
+    specs: {
+      engine: 'Cat C2.4 Tier 4 Final',
+      power: '40.7 hp (30.3 kW)',
+      weight: '11,464 lb (5,200 kg)',
+      maxDiggingDepth: '12 ft 6 in (3.81 m)',
+      maxReach: '19 ft 10 in (6.04 m) at ground',
+      maxDumpingHeight: '13 ft 1 in (3.99 m)',
+      bucketCapacity: '0.21 yd³ (0.16 m³)',
+      bucketDiggingForce: '8,992 lbf (40 kN)',
+      armDiggingForce: '5,620 lbf (25 kN)',
+      swingSpeed: '9.0 rpm',
+      travelSpeed: '3.1 mph (5.0 km/h)',
+      tailSwing: '3 ft 2 in (970 mm) reduced tail swing',
+      trackWidth: '15.7 in (400 mm) rubber',
+      fuelTank: '13.2 gal (50 L)',
+      hydraulicFlow: '22.5 gpm (85 L/min)',
+      cab: 'Enclosed ROPS/FOPS cab, heat/AC, suspension seat, dual pattern controls',
+      features: '24" bucket, mechanical quick coupler, dozer blade, thumb-ready circuit, LED lights',
+      status: 'In stock Billings MT – work ready, well maintained',
+    },
+    gallery: [
+      caterpillar305e2cr2019Image1,
+      caterpillar305e2cr2019Image2,
+      caterpillar305e2cr2019Image3,
+      caterpillar305e2cr2019Image4,
+      caterpillar305e2cr2019Image5,
+    ],
+  },
 ];
 
 // Category assignments by machine ID - prioritized over inline category values
@@ -2826,6 +2872,7 @@ const categoryMap: Record<number, MachineCategory> = {
   90: 'excavators', // CAT 305E2 CR Mini Excavator (2021 #2)
   84: 'excavators', // Kubota KX040-4 Mini Excavator (2024)
   92: 'excavators', // CAT 303E CR Mini Excavator (2021)
+  93: 'excavators', // CAT 305E2 CR Mini Excavator (2019)
   
   // Dozers
   3: 'dozers', // Develon DD100 Dozer
