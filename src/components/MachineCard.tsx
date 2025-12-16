@@ -3,7 +3,7 @@ import { MapPin, Clock, Eye } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { categoryInfo } from '@/data/machines';
 
-export type MachineCategory = 'earthmoving' | 'loaders' | 'telehandlers' | 'trucks' | 'specialty';
+export type MachineCategory = 'excavators' | 'dozers' | 'wheel-loaders' | 'track-loaders' | 'backhoes' | 'telehandlers' | 'trucks' | 'compaction';
 
 export interface Machine {
   id: number;

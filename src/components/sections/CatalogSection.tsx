@@ -4,7 +4,7 @@ import { MachineCard } from '@/components/MachineCard';
 import { catalogMachines, categoryInfo } from '@/data/machines';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
-import { ChevronDown, ChevronUp, Shovel, Truck, Forklift, Cog, Loader, Search, X, Factory, ArrowUpDown, ArrowUp } from 'lucide-react';
+import { ChevronDown, ChevronUp, Shovel, Truck, Forklift, Cog, Loader, Search, X, Factory, ArrowUpDown, ArrowUp, Mountain, Tractor, Construction, Drum } from 'lucide-react';
 import { CardReveal } from '@/components/ScrollReveal';
 import {
   Select,
@@ -27,11 +27,14 @@ interface CatalogSectionProps {
 }
 
 const categoryIcons: Record<MachineCategory, React.ElementType> = {
-  earthmoving: Shovel,
-  loaders: Loader,
+  excavators: Shovel,
+  dozers: Mountain,
+  'wheel-loaders': Loader,
+  'track-loaders': Tractor,
+  backhoes: Construction,
   telehandlers: Forklift,
   trucks: Truck,
-  specialty: Cog,
+  compaction: Drum,
 };
 
 const sortOptions: { value: SortOption; label: string }[] = [
