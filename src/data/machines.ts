@@ -142,6 +142,11 @@ import caterpillar305e2cr2022Image2 from '@/assets/machines/caterpillar-305e2-cr
 import caterpillar305e2cr2022Image3 from '@/assets/machines/caterpillar-305e2-cr-2022-3.png';
 import caterpillar305e2cr2022Image4 from '@/assets/machines/caterpillar-305e2-cr-2022-4.png';
 import caterpillar305e2cr2022Image5 from '@/assets/machines/caterpillar-305e2-cr-2022-5.png';
+import kubotaKx0404Image1 from '@/assets/machines/kubota-kx040-4-1.png';
+import kubotaKx0404Image2 from '@/assets/machines/kubota-kx040-4-2.png';
+import kubotaKx0404Image3 from '@/assets/machines/kubota-kx040-4-3.png';
+import kubotaKx0404Image4 from '@/assets/machines/kubota-kx040-4-4.png';
+import kubotaKx0404Image5 from '@/assets/machines/kubota-kx040-4-5.png';
 
 
 // Category definitions with labels and icons
@@ -2376,6 +2381,47 @@ const allMachinesRaw: Array<Omit<Machine, 'category'> & { category?: string }> =
       caterpillar305e2cr2022Image5,
     ],
   },
+  {
+    id: 84,
+    name: '2024 Kubota KX040-4 Mini Excavator',
+    year: 2024,
+    hours: 320,
+    location: 'Billings, MT',
+    price: 48350,
+    originalPrice: 58000,
+    discount: 17,
+    category: 'earthmoving',
+    image: kubotaKx0404Image1,
+    description: 'Nearly new 4-ton mini excavator with tight tail swing design for confined spaces. Kubota V2403 Tier 4 Final diesel delivers 40.4 hp with exceptional fuel efficiency and no DPF regeneration required. Enclosed cab with heat/AC, deluxe suspension seat, joystick controls with proportional auxiliary hydraulics for thumb attachment, standard angle blade with float, rubber tracks at 98%+, quick-coupler with 18" and 24" buckets included. Very low hours, full factory warranty remaining.',
+    specs: {
+      engine: 'Kubota V2403-CR-TE4 Tier 4 Final 40.4 hp',
+      power: '40.4 hp (30.1 kW)',
+      weight: '9,480 lb (4,300 kg)',
+      maxDiggingDepth: '11 ft 2 in (3.41 m)',
+      maxReach: '17 ft 10 in (5.44 m)',
+      maxDumpHeight: '12 ft 1 in (3.68 m)',
+      bucketCapacity: '0.09 - 0.28 yd³ (0.07 - 0.21 m³)',
+      bucketDiggingForce: '7,385 lbf (32.8 kN)',
+      armDiggingForce: '4,600 lbf (20.5 kN)',
+      swingSpeed: '9.0 rpm',
+      travelSpeed: '2.8 mph (4.5 km/h)',
+      tailSwing: 'Tight tail swing (minimal overhang)',
+      trackWidth: '15.7 in (400 mm) rubber tracks',
+      groundClearance: '11.6 in (295 mm)',
+      fuelTank: '15.9 gal (60 L)',
+      hydraulicTank: '10.8 gal (41 L)',
+      cab: 'Enclosed ROPS/FOPS cab, heat/AC, deluxe suspension seat, Bluetooth radio',
+      features: 'Quick-coupler, 18" & 24" buckets, proportional aux hydraulics, angle blade with float, LED work lights, auto-idle, pattern changer',
+      status: 'In stock Billings MT – factory warranty remaining',
+    },
+    gallery: [
+      kubotaKx0404Image1,
+      kubotaKx0404Image2,
+      kubotaKx0404Image3,
+      kubotaKx0404Image4,
+      kubotaKx0404Image5,
+    ],
+  },
 ];
 
 // Category assignments by machine ID - prioritized over inline category values
@@ -2403,6 +2449,7 @@ const categoryMap: Record<number, MachineCategory> = {
   81: 'excavators', // CAT 305CR Mini Excavator
   82: 'excavators', // CAT 305E2 CR Mini Excavator (2021)
   83: 'excavators', // CAT 305E2 CR Mini Excavator (2022)
+  84: 'excavators', // Kubota KX040-4 Mini Excavator (2024)
   
   // Dozers
   3: 'dozers', // Develon DD100 Dozer
