@@ -2767,7 +2767,7 @@ const allMachinesRaw: Array<Omit<Machine, 'category'> & { category?: string }> =
     year: 2021,
     hours: 2187,
     location: 'Billings, MT',
-    price: 36110,
+    price: 34700,
     originalPrice: 40122,
     discount: 10,
     category: 'excavators',
