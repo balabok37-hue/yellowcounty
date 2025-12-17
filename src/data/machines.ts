@@ -459,6 +459,7 @@ const allMachinesRaw: Array<Omit<Machine, 'category'> & { category?: string }> =
     price: 35275,
     originalPrice: 42500,
     discount: 17,
+    isReserved: true,
     image: johnDeere310lImage,
     description: 'The 2019 John Deere 310L EP is a super-clean, low-hour compact backhoe loader perfect for landscaping, utilities and small-to-medium construction jobs. Powered by a 99 hp John Deere PowerTech 4045HT Tier 4 Final engine (SCR only, no DPF), it offers smooth powershift transmission, pilot controls, extendable stick and ride control. This unit has only ≈ 2,100 hours and comes fully loaded. Ready to work — full service just completed, excellent tire condition, both quick couplers included.',
     specs: {
@@ -996,6 +997,7 @@ const allMachinesRaw: Array<Omit<Machine, 'category'> & { category?: string }> =
     price: 37450,
     originalPrice: 44000,
     discount: 15,
+    isSold: true,
     image: johnDeere310slImage,
     description: 'The 2016 John Deere 310SL – premium low-hour backhoe loader that\'s been babied on light municipal duty, with just 2,164 original hours and a spotless service history. Iconic John Deere 4.5L PowerTech diesel (Tier 4 Final, no DEF headaches), 100 hp, sync-shuttle transmission with 4F/4R speeds, 4WD, powershift on the go, extendable stick (up to 19 ft 5 in dig depth), 92 in loader bucket with bolt-on teeth, enclosed cab with heat/AC/joystick controls/Bluetooth/radio, ride control, quick-attach loader ends, fresh tracks and tires at 90%+, no leaks, no welds, tight as a drum. Fresh full service, DOT-ready for any trenching, loading, or demo job. Ships nationwide (#A8195987). Similar low-hour 2016 310SL units with 2–3k hours still fetching $46–52k at Ritchie Bros, IronPlanet, and JJ Kane auctions – this one\'s undervalued big time.',
     specs: {
