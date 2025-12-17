@@ -192,7 +192,7 @@ const Index = () => {
             </main>
 
             {/* Floating Buttons */}
-            <FloatingSearchButton showAfter={400} />
+            <FloatingSearchButton />
             <ScrollToTop targetRef={featuredRef} showAfter={600} />
 
             {/* Footer */}
