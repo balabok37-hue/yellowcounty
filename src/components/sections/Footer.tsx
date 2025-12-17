@@ -60,7 +60,7 @@ export function Footer() {
                 rel="noopener noreferrer"
                 className="flex items-center justify-center px-5 py-3 rounded-xl bg-white border border-border/50 hover:border-primary/50 transition-colors h-14 min-w-[160px]"
               >
-                <img src={centralDispatchLogo} alt="Central Dispatch" className="h-6 w-auto" />
+                <img src={centralDispatchLogo} alt="Central Dispatch" className="h-6 w-auto" width="141" height="24" />
               </a>
               <a 
                 href="https://www.montway.com" 
