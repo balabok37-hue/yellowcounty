@@ -2404,7 +2404,7 @@ const allMachinesRaw: Array<Omit<Machine, 'category'> & { category?: string }> =
     originalPrice: 56200,
     discount: 20,
     category: 'earthmoving',
-    image: caterpillar305e2cr2022Image1,
+    image: caterpillar305e2cr2022Image2,
     description: 'Premium 5-ton mini excavator with zero tail swing design for tight-space excavation. Cat C2.4 Tier 4 Final diesel delivers 40.2 hp with excellent fuel efficiency and no DEF required. Enclosed cab with heat/AC, joystick controls with proportional auxiliary hydraulics for thumb or grapple, standard blade with float, rubber tracks at 85%+, quick-coupler with 24" bucket included. Low hours, dealer-serviced, ready for residential or commercial work.',
     specs: {
       engine: 'Cat C2.4 Tier 4 Final 40.2 hp (no DEF)',
@@ -2428,7 +2428,6 @@ const allMachinesRaw: Array<Omit<Machine, 'category'> & { category?: string }> =
       status: 'In stock Billings MT – ready to ship in 48 hrs',
     },
     gallery: [
-      caterpillar305e2cr2022Image1,
       caterpillar305e2cr2022Image2,
       caterpillar305e2cr2022Image3,
       caterpillar305e2cr2022Image4,
