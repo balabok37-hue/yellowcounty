@@ -97,15 +97,11 @@ export function MachineModal({ machine, isOpen, onClose }: MachineModalProps) {
           className="fixed inset-0 z-50 flex items-center justify-center p-2 sm:p-4 bg-background/95 backdrop-blur-xl overflow-hidden"
           onClick={handleClose}
         >
-          {/* Decorative background */}
+          {/* Decorative background - simplified for performance */}
           <div className="absolute inset-0 pointer-events-none overflow-hidden">
-            {/* Main radial gradient */}
-            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] rounded-full bg-primary/10 blur-[120px]" />
-            <div className="absolute top-1/4 right-1/4 w-48 h-48 rounded-full bg-primary/8 blur-[80px]" />
-            <div className="absolute bottom-1/4 left-1/4 w-32 h-32 rounded-full bg-accent/10 blur-[60px]" />
-            {/* Geometric grid */}
+            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] rounded-full bg-primary/8 blur-3xl" />
             <div 
-              className="absolute inset-0 opacity-[0.03]" 
+              className="absolute inset-0 opacity-[0.02]" 
               style={{ 
                 backgroundImage: 'linear-gradient(to right, hsl(var(--foreground)) 1px, transparent 1px), linear-gradient(to bottom, hsl(var(--foreground)) 1px, transparent 1px)', 
                 backgroundSize: '50px 50px' 

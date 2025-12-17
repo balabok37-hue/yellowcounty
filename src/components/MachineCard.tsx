@@ -1,4 +1,4 @@
-import { motion } from 'framer-motion';
+import { memo } from 'react';
 import { MapPin, Clock, Eye } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { categoryInfo } from '@/data/machines';
@@ -98,28 +98,19 @@ export interface Machine {
 
 interface MachineCardProps {
   machine: Machine;
-  index: number;
   onViewDetails: (machine: Machine) => void;
 }
 
-export function MachineCard({ machine, index, onViewDetails }: MachineCardProps) {
+export const MachineCard = memo(function MachineCard({ machine, onViewDetails }: MachineCardProps) {
   return (
-    <motion.div
-      initial={{ opacity: 0, y: 40 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, margin: "-50px" }}
-      transition={{ 
-        duration: 0.4, 
-        delay: index * 0.05,
-        ease: [0.25, 0.1, 0.25, 1]
-      }}
+    <div
       onClick={() => onViewDetails(machine)}
-      className="group cursor-pointer touch-manipulation"
+      className="group cursor-pointer touch-manipulation will-change-transform"
     >
-      <div className="glass-card overflow-hidden relative transition-transform duration-200 ease-out active:scale-[0.98] hover:scale-[1.02]">
+      <div className="glass-card overflow-hidden relative transform-gpu transition-transform duration-150 ease-out active:scale-[0.98] hover:scale-[1.02]">
         {/* Full background image */}
         <div className="absolute inset-0 overflow-hidden">
-          <div className="w-full h-full transition-transform duration-300 ease-out group-hover:scale-105">
+          <div className="w-full h-full transform-gpu transition-transform duration-200 ease-out group-hover:scale-105">
             <div className="w-full h-full relative overflow-hidden" style={{ marginBottom: '-30px', paddingBottom: '30px' }}>
               <img
                 src={machine.image}
@@ -204,13 +195,13 @@ export function MachineCard({ machine, index, onViewDetails }: MachineCardProps)
           </div>
 
           <Button
-            className="w-full h-10 sm:h-11 text-sm sm:text-base font-bold rounded-lg bg-primary text-primary-foreground hover:bg-primary/90 transition-colors duration-200"
+            className="w-full h-10 sm:h-11 text-sm sm:text-base font-bold rounded-lg bg-primary text-primary-foreground hover:bg-primary/90 transition-colors duration-150"
           >
             <Eye className="w-4 h-4 mr-1.5" />
             View Details
           </Button>
         </div>
       </div>
-    </motion.div>
+    </div>
   );
-}
+});

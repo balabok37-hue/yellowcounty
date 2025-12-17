@@ -1,4 +1,3 @@
-import { motion } from 'framer-motion';
 import { Button } from '@/components/ui/button';
 import { ChevronDown, Star, Award, TrendingUp } from 'lucide-react';
 import heroBackground from '@/assets/hero-background.jpg';
@@ -18,6 +17,7 @@ export function HeroSection() {
           className="w-full h-full object-cover object-center brightness-110 contrast-105"
           loading="eager"
           decoding="async"
+          fetchPriority="high"
         />
         {/* Overlay */}
         <div className="absolute inset-0 bg-gradient-to-b from-background/70 via-background/50 to-background/90" />
@@ -30,17 +30,9 @@ export function HeroSection() {
       
       {/* Content */}
       <div className="container relative z-10 text-center px-4 sm:px-6 py-12 sm:py-20">
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
-          className="max-w-5xl mx-auto space-y-5 sm:space-y-8"
-        >
+        <div className="max-w-5xl mx-auto space-y-5 sm:space-y-8 animate-fade-in">
           {/* Premium Badge */}
-          <motion.div
-            initial={{ opacity: 0, scale: 0.8 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ delay: 0.2, duration: 0.5 }}
+          <div
             className="inline-flex items-center gap-2 px-4 sm:px-6 py-2 sm:py-2.5 rounded-full bg-primary/15 border border-primary/40 backdrop-blur-sm"
             style={{ boxShadow: '0 0 40px hsl(48 100% 50% / 0.2)' }}
           >
@@ -49,50 +41,30 @@ export function HeroSection() {
               #1 HEAVY EQUIPMENT DEALER IN USA
             </span>
             <Star className="w-4 h-4 text-primary fill-primary" />
-          </motion.div>
+          </div>
 
           {/* Main Headline */}
-          <motion.h1 
-            className="text-[1.75rem] leading-[1.1] sm:text-5xl md:text-7xl lg:text-8xl font-black tracking-tight sm:tracking-tighter text-foreground px-2 sm:px-0"
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.4, duration: 0.8 }}
-          >
+          <h1 className="text-[1.75rem] leading-[1.1] sm:text-5xl md:text-7xl lg:text-8xl font-black tracking-tight sm:tracking-tighter text-foreground px-2 sm:px-0">
             Heavy Machinery
             <br />
             <span className="text-gradient-gold relative">
               That Pays For Itself
               {/* Underline accent */}
-              <motion.div 
-                className="absolute -bottom-2 left-1/4 right-1/4 h-1 rounded-full bg-gradient-to-r from-primary/0 via-primary to-primary/0"
-                initial={{ scaleX: 0 }}
-                animate={{ scaleX: 1 }}
-                transition={{ delay: 1.2, duration: 0.8 }}
-              />
+              <div className="absolute -bottom-2 left-1/4 right-1/4 h-1 rounded-full bg-gradient-to-r from-primary/0 via-primary to-primary/0" />
             </span>
-          </motion.h1>
+          </h1>
 
           {/* Subheadline */}
-          <motion.p
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.8, duration: 0.6 }}
-            className="text-sm sm:text-xl md:text-2xl text-muted-foreground max-w-2xl mx-auto px-4 sm:px-2"
-          >
+          <p className="text-sm sm:text-xl md:text-2xl text-muted-foreground max-w-2xl mx-auto px-4 sm:px-2">
             Hand-selected premium units — <span className="text-primary font-bold">20% below market</span>
-          </motion.p>
+          </p>
 
           {/* CTA Button */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 1.0, duration: 0.6 }}
-            whileTap={{ scale: 0.97 }}
-          >
+          <div>
             <Button
               size="lg"
               onClick={scrollToDeals}
-              className="relative btn-glow bg-primary hover:bg-primary/90 text-primary-foreground font-bold text-sm sm:text-lg px-8 sm:px-12 py-6 sm:py-8 rounded-2xl min-h-[56px] sm:min-h-[64px] touch-manipulation overflow-hidden group"
+              className="relative btn-glow bg-primary hover:bg-primary/90 text-primary-foreground font-bold text-sm sm:text-lg px-8 sm:px-12 py-6 sm:py-8 rounded-2xl min-h-[56px] sm:min-h-[64px] touch-manipulation overflow-hidden group active:scale-[0.97] transition-transform duration-150"
               style={{ boxShadow: '0 0 50px hsl(48 100% 50% / 0.35), 0 15px 50px hsl(0 0% 0% / 0.4)' }}
             >
               <span className="relative flex items-center gap-2">
@@ -100,56 +72,38 @@ export function HeroSection() {
                 <ChevronDown className="w-5 h-5 sm:w-6 sm:h-6" />
               </span>
             </Button>
-          </motion.div>
+          </div>
 
           {/* Stats */}
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 1.2, duration: 0.6 }}
-            className="grid grid-cols-3 gap-3 sm:gap-6 pt-8 sm:pt-14 max-w-3xl mx-auto"
-          >
+          <div className="grid grid-cols-3 gap-3 sm:gap-6 pt-8 sm:pt-14 max-w-3xl mx-auto">
             {[
               { value: '150+', label: 'Units Sold', icon: TrendingUp },
               { value: '$15M+', label: 'Equipment Value', icon: Award },
               { value: '99.9%', label: 'Satisfaction', icon: Star },
             ].map((stat, index) => (
-              <motion.div 
+              <div 
                 key={index} 
-                className="text-center p-3 sm:p-5 rounded-2xl bg-card/40 backdrop-blur-sm border border-border/30"
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 1.4 + index * 0.1, duration: 0.4 }}
-                whileHover={{ 
-                  scale: 1.05, 
-                  borderColor: 'hsl(48 100% 50% / 0.4)',
-                  boxShadow: '0 0 40px hsl(48 100% 50% / 0.15)'
-                }}
+                className="text-center p-3 sm:p-5 rounded-2xl bg-card/40 backdrop-blur-sm border border-border/30 transform-gpu transition-all duration-150 hover:scale-105 hover:border-primary/40 hover:shadow-[0_0_40px_hsl(48_100%_50%/0.15)]"
               >
                 <stat.icon className="w-4 h-4 sm:w-5 sm:h-5 text-primary mx-auto mb-1 sm:mb-2" />
                 <div className="text-lg sm:text-3xl md:text-4xl font-black text-primary" style={{ textShadow: '0 0 25px hsl(48 100% 50% / 0.35)' }}>
                   {stat.value}
                 </div>
                 <div className="text-[10px] sm:text-sm text-muted-foreground font-medium">{stat.label}</div>
-              </motion.div>
+              </div>
             ))}
-          </motion.div>
-        </motion.div>
+          </div>
+        </div>
       </div>
 
       {/* Scroll indicator */}
-      <motion.div
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ delay: 2.2, duration: 0.6 }}
-        className="absolute bottom-6 sm:bottom-8 left-1/2 -translate-x-1/2 hidden md:block"
-      >
+      <div className="absolute bottom-6 sm:bottom-8 left-1/2 -translate-x-1/2 hidden md:block opacity-0 animate-[fade-in_0.6s_ease-out_2s_forwards]">
         <div className="w-7 h-12 rounded-full border-2 border-primary/40 flex justify-center pt-3 bg-background/30 backdrop-blur-sm"
           style={{ boxShadow: '0 0 25px hsl(48 100% 50% / 0.15)' }}
         >
           <div className="w-1.5 h-3 rounded-full bg-primary" />
         </div>
-      </motion.div>
+      </div>
     </section>
   );
 }

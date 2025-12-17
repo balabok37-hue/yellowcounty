@@ -1,29 +1,46 @@
-import { motion } from 'framer-motion';
-import { ReactNode } from 'react';
+import { ReactNode, useRef, useEffect, useState, memo } from 'react';
 
 interface ScrollRevealProps {
   children: ReactNode;
   className?: string;
-  delay?: number;
 }
 
-export function ScrollReveal({ 
+export const ScrollReveal = memo(function ScrollReveal({ 
   children, 
   className = '', 
-  delay = 0,
 }: ScrollRevealProps) {
+  const ref = useRef<HTMLDivElement>(null);
+  const [isVisible, setIsVisible] = useState(false);
+
+  useEffect(() => {
+    const element = ref.current;
+    if (!element) return;
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsVisible(true);
+          observer.disconnect();
+        }
+      },
+      { threshold: 0.1, rootMargin: '-30px' }
+    );
+
+    observer.observe(element);
+    return () => observer.disconnect();
+  }, []);
+
   return (
-    <motion.div
-      initial={{ opacity: 0, y: 20 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, margin: "-50px" }}
-      transition={{ duration: 0.4, delay, ease: [0.25, 0.1, 0.25, 1] }}
-      className={className}
+    <div
+      ref={ref}
+      className={`transform-gpu transition-all duration-300 ease-out ${
+        isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
+      } ${className}`}
     >
       {children}
-    </motion.div>
+    </div>
   );
-}
+});
 
 interface CardRevealProps {
   children: ReactNode;
@@ -31,16 +48,36 @@ interface CardRevealProps {
   index?: number;
 }
 
-export function CardReveal({ children, className = '', index = 0 }: CardRevealProps) {
+export const CardReveal = memo(function CardReveal({ children, className = '' }: CardRevealProps) {
+  const ref = useRef<HTMLDivElement>(null);
+  const [isVisible, setIsVisible] = useState(false);
+
+  useEffect(() => {
+    const element = ref.current;
+    if (!element) return;
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsVisible(true);
+          observer.disconnect();
+        }
+      },
+      { threshold: 0.05, rootMargin: '-20px' }
+    );
+
+    observer.observe(element);
+    return () => observer.disconnect();
+  }, []);
+
   return (
-    <motion.div
-      initial={{ opacity: 0, y: 20 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, margin: "-30px" }}
-      transition={{ duration: 0.35, delay: index * 0.05, ease: [0.25, 0.1, 0.25, 1] }}
-      className={className}
+    <div
+      ref={ref}
+      className={`transform-gpu transition-all duration-200 ease-out ${
+        isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-3'
+      } ${className}`}
     >
       {children}
-    </motion.div>
+    </div>
   );
-}
+});
