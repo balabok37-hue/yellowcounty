@@ -94,16 +94,32 @@ export function MachineModal({ machine, isOpen, onClose }: MachineModalProps) {
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
           transition={{ duration: 0.15 }}
-          className="fixed inset-0 z-50 flex items-center justify-center p-2 sm:p-4 bg-background/95 backdrop-blur-xl"
+          className="fixed inset-0 z-50 flex items-center justify-center p-2 sm:p-4 bg-background/95 backdrop-blur-xl overflow-hidden"
           onClick={handleClose}
         >
+          {/* Decorative background */}
+          <div className="absolute inset-0 pointer-events-none overflow-hidden">
+            {/* Main radial gradient */}
+            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] rounded-full bg-primary/10 blur-[120px]" />
+            <div className="absolute top-1/4 right-1/4 w-48 h-48 rounded-full bg-primary/8 blur-[80px]" />
+            <div className="absolute bottom-1/4 left-1/4 w-32 h-32 rounded-full bg-accent/10 blur-[60px]" />
+            {/* Geometric grid */}
+            <div 
+              className="absolute inset-0 opacity-[0.03]" 
+              style={{ 
+                backgroundImage: 'linear-gradient(to right, hsl(var(--foreground)) 1px, transparent 1px), linear-gradient(to bottom, hsl(var(--foreground)) 1px, transparent 1px)', 
+                backgroundSize: '50px 50px' 
+              }} 
+            />
+          </div>
+
           {/* Modal */}
           <motion.div
             initial={{ opacity: 0, scale: 0.95 }}
             animate={{ opacity: 1, scale: 1 }}
             exit={{ opacity: 0, scale: 0.95 }}
             transition={{ duration: 0.15 }}
-            className="relative w-full max-w-3xl max-h-[95vh] sm:max-h-[90vh] overflow-hidden rounded-2xl bg-card border border-border/50 shadow-2xl"
+            className="relative w-full max-w-3xl max-h-[95vh] sm:max-h-[90vh] overflow-hidden rounded-2xl bg-card border border-border/50 shadow-[0_0_60px_rgba(250,204,21,0.12)]"
             onClick={(e) => e.stopPropagation()}
           >
             {/* Close button */}
@@ -206,9 +222,9 @@ export function MachineModal({ machine, isOpen, onClose }: MachineModalProps) {
                   </div>
                 </div>
 
-                {/* Description - 2 lines max */}
+                {/* Description - full text */}
                 {machine.description && (
-                  <p className="text-[11px] text-muted-foreground leading-relaxed line-clamp-2 mb-2">
+                  <p className="text-[11px] text-muted-foreground leading-relaxed mb-2">
                     {machine.description}
                   </p>
                 )}
