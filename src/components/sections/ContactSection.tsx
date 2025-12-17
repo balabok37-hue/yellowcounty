@@ -172,7 +172,7 @@ export function ContactSection() {
           </ScrollReveal>
 
           {/* Map & Contact Info */}
-          <ScrollReveal delay={0.2}>
+          <ScrollReveal>
             <div className="space-y-6">
               <div className="glass-card overflow-hidden aspect-video">
                 <iframe
