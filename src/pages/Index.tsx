@@ -13,6 +13,7 @@ import { MachineModal } from '@/components/MachineModal';
 import { LoadingScreen } from '@/components/LoadingScreen';
 import { StaticGeometricShapes } from '@/components/StaticGeometricShapes';
 import { ScrollToTop } from '@/components/ScrollToTop';
+import { FloatingSearchButton } from '@/components/FloatingSearchButton';
 import { useLenis } from '@/hooks/useLenis';
 import { preloadImages } from '@/hooks/useImagePreloader';
 import { featuredMachines, catalogMachines, allMachines } from '@/data/machines';
@@ -190,7 +191,8 @@ const Index = () => {
               <ContactSection />
             </main>
 
-            {/* Scroll to Top Button */}
+            {/* Floating Buttons */}
+            <FloatingSearchButton showAfter={400} />
             <ScrollToTop targetRef={featuredRef} showAfter={600} />
 
             {/* Footer */}
