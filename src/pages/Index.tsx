@@ -38,6 +38,7 @@ const Index = () => {
   const [modalOpen, setModalOpen] = useState(false);
   const [catalogPreloaded, setCatalogPreloaded] = useState(false);
   const featuredRef = useRef<HTMLDivElement>(null);
+  const lastScrollYRef = useRef(0);
   const location = useLocation();
   const navigate = useNavigate();
   const [searchParams] = useSearchParams();
@@ -131,6 +132,7 @@ const Index = () => {
   };
 
   const handleViewDetails = (machine: Machine) => {
+    lastScrollYRef.current = window.scrollY;
     setSelectedMachine(machine);
     setModalOpen(true);
     // Update URL with pretty machine slug using replace to avoid page reset
@@ -140,13 +142,21 @@ const Index = () => {
   };
 
   const handleCloseModal = () => {
+    const scrollY = lastScrollYRef.current;
+
     setModalOpen(false);
     setSelectedMachine(null);
-    // Remove machine parameter from URL using replace to avoid page reset
+
+    // Remove machine parameter from URL using replace (keep current scroll position)
     const newParams = new URLSearchParams(searchParams);
     newParams.delete('machine');
     const paramString = newParams.toString();
     navigate(paramString ? `?${paramString}` : '/', { replace: true });
+
+    // Restore scroll after URL update + modal unmount
+    requestAnimationFrame(() => {
+      window.scrollTo(0, scrollY);
+    });
   };
 
   return (
