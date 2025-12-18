@@ -67,10 +67,10 @@ export default function ThankYou() {
                 Need immediate assistance? Contact us directly:
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                <a href="tel:+12402427810">
+                <a href="tel:+16783106065">
                   <Button variant="outline" className="w-full sm:w-auto">
                     <Phone className="w-4 h-4 mr-2" />
-                    +1 (240) 242-7810
+                    +1 (678) 310-6065
                   </Button>
                 </a>
                 <a href="https://wa.me/15797013943" target="_blank" rel="noopener noreferrer">

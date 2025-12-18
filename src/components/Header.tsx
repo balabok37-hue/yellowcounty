@@ -163,7 +163,7 @@ export function Header() {
                 className="pt-6 space-y-3"
               >
                 <a
-                  href="tel:+12402427810"
+                  href="tel:+16783106065"
                   className="flex items-center gap-4 p-5 rounded-2xl bg-primary text-primary-foreground active:opacity-90 transition-opacity duration-150"
                 >
                   <div className="w-12 h-12 rounded-full bg-primary-foreground/20 flex items-center justify-center">
@@ -171,7 +171,7 @@ export function Header() {
                   </div>
                   <div>
                     <div className="text-sm opacity-80">Call Now</div>
-                    <div className="font-bold">+1 (240) 242-7810</div>
+                    <div className="font-bold">+1 (678) 310-6065</div>
                   </div>
                 </a>
 
@@ -216,7 +216,7 @@ export function Header() {
           </DialogHeader>
           <div className="space-y-4 pt-4">
             <a 
-              href="tel:+12402427810"
+              href="tel:+16783106065"
               className="flex items-center gap-4 p-4 rounded-lg bg-primary/10 hover:bg-primary/20 transition-colors duration-200"
             >
               <div className="w-12 h-12 rounded-full bg-primary/20 flex items-center justify-center">
@@ -224,7 +224,7 @@ export function Header() {
               </div>
               <div>
                 <div className="text-sm text-muted-foreground">Call us</div>
-                <div className="font-semibold text-foreground">+1 (240) 242-7810</div>
+                <div className="font-semibold text-foreground">+1 (678) 310-6065</div>
               </div>
             </a>
             

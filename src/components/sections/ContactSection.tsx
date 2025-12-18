@@ -193,8 +193,8 @@ export function ContactSection() {
                     <div className="glass-card p-3 sm:p-4 text-center h-full">
                       <Phone className="w-5 h-5 sm:w-6 sm:h-6 text-primary mx-auto mb-1 sm:mb-2" />
                       <div className="text-[10px] sm:text-xs text-muted-foreground">Phone</div>
-                      <a href="tel:+12402427810" className="font-semibold text-foreground hover:text-primary transition-colors text-[10px] sm:text-xs">
-                        +1 (240) 242-7810
+                      <a href="tel:+16783106065" className="font-semibold text-foreground hover:text-primary transition-colors text-[10px] sm:text-xs">
+                        +1 (678) 310-6065
                       </a>
                     </div>
                   </CardReveal>
