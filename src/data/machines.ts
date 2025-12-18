@@ -397,6 +397,7 @@ const allMachinesRaw: Array<Omit<Machine, 'category'> & { category?: string }> =
     price: 45000,
     originalPrice: 50000,
     discount: 10,
+    isSold: true,
     image: manitouMlt1040Image,
     imagePosition: 'calc(50% - 1.5cm) center',
     description: 'The 2018 Manitou MLT 1040-145 L is a high-performance 10-meter telescopic handler built for heavy agriculture, construction, and industrial applications, featuring a reinforced boom and frame for 15,000+ hour service life. Powered by a Deutz TCD 3.6 L4 Tier 4 Final engine (141 hp net), it delivers 9,000 lb (4,000 kg) lift capacity to full 32 ft 3 in (9.84 m) height and 22 ft 2 in forward reach. Equipped with 4WD hydrostatic transmission, load-sensing hydraulics, 360° visibility cab with heat/AC/Bluetooth, joystick control, and quick-attach carriage. This low-hour unit includes 1.5 yd³ bucket + pallet forks and auxiliary hydraulics — perfect for stacking bales, loading trucks, or high-reach work on big sites.',
@@ -966,6 +967,7 @@ const allMachinesRaw: Array<Omit<Machine, 'category'> & { category?: string }> =
     price: 21340,
     originalPrice: 22000,
     discount: 3,
+    isSold: true,
     image: gehlRs642Image,
     description: 'The 2016 Gehl RS6-42 – clean, low-hour, high-spec 6,000 lb / 42 ft telehandler that still looks and runs like a 2020 model. Only 3,230 original hours, Deutz TCD 3.6 L4 Tier 4 Final 120 hp (no DEF issues), 4-speed powershift, 4WD + crab steer, 10° frame leveling, enclosed cab with heat/AC/Bluetooth, hydraulic quick-attach carriage + 60" pallet forks, foam-filled 13.00-24 tires at 85%, LED work lights, fenders, fresh full service, no leaks, no welds, boom tight as new. Ships nationwide (#A6567925). Same-year RS6-42 units with 3–4k hours still hammering $26–31k at Ritchie Bros, IronPlanet and JJ Kane auctions.',
     specs: {
@@ -1454,6 +1456,7 @@ const allMachinesRaw: Array<Omit<Machine, 'category'> & { category?: string }> =
     discount: 8,
     category: 'earthmoving',
     image: johnDeere35pTierImage,
+    isSold: true,
     isHotOffer: false,
     description: '2023 John Deere 35 P-Tier with only light residential use. Still covered by full John Deere factory warranty until 2026 or 3,000 hours. Zero tail swing, expandable tracks, angle blade, hydraulic thumb – basically brand-new machine at a huge discount.',
     specs: {
@@ -1903,6 +1906,7 @@ const allMachinesRaw: Array<Omit<Machine, 'category'> & { category?: string }> =
     originalPrice: 25000,
     discount: 8,
     category: 'earthmoving',
+    isSold: true,
     image: caterpillar303ecrImage,
     description: 'Iconic compact radius mini excavator – rental fleet favorite for tight urban digs, landscaping, utilities, and light demo. Zero tail swing means zero headaches on confined sites. Cat C1.8 Tier 4 Final 35 hp (no DEF regen issues), load-sensing hydraulics with 17.4 gpm aux flow for hammers/thumbs, 2-speed travel up to 3 mph, swing boom for max reach, hydraulic quick-coupler + 12" thumb-ready bucket included, dozer blade with float, enclosed ROPS cab with heat/AC/joystick controls/Bluetooth radio/rear camera/LED work lights, 12" rubber tracks at 85%+.',
     specs: {
@@ -1935,6 +1939,7 @@ const allMachinesRaw: Array<Omit<Machine, 'category'> & { category?: string }> =
     originalPrice: 35000,
     discount: 8,
     category: 'earthmoving',
+    isReserved: true,
     image: bobcatE50Image,
     description: 'Ultimate 5-ton compact excavator for tight jobs, landscaping, utilities, and rental fleets. Kubota V2403 Tier 4 Final 49.8 hp (no DEF), X-frame undercarriage, long-arm package (12 ft 11 in dig depth), hydraulic pin-grabber coupler + 18" digging bucket + 36" grading bucket + 2023 hydraulic thumb, angle blade option, proportional aux hydraulics (perfect for grapples/hammers), enclosed cab with heat/AC/Bluetooth radio/rear camera/LED lights, 16" rubber tracks at 80-85%.',
     specs: {
@@ -2068,6 +2073,7 @@ const allMachinesRaw: Array<Omit<Machine, 'category'> & { category?: string }> =
     originalPrice: 54000,
     discount: 6,
     category: 'loaders',
+    isReserved: true,
     image: johnDeere333gImage,
     description: 'Go-to mid-frame vertical-lift compact track loader for heavy construction, landscaping, material handling, and rental fleets – built tough with John Deere\'s legendary reliability. Yanmar 4TNV94FHT Tier 4 Final 100 hp diesel (no DEF issues), hydrostatic two-speed transmission up to 10 mph, 3,700 lb ROC for stacking pallets high, 12 ft 3 in lift height, high-flow hydraulics (32 gpm @ 3,450 psi for mulchers/grapples), electro-hydraulic joystick controls, enclosed cab with heat/AC/Bluetooth radio/rear camera/LED work lights.',
     specs: {
