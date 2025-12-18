@@ -16,9 +16,11 @@ export function HeroSection() {
           alt="Premium heavy machinery fleet" 
           className="w-full h-full object-cover object-center brightness-110 contrast-105"
           loading="eager"
-          decoding="async"
+          decoding="sync"
           fetchPriority="high"
         />
+        {/* Preload link for LCP image */}
+        <link rel="preload" as="image" href={heroBackground} fetchPriority="high" />
         {/* Overlay */}
         <div className="absolute inset-0 bg-gradient-to-b from-background/70 via-background/50 to-background/90" />
         <div className="absolute inset-0 bg-primary/5 mix-blend-overlay" />
