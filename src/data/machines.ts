@@ -2966,8 +2966,10 @@ function sortMachines(machines: Machine[]): Machine[] {
 // Get sorted machines
 const sortedMachines = sortMachines(machinesWithCategories);
 
-// Get mini excavators for featured section
-const miniExcavators = sortedMachines.filter(m => m.category === 'excavators');
+// Get MINI excavators only (by name containing "Mini")
+const miniExcavators = sortedMachines.filter(m => 
+  m.category === 'excavators' && m.name.toLowerCase().includes('mini')
+);
 
 // Export all machines and sorted variants
 export const allMachines = machinesWithCategories;
