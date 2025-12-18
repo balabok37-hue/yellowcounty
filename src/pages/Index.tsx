@@ -1,6 +1,6 @@
 import { useState, useEffect, useCallback, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { useLocation, useSearchParams } from 'react-router-dom';
+import { useLocation, useSearchParams, useNavigate } from 'react-router-dom';
 import { Header } from '@/components/Header';
 import { HeroSection } from '@/components/sections/HeroSection';
 import { FeaturedSection } from '@/components/sections/FeaturedSection';
@@ -39,7 +39,8 @@ const Index = () => {
   const [catalogPreloaded, setCatalogPreloaded] = useState(false);
   const featuredRef = useRef<HTMLDivElement>(null);
   const location = useLocation();
-  const [searchParams, setSearchParams] = useSearchParams();
+  const navigate = useNavigate();
+  const [searchParams] = useSearchParams();
 
   // Initialize smooth scroll
   useLenis();
@@ -132,20 +133,20 @@ const Index = () => {
   const handleViewDetails = (machine: Machine) => {
     setSelectedMachine(machine);
     setModalOpen(true);
-    // Update URL with pretty machine slug
-    setSearchParams({ machine: generateMachineSlug(machine) });
+    // Update URL with pretty machine slug using replace to avoid page reset
+    const newParams = new URLSearchParams(searchParams);
+    newParams.set('machine', generateMachineSlug(machine));
+    navigate(`?${newParams.toString()}`, { replace: true });
   };
 
   const handleCloseModal = () => {
     setModalOpen(false);
     setSelectedMachine(null);
-    // Remove machine parameter from URL, but preserve search query
-    const currentSearch = searchParams.get('search');
-    if (currentSearch) {
-      setSearchParams({ search: currentSearch });
-    } else {
-      setSearchParams({});
-    }
+    // Remove machine parameter from URL using replace to avoid page reset
+    const newParams = new URLSearchParams(searchParams);
+    newParams.delete('machine');
+    const paramString = newParams.toString();
+    navigate(paramString ? `?${paramString}` : '/', { replace: true });
   };
 
   return (
@@ -179,11 +180,14 @@ const Index = () => {
                 onViewDetails={handleViewDetails}
                 urlSearchQuery={urlSearchQuery}
                 onSearchChange={(query) => {
+                  const newParams = new URLSearchParams(searchParams);
                   if (query) {
-                    setSearchParams({ search: query });
+                    newParams.set('search', query);
                   } else {
-                    setSearchParams({});
+                    newParams.delete('search');
                   }
+                  const paramString = newParams.toString();
+                  navigate(paramString ? `?${paramString}` : '/', { replace: true });
                 }}
               />
               <WhyChooseSection />
