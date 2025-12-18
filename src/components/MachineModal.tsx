@@ -1,5 +1,5 @@
 import { motion, AnimatePresence, PanInfo } from 'framer-motion';
-import { X, MapPin, Clock, Send, ChevronLeft, ChevronRight, Shield, Truck, CheckCircle2 } from 'lucide-react';
+import { X, MapPin, Send, ChevronLeft, ChevronRight, Shield, Truck, CheckCircle2 } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { useState, useCallback, useEffect } from 'react';
 import type { Machine } from './MachineCard';
@@ -208,8 +208,7 @@ export function MachineModal({ machine, isOpen, onClose }: MachineModalProps) {
                   </h2>
                   <div className="flex flex-wrap gap-1.5">
                     <span className="flex items-center gap-1 text-[10px] text-muted-foreground bg-muted/50 px-2 py-0.5 rounded-full">
-                      <Clock className="w-3 h-3 text-primary" />
-                      {machine.year} • {machine.miles ? `${machine.miles.toLocaleString()} mi` : `${machine.hours.toLocaleString()} hrs`}
+                      {machine.year}
                     </span>
                     <span className="flex items-center gap-1 text-[10px] text-muted-foreground bg-muted/50 px-2 py-0.5 rounded-full">
                       <MapPin className="w-3 h-3 text-accent" />
@@ -315,14 +314,10 @@ export function MachineModal({ machine, isOpen, onClose }: MachineModalProps) {
 
                 {/* Basic Specs for machines without detailed specs */}
                 {(!machine.specs || Object.keys(machine.specs).length <= 3) && (
-                  <div className="grid grid-cols-4 gap-1.5 mb-2">
+                  <div className="grid grid-cols-3 gap-1.5 mb-2">
                     <div className="p-2 rounded-lg bg-muted/30 border border-border/30 text-center">
                       <span className="text-[9px] text-muted-foreground uppercase">Year</span>
                       <p className="font-bold text-xs text-foreground">{machine.year}</p>
-                    </div>
-                    <div className="p-2 rounded-lg bg-muted/30 border border-border/30 text-center">
-                      <span className="text-[9px] text-muted-foreground uppercase">{machine.miles ? 'Miles' : 'Hrs'}</span>
-                      <p className="font-bold text-xs text-foreground">{machine.miles ? machine.miles.toLocaleString() : machine.hours.toLocaleString()}</p>
                     </div>
                     <div className="p-2 rounded-lg bg-muted/30 border border-border/30 text-center">
                       <span className="text-[9px] text-muted-foreground uppercase">Cond.</span>
