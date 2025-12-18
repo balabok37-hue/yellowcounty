@@ -1,5 +1,5 @@
 import { memo } from 'react';
-import { MapPin, Clock, Eye } from 'lucide-react';
+import { MapPin, Eye } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { categoryInfo } from '@/data/machines';
 
@@ -102,10 +102,18 @@ interface MachineCardProps {
 }
 
 export const MachineCard = memo(function MachineCard({ machine, onViewDetails }: MachineCardProps) {
+  const isUnavailable = machine.isSold || machine.isReserved;
+  
+  const handleClick = () => {
+    if (!isUnavailable) {
+      onViewDetails(machine);
+    }
+  };
+
   return (
     <div
-      onClick={() => onViewDetails(machine)}
-      className="group cursor-pointer touch-manipulation will-change-transform"
+      onClick={handleClick}
+      className={`group touch-manipulation will-change-transform ${isUnavailable ? 'cursor-default' : 'cursor-pointer'}`}
     >
       <div className="glass-card overflow-hidden relative transform-gpu transition-transform duration-150 ease-out active:scale-[0.98] hover:scale-[1.02]">
         {/* Full background image */}
@@ -176,8 +184,7 @@ export const MachineCard = memo(function MachineCard({ machine, onViewDetails }:
 
           <div className="flex flex-wrap gap-1.5 sm:gap-2 text-[10px] sm:text-xs">
             <span className="flex items-center gap-1 px-2 py-1 rounded-full bg-background/60 backdrop-blur-sm border border-border/30">
-              <Clock className="w-3 h-3 sm:w-3.5 sm:h-3.5 text-primary" />
-              {machine.year} • {machine.miles ? `${machine.miles.toLocaleString()} mi` : `${machine.hours.toLocaleString()} hrs`}
+              {machine.year}
             </span>
             <span className="flex items-center gap-1 px-2 py-1 rounded-full bg-background/60 backdrop-blur-sm border border-border/30">
               <MapPin className="w-3 h-3 sm:w-3.5 sm:h-3.5 text-muted-foreground" />
