@@ -152,19 +152,19 @@ export const MachineCard = memo(function MachineCard({ machine, onViewDetails }:
           </div>
         )}
 
-        {/* SOLD overlay - only covers image area */}
+        {/* SOLD overlay - full card, text visible through */}
         {machine.isSold && (
-          <div className="absolute top-0 left-0 right-0 h-40 sm:h-48 md:h-52 z-20 flex items-center justify-center bg-destructive/40 backdrop-blur-sm">
-            <span className="text-3xl sm:text-4xl md:text-5xl font-black text-destructive-foreground uppercase tracking-widest -rotate-12 drop-shadow-lg">
+          <div className="absolute inset-0 z-20 flex items-center justify-center bg-destructive/50 backdrop-blur-[2px]">
+            <span className="text-4xl sm:text-5xl md:text-6xl font-black text-destructive-foreground uppercase tracking-widest -rotate-12 drop-shadow-lg">
               SOLD
             </span>
           </div>
         )}
 
-        {/* RESERVED overlay - only covers image area */}
+        {/* RESERVED overlay - full card, text visible through */}
         {machine.isReserved && !machine.isSold && (
-          <div className="absolute top-0 left-0 right-0 h-40 sm:h-48 md:h-52 z-20 flex items-center justify-center bg-muted/60 backdrop-blur-sm">
-            <span className="text-2xl sm:text-3xl md:text-4xl font-black text-muted-foreground uppercase tracking-widest -rotate-12 drop-shadow-lg">
+          <div className="absolute inset-0 z-20 flex items-center justify-center bg-muted/60 backdrop-blur-[2px]">
+            <span className="text-3xl sm:text-4xl md:text-5xl font-black text-muted-foreground uppercase tracking-widest -rotate-12 drop-shadow-lg">
               RESERVED
             </span>
           </div>
