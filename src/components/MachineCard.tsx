@@ -1,5 +1,5 @@
 import { memo } from 'react';
-import { MapPin, Eye } from 'lucide-react';
+import { Eye } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { categoryInfo } from '@/data/machines';
 
@@ -185,10 +185,6 @@ export const MachineCard = memo(function MachineCard({ machine, onViewDetails }:
           <div className="flex flex-wrap gap-1.5 sm:gap-2 text-[10px] sm:text-xs">
             <span className="flex items-center gap-1 px-2 py-1 rounded-full bg-background/60 backdrop-blur-sm border border-border/30">
               {machine.year}
-            </span>
-            <span className="flex items-center gap-1 px-2 py-1 rounded-full bg-background/60 backdrop-blur-sm border border-border/30">
-              <MapPin className="w-3 h-3 sm:w-3.5 sm:h-3.5 text-muted-foreground" />
-              {machine.location}
             </span>
           </div>
 
