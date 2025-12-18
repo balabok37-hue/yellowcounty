@@ -66,7 +66,33 @@
     <noscript><img height="1" width="1" style="display:none"
     src="https://www.facebook.com/tr?id=1541195530338388&ev=PageView&noscript=1"
     /></noscript>
-    <div id="root"></div>
+    <div id="root">
+      <!-- Initial loading placeholder for fast FCP -->
+      <style>
+        .initial-loader{position:fixed;inset:0;z-index:100;background:#0a0a0a;display:flex;flex-direction:column;align-items:center;justify-content:center;font-family:system-ui,-apple-system,sans-serif}
+        .initial-loader__logo{width:5rem;height:5rem;border-radius:1rem;background:#eab308;display:flex;align-items:center;justify-content:center}
+        .initial-loader__text{font-size:1.875rem;font-weight:900;color:#fafafa}
+        .initial-loader__brand{text-align:center;margin-top:1.5rem}
+        .initial-loader__title{font-size:1.5rem;font-weight:700;color:#fafafa}
+        .initial-loader__title span{color:#eab308}
+        .initial-loader__subtitle{font-size:.875rem;color:#a1a1aa;margin-top:.25rem}
+        .initial-loader__bar{width:12rem;height:.25rem;background:rgba(255,255,255,.1);border-radius:9999px;overflow:hidden;margin-top:1.5rem}
+        .initial-loader__progress{height:100%;border-radius:9999px;background:#eab308;animation:loading 1s linear infinite}
+        @keyframes loading{0%{transform:translateX(-100%)}100%{transform:translateX(100%)}}
+      </style>
+      <div class="initial-loader" id="initial-loader">
+        <div class="initial-loader__logo">
+          <span class="initial-loader__text">YS</span>
+        </div>
+        <div class="initial-loader__brand">
+          <h1 class="initial-loader__title">Yellow<span>Stone</span></h1>
+          <p class="initial-loader__subtitle">Premium Equipment</p>
+        </div>
+        <div class="initial-loader__bar">
+          <div class="initial-loader__progress"></div>
+        </div>
+      </div>
+    </div>
     <script type="module" src="/src/main.tsx"></script>
   </body>
 </html>
