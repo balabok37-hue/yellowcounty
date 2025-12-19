@@ -1,5 +1,4 @@
-import { AnimatePresence, PanInfo } from 'framer-motion';
-import { X, MapPin, Send, ChevronLeft, ChevronRight, Shield, Truck, CheckCircle2 } from 'lucide-react';
+import { X, MapPin, Send, ChevronLeft, ChevronRight, Shield, Truck, CheckCircle2, Clock } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { useState, useCallback, useEffect } from 'react';
 import type { Machine } from './MachineCard';
@@ -12,6 +11,11 @@ interface MachineModalProps {
 
 export function MachineModal({ machine, isOpen, onClose }: MachineModalProps) {
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
+
+  // Reset image index when machine changes
+  useEffect(() => {
+    setCurrentImageIndex(0);
+  }, [machine?.id]);
 
   // Lock body scroll when modal is open
   useEffect(() => {
@@ -52,119 +56,156 @@ export function MachineModal({ machine, isOpen, onClose }: MachineModalProps) {
     }, 300);
   }, [handleClose]);
 
-  if (!machine) return null;
+  if (!machine || !isOpen) return null;
 
-  const images = machine.gallery || [machine.image];
+  // Build gallery - always include main image first, then add gallery images
+  const galleryImages = machine.gallery && machine.gallery.length > 0 
+    ? machine.gallery 
+    : [machine.image];
+  
+  const images = galleryImages;
 
   const handleRequestQuote = () => {
     const message = `Hi! I'm interested in the ${machine.year} ${machine.name} listed at $${machine.price.toLocaleString()}. Is it still available?`;
     scrollToContact(message);
   };
 
-  const nextImage = () => {
+  const nextImage = (e: React.MouseEvent) => {
+    e.stopPropagation();
     setCurrentImageIndex((prev) => (prev + 1) % images.length);
   };
 
-  const prevImage = () => {
+  const prevImage = (e: React.MouseEvent) => {
+    e.stopPropagation();
     setCurrentImageIndex((prev) => (prev - 1 + images.length) % images.length);
   };
 
-  if (!isOpen) return null;
+  const selectImage = (idx: number) => {
+    setCurrentImageIndex(idx);
+  };
+
+  // Extract model name
+  const modelName = machine.name.replace(/^\d{4}\s+/, '');
 
   return (
     <div
-      className="fixed inset-0 z-50 flex items-center justify-center p-2 sm:p-4 bg-foreground/50 backdrop-blur-sm overflow-hidden"
+      className="fixed inset-0 z-50 flex items-center justify-center p-2 sm:p-4 bg-foreground/60 backdrop-blur-sm overflow-hidden"
       onClick={handleClose}
     >
       {/* Modal */}
       <div
-        className="relative w-full max-w-4xl max-h-[95vh] sm:max-h-[90vh] overflow-hidden rounded-lg bg-card shadow-2xl"
+        className="relative w-full max-w-5xl max-h-[95vh] sm:max-h-[90vh] overflow-hidden rounded-xl bg-card shadow-2xl"
         onClick={(e) => e.stopPropagation()}
       >
         {/* Close button */}
         <button
           onClick={handleClose}
-          className="absolute top-3 right-3 z-20 p-2 rounded-full bg-card shadow-md border border-border hover:bg-muted transition-colors"
+          className="absolute top-3 right-3 z-30 p-2 rounded-full bg-card shadow-lg border border-border hover:bg-muted transition-colors"
         >
           <X className="w-5 h-5 text-foreground" />
         </button>
 
-        <div className="flex flex-col md:flex-row h-full max-h-[95vh] sm:max-h-[90vh]">
-          {/* Image Gallery */}
-          <div className="relative h-[40vh] md:h-auto md:w-1/2 flex-shrink-0 overflow-hidden bg-muted flex items-center justify-center">
-            <img
-              src={images[currentImageIndex]}
-              alt={machine.name}
-              className="w-full h-full object-cover"
-              style={{ objectPosition: machine.imagePosition || 'center' }}
-            />
-            
-            {images.length > 1 && (
-              <>
-                <button
-                  onClick={prevImage}
-                  className="absolute left-2 top-1/2 -translate-y-1/2 p-2 rounded-full bg-card/90 shadow-md hover:bg-card transition-colors"
-                >
-                  <ChevronLeft className="w-5 h-5 text-foreground" />
-                </button>
-                <button
-                  onClick={nextImage}
-                  className="absolute right-2 top-1/2 -translate-y-1/2 p-2 rounded-full bg-card/90 shadow-md hover:bg-card transition-colors"
-                >
-                  <ChevronRight className="w-5 h-5 text-foreground" />
-                </button>
-                
-                {/* Image indicators */}
-                <div className="absolute bottom-3 left-1/2 -translate-x-1/2 flex gap-1.5 px-3 py-1.5 rounded-full bg-card/90">
-                  {images.map((_, idx) => (
-                    <button
-                      key={idx}
-                      onClick={() => setCurrentImageIndex(idx)}
-                      className={`w-2 h-2 rounded-full transition-colors ${
-                        idx === currentImageIndex ? 'bg-primary' : 'bg-muted-foreground/40'
-                      }`}
-                    />
-                  ))}
-                </div>
-              </>
-            )}
+        <div className="flex flex-col lg:flex-row h-full max-h-[95vh] sm:max-h-[90vh]">
+          {/* Image Gallery Section */}
+          <div className="relative lg:w-[55%] flex-shrink-0 bg-muted">
+            {/* Main Image */}
+            <div className="relative h-[35vh] sm:h-[40vh] lg:h-[400px] flex items-center justify-center overflow-hidden">
+              <img
+                key={currentImageIndex}
+                src={images[currentImageIndex]}
+                alt={`${machine.name} - Image ${currentImageIndex + 1}`}
+                className="w-full h-full object-contain bg-muted"
+              />
+              
+              {/* Navigation Arrows */}
+              {images.length > 1 && (
+                <>
+                  <button
+                    onClick={prevImage}
+                    className="absolute left-3 top-1/2 -translate-y-1/2 p-2.5 rounded-full bg-card/95 shadow-lg hover:bg-card transition-colors"
+                  >
+                    <ChevronLeft className="w-5 h-5 text-foreground" />
+                  </button>
+                  <button
+                    onClick={nextImage}
+                    className="absolute right-3 top-1/2 -translate-y-1/2 p-2.5 rounded-full bg-card/95 shadow-lg hover:bg-card transition-colors"
+                  >
+                    <ChevronRight className="w-5 h-5 text-foreground" />
+                  </button>
+                </>
+              )}
 
-            {/* Discount badge */}
-            {machine.discount > 0 && (
-              <div className="absolute top-3 left-3 px-3 py-1 rounded bg-destructive font-bold text-destructive-foreground text-sm">
-                −{machine.discount}% OFF
+              {/* Discount badge */}
+              {machine.discount > 0 && (
+                <div className="absolute top-3 left-3 px-3 py-1.5 rounded-lg bg-destructive font-bold text-destructive-foreground text-sm shadow-lg">
+                  −{machine.discount}% OFF
+                </div>
+              )}
+
+              {/* Image counter */}
+              <div className="absolute bottom-3 right-3 px-3 py-1 rounded-full bg-card/90 text-sm font-medium text-foreground">
+                {currentImageIndex + 1} / {images.length}
+              </div>
+            </div>
+
+            {/* Thumbnail Gallery */}
+            {images.length > 1 && (
+              <div className="flex gap-2 p-3 overflow-x-auto bg-card/50">
+                {images.map((img, idx) => (
+                  <button
+                    key={idx}
+                    onClick={() => selectImage(idx)}
+                    className={`flex-shrink-0 w-16 h-16 sm:w-20 sm:h-20 rounded-lg overflow-hidden border-2 transition-all ${
+                      idx === currentImageIndex 
+                        ? 'border-primary ring-2 ring-primary/30' 
+                        : 'border-transparent hover:border-muted-foreground/30'
+                    }`}
+                  >
+                    <img
+                      src={img}
+                      alt={`Thumbnail ${idx + 1}`}
+                      className="w-full h-full object-cover"
+                    />
+                  </button>
+                ))}
               </div>
             )}
           </div>
 
-          {/* Details */}
-          <div className="flex-1 p-4 sm:p-6 flex flex-col overflow-y-auto">
-            {/* Title */}
+          {/* Details Section */}
+          <div className="flex-1 p-4 sm:p-6 flex flex-col overflow-y-auto lg:max-h-[90vh]">
+            {/* Title & Year */}
             <div className="mb-4">
-              <h2 className="text-xl sm:text-2xl font-bold text-foreground leading-tight mb-2">
-                {machine.name}
-              </h2>
-              <div className="flex flex-wrap gap-2">
-                <span className="text-xs text-muted-foreground bg-muted px-2 py-1 rounded">
+              <div className="flex items-center gap-2 mb-2">
+                <span className="px-2 py-0.5 bg-primary text-primary-foreground text-xs font-bold rounded">
                   {machine.year}
                 </span>
-                <span className="flex items-center gap-1 text-xs text-muted-foreground bg-muted px-2 py-1 rounded">
-                  <MapPin className="w-3 h-3" />
-                  {machine.location}
-                </span>
+                {machine.year >= 2023 && (
+                  <span className="px-2 py-0.5 bg-accent text-accent-foreground text-xs font-bold rounded">
+                    NEW
+                  </span>
+                )}
+              </div>
+              <h2 className="text-xl sm:text-2xl font-bold text-foreground leading-tight">
+                {modelName}
+              </h2>
+            </div>
+
+            {/* Quick Info */}
+            <div className="flex flex-wrap gap-3 mb-4 text-sm">
+              <div className="flex items-center gap-1.5 text-muted-foreground">
+                <Clock className="w-4 h-4" />
+                <span>{machine.miles ? `${machine.miles.toLocaleString()} Miles` : `${machine.hours.toLocaleString()} Hours`}</span>
+              </div>
+              <div className="flex items-center gap-1.5 text-muted-foreground">
+                <MapPin className="w-4 h-4" />
+                <span>{machine.location}</span>
               </div>
             </div>
 
-            {/* Description */}
-            {machine.description && (
-              <p className="text-sm text-muted-foreground leading-relaxed mb-4">
-                {machine.description}
-              </p>
-            )}
-
-            {/* Price */}
-            <div className="py-4 px-4 rounded-lg bg-muted mb-4">
-              <div className="flex items-center justify-between gap-4">
+            {/* Price Block */}
+            <div className="py-4 px-4 rounded-xl bg-muted/50 border border-border mb-4">
+              <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3">
                 <div>
                   <div className="flex items-baseline gap-2 flex-wrap">
                     <span className="text-2xl sm:text-3xl font-bold text-foreground">
@@ -185,7 +226,8 @@ export function MachineModal({ machine, isOpen, onClose }: MachineModalProps) {
                 </div>
                 <Button
                   onClick={handleRequestQuote}
-                  className="h-11 px-6 font-bold bg-primary text-primary-foreground hover:bg-primary/90"
+                  size="lg"
+                  className="font-bold bg-primary text-primary-foreground hover:bg-primary/90 shadow-lg"
                 >
                   <Send className="w-4 h-4 mr-2" />
                   Get Quote
@@ -193,55 +235,44 @@ export function MachineModal({ machine, isOpen, onClose }: MachineModalProps) {
               </div>
             </div>
 
-            {/* Specs */}
+            {/* Description */}
+            {machine.description && (
+              <div className="mb-4">
+                <h3 className="text-sm font-bold text-foreground uppercase tracking-wide mb-2">
+                  Description
+                </h3>
+                <p className="text-sm text-muted-foreground leading-relaxed">
+                  {machine.description}
+                </p>
+              </div>
+            )}
+
+            {/* Specifications */}
             {machine.specs && Object.keys(machine.specs).length > 0 && (
-              <div className="flex-1 min-h-0 mb-4">
+              <div className="flex-1 mb-4">
                 <h3 className="text-sm font-bold text-foreground uppercase tracking-wide mb-3">
                   Specifications
                 </h3>
-                <div className="grid grid-cols-2 gap-2 text-sm overflow-y-auto max-h-40 pr-2">
-                  {machine.specs.engine && (
-                    <div className="flex justify-between py-1.5 border-b border-border col-span-2">
-                      <span className="text-muted-foreground">Engine</span>
-                      <span className="font-medium text-foreground text-right">{machine.specs.engine}</span>
-                    </div>
-                  )}
-                  {machine.specs.power && (
-                    <div className="flex justify-between py-1.5 border-b border-border">
-                      <span className="text-muted-foreground">Power</span>
-                      <span className="font-medium text-foreground">{machine.specs.power}</span>
-                    </div>
-                  )}
-                  {machine.specs.weight && (
-                    <div className="flex justify-between py-1.5 border-b border-border">
-                      <span className="text-muted-foreground">Weight</span>
-                      <span className="font-medium text-foreground">{machine.specs.weight}</span>
-                    </div>
-                  )}
-                  {machine.specs.maxDiggingDepth && (
-                    <div className="flex justify-between py-1.5 border-b border-border">
-                      <span className="text-muted-foreground">Dig Depth</span>
-                      <span className="font-medium text-foreground">{machine.specs.maxDiggingDepth}</span>
-                    </div>
-                  )}
-                  {machine.specs.maxReach && (
-                    <div className="flex justify-between py-1.5 border-b border-border">
-                      <span className="text-muted-foreground">Max Reach</span>
-                      <span className="font-medium text-foreground">{machine.specs.maxReach}</span>
-                    </div>
-                  )}
-                  {machine.specs.bucketCapacity && (
-                    <div className="flex justify-between py-1.5 border-b border-border">
-                      <span className="text-muted-foreground">Bucket</span>
-                      <span className="font-medium text-foreground">{machine.specs.bucketCapacity}</span>
-                    </div>
-                  )}
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-4 gap-y-1 text-sm max-h-[200px] overflow-y-auto pr-2">
+                  {Object.entries(machine.specs).map(([key, value]) => {
+                    if (!value) return null;
+                    const label = key
+                      .replace(/([A-Z])/g, ' $1')
+                      .replace(/^./, str => str.toUpperCase())
+                      .trim();
+                    return (
+                      <div key={key} className="flex justify-between py-1.5 border-b border-border/50">
+                        <span className="text-muted-foreground truncate mr-2">{label}</span>
+                        <span className="font-medium text-foreground text-right truncate">{value}</span>
+                      </div>
+                    );
+                  })}
                 </div>
               </div>
             )}
 
             {/* Trust badges */}
-            <div className="mt-auto pt-4 flex gap-4 border-t border-border">
+            <div className="mt-auto pt-4 flex flex-wrap gap-4 border-t border-border">
               <div className="flex items-center gap-2 text-sm text-muted-foreground">
                 <Shield className="w-4 h-4 text-accent" />
                 150-Point Inspection
