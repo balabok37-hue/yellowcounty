@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Phone, Menu, X, ChevronDown, Search, ShoppingCart } from 'lucide-react';
+import { Phone, Menu, X, ChevronDown, Search } from 'lucide-react';
 import { Link, useNavigate, useLocation } from 'react-router-dom';
 import { Input } from '@/components/ui/input';
 import {
@@ -136,9 +136,6 @@ export function Header() {
                 (678) 310-6065
               </a>
 
-              <button className="p-2 text-secondary-foreground/80 hover:text-secondary-foreground transition-colors relative">
-                <ShoppingCart className="w-5 h-5" />
-              </button>
             </div>
 
             {/* Mobile Menu Toggle */}

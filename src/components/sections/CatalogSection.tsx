@@ -15,7 +15,7 @@ import {
 } from '@/components/ui/select';
 import type { Machine, MachineCategory } from '@/components/MachineCard';
 
-type SortOption = 'featured' | 'price-low' | 'price-high' | 'newest' | 'lowest-hours';
+type SortOption = 'featured' | 'price-low' | 'price-high' | 'newest';
 type ConditionFilter = 'all' | 'new' | 'used';
 
 interface CatalogSectionProps {
@@ -33,7 +33,6 @@ const sortOptions: { value: SortOption; label: string }[] = [
   { value: 'price-low', label: 'Price: Low to High' },
   { value: 'price-high', label: 'Price: High to Low' },
   { value: 'newest', label: 'Newest First' },
-  { value: 'lowest-hours', label: 'Lowest Hours' },
 ];
 
 // Extract brand from machine name
@@ -71,8 +70,6 @@ const sortMachines = (machines: Machine[], sortBy: SortOption): Machine[] => {
       return sorted.sort((a, b) => b.price - a.price);
     case 'newest':
       return sorted.sort((a, b) => b.year - a.year);
-    case 'lowest-hours':
-      return sorted.sort((a, b) => (a.hours || 0) - (b.hours || 0));
     default:
       return sorted;
   }
