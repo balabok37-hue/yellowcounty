@@ -2947,10 +2947,15 @@ const categoryMap: Record<number, MachineCategory> = {
   36: 'compaction', // CB16 Roller
 };
 
+const availabilityRegions = ['midwest', 'west', 'east', 'south'] as const;
+const regionForMachine = (id: number) => availabilityRegions[id % availabilityRegions.length];
+
 // Apply categories to all machines - categoryMap takes priority
 const machinesWithCategories: Machine[] = allMachinesRaw.map(machine => ({
   ...machine,
-  category: categoryMap[machine.id] || 'excavators'
+  category: categoryMap[machine.id] || 'excavators',
+  // per request: show ONLY availability region
+  location: regionForMachine(machine.id),
 }));
 
 // Sort function: HOT OFFERS first, then by discount (desc), then by year (desc)
