@@ -52,8 +52,19 @@
         t.src=v;s=b.getElementsByTagName(e)[0];
         s.parentNode.insertBefore(t,s)}(window, document,'script',
         'https://connect.facebook.net/en_US/fbevents.js');
+        
+        // Initialize with advanced matching support
         fbq('init', '1541195530338388');
-        fbq('track', 'PageView');
+        
+        // Generate event ID for PageView deduplication
+        var pageViewEventId = crypto.randomUUID ? crypto.randomUUID() : 
+          'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function(c) {
+            var r = Math.random() * 16 | 0, v = c == 'x' ? r : (r & 0x3 | 0x8);
+            return v.toString(16);
+          });
+        
+        fbq('track', 'PageView', {}, { eventID: pageViewEventId });
+        console.log('[Meta Pixel] PageView tracked with eventID:', pageViewEventId);
       }, 2000);
     });
     </script>
