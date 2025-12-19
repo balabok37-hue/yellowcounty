@@ -109,12 +109,12 @@ export function MachineModal({ machine, isOpen, onClose }: MachineModalProps) {
           {/* Image Gallery Section */}
           <div className="relative lg:w-[55%] flex-shrink-0 bg-muted">
             {/* Main Image */}
-            <div className="relative h-[35vh] sm:h-[40vh] lg:h-[400px] flex items-center justify-center overflow-hidden">
+            <div className="relative h-[35vh] sm:h-[40vh] lg:h-[450px] flex items-center justify-center overflow-hidden">
               <img
                 key={currentImageIndex}
                 src={images[currentImageIndex]}
                 alt={`${machine.name} - Image ${currentImageIndex + 1}`}
-                className="w-full h-full object-contain bg-muted"
+                className="w-full h-full object-cover bg-muted"
               />
               
               {/* Navigation Arrows */}
