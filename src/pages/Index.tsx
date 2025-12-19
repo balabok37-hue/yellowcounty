@@ -1,16 +1,9 @@
-import { useState, useEffect, useCallback, useRef } from 'react';
+import { useState, useEffect, useCallback, useRef, lazy, Suspense } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useLocation, useSearchParams, useNavigate } from 'react-router-dom';
 import { Header } from '@/components/Header';
 import { HeroSection } from '@/components/sections/HeroSection';
 import { FeaturedSection } from '@/components/sections/FeaturedSection';
-import { CatalogSection } from '@/components/sections/CatalogSection';
-import { WhyChooseSection } from '@/components/sections/WhyChooseSection';
-import { TestimonialsSection } from '@/components/sections/TestimonialsSection';
-import { ContactSection } from '@/components/sections/ContactSection';
-import { Footer } from '@/components/sections/Footer';
-import { MachineModal } from '@/components/MachineModal';
-import { LoadingScreen } from '@/components/LoadingScreen';
 import { StaticGeometricShapes } from '@/components/StaticGeometricShapes';
 import { ScrollToTop } from '@/components/ScrollToTop';
 import { FloatingSearchButton } from '@/components/FloatingSearchButton';
@@ -20,18 +13,22 @@ import { featuredMachines, catalogMachines, allMachines } from '@/data/machines'
 import { generateMachineSlug, findMachineBySlug } from '@/lib/machine-utils';
 import type { Machine } from '@/components/MachineCard';
 
-// Preload hero image
-const preloadImage = (src: string): Promise<void> => {
-  return new Promise((resolve) => {
-    const img = new Image();
-    img.onload = () => resolve();
-    img.onerror = () => resolve();
-    img.src = src;
-  });
-};
+// Lazy load non-critical sections
+const CatalogSection = lazy(() => import('@/components/sections/CatalogSection').then(m => ({ default: m.CatalogSection })));
+const WhyChooseSection = lazy(() => import('@/components/sections/WhyChooseSection').then(m => ({ default: m.WhyChooseSection })));
+const TestimonialsSection = lazy(() => import('@/components/sections/TestimonialsSection').then(m => ({ default: m.TestimonialsSection })));
+const ContactSection = lazy(() => import('@/components/sections/ContactSection').then(m => ({ default: m.ContactSection })));
+const Footer = lazy(() => import('@/components/sections/Footer').then(m => ({ default: m.Footer })));
+const MachineModal = lazy(() => import('@/components/MachineModal').then(m => ({ default: m.MachineModal })));
+
+// Simple loading placeholder
+const SectionPlaceholder = () => (
+  <div className="py-20 flex items-center justify-center">
+    <div className="w-8 h-8 border-2 border-primary border-t-transparent rounded-full animate-spin" />
+  </div>
+);
 
 const Index = () => {
-  const [isLoading, setIsLoading] = useState(true);
   const [showContent, setShowContent] = useState(false);
   const [catalogOpen, setCatalogOpen] = useState(false);
   const [selectedMachine, setSelectedMachine] = useState<Machine | null>(null);
@@ -103,24 +100,14 @@ const Index = () => {
     }
   }, [showContent, location.state]);
 
-  // Preload critical assets including featured images
+  // Show content immediately, preload featured images in background
   useEffect(() => {
-    const loadAssets = async () => {
-      // Preload hero image first
-      const heroModule = await import('@/assets/hero-background.jpg');
-      await preloadImage(heroModule.default);
-      
-      // Preload featured machine images in parallel
-      const featuredImages = featuredMachines.map(m => m.image);
-      await preloadImages(featuredImages);
-      
-      // Minimum loading time for smooth UX
-      await new Promise(resolve => setTimeout(resolve, 600));
-      setIsLoading(false);
-      setTimeout(() => setShowContent(true), 50);
-    };
-
-    loadAssets();
+    // Show content right away
+    setShowContent(true);
+    
+    // Preload featured images in background (non-blocking)
+    const featuredImages = featuredMachines.map(m => m.image);
+    preloadImages(featuredImages);
   }, []);
 
   const handleCatalogToggle = async () => {
@@ -159,69 +146,79 @@ const Index = () => {
     });
   };
 
+  if (!showContent) {
+    return null;
+  }
+
   return (
-    <>
-      <LoadingScreen isLoading={isLoading} />
+    <motion.div 
+      className="min-h-screen bg-background text-foreground overflow-x-hidden"
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      transition={{ duration: 0.3, ease: [0.4, 0, 0.2, 1] }}
+    >
+      {/* Static Geometric Shapes Background */}
+      <StaticGeometricShapes />
 
-      <AnimatePresence>
-        {showContent && (
-          <motion.div 
-            className="min-h-screen bg-background text-foreground overflow-x-hidden"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 0.6, ease: [0.4, 0, 0.2, 1] }}
-          >
-            {/* Static Geometric Shapes Background */}
-            <StaticGeometricShapes />
+      {/* Header */}
+      <Header />
 
-            {/* Header */}
-            <Header />
+      {/* Main Content */}
+      <main className="relative z-[2]">
+        <HeroSection />
+        <div ref={featuredRef}>
+          <FeaturedSection onViewDetails={handleViewDetails} />
+        </div>
+        <Suspense fallback={<SectionPlaceholder />}>
+          <CatalogSection
+            isOpen={catalogOpen}
+            onToggle={handleCatalogToggle}
+            onHoverButton={preloadCatalog}
+            onViewDetails={handleViewDetails}
+            urlSearchQuery={urlSearchQuery}
+            onSearchChange={(query) => {
+              const newParams = new URLSearchParams(searchParams);
+              if (query) {
+                newParams.set('search', query);
+              } else {
+                newParams.delete('search');
+              }
+              const paramString = newParams.toString();
+              navigate(paramString ? `?${paramString}` : '/', { replace: true });
+            }}
+          />
+        </Suspense>
+        <Suspense fallback={<SectionPlaceholder />}>
+          <WhyChooseSection />
+        </Suspense>
+        <Suspense fallback={<SectionPlaceholder />}>
+          <TestimonialsSection />
+        </Suspense>
+        <Suspense fallback={<SectionPlaceholder />}>
+          <ContactSection />
+        </Suspense>
+      </main>
 
-            {/* Main Content */}
-            <main className="relative z-[2]">
-              <HeroSection />
-              <div ref={featuredRef}>
-                <FeaturedSection onViewDetails={handleViewDetails} />
-              </div>
-              <CatalogSection
-                isOpen={catalogOpen}
-                onToggle={handleCatalogToggle}
-                onHoverButton={preloadCatalog}
-                onViewDetails={handleViewDetails}
-                urlSearchQuery={urlSearchQuery}
-                onSearchChange={(query) => {
-                  const newParams = new URLSearchParams(searchParams);
-                  if (query) {
-                    newParams.set('search', query);
-                  } else {
-                    newParams.delete('search');
-                  }
-                  const paramString = newParams.toString();
-                  navigate(paramString ? `?${paramString}` : '/', { replace: true });
-                }}
-              />
-              <WhyChooseSection />
-              <TestimonialsSection />
-              <ContactSection />
-            </main>
+      {/* Floating Buttons */}
+      <FloatingSearchButton />
+      <ScrollToTop targetRef={featuredRef} showAfter={600} />
 
-            {/* Floating Buttons */}
-            <FloatingSearchButton />
-            <ScrollToTop targetRef={featuredRef} showAfter={600} />
+      {/* Footer */}
+      <Suspense fallback={<SectionPlaceholder />}>
+        <Footer />
+      </Suspense>
 
-            {/* Footer */}
-            <Footer />
-
-            {/* Machine Detail Modal */}
-            <MachineModal
-              machine={selectedMachine}
-              isOpen={modalOpen}
-              onClose={handleCloseModal}
-            />
-          </motion.div>
-        )}
-      </AnimatePresence>
-    </>
+      {/* Machine Detail Modal */}
+      {modalOpen && (
+        <Suspense fallback={null}>
+          <MachineModal
+            machine={selectedMachine}
+            isOpen={modalOpen}
+            onClose={handleCloseModal}
+          />
+        </Suspense>
+      )}
+    </motion.div>
   );
 };
 
