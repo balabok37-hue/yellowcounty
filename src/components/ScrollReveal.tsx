@@ -48,7 +48,7 @@ interface CardRevealProps {
   index?: number;
 }
 
-export const CardReveal = memo(function CardReveal({ children, className = '' }: CardRevealProps) {
+export const CardReveal = memo(function CardReveal({ children, className = '', index = 0 }: CardRevealProps) {
   const ref = useRef<HTMLDivElement>(null);
   const [isVisible, setIsVisible] = useState(false);
 
@@ -59,22 +59,24 @@ export const CardReveal = memo(function CardReveal({ children, className = '' }:
     const observer = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting) {
-          setIsVisible(true);
+          // Staggered delay based on index (max 4 columns = index % 4)
+          const staggerDelay = (index % 4) * 50;
+          setTimeout(() => setIsVisible(true), staggerDelay);
           observer.disconnect();
         }
       },
-      { threshold: 0.05, rootMargin: '-20px' }
+      { threshold: 0.05, rootMargin: '50px' }
     );
 
     observer.observe(element);
     return () => observer.disconnect();
-  }, []);
+  }, [index]);
 
   return (
     <div
       ref={ref}
-      className={`transform-gpu transition-all duration-200 ease-out ${
-        isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-3'
+      className={`transform-gpu transition-all duration-500 ease-out ${
+        isVisible ? 'opacity-100 translate-y-0 scale-100' : 'opacity-0 translate-y-8 scale-95'
       } ${className}`}
     >
       {children}

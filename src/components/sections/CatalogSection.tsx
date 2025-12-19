@@ -262,8 +262,8 @@ export function CatalogSection({ isOpen, onToggle, onHoverButton, onViewDetails,
 
             {/* Grid */}
             <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-4 sm:gap-6">
-              {filteredMachines.map((machine) => (
-                <CardReveal key={machine.id}>
+              {filteredMachines.map((machine, index) => (
+                <CardReveal key={machine.id} index={index}>
                   <MachineCard
                     machine={machine}
                     onViewDetails={onViewDetails}
