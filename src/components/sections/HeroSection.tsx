@@ -9,22 +9,19 @@ export function HeroSection() {
 
   return (
     <section className="relative min-h-[100svh] flex items-center justify-center overflow-hidden">
-      {/* Static Background Image */}
-      <div className="absolute inset-0 z-0">
+      {/* Static Background Image - GPU accelerated */}
+      <div className="absolute inset-0 z-0 transform-gpu">
         <img 
           src={heroBackground} 
           alt="Premium heavy machinery fleet" 
-          className="w-full h-full object-cover object-center brightness-110 contrast-105"
+          className="w-full h-full object-cover object-center brightness-110 contrast-105 transform-gpu"
           loading="eager"
           decoding="sync"
           fetchPriority="high"
         />
-        {/* Preload link for LCP image */}
-        <link rel="preload" as="image" href={heroBackground} fetchPriority="high" />
-        {/* Overlay */}
-        <div className="absolute inset-0 bg-gradient-to-b from-background/70 via-background/50 to-background/90" />
-        <div className="absolute inset-0 bg-primary/5 mix-blend-overlay" />
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,transparent_20%,hsl(var(--background))_100%)] opacity-60" />
+        {/* Overlay - simplified for performance */}
+        <div className="absolute inset-0 bg-gradient-to-b from-background/70 via-background/50 to-background/90 transform-gpu" />
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,transparent_20%,hsl(var(--background))_100%)] opacity-60 transform-gpu" />
       </div>
 
       {/* Golden accent line bottom */}
