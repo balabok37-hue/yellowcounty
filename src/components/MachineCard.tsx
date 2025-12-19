@@ -1,6 +1,5 @@
 import { memo, useState, useCallback } from 'react';
-import { Eye } from 'lucide-react';
-import { Button } from '@/components/ui/button';
+import { Clock } from 'lucide-react';
 import { categoryInfo } from '@/data/machines';
 import { OptimizedMachineImage } from '@/components/OptimizedMachineImage';
 
@@ -107,6 +106,8 @@ interface MachineCardProps {
 export const MachineCard = memo(function MachineCard({ machine, onViewDetails, onImageLoaded, priority = false }: MachineCardProps) {
   const isUnavailable = machine.isSold || machine.isReserved;
   const [imageLoaded, setImageLoaded] = useState(false);
+  const isNew = machine.year >= 2023;
+  const hasDiscount = machine.discount > 0;
   
   const handleClick = () => {
     if (!isUnavailable) {
@@ -119,125 +120,92 @@ export const MachineCard = memo(function MachineCard({ machine, onViewDetails, o
     onImageLoaded?.();
   }, [onImageLoaded]);
 
+  // Extract model name (remove year from name)
+  const modelName = machine.name.replace(/^\d{4}\s+/, '');
+
   return (
     <div
       onClick={handleClick}
-      className={`group touch-manipulation ${isUnavailable ? 'cursor-default' : 'cursor-pointer'}`}
+      className={`machine-card ${isUnavailable ? 'cursor-default opacity-75' : 'cursor-pointer hover:shadow-xl'}`}
     >
-      <div className="glass-card overflow-hidden relative transform-gpu transition-transform duration-150 ease-out active:scale-[0.98] hover:scale-[1.02]">
-        {/* Detailed skeleton loader */}
+      {/* Image Container */}
+      <div className="relative aspect-[4/3] bg-muted overflow-hidden">
+        {/* Loading skeleton */}
         {!imageLoaded && (
-          <div className="absolute inset-0 bg-gradient-to-br from-muted/50 to-muted/30">
-            {/* Shimmer effect */}
-            <div 
-              className="absolute inset-0"
-              style={{
-                background: 'linear-gradient(90deg, transparent 0%, hsl(var(--muted-foreground)/0.08) 50%, transparent 100%)',
-                animation: 'shimmer 1.5s infinite',
-              }}
-            />
-            {/* Skeleton image placeholder */}
-            <div className="absolute inset-x-0 top-0 h-40 sm:h-48 md:h-52 flex items-center justify-center">
-              <div className="w-20 h-20 rounded-full bg-muted/60" />
-            </div>
-            {/* Gradient overlay */}
-            <div className="absolute inset-0 bg-gradient-to-b from-transparent via-background/30 via-50% to-background" />
-            {/* Skeleton content */}
-            <div className="absolute bottom-0 left-0 right-0 p-3 sm:p-4 space-y-2">
-              <div className="h-5 bg-muted/60 rounded w-3/4" />
-              <div className="h-4 bg-muted/40 rounded w-1/2" />
-              <div className="h-6 bg-muted/60 rounded w-2/3 mt-2" />
-              <div className="h-10 bg-muted/40 rounded w-full mt-2" />
-            </div>
-          </div>
+          <div className="absolute inset-0 bg-muted animate-pulse" />
         )}
 
-        {/* Full background image with optimized loading */}
-        <div className={`absolute inset-0 overflow-hidden transition-opacity duration-200 ${imageLoaded ? 'opacity-100' : 'opacity-0'}`}>
-          <div className="w-full h-full transform-gpu transition-transform duration-200 ease-out group-hover:scale-105">
-            <div className="w-full h-full relative overflow-hidden" style={{ marginBottom: '-30px', paddingBottom: '30px' }}>
-              <OptimizedMachineImage
-                src={machine.image}
-                alt={machine.name}
-                imageFit={machine.imageFit}
-                onLoad={handleImageLoad}
-                priority={priority}
-              />
-            </div>
-          </div>
-          <div className="absolute inset-0 bg-gradient-to-b from-transparent via-background/30 via-50% to-background" />
-        </div>
-          
-        {/* Discount Badge */}
-        <div className="absolute top-3 left-3 sm:top-4 sm:left-4 badge-discount z-10">
-          −{machine.discount}%
+        {/* Image */}
+        <div className={`absolute inset-0 transition-opacity duration-300 ${imageLoaded ? 'opacity-100' : 'opacity-0'}`}>
+          <OptimizedMachineImage
+            src={machine.image}
+            alt={machine.name}
+            imageFit={machine.imageFit}
+            onLoad={handleImageLoad}
+            priority={priority}
+          />
         </div>
 
-        {/* Category Badge */}
-        {machine.category && (
-          <div className="absolute top-12 left-3 sm:top-14 sm:left-4 px-2.5 py-1 rounded-full bg-background/80 backdrop-blur-sm border border-border/50 text-[10px] sm:text-xs font-medium text-muted-foreground z-10">
-            {categoryInfo[machine.category]?.label || machine.category}
+        {/* New Badge */}
+        {isNew && !isUnavailable && (
+          <div className="absolute top-3 left-3 badge-new z-10">
+            New
           </div>
         )}
 
-        {/* Hot deal indicator */}
-        {machine.isHotOffer && !machine.isSold && (
-          <div className="absolute top-3 right-3 sm:top-4 sm:right-4 px-3 py-1.5 rounded-full bg-destructive text-[10px] sm:text-xs font-bold text-destructive-foreground z-10">
-            🔥 HOT OFFER
-          </div>
-        )}
-
-        {/* SOLD overlay - full card, text visible through */}
+        {/* SOLD/RESERVED overlay */}
         {machine.isSold && (
-          <div className="absolute inset-0 z-20 flex items-center justify-center bg-destructive/50 backdrop-blur-[2px]">
-            <span className="text-4xl sm:text-5xl md:text-6xl font-black text-destructive-foreground uppercase tracking-widest -rotate-12 drop-shadow-lg">
+          <div className="absolute inset-0 z-20 flex items-center justify-center bg-foreground/60">
+            <span className="text-4xl font-black text-card uppercase tracking-widest -rotate-12">
               SOLD
             </span>
           </div>
         )}
-
-        {/* RESERVED overlay - full card, text visible through */}
         {machine.isReserved && !machine.isSold && (
-          <div className="absolute inset-0 z-20 flex items-center justify-center bg-muted/60 backdrop-blur-[2px]">
-            <span className="text-3xl sm:text-4xl md:text-5xl font-black text-muted-foreground uppercase tracking-widest -rotate-12 drop-shadow-lg">
+          <div className="absolute inset-0 z-20 flex items-center justify-center bg-foreground/50">
+            <span className="text-3xl font-black text-card uppercase tracking-widest -rotate-12">
               RESERVED
             </span>
           </div>
         )}
+      </div>
 
-        {/* Spacer */}
-        <div className="h-40 sm:h-48 md:h-52" />
+      {/* Content */}
+      <div className="p-4 space-y-3">
+        {/* Price Row */}
+        <div className="flex items-baseline gap-2 flex-wrap">
+          <span className="price-main">
+            ${machine.price.toLocaleString()}
+          </span>
+          {hasDiscount && (
+            <>
+              <span className="text-sm line-through text-muted-foreground">
+                ${machine.originalPrice.toLocaleString()}
+              </span>
+              <span className="badge-sale">ON SALE</span>
+            </>
+          )}
+        </div>
 
-        {/* Content */}
-        <div className="p-3 sm:p-4 space-y-2 sm:space-y-3 relative z-10">
-          <h3 
-            className="text-base sm:text-lg font-bold text-foreground leading-tight line-clamp-2"
-            style={{ textShadow: '0 2px 8px hsl(0 0% 0%)' }}
-          >
-            {machine.name}
-          </h3>
+        {/* Finance Button */}
+        <button className="btn-finance w-full">
+          Finance
+        </button>
 
-          <div className="flex flex-wrap gap-1.5 sm:gap-2 text-[10px] sm:text-xs">
-            <span className="flex items-center gap-1 px-2 py-1 rounded-full bg-background/60 backdrop-blur-sm border border-border/30">
-              {machine.year}
-            </span>
-          </div>
+        {/* Model Name */}
+        <h3 className="text-lg font-bold text-foreground leading-tight line-clamp-2">
+          {modelName}
+        </h3>
 
-          <div className="flex items-baseline gap-2">
-            <span className="text-xl sm:text-2xl font-black text-primary">
-              ${machine.price.toLocaleString()}
-            </span>
-            <span className="text-xs sm:text-sm line-through text-muted-foreground">
-              ${machine.originalPrice.toLocaleString()}
-            </span>
-          </div>
-
-          <Button
-            className="w-full h-10 sm:h-11 text-sm sm:text-base font-bold rounded-lg bg-primary text-primary-foreground hover:bg-primary/90 transition-colors duration-150"
-          >
-            <Eye className="w-4 h-4 mr-1.5" />
-            View Details
-          </Button>
+        {/* Hours/Miles */}
+        <div className="flex items-center gap-1 text-sm text-muted-foreground">
+          <Clock className="w-4 h-4" />
+          <span>
+            {machine.miles 
+              ? `Miles - ${machine.miles.toLocaleString()}` 
+              : `Hours - ${machine.hours.toLocaleString()}`
+            }
+          </span>
         </div>
       </div>
     </div>

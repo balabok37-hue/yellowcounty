@@ -3,102 +3,92 @@
 @tailwind components;
 @tailwind utilities;
 
-/* HeavyMach USA - Yellow/Gray/Black/White Design System */
+/* Aerial Titans Style - Light Industrial Design System */
 
 @layer base {
   :root {
-    /* Clean industrial color palette - Yellow, Gray, Black, White */
-    --background: 0 0% 6%;
-    --foreground: 0 0% 98%;
+    /* Light theme - inspired by Aerial Titans */
+    --background: 210 15% 96%;
+    --foreground: 210 25% 15%;
 
-    --card: 0 0% 10%;
-    --card-foreground: 0 0% 98%;
+    --card: 0 0% 100%;
+    --card-foreground: 210 25% 15%;
 
-    --popover: 0 0% 8%;
-    --popover-foreground: 0 0% 98%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 210 25% 15%;
 
-    /* Caterpillar yellow as primary */
-    --primary: 48 100% 50%;
-    --primary-foreground: 0 0% 4%;
+    /* Blue primary for badges and accents */
+    --primary: 210 100% 45%;
+    --primary-foreground: 0 0% 100%;
 
-    /* Industrial gray */
-    --secondary: 0 0% 25%;
+    /* Dark header color */
+    --secondary: 230 35% 18%;
     --secondary-foreground: 0 0% 98%;
 
-    --muted: 0 0% 18%;
-    --muted-foreground: 0 0% 70%;
+    --muted: 210 15% 92%;
+    --muted-foreground: 210 15% 45%;
 
-    /* Gray accent instead of orange */
-    --accent: 0 0% 40%;
-    --accent-foreground: 0 0% 98%;
+    /* Green for Finance buttons */
+    --accent: 142 76% 36%;
+    --accent-foreground: 0 0% 100%;
 
-    --destructive: 0 84% 60%;
-    --destructive-foreground: 0 0% 98%;
+    /* Red for sale indicators */
+    --destructive: 0 84% 50%;
+    --destructive-foreground: 0 0% 100%;
 
-    --border: 0 0% 22%;
-    --input: 0 0% 18%;
-    --ring: 48 100% 50%;
+    --border: 210 15% 85%;
+    --input: 210 15% 90%;
+    --ring: 210 100% 45%;
 
-    --radius: 0.75rem;
+    --radius: 0.5rem;
 
-    /* Custom tokens for HeavyMach */
-    --gold: 48 100% 50%;
-    --gold-glow: 48 100% 65%;
-    --gold-dark: 45 100% 40%;
-    --deep-black: 0 0% 4%;
-    --card-dark: 0 0% 10%;
-    --pure-white: 0 0% 100%;
-    --steel-gray: 0 0% 35%;
-    
-    /* Glassmorphism */
-    --glass-bg: 0 0% 100% / 0.06;
-    --glass-border: 0 0% 100% / 0.12;
-    
-    /* Shadows */
-    --glow-gold: 0 0 40px hsl(48 100% 50% / 0.35);
-    --shadow-lg: 0 25px 50px -12px hsl(0 0% 0% / 0.5);
+    /* Custom tokens */
+    --sale-red: 0 84% 50%;
+    --success-green: 142 76% 36%;
+    --header-dark: 230 35% 18%;
+    --badge-new: 210 100% 45%;
     
     /* Chart colors */
-    --chart-1: 48 100% 50%;
-    --chart-2: 0 0% 50%;
-    --chart-3: 0 0% 70%;
-    --chart-4: 48 100% 65%;
-    --chart-5: 0 0% 85%;
+    --chart-1: 210 100% 45%;
+    --chart-2: 142 76% 36%;
+    --chart-3: 0 84% 50%;
+    --chart-4: 45 100% 50%;
+    --chart-5: 280 70% 50%;
 
-    --sidebar-background: 0 0% 6%;
-    --sidebar-foreground: 0 0% 98%;
-    --sidebar-primary: 48 100% 50%;
-    --sidebar-primary-foreground: 0 0% 4%;
-    --sidebar-accent: 0 0% 40%;
-    --sidebar-accent-foreground: 0 0% 98%;
-    --sidebar-border: 0 0% 22%;
-    --sidebar-ring: 48 100% 50%;
+    --sidebar-background: 0 0% 100%;
+    --sidebar-foreground: 210 25% 15%;
+    --sidebar-primary: 210 100% 45%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 210 15% 96%;
+    --sidebar-accent-foreground: 210 25% 15%;
+    --sidebar-border: 210 15% 85%;
+    --sidebar-ring: 210 100% 45%;
 
     --font-display: 'Inter', system-ui, sans-serif;
     --font-body: 'Inter', system-ui, sans-serif;
   }
 
-  /* Force dark mode always */
   .dark {
-    --background: 0 0% 6%;
-    --foreground: 0 0% 98%;
-    --card: 0 0% 10%;
-    --card-foreground: 0 0% 98%;
-    --popover: 0 0% 8%;
-    --popover-foreground: 0 0% 98%;
-    --primary: 48 100% 50%;
-    --primary-foreground: 0 0% 4%;
-    --secondary: 0 0% 25%;
+    /* Keep same as light for this design */
+    --background: 210 15% 96%;
+    --foreground: 210 25% 15%;
+    --card: 0 0% 100%;
+    --card-foreground: 210 25% 15%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 210 25% 15%;
+    --primary: 210 100% 45%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 230 35% 18%;
     --secondary-foreground: 0 0% 98%;
-    --muted: 0 0% 18%;
-    --muted-foreground: 0 0% 70%;
-    --accent: 0 0% 40%;
-    --accent-foreground: 0 0% 98%;
-    --destructive: 0 84% 60%;
-    --destructive-foreground: 0 0% 98%;
-    --border: 0 0% 22%;
-    --input: 0 0% 18%;
-    --ring: 48 100% 50%;
+    --muted: 210 15% 92%;
+    --muted-foreground: 210 15% 45%;
+    --accent: 142 76% 36%;
+    --accent-foreground: 0 0% 100%;
+    --destructive: 0 84% 50%;
+    --destructive-foreground: 0 0% 100%;
+    --border: 210 15% 85%;
+    --input: 210 15% 90%;
+    --ring: 210 100% 45%;
   }
 }
 
@@ -118,153 +108,63 @@
 }
 
 @layer components {
-  /* Glassmorphism card */
-  .glass-card {
-    @apply relative overflow-hidden rounded-2xl;
-    background: linear-gradient(
-      145deg,
-      hsl(0 0% 100% / 0.08) 0%,
-      hsl(0 0% 100% / 0.02) 100%
-    );
-    backdrop-filter: blur(20px);
-    border: 1px solid hsl(0 0% 100% / 0.1);
+  /* Simple white card with shadow */
+  .machine-card {
+    @apply bg-card rounded-lg shadow-md overflow-hidden transition-shadow duration-200;
   }
 
-  .glass-card::before {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background: linear-gradient(
-      145deg,
-      hsl(48 100% 50% / 0.04) 0%,
-      transparent 60%
-    );
-    pointer-events: none;
-  }
-
-  /* 3D card effect */
-  .card-3d {
-    transform-style: preserve-3d;
-    perspective: 1000px;
-  }
-
-  .card-3d-inner {
-    transition: transform 0.5s ease;
-    transform-style: preserve-3d;
-  }
-
-  /* Glowing button styles */
-  .btn-glow {
-    @apply relative overflow-hidden;
-    box-shadow: 0 0 25px hsl(48 100% 50% / 0.35),
-                0 0 50px hsl(48 100% 50% / 0.15);
-  }
-
-  .btn-glow::before {
-    content: '';
-    position: absolute;
-    inset: -2px;
-    background: linear-gradient(
-      45deg,
-      hsl(48 100% 50%) 0%,
-      hsl(48 100% 65%) 50%,
-      hsl(48 100% 50%) 100%
-    );
-    z-index: -1;
-    filter: blur(12px);
-    opacity: 0.5;
-    animation: glow-pulse 2s ease-in-out infinite;
-  }
-
-  @keyframes glow-pulse {
-    0%, 100% { opacity: 0.5; }
-    50% { opacity: 0.75; }
-  }
-
-  /* Text gradient */
-  .text-gradient-gold {
-    @apply bg-clip-text text-transparent;
-    background-image: linear-gradient(
-      135deg,
-      hsl(48 100% 55%) 0%,
-      hsl(48 100% 75%) 50%,
-      hsl(48 100% 55%) 100%
-    );
+  .machine-card:hover {
+    @apply shadow-xl;
   }
 
   /* Badge styles */
-  .badge-discount {
-    @apply inline-flex items-center px-3 py-1 rounded-full text-sm font-bold;
-    background: linear-gradient(135deg, hsl(48 100% 50%) 0%, hsl(45 100% 45%) 100%);
-    color: hsl(0 0% 4%);
-    box-shadow: 0 0 20px hsl(48 100% 50% / 0.45);
+  .badge-new {
+    @apply inline-flex items-center px-3 py-1 rounded text-xs font-bold;
+    background: hsl(var(--primary));
+    color: hsl(var(--primary-foreground));
+  }
+
+  .badge-sale {
+    @apply inline-flex items-center text-xs font-bold;
+    color: hsl(var(--destructive));
+  }
+
+  /* Finance button style */
+  .btn-finance {
+    @apply px-4 py-2 rounded border-2 font-semibold text-sm transition-colors duration-200;
+    border-color: hsl(var(--accent));
+    color: hsl(var(--accent));
+  }
+
+  .btn-finance:hover {
+    background: hsl(var(--accent));
+    color: hsl(var(--accent-foreground));
+  }
+
+  /* Header dark style */
+  .header-dark {
+    background: hsl(var(--secondary));
+    color: hsl(var(--secondary-foreground));
+  }
+
+  /* Sidebar filter panel */
+  .filter-sidebar {
+    @apply bg-card rounded-lg shadow-md p-4;
   }
 
   /* Price styling */
   .price-main {
-    @apply text-3xl font-bold;
-    color: hsl(48 100% 55%);
-    text-shadow: 0 0 25px hsl(48 100% 50% / 0.35);
+    @apply text-2xl font-bold text-foreground;
   }
 
-  .price-strike {
-    @apply text-lg line-through;
-    color: hsl(0 0% 55%);
-  }
-
-  /* Hero title animation */
-  .hero-title {
-    @apply text-5xl md:text-7xl lg:text-8xl font-black tracking-tighter;
-    line-height: 0.95;
-  }
-
-  /* Section styling */
+  /* Category title */
   .section-title {
-    @apply text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight;
+    @apply text-2xl md:text-3xl font-bold tracking-tight text-foreground uppercase;
   }
 
-  /* Hover lift effect with 3D */
-  .hover-lift {
-    @apply transition-all duration-500;
-  }
-
-  .hover-lift:hover {
-    transform: translateY(-10px) scale(1.02);
-    box-shadow: 0 25px 50px hsl(0 0% 0% / 0.35),
-                0 0 80px hsl(48 100% 50% / 0.12);
-  }
-
-  /* Image zoom container */
-  .img-zoom-container {
-    @apply overflow-hidden;
-  }
-
-  .img-zoom-container img {
-    @apply transition-transform duration-700 ease-out;
-  }
-
-  .img-zoom-container:hover img {
-    transform: scale(1.1);
-  }
-
-  /* Decorative shapes */
-  .shape-blob {
-    border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
-    animation: blob-morph 8s ease-in-out infinite;
-  }
-
-  @keyframes blob-morph {
-    0%, 100% {
-      border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
-    }
-    50% {
-      border-radius: 30% 60% 70% 40% / 50% 60% 30% 60%;
-    }
-  }
-
-  .shape-circle {
-    @apply absolute rounded-full opacity-20;
-    filter: blur(80px);
+  /* Filter checkbox style */
+  .filter-checkbox {
+    @apply flex items-center gap-2 cursor-pointer text-sm text-foreground;
   }
 }
 
@@ -277,16 +177,6 @@
   
   .scrollbar-hide::-webkit-scrollbar {
     display: none;
-  }
-
-  /* Noise texture overlay */
-  .noise-overlay::after {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
-    opacity: 0.03;
-    pointer-events: none;
   }
 }
 
