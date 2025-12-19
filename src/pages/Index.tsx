@@ -1,4 +1,4 @@
-import { useState, useEffect, useCallback, useRef } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useLocation, useSearchParams, useNavigate } from 'react-router-dom';
 import { Header } from '@/components/Header';
@@ -15,8 +15,7 @@ import { StaticGeometricShapes } from '@/components/StaticGeometricShapes';
 import { ScrollToTop } from '@/components/ScrollToTop';
 import { FloatingSearchButton } from '@/components/FloatingSearchButton';
 import { useLenis } from '@/hooks/useLenis';
-import { preloadImages } from '@/hooks/useImagePreloader';
-import { featuredMachines, catalogMachines, allMachines } from '@/data/machines';
+import { catalogMachines, allMachines } from '@/data/machines';
 import { generateMachineSlug, findMachineBySlug } from '@/lib/machine-utils';
 import type { Machine } from '@/components/MachineCard';
 
@@ -36,7 +35,6 @@ const Index = () => {
   const [catalogOpen, setCatalogOpen] = useState(false);
   const [selectedMachine, setSelectedMachine] = useState<Machine | null>(null);
   const [modalOpen, setModalOpen] = useState(false);
-  const [catalogPreloaded, setCatalogPreloaded] = useState(false);
   const featuredRef = useRef<HTMLDivElement>(null);
   const lastScrollYRef = useRef(0);
   const location = useLocation();
@@ -48,14 +46,6 @@ const Index = () => {
 
   // Get search query from URL
   const urlSearchQuery = searchParams.get('search') || '';
-
-  // Preload catalog images when hovering on button or opening catalog
-  const preloadCatalog = useCallback(async () => {
-    if (catalogPreloaded) return;
-    const catalogImages = catalogMachines.map(m => m.image);
-    await preloadImages(catalogImages);
-    setCatalogPreloaded(true);
-  }, [catalogPreloaded]);
 
   // Handle URL parameter for direct machine links and search
   useEffect(() => {
@@ -82,13 +72,12 @@ const Index = () => {
     // If there's a search query, open catalog and scroll to it
     if (searchQuery) {
       setCatalogOpen(true);
-      preloadCatalog();
       setTimeout(() => {
         const catalogEl = document.getElementById('catalog');
         catalogEl?.scrollIntoView({ behavior: 'smooth' });
       }, 150);
     }
-  }, [showContent, searchParams, preloadCatalog]);
+  }, [showContent, searchParams]);
 
   // Handle scroll to section when navigating from other pages
   useEffect(() => {
@@ -103,31 +92,32 @@ const Index = () => {
     }
   }, [showContent, location.state]);
 
-  // Preload critical assets including featured images
+  // Fast startup - show content immediately
   useEffect(() => {
-    const loadAssets = async () => {
-      // Preload hero image first
-      const heroModule = await import('@/assets/hero-background.jpg');
-      await preloadImage(heroModule.default);
-      
-      // Preload featured machine images in parallel
-      const featuredImages = featuredMachines.map(m => m.image);
-      await preloadImages(featuredImages);
-      
-      // Minimum loading time for smooth UX
-      await new Promise(resolve => setTimeout(resolve, 600));
+    // Just preload hero, show content fast
+    import('@/assets/hero-background.jpg').then(heroModule => {
+      const img = new Image();
+      img.onload = () => {
+        setIsLoading(false);
+        setShowContent(true);
+      };
+      img.onerror = () => {
+        setIsLoading(false);
+        setShowContent(true);
+      };
+      img.src = heroModule.default;
+    });
+    
+    // Fallback - show after 300ms max
+    const timeout = setTimeout(() => {
       setIsLoading(false);
-      setTimeout(() => setShowContent(true), 50);
-    };
-
-    loadAssets();
+      setShowContent(true);
+    }, 300);
+    
+    return () => clearTimeout(timeout);
   }, []);
 
-  const handleCatalogToggle = async () => {
-    if (!catalogOpen) {
-      // Start preloading when opening
-      preloadCatalog();
-    }
+  const handleCatalogToggle = () => {
     setCatalogOpen(!catalogOpen);
   };
 
@@ -186,7 +176,6 @@ const Index = () => {
               <CatalogSection
                 isOpen={catalogOpen}
                 onToggle={handleCatalogToggle}
-                onHoverButton={preloadCatalog}
                 onViewDetails={handleViewDetails}
                 urlSearchQuery={urlSearchQuery}
                 onSearchChange={(query) => {

@@ -1,4 +1,4 @@
-import { memo, useState, useCallback, useEffect, useRef } from 'react';
+import { memo, useState, useCallback } from 'react';
 import { Eye } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { categoryInfo } from '@/data/machines';
@@ -107,7 +107,6 @@ interface MachineCardProps {
 export const MachineCard = memo(function MachineCard({ machine, onViewDetails, onImageLoaded, priority = false }: MachineCardProps) {
   const isUnavailable = machine.isSold || machine.isReserved;
   const [imageLoaded, setImageLoaded] = useState(false);
-  const cardRef = useRef<HTMLDivElement>(null);
   
   const handleClick = () => {
     if (!isUnavailable) {
@@ -120,28 +119,21 @@ export const MachineCard = memo(function MachineCard({ machine, onViewDetails, o
     onImageLoaded?.();
   }, [onImageLoaded]);
 
-  // Instant show if image is cached
-  useEffect(() => {
-    const img = new Image();
-    img.src = machine.image;
-    if (img.complete) {
-      setImageLoaded(true);
-      onImageLoaded?.();
-    }
-  }, [machine.image, onImageLoaded]);
-
   return (
     <div
-      ref={cardRef}
       onClick={handleClick}
-      className={`group touch-manipulation will-change-auto transition-opacity duration-300 ${
-        imageLoaded ? 'opacity-100' : 'opacity-0'
-      } ${isUnavailable ? 'cursor-default' : 'cursor-pointer'}`}
-      style={{ contain: 'layout style paint' }}
+      className={`group touch-manipulation ${isUnavailable ? 'cursor-default' : 'cursor-pointer'}`}
     >
       <div className="glass-card overflow-hidden relative transform-gpu transition-transform duration-150 ease-out active:scale-[0.98] hover:scale-[1.02]">
+        {/* Skeleton loader */}
+        {!imageLoaded && (
+          <div className="absolute inset-0 bg-muted/40 animate-pulse">
+            <div className="absolute inset-0 bg-gradient-to-b from-transparent via-background/30 via-50% to-background" />
+          </div>
+        )}
+
         {/* Full background image with optimized loading */}
-        <div className="absolute inset-0 overflow-hidden bg-muted/30">
+        <div className={`absolute inset-0 overflow-hidden transition-opacity duration-200 ${imageLoaded ? 'opacity-100' : 'opacity-0'}`}>
           <div className="w-full h-full transform-gpu transition-transform duration-200 ease-out group-hover:scale-105">
             <div className="w-full h-full relative overflow-hidden" style={{ marginBottom: '-30px', paddingBottom: '30px' }}>
               <OptimizedMachineImage
