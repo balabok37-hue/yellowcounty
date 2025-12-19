@@ -1,5 +1,6 @@
 import { useState, useEffect, useCallback, useRef, lazy, Suspense } from 'react';
 import { useLocation, useSearchParams, useNavigate } from 'react-router-dom';
+import { motion, AnimatePresence } from 'framer-motion';
 import { Header } from '@/components/Header';
 import { HeroSection } from '@/components/sections/HeroSection';
 import { FeaturedSection } from '@/components/sections/FeaturedSection';
@@ -10,6 +11,7 @@ import { useLenis } from '@/hooks/useLenis';
 import { preloadImages } from '@/hooks/useImagePreloader';
 import { featuredMachines, catalogMachines, allMachines } from '@/data/machines';
 import { generateMachineSlug, findMachineBySlug } from '@/lib/machine-utils';
+import heroBackground from '@/assets/hero-background.jpg';
 import type { Machine } from '@/components/MachineCard';
 
 // Lazy load below-the-fold sections
@@ -20,7 +22,39 @@ const ContactSection = lazy(() => import('@/components/sections/ContactSection')
 const Footer = lazy(() => import('@/components/sections/Footer').then(m => ({ default: m.Footer })));
 const MachineModal = lazy(() => import('@/components/MachineModal').then(m => ({ default: m.MachineModal })));
 
+// Simple loading screen
+const LoadingScreen = () => (
+  <div className="fixed inset-0 z-[100] bg-background flex flex-col items-center justify-center">
+    <div className="flex flex-col items-center gap-6">
+      <div className="w-20 h-20 rounded-2xl bg-primary flex items-center justify-center">
+        <span className="text-3xl font-black text-primary-foreground">YS</span>
+      </div>
+      <div className="text-center">
+        <h1 className="text-2xl font-bold text-foreground">
+          Yellow<span className="text-primary">Stone</span>
+        </h1>
+        <p className="text-sm text-muted-foreground mt-1">Premium Equipment</p>
+      </div>
+      <div className="w-48 h-1 bg-muted/50 rounded-full overflow-hidden">
+        <div className="h-full rounded-full bg-primary animate-[loading_1s_ease-in-out_infinite]" 
+          style={{ 
+            animation: 'loading 1s ease-in-out infinite',
+          }} 
+        />
+      </div>
+    </div>
+    <style>{`
+      @keyframes loading {
+        0% { transform: translateX(-100%); width: 50%; }
+        50% { transform: translateX(0%); width: 100%; }
+        100% { transform: translateX(100%); width: 50%; }
+      }
+    `}</style>
+  </div>
+);
+
 const Index = () => {
+  const [isLoading, setIsLoading] = useState(true);
   const [catalogOpen, setCatalogOpen] = useState(false);
   const [selectedMachine, setSelectedMachine] = useState<Machine | null>(null);
   const [modalOpen, setModalOpen] = useState(false);
@@ -37,6 +71,26 @@ const Index = () => {
   // Get search query from URL
   const urlSearchQuery = searchParams.get('search') || '';
 
+  // Preload critical assets then show content
+  useEffect(() => {
+    const loadCriticalAssets = async () => {
+      // Preload hero + featured images in parallel
+      const criticalImages = [heroBackground, ...featuredMachines.map(m => m.image)];
+      await preloadImages(criticalImages);
+      
+      // Also preload catalog images so everything is smooth
+      const catalogImages = catalogMachines.map(m => m.image);
+      await preloadImages(catalogImages);
+      setCatalogPreloaded(true);
+      
+      // Small delay for smooth transition
+      await new Promise(resolve => setTimeout(resolve, 300));
+      setIsLoading(false);
+    };
+    
+    loadCriticalAssets();
+  }, []);
+
   // Preload catalog images when hovering on button or opening catalog
   const preloadCatalog = useCallback(async () => {
     if (catalogPreloaded) return;
@@ -47,6 +101,8 @@ const Index = () => {
 
   // Handle URL parameter for direct machine links and search
   useEffect(() => {
+    if (isLoading) return;
+    
     const machineSlug = searchParams.get('machine');
     const searchQuery = searchParams.get('search');
     
@@ -66,29 +122,22 @@ const Index = () => {
     
     if (searchQuery) {
       setCatalogOpen(true);
-      preloadCatalog();
       setTimeout(() => {
         document.getElementById('catalog')?.scrollIntoView({ behavior: 'smooth' });
       }, 100);
     }
-  }, [searchParams, preloadCatalog]);
+  }, [isLoading, searchParams]);
 
   // Handle scroll to section when navigating from other pages
   useEffect(() => {
-    if (location.state?.scrollTo) {
+    if (!isLoading && location.state?.scrollTo) {
       const sectionId = location.state.scrollTo;
       setTimeout(() => {
         document.getElementById(sectionId)?.scrollIntoView({ behavior: 'smooth' });
       }, 100);
       window.history.replaceState({}, document.title);
     }
-  }, [location.state]);
-
-  // Preload featured images in background
-  useEffect(() => {
-    const featuredImages = featuredMachines.map(m => m.image);
-    preloadImages(featuredImages);
-  }, []);
+  }, [isLoading, location.state]);
 
   const handleCatalogToggle = () => {
     if (!catalogOpen) preloadCatalog();
@@ -116,61 +165,82 @@ const Index = () => {
   };
 
   return (
-    <div className="min-h-screen bg-background text-foreground overflow-x-hidden">
-      <StaticGeometricShapes />
-      <Header />
-      
-      <main className="relative z-[2]">
-        <HeroSection />
-        <div ref={featuredRef}>
-          <FeaturedSection onViewDetails={handleViewDetails} />
-        </div>
-        <Suspense fallback={null}>
-          <CatalogSection
-            isOpen={catalogOpen}
-            onToggle={handleCatalogToggle}
-            onHoverButton={preloadCatalog}
-            onViewDetails={handleViewDetails}
-            urlSearchQuery={urlSearchQuery}
-            onSearchChange={(query) => {
-              const newParams = new URLSearchParams(searchParams);
-              if (query) {
-                newParams.set('search', query);
-              } else {
-                newParams.delete('search');
-              }
-              navigate(newParams.toString() ? `?${newParams.toString()}` : '/', { replace: true });
-            }}
-          />
-        </Suspense>
-        <Suspense fallback={null}>
-          <WhyChooseSection />
-        </Suspense>
-        <Suspense fallback={null}>
-          <TestimonialsSection />
-        </Suspense>
-        <Suspense fallback={null}>
-          <ContactSection />
-        </Suspense>
-      </main>
+    <>
+      <AnimatePresence>
+        {isLoading && (
+          <motion.div
+            initial={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.3 }}
+          >
+            <LoadingScreen />
+          </motion.div>
+        )}
+      </AnimatePresence>
 
-      <FloatingSearchButton />
-      <ScrollToTop targetRef={featuredRef} showAfter={600} />
+      {!isLoading && (
+        <motion.div 
+          className="min-h-screen bg-background text-foreground overflow-x-hidden"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.4 }}
+        >
+          <StaticGeometricShapes />
+          <Header />
+          
+          <main className="relative z-[2]">
+            <HeroSection />
+            <div ref={featuredRef}>
+              <FeaturedSection onViewDetails={handleViewDetails} />
+            </div>
+            <Suspense fallback={null}>
+              <CatalogSection
+                isOpen={catalogOpen}
+                onToggle={handleCatalogToggle}
+                onHoverButton={preloadCatalog}
+                onViewDetails={handleViewDetails}
+                urlSearchQuery={urlSearchQuery}
+                onSearchChange={(query) => {
+                  const newParams = new URLSearchParams(searchParams);
+                  if (query) {
+                    newParams.set('search', query);
+                  } else {
+                    newParams.delete('search');
+                  }
+                  navigate(newParams.toString() ? `?${newParams.toString()}` : '/', { replace: true });
+                }}
+              />
+            </Suspense>
+            <Suspense fallback={null}>
+              <WhyChooseSection />
+            </Suspense>
+            <Suspense fallback={null}>
+              <TestimonialsSection />
+            </Suspense>
+            <Suspense fallback={null}>
+              <ContactSection />
+            </Suspense>
+          </main>
 
-      <Suspense fallback={null}>
-        <Footer />
-      </Suspense>
+          <FloatingSearchButton />
+          <ScrollToTop targetRef={featuredRef} showAfter={600} />
 
-      {modalOpen && (
-        <Suspense fallback={null}>
-          <MachineModal
-            machine={selectedMachine}
-            isOpen={modalOpen}
-            onClose={handleCloseModal}
-          />
-        </Suspense>
+          <Suspense fallback={null}>
+            <Footer />
+          </Suspense>
+
+          {modalOpen && (
+            <Suspense fallback={null}>
+              <MachineModal
+                machine={selectedMachine}
+                isOpen={modalOpen}
+                onClose={handleCloseModal}
+              />
+            </Suspense>
+          )}
+        </motion.div>
       )}
-    </div>
+    </>
   );
 };
 
