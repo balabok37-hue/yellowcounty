@@ -21,8 +21,8 @@ export function FeaturedSection({ onViewDetails }: FeaturedSectionProps) {
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
+          viewport={{ once: true, margin: "100px" }}
+          transition={{ duration: 0.5 }}
           className="text-center mb-10 sm:mb-16"
         >
           <span
@@ -42,8 +42,8 @@ export function FeaturedSection({ onViewDetails }: FeaturedSectionProps) {
 
         {/* Featured Grid */}
         <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-4 sm:gap-6">
-          {featuredMachines.map((machine) => (
-            <CardReveal key={machine.id}>
+          {featuredMachines.map((machine, index) => (
+            <CardReveal key={machine.id} index={index}>
               <MachineCard
                 machine={machine}
                 onViewDetails={onViewDetails}
