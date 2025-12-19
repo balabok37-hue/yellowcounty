@@ -1,4 +1,4 @@
-import { memo } from 'react';
+import { memo, useState, useCallback } from 'react';
 import { Eye } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { categoryInfo } from '@/data/machines';
@@ -99,10 +99,12 @@ export interface Machine {
 interface MachineCardProps {
   machine: Machine;
   onViewDetails: (machine: Machine) => void;
+  onImageLoaded?: () => void;
 }
 
-export const MachineCard = memo(function MachineCard({ machine, onViewDetails }: MachineCardProps) {
+export const MachineCard = memo(function MachineCard({ machine, onViewDetails, onImageLoaded }: MachineCardProps) {
   const isUnavailable = machine.isSold || machine.isReserved;
+  const [imageLoaded, setImageLoaded] = useState(false);
   
   const handleClick = () => {
     if (!isUnavailable) {
@@ -110,10 +112,17 @@ export const MachineCard = memo(function MachineCard({ machine, onViewDetails }:
     }
   };
 
+  const handleImageLoad = useCallback(() => {
+    setImageLoaded(true);
+    onImageLoaded?.();
+  }, [onImageLoaded]);
+
   return (
     <div
       onClick={handleClick}
-      className={`group touch-manipulation will-change-transform ${isUnavailable ? 'cursor-default' : 'cursor-pointer'}`}
+      className={`group touch-manipulation will-change-transform transition-opacity duration-500 ${
+        imageLoaded ? 'opacity-100' : 'opacity-0'
+      } ${isUnavailable ? 'cursor-default' : 'cursor-pointer'}`}
     >
       <div className="glass-card overflow-hidden relative transform-gpu transition-transform duration-150 ease-out active:scale-[0.98] hover:scale-[1.02]">
         {/* Full background image with lazy loading */}
@@ -123,11 +132,11 @@ export const MachineCard = memo(function MachineCard({ machine, onViewDetails }:
               <img
                 src={machine.image}
                 alt={machine.name}
-                className={`w-full h-full ${machine.imageFit === 'contain' ? 'object-contain' : 'object-cover'} scale-105 transition-opacity duration-300`}
+                className={`w-full h-full ${machine.imageFit === 'contain' ? 'object-contain' : 'object-cover'} scale-105`}
                 style={{ objectPosition: 'center' }}
                 loading="lazy"
                 decoding="async"
-                fetchPriority="low"
+                onLoad={handleImageLoad}
               />
             </div>
           </div>
