@@ -1,5 +1,4 @@
 import { memo, useState, useCallback } from 'react';
-import { Clock } from 'lucide-react';
 
 export type MachineCategory = 'excavators' | 'dozers' | 'wheel-loaders' | 'track-loaders' | 'backhoes' | 'telehandlers' | 'trucks' | 'compaction';
 
@@ -191,26 +190,10 @@ export const MachineCard = memo(function MachineCard({ machine, onViewDetails, o
           )}
         </div>
 
-        {/* Finance Button */}
-        <button className="btn-finance w-full">
-          Finance
-        </button>
-
         {/* Model Name */}
         <h3 className="text-lg font-bold text-foreground leading-tight line-clamp-2">
           {modelName}
         </h3>
-
-        {/* Hours/Miles */}
-        <div className="flex items-center gap-1 text-sm text-muted-foreground">
-          <Clock className="w-4 h-4" />
-          <span>
-            {machine.miles 
-              ? `Miles - ${machine.miles.toLocaleString()}` 
-              : `Hours - ${machine.hours.toLocaleString()}`
-            }
-          </span>
-        </div>
       </div>
     </div>
   );
