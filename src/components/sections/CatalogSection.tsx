@@ -80,7 +80,12 @@ export function CatalogSection({ isOpen, onToggle, onViewDetails, urlSearchQuery
   const [activeCategory, setActiveCategory] = useState<string>(urlCategory || 'all');
   const [activeBrand, setActiveBrand] = useState<string>('all');
   const [condition, setCondition] = useState<ConditionFilter>('all');
+
+  // IMPORTANT: keep slider dragging smooth by updating filters only on commit.
+  // (Filtering/re-rendering on every tiny change can break pointer capture and feel like the thumb “stops dragging”.)
   const [priceRange, setPriceRange] = useState<[number, number]>([minPrice, maxPrice]);
+  const [priceRangeDraft, setPriceRangeDraft] = useState<[number, number]>([minPrice, maxPrice]);
+
   const [sortBy, setSortBy] = useState<SortOption>('featured');
   const [showMobileFilters, setShowMobileFilters] = useState(false);
   const filterRef = useRef<HTMLDivElement>(null);
@@ -105,37 +110,37 @@ export function CatalogSection({ isOpen, onToggle, onViewDetails, urlSearchQuery
 
   const filteredMachines = useMemo(() => {
     let machines = catalogMachines;
-    
+
     // Filter by category
     if (activeCategory !== 'all') {
       machines = machines.filter(m => m.category === activeCategory);
     }
-    
+
     // Filter by brand
     if (activeBrand !== 'all') {
       machines = machines.filter(m => extractBrand(m.name) === activeBrand);
     }
-    
+
     // Filter by condition
     if (condition === 'new') {
       machines = machines.filter(m => m.year >= 2023);
     } else if (condition === 'used') {
       machines = machines.filter(m => m.year < 2023);
     }
-    
-    // Filter by price
+
+    // Filter by price (committed range)
     machines = machines.filter(m => m.price >= priceRange[0] && m.price <= priceRange[1]);
-    
+
     // Search
     if (searchQuery.trim()) {
       const query = searchQuery.trim();
-      machines = machines.filter(m => 
+      machines = machines.filter(m =>
         searchMatch(m.name, query) ||
         m.year.toString().includes(query) ||
         searchMatch(m.location, query)
       );
     }
-    
+
     return sortMachines(machines, sortBy);
   }, [activeCategory, activeBrand, condition, priceRange, searchQuery, sortBy]);
 
@@ -246,16 +251,21 @@ export function CatalogSection({ isOpen, onToggle, onViewDetails, urlSearchQuery
         </Label>
         <div className="px-1">
           <Slider
-            value={priceRange}
-            onValueChange={(value) => setPriceRange(value as [number, number])}
+            value={priceRangeDraft}
+            onValueChange={(value) => setPriceRangeDraft(value as [number, number])}
+            onValueCommit={(value) => {
+              const next = value as [number, number];
+              setPriceRangeDraft(next);
+              setPriceRange(next);
+            }}
             min={minPrice}
             max={maxPrice}
             step={100}
             className="mb-3"
           />
           <div className="flex justify-between text-sm text-muted-foreground">
-            <span>${priceRange[0].toLocaleString()}</span>
-            <span>${priceRange[1].toLocaleString()}</span>
+            <span>${priceRangeDraft[0].toLocaleString()}</span>
+            <span>${priceRangeDraft[1].toLocaleString()}</span>
           </div>
         </div>
       </div>
@@ -267,6 +277,7 @@ export function CatalogSection({ isOpen, onToggle, onViewDetails, urlSearchQuery
           setActiveBrand('all');
           setCondition('all');
           setPriceRange([minPrice, maxPrice]);
+          setPriceRangeDraft([minPrice, maxPrice]);
           handleSearchChange('');
         }}
         className="w-full py-2 text-sm text-primary hover:underline"
@@ -373,18 +384,19 @@ export function CatalogSection({ isOpen, onToggle, onViewDetails, urlSearchQuery
             {filteredMachines.length === 0 && (
               <div className="text-center py-16">
                 <p className="text-lg text-muted-foreground">No equipment found matching your criteria.</p>
-                <button
-                  onClick={() => {
-                    handleCategoryChange('all');
-                    setActiveBrand('all');
-                    setCondition('all');
-                    setPriceRange([minPrice, maxPrice]);
-                    handleSearchChange('');
-                  }}
-                  className="mt-4 text-primary hover:underline"
-                >
-                  Clear all filters
-                </button>
+              <button
+                onClick={() => {
+                  handleCategoryChange('all');
+                  setActiveBrand('all');
+                  setCondition('all');
+                  setPriceRange([minPrice, maxPrice]);
+                  setPriceRangeDraft([minPrice, maxPrice]);
+                  handleSearchChange('');
+                }}
+                className="mt-4 text-primary hover:underline"
+              >
+                Clear all filters
+              </button>
               </div>
             )}
           </div>
