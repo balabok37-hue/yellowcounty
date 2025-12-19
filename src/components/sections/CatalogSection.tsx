@@ -19,7 +19,6 @@ type SortOption = 'hot-first' | 'price-low' | 'price-high' | 'discount' | 'newes
 interface CatalogSectionProps {
   isOpen: boolean;
   onToggle: () => void;
-  onHoverButton?: () => void;
   onViewDetails: (machine: Machine) => void;
   urlSearchQuery?: string;
   onSearchChange?: (query: string) => void;
@@ -85,7 +84,7 @@ const sortMachines = (machines: Machine[], sortBy: SortOption): Machine[] => {
   }
 };
 
-export function CatalogSection({ isOpen, onToggle, onHoverButton, onViewDetails, urlSearchQuery = '', onSearchChange }: CatalogSectionProps) {
+export function CatalogSection({ isOpen, onToggle, onViewDetails, urlSearchQuery = '', onSearchChange }: CatalogSectionProps) {
   const [activeCategory, setActiveCategory] = useState<MachineCategory | 'all'>('all');
   const [activeBrand, setActiveBrand] = useState<string>('all');
   const [searchQuery, setSearchQuery] = useState(urlSearchQuery);
@@ -143,7 +142,6 @@ export function CatalogSection({ isOpen, onToggle, onHoverButton, onViewDetails,
           <Button
             size="lg"
             onClick={onToggle}
-            onMouseEnter={onHoverButton}
             className="w-full sm:w-auto bg-primary hover:bg-primary/90 text-primary-foreground font-black text-base sm:text-xl px-8 sm:px-14 py-6 sm:py-8 rounded-2xl min-h-[64px] touch-manipulation shadow-xl active:scale-[0.98] transition-transform duration-150"
           >
             {isOpen ? (
