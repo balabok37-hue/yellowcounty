@@ -17,9 +17,9 @@
     --popover: 0 0% 100%;
     --popover-foreground: 210 25% 15%;
 
-    /* Blue primary for badges and accents */
-    --primary: 210 100% 45%;
-    --primary-foreground: 0 0% 100%;
+    /* Yellow primary for badges and accents */
+    --primary: 45 100% 50%;
+    --primary-foreground: 0 0% 10%;
 
     /* Dark header color */
     --secondary: 230 35% 18%;
@@ -38,7 +38,7 @@
 
     --border: 210 15% 85%;
     --input: 210 15% 90%;
-    --ring: 210 100% 45%;
+    --ring: 45 100% 50%;
 
     --radius: 0.5rem;
 
@@ -46,10 +46,10 @@
     --sale-red: 0 84% 50%;
     --success-green: 142 76% 36%;
     --header-dark: 230 35% 18%;
-    --badge-new: 210 100% 45%;
+    --badge-new: 45 100% 50%;
     
     /* Chart colors */
-    --chart-1: 210 100% 45%;
+    --chart-1: 45 100% 50%;
     --chart-2: 142 76% 36%;
     --chart-3: 0 84% 50%;
     --chart-4: 45 100% 50%;
@@ -57,12 +57,12 @@
 
     --sidebar-background: 0 0% 100%;
     --sidebar-foreground: 210 25% 15%;
-    --sidebar-primary: 210 100% 45%;
-    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-primary: 45 100% 50%;
+    --sidebar-primary-foreground: 0 0% 10%;
     --sidebar-accent: 210 15% 96%;
     --sidebar-accent-foreground: 210 25% 15%;
     --sidebar-border: 210 15% 85%;
-    --sidebar-ring: 210 100% 45%;
+    --sidebar-ring: 45 100% 50%;
 
     --font-display: 'Inter', system-ui, sans-serif;
     --font-body: 'Inter', system-ui, sans-serif;
@@ -76,8 +76,8 @@
     --card-foreground: 210 25% 15%;
     --popover: 0 0% 100%;
     --popover-foreground: 210 25% 15%;
-    --primary: 210 100% 45%;
-    --primary-foreground: 0 0% 100%;
+    --primary: 45 100% 50%;
+    --primary-foreground: 0 0% 10%;
     --secondary: 230 35% 18%;
     --secondary-foreground: 0 0% 98%;
     --muted: 210 15% 92%;
@@ -88,7 +88,7 @@
     --destructive-foreground: 0 0% 100%;
     --border: 210 15% 85%;
     --input: 210 15% 90%;
-    --ring: 210 100% 45%;
+    --ring: 45 100% 50%;
   }
 }
 
