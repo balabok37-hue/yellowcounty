@@ -267,6 +267,7 @@ export function CatalogSection({ isOpen, onToggle, onHoverButton, onViewDetails,
                   <MachineCard
                     machine={machine}
                     onViewDetails={onViewDetails}
+                    priority={index < 8}
                   />
                 </CardReveal>
               ))}

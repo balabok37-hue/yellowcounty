@@ -58,40 +58,47 @@ export const CardReveal = memo(function CardReveal({ children, className = '', i
     const element = ref.current;
     if (!element) return;
 
+    // Priority cards load immediately
+    if (index < 8) {
+      setShouldLoad(true);
+      setIsVisible(true);
+      onVisible?.();
+      return;
+    }
+
     const observer = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting) {
-          // Mark for loading immediately when visible
           setShouldLoad(true);
           onVisible?.();
           observer.disconnect();
         }
       },
-      { threshold: 0, rootMargin: '100px' }
+      { threshold: 0, rootMargin: '200px' }
     );
 
     observer.observe(element);
     return () => observer.disconnect();
-  }, [onVisible]);
+  }, [onVisible, index]);
 
-  // Staggered reveal animation after shouldLoad is set
+  // Staggered reveal animation
   useEffect(() => {
-    if (shouldLoad) {
-      const staggerDelay = (index % 4) * 50;
+    if (shouldLoad && !isVisible) {
+      const staggerDelay = Math.min((index % 4) * 30, 120);
       const timer = setTimeout(() => setIsVisible(true), staggerDelay);
       return () => clearTimeout(timer);
     }
-  }, [shouldLoad, index]);
+  }, [shouldLoad, index, isVisible]);
 
   return (
     <div
       ref={ref}
-      className={`transform-gpu transition-all duration-500 ease-out will-change-transform ${
-        isVisible ? 'opacity-100 translate-y-0 scale-100' : 'opacity-0 translate-y-8 scale-95'
+      className={`transform-gpu transition-all duration-300 ease-out ${
+        isVisible ? 'opacity-100 translate-y-0 scale-100' : 'opacity-0 translate-y-6 scale-98'
       } ${className}`}
       style={{ contain: 'layout style paint' }}
     >
-      {shouldLoad ? children : <div className="h-80 bg-muted/30 rounded-2xl animate-pulse" />}
+      {shouldLoad ? children : <div className="h-80 bg-muted/20 rounded-2xl" />}
     </div>
   );
 });
