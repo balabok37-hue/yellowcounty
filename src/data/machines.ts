@@ -90,6 +90,7 @@ import manitouMlt1040145Image1 from '@/assets/machines/manitou-mlt1040-145-1.png
 import manitouMlt1040145Image2 from '@/assets/machines/manitou-mlt1040-145-2.png';
 import manitouMlt1040145Image3 from '@/assets/machines/manitou-mlt1040-145-3.png';
 import manitouMlt1040145Image4 from '@/assets/machines/manitou-mlt1040-145-4.png';
+import johnDeere310sl2023Image1 from '@/assets/machines/john-deere-310sl-2023-1.png';
 import johnDeere310sl2023Image2 from '@/assets/machines/john-deere-310sl-2023-2.png';
 import johnDeere310sl2023Image3 from '@/assets/machines/john-deere-310sl-2023-3.png';
 import johnDeere310sl2023Image4 from '@/assets/machines/john-deere-310sl-2023-4.png';
@@ -2652,7 +2653,7 @@ const allMachinesRaw: Array<Omit<Machine, 'category'> & { category?: string }> =
     originalPrice: 123728,
     discount: 9,
     category: 'backhoes',
-    image: johnDeere310sl2023Image2,
+    image: johnDeere310sl2023Image1,
     isHotOffer: true,
     description: 'Low-hour 2023 John Deere 310SL backhoe loader in excellent condition. PowerTech 4.5L Tier 4 Final engine delivers 93 hp with smooth power and excellent fuel economy. Full deluxe cab with heat/AC, air-ride seat, rear camera, and excellent visibility. Includes 1.15 yd³ loader bucket, 24" backhoe bucket, auxiliary hydraulics, ride control, and extendahoe. Perfect for utility work, landscaping, and construction.',
     specs: {
@@ -2677,6 +2678,7 @@ const allMachinesRaw: Array<Omit<Machine, 'category'> & { category?: string }> =
       status: 'In stock Billings MT – serviced and ready',
     },
     gallery: [
+      johnDeere310sl2023Image1,
       johnDeere310sl2023Image2,
       johnDeere310sl2023Image3,
       johnDeere310sl2023Image4,

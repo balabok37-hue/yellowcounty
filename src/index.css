@@ -109,36 +109,11 @@
 
   html {
     @apply scroll-smooth;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
   }
 
   body {
     @apply bg-background text-foreground font-sans antialiased;
     font-feature-settings: "rlig" 1, "calt" 1;
-    text-rendering: optimizeLegibility;
-  }
-
-  /* GPU acceleration for smooth animations */
-  .gpu-accelerated,
-  .gpu-accelerated * {
-    transform: translateZ(0);
-    backface-visibility: hidden;
-  }
-
-  /* Smooth image loading */
-  img {
-    opacity: 1;
-    transition: opacity 0.3s ease;
-  }
-  
-  img[loading="lazy"] {
-    opacity: 0;
-  }
-  
-  img[loading="lazy"].loaded,
-  img:not([loading="lazy"]) {
-    opacity: 1;
   }
 }
 
@@ -302,18 +277,6 @@
   
   .scrollbar-hide::-webkit-scrollbar {
     display: none;
-  }
-
-  /* Shimmer animation for loading */
-  @keyframes shimmer {
-    0% { background-position: -200% 0; }
-    100% { background-position: 200% 0; }
-  }
-  
-  .animate-shimmer {
-    animation: shimmer 1.5s ease-in-out infinite;
-    background: linear-gradient(90deg, transparent 0%, rgba(255,255,255,0.08) 50%, transparent 100%);
-    background-size: 200% 100%;
   }
 
   /* Noise texture overlay */

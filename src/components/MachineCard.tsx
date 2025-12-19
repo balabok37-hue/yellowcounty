@@ -1,4 +1,4 @@
-import { memo, useState, useCallback } from 'react';
+import { memo } from 'react';
 import { Eye } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { categoryInfo } from '@/data/machines';
@@ -23,7 +23,76 @@ export interface Machine {
   imagePosition?: string;
   category?: MachineCategory;
   description?: string;
-  specs?: Record<string, string>;
+  specs?: {
+    engine?: string;
+    power?: string;
+    weight?: string;
+    capacity?: string;
+    maxDiggingDepth?: string;
+    maxReach?: string;
+    maxDumpingHeight?: string;
+    bucketCapacity?: string;
+    bucketDiggingForce?: string;
+    armDiggingForce?: string;
+    swingSpeed?: string;
+    travelSpeed?: string;
+    tailSwing?: string;
+    transportDimensions?: string;
+    trackWidth?: string;
+    fuelTank?: string;
+    hydraulicTank?: string;
+    grossTorque?: string;
+    displacement?: string;
+    breakoutForce?: string;
+    tippingLoad?: string;
+    maxDumpHeight?: string;
+    maxLiftHeight?: string;
+    maxSpeed?: string;
+    turningRadius?: string;
+    tireSize?: string;
+    maxLiftCapacity?: string;
+    liftHeight?: string;
+    forwardReach?: string;
+    capacityAtMaxReach?: string;
+    transmission?: string;
+    outriggers?: string;
+    hydraulicFlow?: string;
+    driveSteer?: string;
+    frameLeveling?: string;
+    tires?: string;
+    capacityAtMaxHeight?: string;
+    groundClearance?: string;
+    frontAxle?: string;
+    cab?: string;
+    pto?: string;
+    rearAxleRatio?: string;
+    wheelbase?: string;
+    suspension?: string;
+    brakes?: string;
+    wheels?: string;
+    sleeper?: string;
+    gvwr?: string;
+    rearAxles?: string;
+    exhaust?: string;
+    ratio?: string;
+    dumpBody?: string;
+    status?: string;
+    stockNumber?: string;
+    drumWidth?: string;
+    frequency?: string;
+    centrifugalForce?: string;
+    waterTank?: string;
+    cabRops?: string;
+    features?: string;
+    package?: string;
+    interior?: string;
+    towingCapacity?: string;
+    warranty?: string;
+    carfax?: string;
+    drivetrain?: string;
+    aerialDevice?: string;
+    utilityBody?: string;
+  };
   gallery?: string[];
 }
 
@@ -34,47 +103,32 @@ interface MachineCardProps {
 
 export const MachineCard = memo(function MachineCard({ machine, onViewDetails }: MachineCardProps) {
   const isUnavailable = machine.isSold || machine.isReserved;
-  const [imageLoaded, setImageLoaded] = useState(false);
   
-  const handleClick = useCallback(() => {
+  const handleClick = () => {
     if (!isUnavailable) {
       onViewDetails(machine);
     }
-  }, [isUnavailable, onViewDetails, machine]);
-
-  const handleImageLoad = useCallback(() => {
-    setImageLoaded(true);
-  }, []);
+  };
 
   return (
     <div
       onClick={handleClick}
-      className={`group touch-manipulation ${isUnavailable ? 'cursor-default' : 'cursor-pointer'}`}
+      className={`group touch-manipulation will-change-transform ${isUnavailable ? 'cursor-default' : 'cursor-pointer'}`}
     >
-      <div className="glass-card overflow-hidden relative transition-transform duration-300 ease-out active:scale-[0.98] hover:scale-[1.02]">
-        {/* Background image with smooth fade-in */}
+      <div className="glass-card overflow-hidden relative transform-gpu transition-transform duration-150 ease-out active:scale-[0.98] hover:scale-[1.02]">
+        {/* Full background image */}
         <div className="absolute inset-0 overflow-hidden">
-          {/* Skeleton placeholder */}
-          <div 
-            className={`absolute inset-0 bg-gradient-to-br from-muted/60 to-muted/30 transition-opacity duration-500 ${
-              imageLoaded ? 'opacity-0' : 'opacity-100'
-            }`}
-          >
-            <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/5 to-transparent animate-shimmer" 
-              style={{ backgroundSize: '200% 100%' }}
-            />
-          </div>
-          
-          <div className={`w-full h-full transition-all duration-500 ease-out group-hover:scale-105 ${
-            imageLoaded ? 'opacity-100' : 'opacity-0'
-          }`}>
-            <img
-              src={machine.image}
-              alt={machine.name}
-              className={`w-full h-full ${machine.imageFit === 'contain' ? 'object-contain' : 'object-cover'}`}
-              style={{ objectPosition: 'center' }}
-              onLoad={handleImageLoad}
-            />
+          <div className="w-full h-full transform-gpu transition-transform duration-200 ease-out group-hover:scale-105">
+            <div className="w-full h-full relative overflow-hidden" style={{ marginBottom: '-30px', paddingBottom: '30px' }}>
+              <img
+                src={machine.image}
+                alt={machine.name}
+                className={`w-full h-full ${machine.imageFit === 'contain' ? 'object-contain' : 'object-cover'} scale-105`}
+                style={{ objectPosition: 'center' }}
+                loading="lazy"
+                decoding="async"
+              />
+            </div>
           </div>
           <div className="absolute inset-0 bg-gradient-to-b from-transparent via-background/30 via-50% to-background" />
         </div>
@@ -98,7 +152,7 @@ export const MachineCard = memo(function MachineCard({ machine, onViewDetails }:
           </div>
         )}
 
-        {/* SOLD overlay */}
+        {/* SOLD overlay - full card, text visible through */}
         {machine.isSold && (
           <div className="absolute inset-0 z-20 flex items-center justify-center bg-destructive/50 backdrop-blur-[2px]">
             <span className="text-4xl sm:text-5xl md:text-6xl font-black text-destructive-foreground uppercase tracking-widest -rotate-12 drop-shadow-lg">
@@ -107,7 +161,7 @@ export const MachineCard = memo(function MachineCard({ machine, onViewDetails }:
           </div>
         )}
 
-        {/* RESERVED overlay */}
+        {/* RESERVED overlay - full card, text visible through */}
         {machine.isReserved && !machine.isSold && (
           <div className="absolute inset-0 z-20 flex items-center justify-center bg-muted/60 backdrop-blur-[2px]">
             <span className="text-3xl sm:text-4xl md:text-5xl font-black text-muted-foreground uppercase tracking-widest -rotate-12 drop-shadow-lg">

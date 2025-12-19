@@ -12,13 +12,7 @@ interface MachineModalProps {
 
 export function MachineModal({ machine, isOpen, onClose }: MachineModalProps) {
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
-  const [imagesLoaded, setImagesLoaded] = useState<Record<number, boolean>>({});
-
-  // Reset state when machine changes
-  useEffect(() => {
-    setCurrentImageIndex(0);
-    setImagesLoaded({});
-  }, [machine?.id]);
+  const [dragDirection, setDragDirection] = useState(0);
 
   // Lock body scroll when modal is open
   useEffect(() => {
@@ -63,7 +57,7 @@ export function MachineModal({ machine, isOpen, onClose }: MachineModalProps) {
 
   if (!machine) return null;
 
-  const images = machine.gallery && machine.gallery.length > 0 ? machine.gallery : [machine.image];
+  const images = machine.gallery || [machine.image];
 
   const handleRequestQuote = () => {
     const message = `Hi! I'm interested in the ${machine.year} ${machine.name} listed at $${machine.price.toLocaleString()}. Is it still available?`;
@@ -85,10 +79,11 @@ export function MachineModal({ machine, isOpen, onClose }: MachineModalProps) {
     } else if (info.offset.x > threshold) {
       prevImage();
     }
+    setDragDirection(0);
   };
 
-  const handleImageLoad = (index: number) => {
-    setImagesLoaded(prev => ({ ...prev, [index]: true }));
+  const handleDrag = (_: any, info: PanInfo) => {
+    setDragDirection(info.offset.x);
   };
 
   return (
@@ -98,21 +93,28 @@ export function MachineModal({ machine, isOpen, onClose }: MachineModalProps) {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
-          transition={{ duration: 0.2 }}
+          transition={{ duration: 0.15 }}
           className="fixed inset-0 z-50 flex items-center justify-center p-2 sm:p-4 bg-background/95 backdrop-blur-xl overflow-hidden"
           onClick={handleClose}
         >
-          {/* Decorative background */}
+          {/* Decorative background - simplified for performance */}
           <div className="absolute inset-0 pointer-events-none overflow-hidden">
             <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] rounded-full bg-primary/8 blur-3xl" />
+            <div 
+              className="absolute inset-0 opacity-[0.02]" 
+              style={{ 
+                backgroundImage: 'linear-gradient(to right, hsl(var(--foreground)) 1px, transparent 1px), linear-gradient(to bottom, hsl(var(--foreground)) 1px, transparent 1px)', 
+                backgroundSize: '50px 50px' 
+              }} 
+            />
           </div>
 
           {/* Modal */}
           <motion.div
-            initial={{ opacity: 0, scale: 0.95, y: 20 }}
-            animate={{ opacity: 1, scale: 1, y: 0 }}
-            exit={{ opacity: 0, scale: 0.95, y: 20 }}
-            transition={{ duration: 0.25, ease: [0.4, 0, 0.2, 1] }}
+            initial={{ opacity: 0, scale: 0.95 }}
+            animate={{ opacity: 1, scale: 1 }}
+            exit={{ opacity: 0, scale: 0.95 }}
+            transition={{ duration: 0.15 }}
             className="relative w-full max-w-3xl max-h-[95vh] sm:max-h-[90vh] overflow-hidden rounded-2xl bg-card border border-border/50 shadow-[0_0_60px_rgba(250,204,21,0.12)]"
             onClick={(e) => e.stopPropagation()}
           >
@@ -127,37 +129,27 @@ export function MachineModal({ machine, isOpen, onClose }: MachineModalProps) {
             <div className="flex flex-col md:flex-row h-full max-h-[95vh] sm:max-h-[90vh]">
               {/* Image Gallery */}
               <div className="relative h-[35vh] md:h-auto md:w-1/2 flex-shrink-0 overflow-hidden bg-muted/20 flex items-center justify-center">
-                {/* Preload all images */}
-                <div className="hidden">
-                  {images.map((img, idx) => (
-                    <img 
-                      key={idx} 
-                      src={img} 
-                      alt="" 
-                      onLoad={() => handleImageLoad(idx)}
-                    />
-                  ))}
-                </div>
-
-                {/* Current image with animation */}
                 <AnimatePresence mode="wait" initial={false}>
                   <motion.div
                     key={currentImageIndex}
                     className="w-full h-full cursor-grab active:cursor-grabbing overflow-hidden"
-                    initial={{ opacity: 0, x: 50 }}
+                    initial={{ opacity: 0, x: dragDirection > 0 ? -30 : 30 }}
                     animate={{ opacity: 1, x: 0 }}
-                    exit={{ opacity: 0, x: -50 }}
-                    transition={{ duration: 0.2 }}
+                    exit={{ opacity: 0, x: dragDirection > 0 ? 30 : -30 }}
+                    transition={{ duration: 0.15 }}
                     drag="x"
                     dragConstraints={{ left: 0, right: 0 }}
                     dragElastic={0.2}
+                    onDrag={handleDrag}
                     onDragEnd={handleDragEnd}
                   >
                     <img
                       src={images[currentImageIndex]}
-                      alt={`${machine.name} - Image ${currentImageIndex + 1}`}
+                      alt={machine.name}
                       className="w-full h-full object-cover"
                       style={{ objectPosition: machine.imagePosition || 'center' }}
+                      loading={currentImageIndex === 0 ? 'eager' : 'lazy'}
+                      decoding="async"
                     />
                   </motion.div>
                 </AnimatePresence>
@@ -181,22 +173,22 @@ export function MachineModal({ machine, isOpen, onClose }: MachineModalProps) {
                     </button>
                     
                     {/* Image indicators */}
-                    <div className="absolute bottom-14 md:bottom-3 left-1/2 -translate-x-1/2 flex gap-1.5 px-2 py-1 rounded-full bg-background/80 backdrop-blur-sm">
+                    <div className="absolute bottom-14 md:bottom-3 left-1/2 -translate-x-1/2 flex gap-1 px-2 py-0.5 rounded-full bg-background/80 backdrop-blur-sm">
                       {images.map((_, idx) => (
                         <button
                           key={idx}
                           onClick={() => setCurrentImageIndex(idx)}
-                          className={`h-2 rounded-full transition-all duration-200 ${
+                          className={`h-1.5 rounded-full transition-all duration-150 ${
                             idx === currentImageIndex 
-                              ? 'bg-primary w-4' 
-                              : 'bg-foreground/30 w-2 hover:bg-foreground/50'
+                              ? 'bg-primary w-3' 
+                              : 'bg-foreground/30 w-1.5'
                           }`}
                         />
                       ))}
                     </div>
 
                     <div className="md:hidden absolute bottom-16 left-1/2 -translate-x-1/2 text-[10px] text-muted-foreground bg-background/80 px-2 py-0.5 rounded-full">
-                      ← Swipe → ({currentImageIndex + 1}/{images.length})
+                      ← Swipe →
                     </div>
                   </>
                 )}
@@ -207,7 +199,7 @@ export function MachineModal({ machine, isOpen, onClose }: MachineModalProps) {
                 </div>
               </div>
 
-              {/* Details */}
+              {/* Details - Compact Layout */}
               <div className="flex-1 p-3 sm:p-4 flex flex-col overflow-y-auto">
                 {/* Title & Tags */}
                 <div className="mb-2">
@@ -225,7 +217,7 @@ export function MachineModal({ machine, isOpen, onClose }: MachineModalProps) {
                   </div>
                 </div>
 
-                {/* Description */}
+                {/* Description - full text */}
                 {machine.description && (
                   <p className="text-[11px] text-muted-foreground leading-relaxed mb-2">
                     {machine.description}
@@ -260,7 +252,7 @@ export function MachineModal({ machine, isOpen, onClose }: MachineModalProps) {
                   </div>
                 </div>
 
-                {/* Key Specs */}
+                {/* Key Specs - Compact Grid */}
                 {machine.specs && Object.keys(machine.specs).length > 3 && (
                   <div className="flex-1 min-h-0 mb-2">
                     <h3 className="text-[10px] font-bold text-foreground uppercase tracking-wide flex items-center gap-1 mb-1.5">
