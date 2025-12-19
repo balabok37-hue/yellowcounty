@@ -7,10 +7,8 @@ import { StaticGeometricShapes } from '@/components/StaticGeometricShapes';
 import { ScrollToTop } from '@/components/ScrollToTop';
 import { FloatingSearchButton } from '@/components/FloatingSearchButton';
 import { useLenis } from '@/hooks/useLenis';
-import { preloadImages } from '@/hooks/useImagePreloader';
-import { featuredMachines, catalogMachines, allMachines } from '@/data/machines';
+import { catalogMachines, allMachines } from '@/data/machines';
 import { generateMachineSlug, findMachineBySlug } from '@/lib/machine-utils';
-import heroBackground from '@/assets/hero-background.jpg';
 import type { Machine } from '@/components/MachineCard';
 
 // Lazy load below-the-fold sections
@@ -22,11 +20,9 @@ const Footer = lazy(() => import('@/components/sections/Footer').then(m => ({ de
 const MachineModal = lazy(() => import('@/components/MachineModal').then(m => ({ default: m.MachineModal })));
 
 const Index = () => {
-  const [isReady, setIsReady] = useState(false);
   const [catalogOpen, setCatalogOpen] = useState(false);
   const [selectedMachine, setSelectedMachine] = useState<Machine | null>(null);
   const [modalOpen, setModalOpen] = useState(false);
-  const [catalogPreloaded, setCatalogPreloaded] = useState(false);
   const featuredRef = useRef<HTMLDivElement>(null);
   const lastScrollYRef = useRef(0);
   const location = useLocation();
@@ -37,39 +33,8 @@ const Index = () => {
 
   const urlSearchQuery = searchParams.get('search') || '';
 
-  // Fast initial load - only preload hero image
+  // Handle URL parameter for direct machine links and search
   useEffect(() => {
-    const img = new Image();
-    img.onload = () => setIsReady(true);
-    img.onerror = () => setIsReady(true);
-    img.src = heroBackground;
-    
-    // Fallback - show content after 500ms max
-    const timeout = setTimeout(() => setIsReady(true), 500);
-    return () => clearTimeout(timeout);
-  }, []);
-
-  // Preload other images in background after render
-  useEffect(() => {
-    if (!isReady) return;
-    
-    // Preload featured images in background
-    requestIdleCallback(() => {
-      const featuredImages = featuredMachines.map(m => m.image);
-      preloadImages(featuredImages);
-    });
-  }, [isReady]);
-
-  const preloadCatalog = useCallback(async () => {
-    if (catalogPreloaded) return;
-    const catalogImages = catalogMachines.map(m => m.image);
-    await preloadImages(catalogImages);
-    setCatalogPreloaded(true);
-  }, [catalogPreloaded]);
-
-  useEffect(() => {
-    if (!isReady) return;
-    
     const machineSlug = searchParams.get('machine');
     const searchQuery = searchParams.get('search');
     
@@ -89,26 +54,26 @@ const Index = () => {
     
     if (searchQuery) {
       setCatalogOpen(true);
-      preloadCatalog();
-      requestAnimationFrame(() => {
+      setTimeout(() => {
         document.getElementById('catalog')?.scrollIntoView({ behavior: 'smooth' });
-      });
+      }, 100);
     }
-  }, [isReady, searchParams, preloadCatalog]);
+  }, [searchParams]);
 
+  // Handle scroll to section when navigating from other pages
   useEffect(() => {
-    if (!isReady || !location.state?.scrollTo) return;
-    
-    requestAnimationFrame(() => {
-      document.getElementById(location.state.scrollTo)?.scrollIntoView({ behavior: 'smooth' });
-    });
-    window.history.replaceState({}, document.title);
-  }, [isReady, location.state]);
+    if (location.state?.scrollTo) {
+      const sectionId = location.state.scrollTo;
+      setTimeout(() => {
+        document.getElementById(sectionId)?.scrollIntoView({ behavior: 'smooth' });
+      }, 100);
+      window.history.replaceState({}, document.title);
+    }
+  }, [location.state]);
 
-  const handleCatalogToggle = () => {
-    if (!catalogOpen) preloadCatalog();
+  const handleCatalogToggle = useCallback(() => {
     setCatalogOpen(prev => !prev);
-  };
+  }, []);
 
   const handleViewDetails = useCallback((machine: Machine) => {
     lastScrollYRef.current = window.scrollY;
@@ -130,18 +95,8 @@ const Index = () => {
     requestAnimationFrame(() => window.scrollTo(0, scrollY));
   }, [searchParams, navigate]);
 
-  if (!isReady) {
-    return (
-      <div className="fixed inset-0 z-[100] bg-background flex items-center justify-center">
-        <div className="w-16 h-16 rounded-2xl bg-primary flex items-center justify-center animate-pulse">
-          <span className="text-2xl font-black text-primary-foreground">YS</span>
-        </div>
-      </div>
-    );
-  }
-
   return (
-    <div className="min-h-screen bg-background text-foreground overflow-x-hidden gpu-accelerated">
+    <div className="min-h-screen bg-background text-foreground overflow-x-hidden">
       <StaticGeometricShapes />
       <Header />
       
@@ -154,7 +109,7 @@ const Index = () => {
           <CatalogSection
             isOpen={catalogOpen}
             onToggle={handleCatalogToggle}
-            onHoverButton={preloadCatalog}
+            onHoverButton={() => {}}
             onViewDetails={handleViewDetails}
             urlSearchQuery={urlSearchQuery}
             onSearchChange={(query) => {

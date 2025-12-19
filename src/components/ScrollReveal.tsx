@@ -23,7 +23,7 @@ export const ScrollReveal = memo(function ScrollReveal({
           observer.disconnect();
         }
       },
-      { threshold: 0.1, rootMargin: '-30px' }
+      { threshold: 0.1, rootMargin: '50px' }
     );
 
     observer.observe(element);
@@ -33,8 +33,8 @@ export const ScrollReveal = memo(function ScrollReveal({
   return (
     <div
       ref={ref}
-      className={`transform-gpu transition-all duration-300 ease-out ${
-        isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
+      className={`transition-all duration-500 ease-out ${
+        isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'
       } ${className}`}
     >
       {children}
@@ -48,13 +48,22 @@ interface CardRevealProps {
   index?: number;
 }
 
-export const CardReveal = memo(function CardReveal({ children, className = '' }: CardRevealProps) {
+export const CardReveal = memo(function CardReveal({ children, className = '', index = 0 }: CardRevealProps) {
   const ref = useRef<HTMLDivElement>(null);
   const [isVisible, setIsVisible] = useState(false);
 
   useEffect(() => {
     const element = ref.current;
     if (!element) return;
+
+    // Check if element is already in viewport on mount
+    const rect = element.getBoundingClientRect();
+    if (rect.top < window.innerHeight + 100) {
+      // Stagger animation for cards already in view
+      const delay = index * 100;
+      setTimeout(() => setIsVisible(true), delay);
+      return;
+    }
 
     const observer = new IntersectionObserver(
       ([entry]) => {
@@ -63,18 +72,18 @@ export const CardReveal = memo(function CardReveal({ children, className = '' }:
           observer.disconnect();
         }
       },
-      { threshold: 0.05, rootMargin: '-20px' }
+      { threshold: 0.05, rootMargin: '100px' }
     );
 
     observer.observe(element);
     return () => observer.disconnect();
-  }, []);
+  }, [index]);
 
   return (
     <div
       ref={ref}
-      className={`transform-gpu transition-all duration-200 ease-out ${
-        isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-3'
+      className={`transition-all duration-500 ease-out ${
+        isVisible ? 'opacity-100 translate-y-0 scale-100' : 'opacity-0 translate-y-8 scale-95'
       } ${className}`}
     >
       {children}

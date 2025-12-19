@@ -9,19 +9,16 @@ export function HeroSection() {
 
   return (
     <section className="relative min-h-[100svh] flex items-center justify-center overflow-hidden">
-      {/* Static Background Image - GPU accelerated */}
-      <div className="absolute inset-0 z-0 transform-gpu">
+      {/* Background Image */}
+      <div className="absolute inset-0 z-0">
         <img 
           src={heroBackground} 
           alt="Premium heavy machinery fleet" 
-          className="w-full h-full object-cover object-center brightness-110 contrast-105 transform-gpu"
-          loading="eager"
-          decoding="sync"
-          fetchPriority="high"
+          className="w-full h-full object-cover object-center brightness-110 contrast-105"
         />
-        {/* Overlay - simplified for performance */}
-        <div className="absolute inset-0 bg-gradient-to-b from-background/70 via-background/50 to-background/90 transform-gpu" />
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,transparent_20%,hsl(var(--background))_100%)] opacity-60 transform-gpu" />
+        {/* Overlay */}
+        <div className="absolute inset-0 bg-gradient-to-b from-background/70 via-background/50 to-background/90" />
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,transparent_20%,hsl(var(--background))_100%)] opacity-60" />
       </div>
 
       {/* Golden accent line bottom */}
@@ -48,7 +45,6 @@ export function HeroSection() {
             <br />
             <span className="text-gradient-gold relative">
               That Pays For Itself
-              {/* Underline accent */}
               <div className="absolute -bottom-2 left-1/4 right-1/4 h-1 rounded-full bg-gradient-to-r from-primary/0 via-primary to-primary/0" />
             </span>
           </h1>
@@ -82,7 +78,7 @@ export function HeroSection() {
             ].map((stat, index) => (
               <div 
                 key={index} 
-                className="text-center p-3 sm:p-5 rounded-2xl bg-card/40 backdrop-blur-sm border border-border/30 transform-gpu transition-all duration-150 hover:scale-105 hover:border-primary/40 hover:shadow-[0_0_40px_hsl(48_100%_50%/0.15)]"
+                className="text-center p-3 sm:p-5 rounded-2xl bg-card/40 backdrop-blur-sm border border-border/30 transition-all duration-150 hover:scale-105 hover:border-primary/40"
               >
                 <stat.icon className="w-4 h-4 sm:w-5 sm:h-5 text-primary mx-auto mb-1 sm:mb-2" />
                 <div className="text-lg sm:text-3xl md:text-4xl font-black text-primary" style={{ textShadow: '0 0 25px hsl(48 100% 50% / 0.35)' }}>
