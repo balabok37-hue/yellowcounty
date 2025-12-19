@@ -125,10 +125,30 @@ export const MachineCard = memo(function MachineCard({ machine, onViewDetails, o
       className={`group touch-manipulation ${isUnavailable ? 'cursor-default' : 'cursor-pointer'}`}
     >
       <div className="glass-card overflow-hidden relative transform-gpu transition-transform duration-150 ease-out active:scale-[0.98] hover:scale-[1.02]">
-        {/* Skeleton loader */}
+        {/* Detailed skeleton loader */}
         {!imageLoaded && (
-          <div className="absolute inset-0 bg-muted/40 animate-pulse">
+          <div className="absolute inset-0 bg-gradient-to-br from-muted/50 to-muted/30">
+            {/* Shimmer effect */}
+            <div 
+              className="absolute inset-0"
+              style={{
+                background: 'linear-gradient(90deg, transparent 0%, hsl(var(--muted-foreground)/0.08) 50%, transparent 100%)',
+                animation: 'shimmer 1.5s infinite',
+              }}
+            />
+            {/* Skeleton image placeholder */}
+            <div className="absolute inset-x-0 top-0 h-40 sm:h-48 md:h-52 flex items-center justify-center">
+              <div className="w-20 h-20 rounded-full bg-muted/60" />
+            </div>
+            {/* Gradient overlay */}
             <div className="absolute inset-0 bg-gradient-to-b from-transparent via-background/30 via-50% to-background" />
+            {/* Skeleton content */}
+            <div className="absolute bottom-0 left-0 right-0 p-3 sm:p-4 space-y-2">
+              <div className="h-5 bg-muted/60 rounded w-3/4" />
+              <div className="h-4 bg-muted/40 rounded w-1/2" />
+              <div className="h-6 bg-muted/60 rounded w-2/3 mt-2" />
+              <div className="h-10 bg-muted/40 rounded w-full mt-2" />
+            </div>
           </div>
         )}
 

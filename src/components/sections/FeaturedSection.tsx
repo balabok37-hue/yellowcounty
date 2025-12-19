@@ -42,11 +42,12 @@ export function FeaturedSection({ onViewDetails }: FeaturedSectionProps) {
 
         {/* Featured Grid */}
         <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-4 sm:gap-6">
-          {featuredMachines.map((machine) => (
-            <CardReveal key={machine.id}>
+          {featuredMachines.map((machine, index) => (
+            <CardReveal key={machine.id} index={index}>
               <MachineCard
                 machine={machine}
                 onViewDetails={onViewDetails}
+                priority={index < 4}
               />
             </CardReveal>
           ))}
