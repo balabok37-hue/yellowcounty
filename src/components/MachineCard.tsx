@@ -1,7 +1,8 @@
-import { memo, useState, useCallback } from 'react';
+import { memo, useState, useCallback, useEffect, useRef } from 'react';
 import { Eye } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { categoryInfo } from '@/data/machines';
+import { OptimizedMachineImage } from '@/components/OptimizedMachineImage';
 
 export type MachineCategory = 'excavators' | 'dozers' | 'wheel-loaders' | 'track-loaders' | 'backhoes' | 'telehandlers' | 'trucks' | 'compaction';
 
@@ -100,11 +101,13 @@ interface MachineCardProps {
   machine: Machine;
   onViewDetails: (machine: Machine) => void;
   onImageLoaded?: () => void;
+  priority?: boolean;
 }
 
-export const MachineCard = memo(function MachineCard({ machine, onViewDetails, onImageLoaded }: MachineCardProps) {
+export const MachineCard = memo(function MachineCard({ machine, onViewDetails, onImageLoaded, priority = false }: MachineCardProps) {
   const isUnavailable = machine.isSold || machine.isReserved;
   const [imageLoaded, setImageLoaded] = useState(false);
+  const cardRef = useRef<HTMLDivElement>(null);
   
   const handleClick = () => {
     if (!isUnavailable) {
@@ -117,26 +120,36 @@ export const MachineCard = memo(function MachineCard({ machine, onViewDetails, o
     onImageLoaded?.();
   }, [onImageLoaded]);
 
+  // Instant show if image is cached
+  useEffect(() => {
+    const img = new Image();
+    img.src = machine.image;
+    if (img.complete) {
+      setImageLoaded(true);
+      onImageLoaded?.();
+    }
+  }, [machine.image, onImageLoaded]);
+
   return (
     <div
+      ref={cardRef}
       onClick={handleClick}
-      className={`group touch-manipulation will-change-transform transition-opacity duration-500 ${
+      className={`group touch-manipulation will-change-auto transition-opacity duration-300 ${
         imageLoaded ? 'opacity-100' : 'opacity-0'
       } ${isUnavailable ? 'cursor-default' : 'cursor-pointer'}`}
+      style={{ contain: 'layout style paint' }}
     >
       <div className="glass-card overflow-hidden relative transform-gpu transition-transform duration-150 ease-out active:scale-[0.98] hover:scale-[1.02]">
-        {/* Full background image with lazy loading */}
-        <div className="absolute inset-0 overflow-hidden bg-muted/50">
+        {/* Full background image with optimized loading */}
+        <div className="absolute inset-0 overflow-hidden bg-muted/30">
           <div className="w-full h-full transform-gpu transition-transform duration-200 ease-out group-hover:scale-105">
             <div className="w-full h-full relative overflow-hidden" style={{ marginBottom: '-30px', paddingBottom: '30px' }}>
-              <img
+              <OptimizedMachineImage
                 src={machine.image}
                 alt={machine.name}
-                className={`w-full h-full ${machine.imageFit === 'contain' ? 'object-contain' : 'object-cover'} scale-105`}
-                style={{ objectPosition: 'center' }}
-                loading="lazy"
-                decoding="async"
+                imageFit={machine.imageFit}
                 onLoad={handleImageLoad}
+                priority={priority}
               />
             </div>
           </div>
