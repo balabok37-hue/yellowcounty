@@ -1,7 +1,5 @@
 import { memo, useState, useCallback } from 'react';
 import { Clock } from 'lucide-react';
-import { categoryInfo } from '@/data/machines';
-import { OptimizedMachineImage } from '@/components/OptimizedMachineImage';
 
 export type MachineCategory = 'excavators' | 'dozers' | 'wheel-loaders' | 'track-loaders' | 'backhoes' | 'telehandlers' | 'trucks' | 'compaction';
 
@@ -129,22 +127,28 @@ export const MachineCard = memo(function MachineCard({ machine, onViewDetails, o
       className={`machine-card ${isUnavailable ? 'cursor-default opacity-75' : 'cursor-pointer hover:shadow-xl'}`}
     >
       {/* Image Container */}
-      <div className="relative aspect-[4/3] bg-muted overflow-hidden">
+      <div className="relative aspect-[4/3] bg-muted overflow-hidden flex items-center justify-center">
         {/* Loading skeleton */}
         {!imageLoaded && (
           <div className="absolute inset-0 bg-muted animate-pulse" />
         )}
 
-        {/* Image */}
-        <div className={`absolute inset-0 transition-opacity duration-300 ${imageLoaded ? 'opacity-100' : 'opacity-0'}`}>
-          <OptimizedMachineImage
-            src={machine.image}
-            alt={machine.name}
-            imageFit={machine.imageFit}
-            onLoad={handleImageLoad}
-            priority={priority}
-          />
-        </div>
+        {/* Image - centered */}
+        <img
+          src={machine.image}
+          alt={machine.name}
+          loading={priority ? 'eager' : 'lazy'}
+          decoding="async"
+          onLoad={handleImageLoad}
+          onError={handleImageLoad}
+          className={`w-full h-full transition-opacity duration-300 ${imageLoaded ? 'opacity-100' : 'opacity-0'}`}
+          style={{
+            objectFit: machine.imageFit || 'cover',
+            objectPosition: 'center center'
+          }}
+          width={400}
+          height={300}
+        />
 
         {/* New Badge */}
         {isNew && !isUnavailable && (
