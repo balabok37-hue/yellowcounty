@@ -1,4 +1,4 @@
-import { memo } from 'react';
+import { memo, useState, useCallback } from 'react';
 import { Eye } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { categoryInfo } from '@/data/machines';
@@ -34,27 +34,46 @@ interface MachineCardProps {
 
 export const MachineCard = memo(function MachineCard({ machine, onViewDetails }: MachineCardProps) {
   const isUnavailable = machine.isSold || machine.isReserved;
+  const [imageLoaded, setImageLoaded] = useState(false);
   
-  const handleClick = () => {
+  const handleClick = useCallback(() => {
     if (!isUnavailable) {
       onViewDetails(machine);
     }
-  };
+  }, [isUnavailable, onViewDetails, machine]);
+
+  const handleImageLoad = useCallback(() => {
+    setImageLoaded(true);
+  }, []);
 
   return (
     <div
       onClick={handleClick}
       className={`group touch-manipulation ${isUnavailable ? 'cursor-default' : 'cursor-pointer'}`}
     >
-      <div className="glass-card overflow-hidden relative transition-transform duration-200 ease-out active:scale-[0.98] hover:scale-[1.02]">
-        {/* Background image */}
+      <div className="glass-card overflow-hidden relative transition-transform duration-300 ease-out active:scale-[0.98] hover:scale-[1.02]">
+        {/* Background image with smooth fade-in */}
         <div className="absolute inset-0 overflow-hidden">
-          <div className="w-full h-full transition-transform duration-300 ease-out group-hover:scale-105">
+          {/* Skeleton placeholder */}
+          <div 
+            className={`absolute inset-0 bg-gradient-to-br from-muted/60 to-muted/30 transition-opacity duration-500 ${
+              imageLoaded ? 'opacity-0' : 'opacity-100'
+            }`}
+          >
+            <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/5 to-transparent animate-shimmer" 
+              style={{ backgroundSize: '200% 100%' }}
+            />
+          </div>
+          
+          <div className={`w-full h-full transition-all duration-500 ease-out group-hover:scale-105 ${
+            imageLoaded ? 'opacity-100' : 'opacity-0'
+          }`}>
             <img
               src={machine.image}
               alt={machine.name}
               className={`w-full h-full ${machine.imageFit === 'contain' ? 'object-contain' : 'object-cover'}`}
               style={{ objectPosition: 'center' }}
+              onLoad={handleImageLoad}
             />
           </div>
           <div className="absolute inset-0 bg-gradient-to-b from-transparent via-background/30 via-50% to-background" />
