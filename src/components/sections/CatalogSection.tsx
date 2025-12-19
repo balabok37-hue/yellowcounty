@@ -23,7 +23,9 @@ interface CatalogSectionProps {
   onToggle: () => void;
   onViewDetails: (machine: Machine) => void;
   urlSearchQuery?: string;
+  urlCategory?: string;
   onSearchChange?: (query: string) => void;
+  onCategoryChange?: (category: string) => void;
 }
 
 const sortOptions: { value: SortOption; label: string }[] = [
@@ -76,8 +78,9 @@ const sortMachines = (machines: Machine[], sortBy: SortOption): Machine[] => {
   }
 };
 
-export function CatalogSection({ isOpen, onToggle, onViewDetails, urlSearchQuery = '', onSearchChange }: CatalogSectionProps) {
+export function CatalogSection({ isOpen, onToggle, onViewDetails, urlSearchQuery = '', urlCategory = '', onSearchChange, onCategoryChange }: CatalogSectionProps) {
   const [searchQuery, setSearchQuery] = useState(urlSearchQuery);
+  const [activeCategory, setActiveCategory] = useState<string>(urlCategory || 'all');
   const [activeBrand, setActiveBrand] = useState<string>('all');
   const [condition, setCondition] = useState<ConditionFilter>('all');
   const [priceRange, setPriceRange] = useState<[number, number]>([minPrice, maxPrice]);
@@ -89,13 +92,27 @@ export function CatalogSection({ isOpen, onToggle, onViewDetails, urlSearchQuery
     setSearchQuery(urlSearchQuery);
   }, [urlSearchQuery]);
 
+  useEffect(() => {
+    setActiveCategory(urlCategory || 'all');
+  }, [urlCategory]);
+
   const handleSearchChange = useCallback((value: string) => {
     setSearchQuery(value);
     onSearchChange?.(value);
   }, [onSearchChange]);
 
+  const handleCategoryChange = useCallback((value: string) => {
+    setActiveCategory(value);
+    onCategoryChange?.(value);
+  }, [onCategoryChange]);
+
   const filteredMachines = useMemo(() => {
     let machines = catalogMachines;
+    
+    // Filter by category
+    if (activeCategory !== 'all') {
+      machines = machines.filter(m => m.category === activeCategory);
+    }
     
     // Filter by brand
     if (activeBrand !== 'all') {
@@ -123,7 +140,7 @@ export function CatalogSection({ isOpen, onToggle, onViewDetails, urlSearchQuery
     }
     
     return sortMachines(machines, sortBy);
-  }, [activeBrand, condition, priceRange, searchQuery, sortBy]);
+  }, [activeCategory, activeBrand, condition, priceRange, searchQuery, sortBy]);
 
   const catalogCount = catalogMachines.length;
 
@@ -152,10 +169,30 @@ export function CatalogSection({ isOpen, onToggle, onViewDetails, urlSearchQuery
         </div>
       </div>
 
+      {/* Category Filter */}
+      <div>
+        <Label className="text-xs font-bold text-muted-foreground uppercase tracking-wide mb-2 block">
+          Equipment Type
+        </Label>
+        <Select value={activeCategory} onValueChange={handleCategoryChange}>
+          <SelectTrigger className="w-full bg-background border-border">
+            <SelectValue placeholder="All Categories" />
+          </SelectTrigger>
+          <SelectContent className="bg-card border-border z-50">
+            <SelectItem value="all">All Categories</SelectItem>
+            {Object.entries(categoryInfo).map(([key, info]) => (
+              <SelectItem key={key} value={key}>
+                {info.label}
+              </SelectItem>
+            ))}
+          </SelectContent>
+        </Select>
+      </div>
+
       {/* Brand Filter */}
       <div>
         <Label className="text-xs font-bold text-muted-foreground uppercase tracking-wide mb-2 block">
-          Filter Listings
+          Brand
         </Label>
         <Select value={activeBrand} onValueChange={setActiveBrand}>
           <SelectTrigger className="w-full bg-background border-border">
@@ -229,6 +266,7 @@ export function CatalogSection({ isOpen, onToggle, onViewDetails, urlSearchQuery
       {/* Reset Filters */}
       <button
         onClick={() => {
+          handleCategoryChange('all');
           setActiveBrand('all');
           setCondition('all');
           setPriceRange([minPrice, maxPrice]);
@@ -340,6 +378,7 @@ export function CatalogSection({ isOpen, onToggle, onViewDetails, urlSearchQuery
                 <p className="text-lg text-muted-foreground">No equipment found matching your criteria.</p>
                 <button
                   onClick={() => {
+                    handleCategoryChange('all');
                     setActiveBrand('all');
                     setCondition('all');
                     setPriceRange([minPrice, maxPrice]);

@@ -20,8 +20,9 @@ const Index = () => {
   const navigate = useNavigate();
   const [searchParams] = useSearchParams();
 
-  // Get search query from URL
+  // Get search query and category from URL
   const urlSearchQuery = searchParams.get('search') || '';
+  const urlCategory = searchParams.get('category') || '';
 
   // Handle URL parameter for direct machine links
   useEffect(() => {
@@ -87,12 +88,23 @@ const Index = () => {
             onToggle={() => {}}
             onViewDetails={handleViewDetails}
             urlSearchQuery={urlSearchQuery}
+            urlCategory={urlCategory}
             onSearchChange={(query) => {
               const newParams = new URLSearchParams(searchParams);
               if (query) {
                 newParams.set('search', query);
               } else {
                 newParams.delete('search');
+              }
+              const paramString = newParams.toString();
+              navigate(paramString ? `?${paramString}` : '/', { replace: true });
+            }}
+            onCategoryChange={(category) => {
+              const newParams = new URLSearchParams(searchParams);
+              if (category && category !== 'all') {
+                newParams.set('category', category);
+              } else {
+                newParams.delete('category');
               }
               const paramString = newParams.toString();
               navigate(paramString ? `?${paramString}` : '/', { replace: true });

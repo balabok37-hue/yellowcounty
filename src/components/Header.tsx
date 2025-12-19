@@ -39,13 +39,20 @@ export function Header() {
   };
 
   const equipmentCategories = [
-    { label: 'Excavators', href: '/#catalog' },
-    { label: 'Wheel Loaders', href: '/#catalog' },
-    { label: 'Track Loaders', href: '/#catalog' },
-    { label: 'Telehandlers', href: '/#catalog' },
-    { label: 'Dozers', href: '/#catalog' },
-    { label: 'Trucks', href: '/#catalog' },
+    { label: 'Excavators', category: 'excavators' },
+    { label: 'Wheel Loaders', category: 'wheel-loaders' },
+    { label: 'Track Loaders', category: 'track-loaders' },
+    { label: 'Telehandlers', category: 'telehandlers' },
+    { label: 'Dozers', category: 'dozers' },
+    { label: 'Trucks', category: 'trucks' },
+    { label: 'Compaction', category: 'compaction' },
+    { label: 'Backhoes', category: 'backhoes' },
   ];
+
+  const handleCategoryClick = (category: string) => {
+    navigate(`/?category=${category}`);
+    setIsMobileMenuOpen(false);
+  };
 
   return (
     <>
@@ -77,7 +84,7 @@ export function Header() {
                   {equipmentCategories.map((cat) => (
                     <DropdownMenuItem 
                       key={cat.label}
-                      onClick={() => handleNavClick(cat.href)}
+                      onClick={() => handleCategoryClick(cat.category)}
                       className="cursor-pointer"
                     >
                       {cat.label}
@@ -123,7 +130,7 @@ export function Header() {
 
               <a
                 href="tel:+16783106065"
-                className="flex items-center gap-2 px-4 py-2 bg-[hsl(45,100%,50%)] text-[hsl(230,35%,18%)] rounded font-bold text-sm hover:bg-[hsl(45,100%,55%)] transition-colors"
+                className="flex items-center gap-2 px-4 py-2 bg-primary text-primary-foreground rounded font-bold text-sm hover:bg-primary/90 transition-colors"
               >
                 <Phone className="w-4 h-4" />
                 (678) 310-6065
@@ -207,7 +214,7 @@ export function Header() {
             <div className="pt-4 border-t border-border mt-4">
               <a
                 href="tel:+16783106065"
-                className="flex items-center justify-center gap-2 w-full py-4 bg-[hsl(45,100%,50%)] text-[hsl(230,35%,18%)] rounded-lg font-bold text-lg"
+                className="flex items-center justify-center gap-2 w-full py-4 bg-primary text-primary-foreground rounded-lg font-bold text-lg hover:bg-primary/90 transition-colors"
               >
                 <Phone className="w-5 h-5" />
                 (678) 310-6065
