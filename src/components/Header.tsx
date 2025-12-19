@@ -1,35 +1,31 @@
-import { motion, AnimatePresence } from 'framer-motion';
-import { Button } from '@/components/ui/button';
-import { Phone, Menu, X, Mail, MapPin, MessageCircle, FileText, Package, Send, Truck } from 'lucide-react';
 import { useState } from 'react';
+import { Phone, Menu, X, ChevronDown, Search, ShoppingCart } from 'lucide-react';
 import { Link, useNavigate, useLocation } from 'react-router-dom';
+import { Input } from '@/components/ui/input';
 import {
-  Dialog,
-  DialogContent,
-  DialogHeader,
-  DialogTitle,
-} from '@/components/ui/dialog';
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuTrigger,
+} from '@/components/ui/dropdown-menu';
 
 export function Header() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  const [isCallModalOpen, setIsCallModalOpen] = useState(false);
+  const [searchQuery, setSearchQuery] = useState('');
   const navigate = useNavigate();
   const location = useLocation();
 
-  const menuItems = [
-    { label: 'Equipment', href: '/#featured', icon: Package },
-    { label: 'Contact', href: '/#contact', icon: Send },
-    { label: 'Partners', href: '/#partners', icon: Truck },
-    { label: 'Documents', href: '/documents', isRoute: true, icon: FileText },
-  ];
+  const handleSearch = (e: React.FormEvent) => {
+    e.preventDefault();
+    if (searchQuery.trim()) {
+      navigate(`/?search=${encodeURIComponent(searchQuery.trim())}`);
+      setSearchQuery('');
+    }
+  };
 
   const handleNavClick = (href: string, isRoute?: boolean) => {
     if (isRoute) {
-      if (href === '/documents' && location.pathname === '/documents') {
-        window.scrollTo({ top: 0, behavior: 'smooth' });
-      } else {
-        navigate(href);
-      }
+      navigate(href);
     } else if (href.startsWith('/#')) {
       const sectionId = href.substring(2);
       if (location.pathname !== '/') {
@@ -42,217 +38,184 @@ export function Header() {
     setIsMobileMenuOpen(false);
   };
 
+  const equipmentCategories = [
+    { label: 'Excavators', href: '/#catalog' },
+    { label: 'Wheel Loaders', href: '/#catalog' },
+    { label: 'Track Loaders', href: '/#catalog' },
+    { label: 'Telehandlers', href: '/#catalog' },
+    { label: 'Dozers', href: '/#catalog' },
+    { label: 'Trucks', href: '/#catalog' },
+  ];
+
   return (
     <>
-      <motion.header
-        initial={{ y: -100 }}
-        animate={{ y: 0 }}
-        transition={{ duration: 0.5 }}
-        className="fixed top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-xl border-b border-border/50"
-      >
+      <header className="sticky top-0 z-50 header-dark">
         <div className="container px-4">
-          <div className="flex items-center justify-between h-16 md:h-20">
+          <div className="flex items-center justify-between h-16">
             {/* Logo */}
-            <Link to="/" className="flex items-center gap-3">
-              <div className="text-xl md:text-2xl font-bold text-foreground">
-                Yellow<span className="text-primary">Stone</span>
+            <Link to="/" className="flex items-center gap-2">
+              <div className="text-xl font-bold text-secondary-foreground">
+                Yellow<span className="text-[hsl(45,100%,50%)]">Stone</span>
               </div>
             </Link>
 
-            {/* Desktop Nav */}
-            <nav className="hidden md:flex items-center gap-8">
-              <button 
-                onClick={() => handleNavClick('/#featured')}
-                className="text-foreground/80 hover:text-primary transition-colors duration-200 flex items-center gap-1.5 px-3 py-1.5 rounded-lg border border-border/30 hover:border-primary/50 bg-background/50"
+            {/* Desktop Navigation */}
+            <nav className="hidden lg:flex items-center gap-1">
+              <Link 
+                to="/"
+                className="px-4 py-2 text-sm font-medium text-secondary-foreground/80 hover:text-secondary-foreground transition-colors"
               >
-                <Package className="w-4 h-4" />
-                Equipment
+                HOME
+              </Link>
+              
+              <DropdownMenu>
+                <DropdownMenuTrigger className="px-4 py-2 text-sm font-medium text-secondary-foreground/80 hover:text-secondary-foreground transition-colors flex items-center gap-1">
+                  EQUIPMENT
+                  <ChevronDown className="w-4 h-4" />
+                </DropdownMenuTrigger>
+                <DropdownMenuContent className="bg-card border-border z-50">
+                  {equipmentCategories.map((cat) => (
+                    <DropdownMenuItem 
+                      key={cat.label}
+                      onClick={() => handleNavClick(cat.href)}
+                      className="cursor-pointer"
+                    >
+                      {cat.label}
+                    </DropdownMenuItem>
+                  ))}
+                </DropdownMenuContent>
+              </DropdownMenu>
+
+              <button
+                onClick={() => handleNavClick('/#catalog')}
+                className="px-4 py-2 text-sm font-medium text-secondary-foreground/80 hover:text-secondary-foreground transition-colors"
+              >
+                SALES
               </button>
-              <button 
+
+              <Link 
+                to="/documents"
+                className="px-4 py-2 text-sm font-medium text-secondary-foreground/80 hover:text-secondary-foreground transition-colors"
+              >
+                DOCUMENTS
+              </Link>
+
+              <button
                 onClick={() => handleNavClick('/#contact')}
-                className="text-foreground/80 hover:text-primary transition-colors duration-200 flex items-center gap-1.5 px-3 py-1.5 rounded-lg border border-border/30 hover:border-primary/50 bg-background/50"
+                className="px-4 py-2 text-sm font-medium text-secondary-foreground/80 hover:text-secondary-foreground transition-colors"
               >
-                <Send className="w-4 h-4" />
-                Contact
+                CONTACT
               </button>
-              <button 
-                onClick={() => handleNavClick('/#partners')}
-                className="text-foreground/80 hover:text-primary transition-colors duration-200 flex items-center gap-1.5 px-3 py-1.5 rounded-lg border border-border/30 hover:border-primary/50 bg-background/50"
-              >
-                <Truck className="w-4 h-4" />
-                Partners
-              </button>
-              <button 
-                onClick={() => handleNavClick('/documents', true)}
-                className="text-foreground/80 hover:text-primary transition-colors duration-200 flex items-center gap-1.5 px-3 py-1.5 rounded-lg border border-border/30 hover:border-primary/50 bg-background/50"
-              >
-                <FileText className="w-4 h-4" />
-                Documents
-              </button>
-              <Button 
-                variant="outline" 
-                size="sm" 
-                className="border-primary/50 text-primary hover:bg-primary/10 transition-colors duration-200"
-                onClick={() => setIsCallModalOpen(true)}
-              >
-                <Phone className="w-4 h-4 mr-2" />
-                Call Now
-              </Button>
             </nav>
+
+            {/* Right Side - Search, Phone, Cart */}
+            <div className="hidden lg:flex items-center gap-3">
+              <form onSubmit={handleSearch} className="relative">
+                <Input
+                  type="text"
+                  placeholder="Search..."
+                  value={searchQuery}
+                  onChange={(e) => setSearchQuery(e.target.value)}
+                  className="w-48 h-9 pl-9 pr-3 bg-secondary-foreground/10 border-secondary-foreground/20 text-secondary-foreground placeholder:text-secondary-foreground/50 rounded text-sm"
+                />
+                <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-secondary-foreground/50" />
+              </form>
+
+              <a
+                href="tel:+16783106065"
+                className="flex items-center gap-2 px-4 py-2 bg-[hsl(45,100%,50%)] text-[hsl(230,35%,18%)] rounded font-bold text-sm hover:bg-[hsl(45,100%,55%)] transition-colors"
+              >
+                <Phone className="w-4 h-4" />
+                (678) 310-6065
+              </a>
+
+              <button className="p-2 text-secondary-foreground/80 hover:text-secondary-foreground transition-colors relative">
+                <ShoppingCart className="w-5 h-5" />
+              </button>
+            </div>
 
             {/* Mobile Menu Toggle */}
             <button
-              className="md:hidden w-12 h-12 flex items-center justify-center rounded-xl bg-card/50 border border-border/50 active:scale-95 transition-transform duration-150"
+              className="lg:hidden p-2 text-secondary-foreground"
               onClick={() => setIsMobileMenuOpen(true)}
             >
-              <Menu className="w-6 h-6 text-foreground" />
+              <Menu className="w-6 h-6" />
             </button>
           </div>
         </div>
-      </motion.header>
+      </header>
 
-      {/* Mobile Menu Overlay */}
-      <AnimatePresence>
-        {isMobileMenuOpen && (
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            transition={{ duration: 0.2 }}
-            className="fixed inset-0 z-[100] bg-background"
-          >
-            {/* Header */}
-            <div className="flex items-center justify-between h-16 px-4 border-b border-border/50">
-              <span className="text-xl font-bold text-foreground">
-                Yellow<span className="text-primary">Stone</span>
-              </span>
-              <button
-                className="w-12 h-12 flex items-center justify-center rounded-xl bg-card border border-border active:scale-95 transition-transform duration-150"
-                onClick={() => setIsMobileMenuOpen(false)}
-              >
-                <X className="w-6 h-6 text-foreground" />
-              </button>
-            </div>
-
-            {/* Menu Content */}
-            <div className="p-6 space-y-3">
-              {menuItems.map((item, index) => (
-                <motion.button
-                  key={item.label}
-                  initial={{ opacity: 0, x: -20 }}
-                  animate={{ opacity: 1, x: 0 }}
-                  transition={{ delay: index * 0.05, duration: 0.25 }}
-                  onClick={() => handleNavClick(item.href, item.isRoute)}
-                  className="flex items-center justify-between p-5 rounded-2xl bg-card border border-border/50 active:bg-card/80 transition-colors duration-150 w-full text-left"
-                >
-                  <span className="text-lg font-semibold text-foreground flex items-center gap-2">
-                    {item.icon && <item.icon className="w-5 h-5" />}
-                    {item.label}
-                  </span>
-                  <div className="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center">
-                    <span className="text-primary">→</span>
-                  </div>
-                </motion.button>
-              ))}
-
-              {/* Contact Actions */}
-              <motion.div 
-                initial={{ opacity: 0, y: 10 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.15, duration: 0.25 }}
-                className="pt-6 space-y-3"
-              >
-                <a
-                  href="tel:+16783106065"
-                  className="flex items-center gap-4 p-5 rounded-2xl bg-primary text-primary-foreground active:opacity-90 transition-opacity duration-150"
-                >
-                  <div className="w-12 h-12 rounded-full bg-primary-foreground/20 flex items-center justify-center">
-                    <Phone className="w-6 h-6" />
-                  </div>
-                  <div>
-                    <div className="text-sm opacity-80">Call Now</div>
-                    <div className="font-bold">+1 (678) 310-6065</div>
-                  </div>
-                </a>
-
-                <a
-                  href="https://wa.me/15797013943"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex items-center gap-4 p-5 rounded-2xl bg-[#25D366] text-white active:opacity-90 transition-opacity duration-150"
-                >
-                  <div className="w-12 h-12 rounded-full bg-white/20 flex items-center justify-center">
-                    <MessageCircle className="w-6 h-6" />
-                  </div>
-                  <div>
-                    <div className="text-sm opacity-80">WhatsApp</div>
-                    <div className="font-bold">+1 (579) 701-3943</div>
-                  </div>
-                </a>
-
-                <a
-                  href="mailto:sales@yellowcounty.com"
-                  className="flex items-center gap-4 p-5 rounded-2xl bg-card border border-border/50 active:bg-card/80 transition-colors duration-150"
-                >
-                  <div className="w-12 h-12 rounded-full bg-muted flex items-center justify-center">
-                    <Mail className="w-6 h-6 text-muted-foreground" />
-                  </div>
-                  <div>
-                    <div className="text-sm text-muted-foreground">Email Us</div>
-                    <div className="font-semibold text-foreground">sales@yellowcounty.com</div>
-                  </div>
-                </a>
-              </motion.div>
-            </div>
-          </motion.div>
-        )}
-      </AnimatePresence>
-
-      {/* Call Modal (Desktop) */}
-      <Dialog open={isCallModalOpen} onOpenChange={setIsCallModalOpen}>
-        <DialogContent className="sm:max-w-md">
-          <DialogHeader>
-            <DialogTitle className="text-center text-xl">Contact Us</DialogTitle>
-          </DialogHeader>
-          <div className="space-y-4 pt-4">
-            <a 
-              href="tel:+16783106065"
-              className="flex items-center gap-4 p-4 rounded-lg bg-primary/10 hover:bg-primary/20 transition-colors duration-200"
+      {/* Mobile Menu */}
+      {isMobileMenuOpen && (
+        <div className="fixed inset-0 z-[100] bg-card lg:hidden">
+          <div className="flex items-center justify-between h-16 px-4 border-b border-border">
+            <span className="text-xl font-bold text-foreground">
+              Yellow<span className="text-[hsl(45,100%,50%)]">Stone</span>
+            </span>
+            <button
+              className="p-2 text-foreground"
+              onClick={() => setIsMobileMenuOpen(false)}
             >
-              <div className="w-12 h-12 rounded-full bg-primary/20 flex items-center justify-center">
-                <Phone className="w-6 h-6 text-primary" />
-              </div>
-              <div>
-                <div className="text-sm text-muted-foreground">Call us</div>
-                <div className="font-semibold text-foreground">+1 (678) 310-6065</div>
-              </div>
-            </a>
-            
-            <a 
-              href="mailto:sales@yellowcounty.com"
-              className="flex items-center gap-4 p-4 rounded-lg bg-muted/50 hover:bg-muted transition-colors duration-200"
+              <X className="w-6 h-6" />
+            </button>
+          </div>
+
+          <div className="p-4 space-y-2">
+            <form onSubmit={handleSearch} className="relative mb-4">
+              <Input
+                type="text"
+                placeholder="Search equipment..."
+                value={searchQuery}
+                onChange={(e) => setSearchQuery(e.target.value)}
+                className="w-full h-12 pl-12 pr-4 bg-muted border-border rounded-lg"
+              />
+              <Search className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-muted-foreground" />
+            </form>
+
+            <button
+              onClick={() => handleNavClick('/')}
+              className="w-full text-left px-4 py-3 text-lg font-medium text-foreground hover:bg-muted rounded-lg transition-colors"
             >
-              <div className="w-12 h-12 rounded-full bg-muted flex items-center justify-center">
-                <Mail className="w-6 h-6 text-muted-foreground" />
-              </div>
-              <div>
-                <div className="text-sm text-muted-foreground">Email us</div>
-                <div className="font-semibold text-foreground">sales@yellowcounty.com</div>
-              </div>
-            </a>
-            
-            <div className="flex items-center gap-4 p-4 rounded-lg bg-muted/50">
-              <div className="w-12 h-12 rounded-full bg-muted flex items-center justify-center">
-                <MapPin className="w-6 h-6 text-muted-foreground" />
-              </div>
-              <div>
-                <div className="text-sm text-muted-foreground">Visit us</div>
-                <div className="font-semibold text-foreground text-sm">5150 Midland Rd, Billings, MT 59101</div>
-              </div>
+              HOME
+            </button>
+            <button
+              onClick={() => handleNavClick('/#catalog')}
+              className="w-full text-left px-4 py-3 text-lg font-medium text-foreground hover:bg-muted rounded-lg transition-colors"
+            >
+              EQUIPMENT
+            </button>
+            <button
+              onClick={() => handleNavClick('/#catalog')}
+              className="w-full text-left px-4 py-3 text-lg font-medium text-foreground hover:bg-muted rounded-lg transition-colors"
+            >
+              SALES
+            </button>
+            <Link
+              to="/documents"
+              onClick={() => setIsMobileMenuOpen(false)}
+              className="block px-4 py-3 text-lg font-medium text-foreground hover:bg-muted rounded-lg transition-colors"
+            >
+              DOCUMENTS
+            </Link>
+            <button
+              onClick={() => handleNavClick('/#contact')}
+              className="w-full text-left px-4 py-3 text-lg font-medium text-foreground hover:bg-muted rounded-lg transition-colors"
+            >
+              CONTACT
+            </button>
+
+            <div className="pt-4 border-t border-border mt-4">
+              <a
+                href="tel:+16783106065"
+                className="flex items-center justify-center gap-2 w-full py-4 bg-[hsl(45,100%,50%)] text-[hsl(230,35%,18%)] rounded-lg font-bold text-lg"
+              >
+                <Phone className="w-5 h-5" />
+                (678) 310-6065
+              </a>
             </div>
           </div>
-        </DialogContent>
-      </Dialog>
+        </div>
+      )}
     </>
   );
 }
