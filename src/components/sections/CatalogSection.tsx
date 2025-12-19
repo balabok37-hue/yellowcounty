@@ -250,7 +250,7 @@ export function CatalogSection({ isOpen, onToggle, onViewDetails, urlSearchQuery
             onValueChange={(value) => setPriceRange(value as [number, number])}
             min={minPrice}
             max={maxPrice}
-            step={5000}
+            step={100}
             className="mb-3"
           />
           <div className="flex justify-between text-sm text-muted-foreground">
