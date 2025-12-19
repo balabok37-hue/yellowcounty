@@ -116,17 +116,18 @@ export const MachineCard = memo(function MachineCard({ machine, onViewDetails }:
       className={`group touch-manipulation will-change-transform ${isUnavailable ? 'cursor-default' : 'cursor-pointer'}`}
     >
       <div className="glass-card overflow-hidden relative transform-gpu transition-transform duration-150 ease-out active:scale-[0.98] hover:scale-[1.02]">
-        {/* Full background image */}
-        <div className="absolute inset-0 overflow-hidden">
+        {/* Full background image with lazy loading */}
+        <div className="absolute inset-0 overflow-hidden bg-muted/50">
           <div className="w-full h-full transform-gpu transition-transform duration-200 ease-out group-hover:scale-105">
             <div className="w-full h-full relative overflow-hidden" style={{ marginBottom: '-30px', paddingBottom: '30px' }}>
               <img
                 src={machine.image}
                 alt={machine.name}
-                className={`w-full h-full ${machine.imageFit === 'contain' ? 'object-contain' : 'object-cover'} scale-105`}
+                className={`w-full h-full ${machine.imageFit === 'contain' ? 'object-contain' : 'object-cover'} scale-105 transition-opacity duration-300`}
                 style={{ objectPosition: 'center' }}
                 loading="lazy"
                 decoding="async"
+                fetchPriority="low"
               />
             </div>
           </div>
