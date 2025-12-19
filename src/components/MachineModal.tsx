@@ -173,11 +173,11 @@ export function MachineModal({ machine, isOpen, onClose }: MachineModalProps) {
 
             {/* Specifications - moved here to fill space below thumbnails */}
             {machine.specs && Object.keys(machine.specs).length > 0 && (
-              <div className="flex-1 p-4 bg-card/30 overflow-y-auto">
+              <div className="hidden lg:flex flex-1 p-4 bg-card/30 overflow-y-auto flex-col">
                 <h3 className="text-sm font-bold text-foreground uppercase tracking-wide mb-3">
                   Specifications
                 </h3>
-                <div className="grid grid-cols-2 gap-x-4 gap-y-1 text-sm">
+                <div className="grid grid-cols-2 gap-x-6 gap-y-0.5 text-sm">
                   {Object.entries(machine.specs).map(([key, value]) => {
                     if (!value) return null;
                     const label = key
@@ -185,9 +185,9 @@ export function MachineModal({ machine, isOpen, onClose }: MachineModalProps) {
                       .replace(/^./, str => str.toUpperCase())
                       .trim();
                     return (
-                      <div key={key} className="flex justify-between py-1.5 border-b border-border/50">
-                        <span className="text-muted-foreground truncate mr-2">{label}</span>
-                        <span className="font-medium text-foreground text-right truncate">{value}</span>
+                      <div key={key} className="flex flex-col py-1.5 border-b border-border/50">
+                        <span className="text-muted-foreground text-xs">{label}</span>
+                        <span className="font-medium text-foreground break-words">{value}</span>
                       </div>
                     );
                   })}
@@ -268,6 +268,30 @@ export function MachineModal({ machine, isOpen, onClose }: MachineModalProps) {
                 <p className="text-sm text-muted-foreground leading-relaxed">
                   {machine.description}
                 </p>
+              </div>
+            )}
+
+            {/* Specifications - Mobile only */}
+            {machine.specs && Object.keys(machine.specs).length > 0 && (
+              <div className="lg:hidden mb-4">
+                <h3 className="text-sm font-bold text-foreground uppercase tracking-wide mb-3">
+                  Specifications
+                </h3>
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-4 gap-y-0.5 text-sm">
+                  {Object.entries(machine.specs).map(([key, value]) => {
+                    if (!value) return null;
+                    const label = key
+                      .replace(/([A-Z])/g, ' $1')
+                      .replace(/^./, str => str.toUpperCase())
+                      .trim();
+                    return (
+                      <div key={key} className="flex flex-col py-1.5 border-b border-border/50">
+                        <span className="text-muted-foreground text-xs">{label}</span>
+                        <span className="font-medium text-foreground break-words">{value}</span>
+                      </div>
+                    );
+                  })}
+                </div>
               </div>
             )}
 
