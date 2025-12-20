@@ -17,6 +17,7 @@ export interface Machine {
   isHotOffer?: boolean;
   isSold?: boolean;
   isReserved?: boolean;
+  isComingSoon?: boolean;
   imagePosition?: string;
   category?: MachineCategory;
   description?: string;
