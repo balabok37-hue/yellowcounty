@@ -196,6 +196,18 @@ import kubotaKx0404Image3 from '@/assets/machines/kubota-kx040-4-3.png';
 import kubotaKx0404Image4 from '@/assets/machines/kubota-kx040-4-4.png';
 import kubotaKx0404Image5 from '@/assets/machines/kubota-kx040-4-5.png';
 
+// New images
+import caterpillar950mNewImage from '@/assets/machines/caterpillar-950m-new.png';
+import case321f2019Image from '@/assets/machines/case-321f-2019.png';
+import merloP5018hmNewImage from '@/assets/machines/merlo-p50-18hm-new.png';
+import caterpillarTl943cNewImage from '@/assets/machines/caterpillar-tl943c-new.png';
+import johnDeere6430NewImage from '@/assets/machines/john-deere-6430-new.png';
+import kubotaKx0404NewImage from '@/assets/machines/kubota-kx040-4-new.png';
+import case321f2023NewImage from '@/assets/machines/case-321f-2023-new.png';
+import johnDeere544pNewImage from '@/assets/machines/john-deere-544p-new.png';
+import caterpillar938m2021NewImage from '@/assets/machines/caterpillar-938m-2021-new.png';
+import jcb9404NewImage from '@/assets/machines/jcb-940-4-new.png';
+
 
 // Category definitions with labels and icons
 export const categoryInfo: Record<MachineCategory, { label: string; labelRu?: string }> = {
@@ -430,7 +442,7 @@ const allMachinesRaw: Array<Omit<Machine, 'category'> & { category?: string }> =
     price: 35500,
     originalPrice: 39000,
     discount: 9,
-    image: jcb9404Image,
+    image: jcb9404NewImage,
     description: 'The 2017 JCB 940-4 is a powerful 4×4 rough-terrain forklift designed for the toughest construction, industrial yards and recycling sites, with a heavy-duty chassis built for 12,000+ hour service life. Powered by a JCB EcoMAX 448 Tier 4 Final engine (74 hp net, no DPF/SCR), it lifts 8,000 lb (4,000 kg) to a full height of 22 ft (6.7 m) and offers excellent visibility and stability thanks to the 4-wheel drive and high ground clearance. Features hydrostatic transmission, servo joystick controls, spacious ROPS/FOPS cab with heat/AC, 360° lighting and quick-hitch carriage. This low-hour unit (est. 2,100 hrs) comes complete with 48" pallet forks + side-shift and 1.5 yd³ bucket — ready for immediate heavy-duty work. Outstanding resale value (+17% on recent auctions) and legendary JCB reliability make the smartest choice for contractors who need a true all-terrain mast forklift.',
     specs: {
       engine: 'JCB EcoMAX 448 (Tier 4 Final, no AdBlue)',
@@ -448,7 +460,7 @@ const allMachinesRaw: Array<Omit<Machine, 'category'> & { category?: string }> =
       transportDimensions: '19 ft 8 in × 7 ft 8 in × 8 ft 10 in (6.0 × 2.36 × 2.69 m)',
     },
     gallery: [
-      jcb9404Image,
+      jcb9404NewImage,
     ],
   },
   {
@@ -486,7 +498,7 @@ const allMachinesRaw: Array<Omit<Machine, 'category'> & { category?: string }> =
     price: 95000,
     originalPrice: 105000,
     discount: 10,
-    image: merloP5018hmImage,
+    image: merloP5018hmNewImage,
     description: 'The 2019 Merlo P50.18HM is a legendary 5-tonne / 18-meter heavy-duty telescopic handler — the absolute king for high-rise construction, steel erection, silo work, and big industrial jobs. Iconic side-engine layout, ring-mounted cab with 360° continuous rotation, and four independent outriggers deliver unmatched stability and visibility. Powered by a Deutz TCD 3.6 L4 Stage IV/Tier 4 Final engine (136 hp net, some units 156 hp), hydrostatic transmission with 25 mph (40 km/h) top speed, and load-sensing hydraulics. Full 11,000 lb (5,000 kg) capacity to 58 ft 5 in (17.9 m) height and 1,800 kg at maximum 43 ft 8 in forward reach. This low-hour 2019 unit (est. 2,200–2,800 hrs) comes with hydraulic quick-attach carriage, 1200 mm pallet forks, 4 hydraulic outlets at boom head, stabilizer legs, and full factory records. Excellent resale value (+18–22% in European & US auctions last 24 months) and remaining structural warranty until 2026.',
     specs: {
       engine: 'Deutz TCD 3.6 L4 (Stage IV / Tier 4 Final)',
@@ -505,7 +517,7 @@ const allMachinesRaw: Array<Omit<Machine, 'category'> & { category?: string }> =
       transportDimensions: '20 ft 8 in × 8 ft × 9 ft 10 in (6.32 × 2.44 × 3.00 m)',
     },
     gallery: [
-      merloP5018hmImage,
+      merloP5018hmNewImage,
     ],
   },
   {
@@ -517,7 +529,7 @@ const allMachinesRaw: Array<Omit<Machine, 'category'> & { category?: string }> =
     price: 42500,
     originalPrice: 47000,
     discount: 10,
-    image: johnDeere6430Image,
+    image: johnDeere6430NewImage,
     description: '2012 John Deere 6430 Premium Cab Tractor – clean, ready-to-work unit. One of the most bulletproof and sought-after 6-series John Deere tractors. Only ≈ 4,850 hours, fully serviced, no money needed. PowerTech 4.5L Tier 3 engine – 125 hp. Premium cab: air conditioning, air-ride seat, excellent visibility. PowerQuad Plus 24F/24R transmission (40 km/h Eco) with left-hand reverser. MFWD front axle with TLS suspension. 80 l/min hydraulics, 3 SCVs + Power Beyond. Front PTO 1000 rpm + rear 540/1000. Tires: 420/85R28 front – 520/85R38 rear (70–80 % remaining). Front + rear suitcase weights included. Original paint, no welds or major repairs, full service history. Perfect for seeding, cultivation, transport, or municipal work.',
     specs: {
       power: '125 hp',
@@ -531,7 +543,7 @@ const allMachinesRaw: Array<Omit<Machine, 'category'> & { category?: string }> =
       weight: '≈ 13,670 lb (6,200 kg) with weights',
     },
     gallery: [
-      johnDeere6430Image,
+      johnDeere6430NewImage,
     ],
   },
   {
@@ -1032,7 +1044,7 @@ const allMachinesRaw: Array<Omit<Machine, 'category'> & { category?: string }> =
     price: 36000,
     originalPrice: 40000,
     discount: 10,
-    image: caterpillarTl943cImage,
+    image: caterpillarTl943cNewImage,
     description: 'The 2014 Caterpillar TL943C – rock-solid 9,000 lb / 43 ft telehandler with full Cat service history and only original hours in the mid-range sweet spot. Cat C4.4 Tier 4 Interim 124 hp (no DEF, just DOC), 4-speed powershift, 4WD + crab steer, 10° frame leveling, enclosed cab with heat/AC/Bluetooth, quick-attach carriage + 60" pallet forks, foam-filled 14.00-24 tires at 75–85%, LED work lights, fenders, fresh annual inspection, tight boom, no leaks, no welds, ready to go straight to work. Ships nationwide (#A2585619). Same-year TL943C units with comparable hours still hammering $34–39k at Ritchie Bros, IronPlanet and Alex Lyon auctions.',
     specs: {
       engine: 'Cat C4.4 124 hp (Tier 4i – no DEF)',
@@ -1052,7 +1064,7 @@ const allMachinesRaw: Array<Omit<Machine, 'category'> & { category?: string }> =
       stockNumber: 'A2585619',
     },
     gallery: [
-      caterpillarTl943cImage,
+      caterpillarTl943cNewImage,
     ],
   },
   {
@@ -1282,7 +1294,7 @@ const allMachinesRaw: Array<Omit<Machine, 'category'> & { category?: string }> =
     originalPrice: 195000,
     discount: 10,
     category: 'loaders',
-    image: caterpillar950mImage,
+    image: caterpillar950mNewImage,
     isHotOffer: false,
     description: '2018 CAT 950M straight from a Montana gravel pit operation. One-owner, full Cat dealer history, no accidents. Fresh 500-hour service completed, zero leaks, excellent rubber all around (80% remaining). Ice-cold A/C, ride control, auto-lube ready. Comes with 5.5 yd³ GP bucket + bolt-on edge. Ready to load trucks today.',
     specs: {
@@ -1297,7 +1309,7 @@ const allMachinesRaw: Array<Omit<Machine, 'category'> & { category?: string }> =
       status: 'In stock – ships worldwide',
     },
     gallery: [
-      caterpillar950mImage,
+      caterpillar950mNewImage,
     ],
   },
   {
@@ -1310,7 +1322,7 @@ const allMachinesRaw: Array<Omit<Machine, 'category'> & { category?: string }> =
     originalPrice: 160000,
     discount: 9,
     category: 'loaders',
-    image: johnDeere544pImage,
+    image: johnDeere544pNewImage,
     isHotOffer: false,
     description: 'Like-new 2021 John Deere 544 P-Tier with super low hours. One-owner Montana county machine, always stored inside, full JD dealer service records. Still under remaining PowerGard Protection Plan. Fresh service, no leaks, excellent rubber (92% remaining). Comes with 4.25 yd³ bucket + bolt-on edge and quick coupler.',
     specs: {
@@ -1325,7 +1337,7 @@ const allMachinesRaw: Array<Omit<Machine, 'category'> & { category?: string }> =
       status: 'In stock – ships worldwide',
     },
     gallery: [
-      johnDeere544pImage,
+      johnDeere544pNewImage,
     ],
   },
   {
@@ -1427,7 +1439,7 @@ const allMachinesRaw: Array<Omit<Machine, 'category'> & { category?: string }> =
     originalPrice: 58000,
     discount: 9,
     category: 'earthmoving',
-    image: kubotaKx0404Image,
+    image: kubotaKx0404NewImage,
     isHotOffer: false,
     description: '2024 Kubota KX040-4 demo unit with factory warranty remaining. Only light dealer yard use – basically brand-new. Full KubotaCare coverage until 2027 or 3,000 hours. Zero-turn, angle blade, hydraulic thumb, rubber tracks like new. Still smells new inside the cab.',
     specs: {
@@ -1442,7 +1454,7 @@ const allMachinesRaw: Array<Omit<Machine, 'category'> & { category?: string }> =
       status: 'In stock – ships worldwide',
     },
     gallery: [
-      kubotaKx0404Image,
+      kubotaKx0404NewImage,
     ],
   },
   {
@@ -1543,7 +1555,7 @@ const allMachinesRaw: Array<Omit<Machine, 'category'> & { category?: string }> =
     originalPrice: 58000,
     discount: 10,
     category: 'loaders',
-    image: case321fImage,
+    image: case321f2019Image,
     isHotOffer: false,
     description: 'Super-clean 2019 Case 321F compact wheel loader from a municipal fleet. Always dealer-serviced, stored inside, no rust. Fresh service, excellent rubber, tight center pin. Comes with quick coupler + forks and 1.7 yd³ bucket. Perfect size for landscaping, snow, or tight job sites.',
     specs: {
@@ -1558,7 +1570,7 @@ const allMachinesRaw: Array<Omit<Machine, 'category'> & { category?: string }> =
       status: 'In stock – ships worldwide',
     },
     gallery: [
-      case321fImage,
+      case321f2019Image,
     ],
   },
   {
@@ -1571,7 +1583,7 @@ const allMachinesRaw: Array<Omit<Machine, 'category'> & { category?: string }> =
     originalPrice: 75000,
     discount: 9,
     category: 'loaders',
-    image: case321f2023Image,
+    image: case321f2023NewImage,
     isHotOffer: false,
     description: '2023 Case 321F with only light municipal use. Still covered by full Case ProCare warranty until 2026 / 3,000 hours. Basically brand-new condition – fresh service, zero damage, perfect paint. Quick coupler, forks + bucket, deluxe cab. Save big vs new price.',
     specs: {
@@ -1586,7 +1598,7 @@ const allMachinesRaw: Array<Omit<Machine, 'category'> & { category?: string }> =
       status: 'In stock – ships worldwide',
     },
     gallery: [
-      case321f2023Image,
+      case321f2023NewImage,
     ],
   },
   {
@@ -1672,7 +1684,7 @@ const allMachinesRaw: Array<Omit<Machine, 'category'> & { category?: string }> =
     originalPrice: 215000,
     discount: 9,
     category: 'loaders',
-    image: caterpillar938m2021Image,
+    image: caterpillar938m2021NewImage,
     description: 'Ultra-low-hour dealer-maintained unicorn with only 1,420 original hours and remaining Cat Platinum warranty until 2026/6,000 hrs. Features Fusion coupler, 4.2 yd³ spade-nose bucket + BOE, ride control, high-lift z-bar, 23.5R25 Michelin XHA2 tires 95%+, high-flow XPS hydraulics + 3rd/4th valve, reversing fan, Autodig + Cat Payload with printer, LED 360° lighting, deluxe cab with touchscreen. Zero damage, zero leaks, fresh TA2 & SOS – runs like the day it left the factory.',
     specs: {
       engine: 'Cat C7.1 190 hp (Tier 4 Final)',
@@ -1692,7 +1704,7 @@ const allMachinesRaw: Array<Omit<Machine, 'category'> & { category?: string }> =
       status: 'SOLD – Dealer-maintained, like-new, zero damage/leaks',
     },
     gallery: [
-      caterpillar938m2021Image,
+      caterpillar938m2021NewImage,
     ],
   },
   {
