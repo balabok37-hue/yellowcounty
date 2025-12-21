@@ -4,7 +4,6 @@ import sanySy80uImage2 from '@/assets/machines/sany-sy80u-2.png';
 import sanySy80uImage3 from '@/assets/machines/sany-sy80u-3.png';
 import sanySy80uImage4 from '@/assets/machines/sany-sy80u-4.png';
 import sanySy80uImage5 from '@/assets/machines/sany-sy80u-5.png';
-import sanySw405kImage from '@/assets/machines/sany-sw405k.png';
 import develonDd100Image1 from '@/assets/machines/develon-dd100-1.png';
 import develonDd100Image2 from '@/assets/machines/develon-dd100-2.png';
 import develonDd100Image3 from '@/assets/machines/develon-dd100-3.png';
@@ -15,81 +14,25 @@ import kubotaR640r43Image3 from '@/assets/machines/kubota-r640r43-3.png';
 import kubotaR640r43Image4 from '@/assets/machines/kubota-r640r43-4.png';
 import kubotaR640r43Image5 from '@/assets/machines/kubota-r640r43-5.png';
 import sanySy215cImage from '@/assets/machines/sany-sy215c.png';
-import manitouMlt1040Image from '@/assets/machines/manitou-mlt1040.png';
-import manitouMlt1040Image2 from '@/assets/machines/manitou-mlt1040-2.jpg';
-import jcb9404Image from '@/assets/machines/jcb-940-4.png';
+import manitouMlt1040145Image1 from '@/assets/machines/manitou-mlt1040-145-1.png';
+import manitouMlt1040145Image2 from '@/assets/machines/manitou-mlt1040-145-2.png';
+import manitouMlt1040145Image3 from '@/assets/machines/manitou-mlt1040-145-3.png';
+import manitouMlt1040145Image4 from '@/assets/machines/manitou-mlt1040-145-4.png';
+import jcb9404NewImage from '@/assets/machines/jcb-940-4-new.png';
 import johnDeere310lImage from '@/assets/machines/john-deere-310l-ep.png';
-import merloP5018hmImage from '@/assets/machines/merlo-p50-18hm.png';
-import johnDeere6430Image from '@/assets/machines/john-deere-6430.png';
-import peterbilt389Image1 from '@/assets/machines/peterbilt-389-1.png';
-import peterbilt389Image2 from '@/assets/machines/peterbilt-389-2.png';
-import peterbilt389Image3 from '@/assets/machines/peterbilt-389-3.png';
-import peterbilt389Image4 from '@/assets/machines/peterbilt-389-4.png';
-import peterbilt389Image5 from '@/assets/machines/peterbilt-389-5.png';
-import freightlinerM2Image from '@/assets/machines/freightliner-m2-106.png';
-import asvVt70hoImage from '@/assets/machines/asv-vt70ho.png';
-import silverado5500hdImage from '@/assets/machines/chevrolet-silverado-5500hd.png';
-import silverado6500hd1Image from '@/assets/machines/chevrolet-silverado-6500hd-1.png';
-import silverado6500hd2Image from '@/assets/machines/chevrolet-silverado-6500hd-2.png';
-import silverado6500hd3Image from '@/assets/machines/chevrolet-silverado-6500hd-3.png';
-import silverado6500hd4Image from '@/assets/machines/chevrolet-silverado-6500hd-4.png';
-import silverado4500hdImage from '@/assets/machines/chevrolet-silverado-4500hd.png';
-import silverado4500hdBoxImage from '@/assets/machines/chevrolet-silverado-4500hd-box.png';
-import silverado5500hdBoxImage from '@/assets/machines/chevrolet-silverado-5500hd-box.png';
-import mackGu713Image1 from '@/assets/machines/mack-gu713-1.png';
-import mackGu713Image2 from '@/assets/machines/mack-gu713-2.png';
-import mackGu713Image3 from '@/assets/machines/mack-gu713-3.png';
-import mackGu713Image4 from '@/assets/machines/mack-gu713-4.png';
-import mackGu713Image5 from '@/assets/machines/mack-gu713-5.png';
+import merloP5018hmNewImage from '@/assets/machines/merlo-p50-18hm-new.png';
+import johnDeere6430NewImage from '@/assets/machines/john-deere-6430-new.png';
+import asvVt70hoNewImage from '@/assets/machines/asv-vt70ho-new.png';
 import komatsuWa3208Image1 from '@/assets/machines/komatsu-wa320-8-1.png';
 import komatsuWa3208Image2 from '@/assets/machines/komatsu-wa320-8-2.png';
 import komatsuWa3208Image3 from '@/assets/machines/komatsu-wa320-8-3.png';
 import komatsuWa3208Image4 from '@/assets/machines/komatsu-wa320-8-4.png';
 import komatsuWa3208Image5 from '@/assets/machines/komatsu-wa320-8-5.png';
-import fordF750DumpImage from '@/assets/machines/ford-f750-dump.png';
 import caterpillarCb16Image from '@/assets/machines/caterpillar-cb16-1.png';
 import caterpillarCb16Image2 from '@/assets/machines/caterpillar-cb16-2.png';
 import caterpillarCb16Image3 from '@/assets/machines/caterpillar-cb16-3.png';
 import caterpillarCb16Image4 from '@/assets/machines/caterpillar-cb16-4.png';
 import caterpillarCb16Image5 from '@/assets/machines/caterpillar-cb16-5.png';
-import genieGth1056Image from '@/assets/machines/genie-gth1056.png';
-import gehlRs642Image from '@/assets/machines/gehl-rs6-42.png';
-import johnDeere310slImage from '@/assets/machines/john-deere-310sl.png';
-import caterpillarTl943cImage from '@/assets/machines/caterpillar-tl943c.png';
-import chevroletColoradoZ71Image from '@/assets/machines/chevrolet-colorado-z71.png';
-import caterpillar289d3Image from '@/assets/machines/caterpillar-289d3.png';
-import chevroletSilverado2500hdImage from '@/assets/machines/chevrolet-silverado-2500hd-ltz.png';
-import international7300Image1 from '@/assets/machines/international-7300-1.png';
-import international7300Image2 from '@/assets/machines/international-7300-2.png';
-import international7300Image3 from '@/assets/machines/international-7300-3.png';
-import caterpillar336Image1 from '@/assets/machines/caterpillar-336-1.png';
-import caterpillar336Image2 from '@/assets/machines/caterpillar-336-2.png';
-import caterpillar336Image3 from '@/assets/machines/caterpillar-336-3.png';
-import caterpillar336Image4 from '@/assets/machines/caterpillar-336-4.png';
-import hitachiZx350Image1 from '@/assets/machines/hitachi-zx350-1.png';
-import hitachiZx350Image2 from '@/assets/machines/hitachi-zx350-2.png';
-import hitachiZx350Image3 from '@/assets/machines/hitachi-zx350-3.png';
-import hitachiZx350Image4 from '@/assets/machines/hitachi-zx350-4.png';
-import johnDeere210gImage1 from '@/assets/machines/john-deere-210g-1.png';
-import johnDeere210gImage2 from '@/assets/machines/john-deere-210g-2.png';
-import johnDeere210gImage3 from '@/assets/machines/john-deere-210g-3.png';
-import johnDeere210gImage4 from '@/assets/machines/john-deere-210g-4.png';
-import caterpillar950mImage from '@/assets/machines/caterpillar-950m.png';
-import johnDeere544pImage from '@/assets/machines/john-deere-544p.png';
-import volvoL120h2016Image1 from '@/assets/machines/volvo-l120h-2016-1.png';
-import volvoL120h2016Image2 from '@/assets/machines/volvo-l120h-2016-2.png';
-import volvoL120h2016Image3 from '@/assets/machines/volvo-l120h-2016-3.png';
-import volvoL120h2016Image4 from '@/assets/machines/volvo-l120h-2016-4.png';
-import volvoL120h2016Image5 from '@/assets/machines/volvo-l120h-2016-5.png';
-import volvoL120h2024Image1 from '@/assets/machines/volvo-l120h-2024-1.png';
-import volvoL120h2024Image2 from '@/assets/machines/volvo-l120h-2024-2.png';
-import volvoL120h2024Image3 from '@/assets/machines/volvo-l120h-2024-3.png';
-import volvoL120h2024Image4 from '@/assets/machines/volvo-l120h-2024-4.png';
-import volvoL120h2024Image5 from '@/assets/machines/volvo-l120h-2024-5.png';
-import manitouMlt1040145Image1 from '@/assets/machines/manitou-mlt1040-145-1.png';
-import manitouMlt1040145Image2 from '@/assets/machines/manitou-mlt1040-145-2.png';
-import manitouMlt1040145Image3 from '@/assets/machines/manitou-mlt1040-145-3.png';
-import manitouMlt1040145Image4 from '@/assets/machines/manitou-mlt1040-145-4.png';
 import johnDeere310sl2023Image1 from '@/assets/machines/john-deere-310sl-2023-1.png';
 import johnDeere310sl2023Image2 from '@/assets/machines/john-deere-310sl-2023-2.png';
 import johnDeere310sl2023Image3 from '@/assets/machines/john-deere-310sl-2023-3.png';
@@ -100,25 +43,17 @@ import johnDeere333g2022Image2 from '@/assets/machines/john-deere-333g-2022-2.pn
 import johnDeere333g2022Image3 from '@/assets/machines/john-deere-333g-2022-3.png';
 import johnDeere333g2022Image4 from '@/assets/machines/john-deere-333g-2022-4.png';
 import johnDeere333g2022Image5 from '@/assets/machines/john-deere-333g-2022-5.png';
-import caterpillarD6Image from '@/assets/machines/caterpillar-d6.png';
-import komatsuD65pxiImage from '@/assets/machines/komatsu-d65pxi.png';
-import kubotaKx0404Image from '@/assets/machines/kubota-kx040-4.png';
-import johnDeere35pTierImage from '@/assets/machines/john-deere-35-p-tier.png';
-import johnDeere35pTier2024Image1 from '@/assets/machines/john-deere-35-p-tier-2024-1.png';
-import johnDeere35pTier2024Image2 from '@/assets/machines/john-deere-35-p-tier-2024-2.png';
-import johnDeere35pTier2024Image3 from '@/assets/machines/john-deere-35-p-tier-2024-3.png';
-import johnDeere35pTier2024Image4 from '@/assets/machines/john-deere-35-p-tier-2024-4.png';
-import johnDeere35pTier2024bImage from '@/assets/machines/john-deere-35-p-tier-2024-b.png';
-import case321fImage from '@/assets/machines/case-321f.png';
-import case321f2023Image from '@/assets/machines/case-321f-2023.png';
+import komatsuD65pxiNewImage from '@/assets/machines/komatsu-d65pxi-new.jpg';
+import kubotaKx0404NewImage from '@/assets/machines/kubota-kx040-4-new.png';
+import case321f2019Image from '@/assets/machines/case-321f-2019.png';
+import case321f2023NewImage from '@/assets/machines/case-321f-2023-new.png';
 import case321f2024Image1 from '@/assets/machines/case-321f-2024-1.png';
 import case321f2024Image2 from '@/assets/machines/case-321f-2024-2.png';
 import case321f2024Image3 from '@/assets/machines/case-321f-2024-3.png';
 import case321f2024Image4 from '@/assets/machines/case-321f-2024-4.png';
 import case321f2024Image5 from '@/assets/machines/case-321f-2024-5.png';
 import case321f2024Image6 from '@/assets/machines/case-321f-2024-6.png';
-import caterpillar938mImage from '@/assets/machines/caterpillar-938m.png';
-import caterpillar938m2021Image from '@/assets/machines/caterpillar-938m-2021.png';
+import caterpillar938m2021NewImage from '@/assets/machines/caterpillar-938m-2021-new.png';
 import caterpillar938m2022Image1 from '@/assets/machines/caterpillar-938m-2022-1.png';
 import caterpillar938m2022Image2 from '@/assets/machines/caterpillar-938m-2022-2.png';
 import caterpillar938m2022Image3 from '@/assets/machines/caterpillar-938m-2022-3.png';
@@ -129,11 +64,6 @@ import caseCx42dImage2 from '@/assets/machines/case-cx42d-2.png';
 import caseCx42dImage3 from '@/assets/machines/case-cx42d-3.png';
 import caseCx42dImage4 from '@/assets/machines/case-cx42d-4.png';
 import caseCx42dImage5 from '@/assets/machines/case-cx42d-5.png';
-import wackerNeusonEz26Image from '@/assets/machines/wacker-neuson-ez26.png';
-import machproMp319Image from '@/assets/machines/machpro-mp319.png';
-import machproMp319LaImage from '@/assets/machines/machpro-mp319-la.png';
-import caterpillar303ecrImage from '@/assets/machines/caterpillar-303e-cr.png';
-import bobcatE50Image from '@/assets/machines/bobcat-e50.png';
 import caterpillar304e2crImage1 from '@/assets/machines/caterpillar-304e2-cr-1.png';
 import caterpillar304e2crImage2 from '@/assets/machines/caterpillar-304e2-cr-2.png';
 import caterpillar304e2crImage3 from '@/assets/machines/caterpillar-304e2-cr-3.png';
@@ -145,7 +75,6 @@ import kubotaKx0334Image3 from '@/assets/machines/kubota-kx033-4-3.png';
 import kubotaKx0334Image4 from '@/assets/machines/kubota-kx033-4-4.png';
 import bobcatE10Image from '@/assets/machines/bobcat-e10.png';
 import johnDeere333gImage from '@/assets/machines/john-deere-333g.png';
-import rippaNdi665Image from '@/assets/machines/rippa-ndi665.png';
 import caterpillar299d2Image from '@/assets/machines/caterpillar-299d2.png';
 import caterpillar299d3Image from '@/assets/machines/caterpillar-299d3.png';
 import caterpillar299d32023Image1 from '@/assets/machines/caterpillar-299d3-2023-1.png';
@@ -195,18 +124,31 @@ import kubotaKx0404Image2 from '@/assets/machines/kubota-kx040-4-2.png';
 import kubotaKx0404Image3 from '@/assets/machines/kubota-kx040-4-3.png';
 import kubotaKx0404Image4 from '@/assets/machines/kubota-kx040-4-4.png';
 import kubotaKx0404Image5 from '@/assets/machines/kubota-kx040-4-5.png';
-
-// New images
 import caterpillar950mNewImage from '@/assets/machines/caterpillar-950m-new.png';
-import case321f2019Image from '@/assets/machines/case-321f-2019.png';
-import merloP5018hmNewImage from '@/assets/machines/merlo-p50-18hm-new.png';
 import caterpillarTl943cNewImage from '@/assets/machines/caterpillar-tl943c-new.png';
-import johnDeere6430NewImage from '@/assets/machines/john-deere-6430-new.png';
-import kubotaKx0404NewImage from '@/assets/machines/kubota-kx040-4-new.png';
-import case321f2023NewImage from '@/assets/machines/case-321f-2023-new.png';
 import johnDeere544pNewImage from '@/assets/machines/john-deere-544p-new.png';
-import caterpillar938m2021NewImage from '@/assets/machines/caterpillar-938m-2021-new.png';
-import jcb9404NewImage from '@/assets/machines/jcb-940-4-new.png';
+import volvoL120h2016Image1 from '@/assets/machines/volvo-l120h-2016-1.png';
+import volvoL120h2016Image2 from '@/assets/machines/volvo-l120h-2016-2.png';
+import volvoL120h2016Image3 from '@/assets/machines/volvo-l120h-2016-3.png';
+import volvoL120h2016Image4 from '@/assets/machines/volvo-l120h-2016-4.png';
+import volvoL120h2016Image5 from '@/assets/machines/volvo-l120h-2016-5.png';
+import volvoL120h2024Image1 from '@/assets/machines/volvo-l120h-2024-1.png';
+import volvoL120h2024Image2 from '@/assets/machines/volvo-l120h-2024-2.png';
+import volvoL120h2024Image3 from '@/assets/machines/volvo-l120h-2024-3.png';
+import volvoL120h2024Image4 from '@/assets/machines/volvo-l120h-2024-4.png';
+import volvoL120h2024Image5 from '@/assets/machines/volvo-l120h-2024-5.png';
+import caterpillar336Image1 from '@/assets/machines/caterpillar-336-1.png';
+import caterpillar336Image2 from '@/assets/machines/caterpillar-336-2.png';
+import caterpillar336Image3 from '@/assets/machines/caterpillar-336-3.png';
+import caterpillar336Image4 from '@/assets/machines/caterpillar-336-4.png';
+import hitachiZx350Image2 from '@/assets/machines/hitachi-zx350-2.png';
+import hitachiZx350Image3 from '@/assets/machines/hitachi-zx350-3.png';
+import hitachiZx350Image4 from '@/assets/machines/hitachi-zx350-4.png';
+import johnDeere210gImage1 from '@/assets/machines/john-deere-210g-1.png';
+import johnDeere210gImage2 from '@/assets/machines/john-deere-210g-2.png';
+import johnDeere210gImage3 from '@/assets/machines/john-deere-210g-3.png';
+import johnDeere210gImage4 from '@/assets/machines/john-deere-210g-4.png';
+import bobcatE50Image from '@/assets/machines/bobcat-e50.png';
 
 
 // Category definitions with labels and icons
@@ -231,8 +173,8 @@ const allMachinesRaw: Array<Omit<Machine, 'category'> & { category?: string }> =
     hours: 2847,
     location: 'Texas, USA',
     price: 58500,
-    originalPrice: 65000,
-    discount: 10,
+    originalPrice: 58500,
+    discount: 0,
     category: 'earthmoving',
     image: sanySy80uImage,
     description: 'The 2022 Sany SY80U is a powerhouse in compact form — built for endurance with reinforced boom, arm, and undercarriage. Powered by a reliable Yanmar 4TNV98CT engine, it delivers 66.4 hp for offset digging in tight spaces. Ideal for urban construction, landscaping, and utilities.',
@@ -263,48 +205,14 @@ const allMachinesRaw: Array<Omit<Machine, 'category'> & { category?: string }> =
     ],
   },
   {
-    id: 2,
-    name: '2022 Sany SW405K Wheel Loader',
-    year: 2022,
-    hours: 3215,
-    location: 'USA Stock',
-    price: 115000,
-    originalPrice: 128000,
-    discount: 10,
-    category: 'loaders',
-    image: sanySw405kImage,
-    description: 'The 2022 Sany SW405K is a rugged beast engineered for heavy-duty mining and construction, with a reinforced frame for 10,000+ hour service life. Powered by a Deutz TCD7.8 Tier 4 Final engine (252 hp net), it delivers massive 40,466 lbf breakout force and 28,881 lb tipping load for efficient material handling. Features load-sensing hydraulics, 360° camera, ergonomic cab with AC/heat/USB, and quick-coupler for attachments.',
-    specs: {
-      engine: 'Deutz TCD7.8 (Tier 4 Final)',
-      power: '252 hp (188 kW) @ 2,200 rpm',
-      weight: '40,786 lb (18,500 kg)',
-      grossTorque: '962 lb-ft (1,304 Nm)',
-      displacement: '7.8 L',
-      bucketCapacity: '4.2 yd³ (3.2 m³)',
-      breakoutForce: '40,466 lbf (180 kN)',
-      tippingLoad: '28,881 lb (13,100 kg)',
-      maxDumpHeight: '10 ft 3 in (3.13 m)',
-      maxLiftHeight: '18 ft 5 in (5.61 m)',
-      maxSpeed: '22.4 mph (36 km/h)',
-      turningRadius: '20 ft 4 in (6.2 m)',
-      tireSize: '23.5-25',
-      fuelTank: '79.3 gal (300 L)',
-      hydraulicTank: '31.7 gal (120 L)',
-      transportDimensions: '28 ft 5 in x 8 ft 10 in x 11 ft 2 in',
-    },
-    gallery: [
-      sanySw405kImage,
-    ],
-  },
-  {
     id: 3,
     name: '2023 Develon DD100 Dozer',
     year: 2023,
     hours: 1420,
     location: 'USA Stock',
     price: 175000,
-    originalPrice: 185000,
-    discount: 5,
+    originalPrice: 175000,
+    discount: 0,
     category: 'earthmoving',
     image: develonDd100Image1,
     description: 'The 2023 Develon DD100 (Serial #227473) is a next-gen dozer engineered for superior power-to-weight performance. With 122 hp and 24,286 lb operating weight, it delivers exceptional tractive effort and pushing power. Features fully electronic hydraulic controls, 6-way variable angle pitch blade, rearview camera, ECO mode, blade shake function, and premium cab with AC/heat. Low-hour unit ideal for site prep, grading, and land clearing.',
@@ -334,8 +242,8 @@ const allMachinesRaw: Array<Omit<Machine, 'category'> & { category?: string }> =
     hours: 320,
     location: 'USA Stock',
     price: 72500,
-    originalPrice: 80000,
-    discount: 9,
+    originalPrice: 72500,
+    discount: 0,
     category: 'loaders',
     image: kubotaR640r43Image1,
     description: 'The 2025 Kubota R640R43 is a versatile compact powerhouse designed for demanding construction, landscaping, and material handling tasks, with a durable frame built for 8,000+ hour service life. Powered by a Kubota V2607-CR-TE5-WL Tier 4 Final engine (61.1 hp net), it delivers impressive 9,869 lbf breakout force and 7,450 lb static tipping load for precise loading and digging. Features load-sensing hydraulics, 360° visibility cab with AC/heat/USB ports, ergonomic controls, and quick-coupler for attachments. Ideal for urban sites, farms, or aggregate yards.',
@@ -371,11 +279,12 @@ const allMachinesRaw: Array<Omit<Machine, 'category'> & { category?: string }> =
     year: 2021,
     hours: 4120,
     location: 'USA Stock',
-    price: 85000,
-    originalPrice: 95000,
-    discount: 11,
+    price: 118500,
+    originalPrice: 118500,
+    discount: 0,
     category: 'earthmoving',
     image: sanySy215cImage,
+    isReserved: true,
     description: 'The Sany SY215C is a robust medium excavator built for demanding construction, quarrying, and earthmoving applications, featuring a reinforced undercarriage for 10,000+ hour durability. Powered by a Cummins QSB6.7 Tier 4 Final engine (163.6 hp net), it provides exceptional 30,800 lbf arm digging force and 21\' 8" dig depth for superior productivity. Equipped with positive flow load-sensing hydraulics, 360° camera system, spacious cab with AC/heat/USB ports, and quick-change coupler for attachments. Ideal for trenching, loading, or site prep.',
     specs: {
       engine: 'Cummins QSB6.7 (Tier 4 Final)',
@@ -401,47 +310,14 @@ const allMachinesRaw: Array<Omit<Machine, 'category'> & { category?: string }> =
     ],
   },
   {
-    id: 6,
-    name: '2018 Manitou MLT 1040-145 L Telehandler',
-    year: 2018,
-    hours: 4650,
-    location: 'USA Stock',
-    price: 52000,
-    originalPrice: 58000,
-    discount: 10,
-    isSold: true,
-    image: manitouMlt1040Image,
-    imagePosition: 'calc(50% - 1.5cm) center',
-    description: 'The 2018 Manitou MLT 1040-145 L is a high-performance 10-meter telescopic handler built for heavy agriculture, construction, and industrial applications, featuring a reinforced boom and frame for 15,000+ hour service life. Powered by a Deutz TCD 3.6 L4 Tier 4 Final engine (141 hp net), it delivers 9,000 lb (4,000 kg) lift capacity to full 32 ft 3 in (9.84 m) height and 22 ft 2 in forward reach. Equipped with 4WD hydrostatic transmission, load-sensing hydraulics, 360° visibility cab with heat/AC/Bluetooth, joystick control, and quick-attach carriage. This low-hour unit includes 1.5 yd³ bucket + pallet forks and auxiliary hydraulics — perfect for stacking bales, loading trucks, or high-reach work on big sites.',
-    specs: {
-      engine: 'Deutz TCD 3.6 L4 (Tier 4 Final)',
-      power: '141 hp (104 kW) @ 2,200 rpm',
-      weight: '23,148 lb (10,500 kg)',
-      maxLiftCapacity: '9,000 lb (4,000 kg)',
-      liftHeight: '32 ft 3 in (9.84 m)',
-      forwardReach: '22 ft 2 in (6.75 m)',
-      breakoutForce: '14,612 lbf (65 kN)',
-      transmission: 'Hydrostatic 2-speed, 25 mph (40 km/h)',
-      turningRadius: '12 ft 8 in (3.89 m)',
-      tireSize: '460/70 R24',
-      fuelTank: '37 gal (140 L)',
-      hydraulicFlow: '49.4 gal/min (187 L/min)',
-      transportDimensions: '20 ft 8 in × 7 ft 10 in × 8 ft 4 in',
-    },
-    gallery: [
-      manitouMlt1040Image,
-      manitouMlt1040Image2,
-    ],
-  },
-  {
     id: 7,
     name: '2017 JCB 940-4 Rough Terrain Forklift',
     year: 2017,
     hours: 3890,
     location: 'USA Stock',
     price: 35500,
-    originalPrice: 39000,
-    discount: 9,
+    originalPrice: 35500,
+    discount: 0,
     image: jcb9404NewImage,
     description: 'The 2017 JCB 940-4 is a powerful 4×4 rough-terrain forklift designed for the toughest construction, industrial yards and recycling sites, with a heavy-duty chassis built for 12,000+ hour service life. Powered by a JCB EcoMAX 448 Tier 4 Final engine (74 hp net, no DPF/SCR), it lifts 8,000 lb (4,000 kg) to a full height of 22 ft (6.7 m) and offers excellent visibility and stability thanks to the 4-wheel drive and high ground clearance. Features hydrostatic transmission, servo joystick controls, spacious ROPS/FOPS cab with heat/AC, 360° lighting and quick-hitch carriage. This low-hour unit (est. 2,100 hrs) comes complete with 48" pallet forks + side-shift and 1.5 yd³ bucket — ready for immediate heavy-duty work. Outstanding resale value (+17% on recent auctions) and legendary JCB reliability make the smartest choice for contractors who need a true all-terrain mast forklift.',
     specs: {
@@ -470,8 +346,8 @@ const allMachinesRaw: Array<Omit<Machine, 'category'> & { category?: string }> =
     hours: 3450,
     location: 'USA Stock',
     price: 48500,
-    originalPrice: 53000,
-    discount: 8,
+    originalPrice: 48500,
+    discount: 0,
     isReserved: true,
     image: johnDeere310lImage,
     description: 'The 2019 John Deere 310L EP is a super-clean, low-hour compact backhoe loader perfect for landscaping, utilities and small-to-medium construction jobs. Powered by a 99 hp John Deere PowerTech 4045HT Tier 4 Final engine (SCR only, no DPF), it offers smooth powershift transmission, pilot controls, extendable stick and ride control. This unit has only ≈ 2,100 hours and comes fully loaded. Ready to work — full service just completed, excellent tire condition, both quick couplers included.',
@@ -496,8 +372,9 @@ const allMachinesRaw: Array<Omit<Machine, 'category'> & { category?: string }> =
     hours: 3780,
     location: 'USA Stock',
     price: 95000,
-    originalPrice: 105000,
-    discount: 10,
+    originalPrice: 95000,
+    discount: 0,
+    isReserved: true,
     image: merloP5018hmNewImage,
     description: 'The 2019 Merlo P50.18HM is a legendary 5-tonne / 18-meter heavy-duty telescopic handler — the absolute king for high-rise construction, steel erection, silo work, and big industrial jobs. Iconic side-engine layout, ring-mounted cab with 360° continuous rotation, and four independent outriggers deliver unmatched stability and visibility. Powered by a Deutz TCD 3.6 L4 Stage IV/Tier 4 Final engine (136 hp net, some units 156 hp), hydrostatic transmission with 25 mph (40 km/h) top speed, and load-sensing hydraulics. Full 11,000 lb (5,000 kg) capacity to 58 ft 5 in (17.9 m) height and 1,800 kg at maximum 43 ft 8 in forward reach. This low-hour 2019 unit (est. 2,200–2,800 hrs) comes with hydraulic quick-attach carriage, 1200 mm pallet forks, 4 hydraulic outlets at boom head, stabilizer legs, and full factory records. Excellent resale value (+18–22% in European & US auctions last 24 months) and remaining structural warranty until 2026.',
     specs: {
@@ -526,9 +403,9 @@ const allMachinesRaw: Array<Omit<Machine, 'category'> & { category?: string }> =
     year: 2012,
     hours: 6420,
     location: 'USA Stock',
-    price: 42500,
-    originalPrice: 47000,
-    discount: 10,
+    price: 82500,
+    originalPrice: 82500,
+    discount: 0,
     image: johnDeere6430NewImage,
     description: '2012 John Deere 6430 Premium Cab Tractor – clean, ready-to-work unit. One of the most bulletproof and sought-after 6-series John Deere tractors. Only ≈ 4,850 hours, fully serviced, no money needed. PowerTech 4.5L Tier 3 engine – 125 hp. Premium cab: air conditioning, air-ride seat, excellent visibility. PowerQuad Plus 24F/24R transmission (40 km/h Eco) with left-hand reverser. MFWD front axle with TLS suspension. 80 l/min hydraulics, 3 SCVs + Power Beyond. Front PTO 1000 rpm + rear 540/1000. Tires: 420/85R28 front – 520/85R38 rear (70–80 % remaining). Front + rear suitcase weights included. Original paint, no welds or major repairs, full service history. Perfect for seeding, cultivation, transport, or municipal work.',
     specs: {
@@ -547,84 +424,15 @@ const allMachinesRaw: Array<Omit<Machine, 'category'> & { category?: string }> =
     ],
   },
   {
-    id: 11,
-    name: '2016 Peterbilt 389 Pride & Class',
-    year: 2016,
-    hours: 0,
-    miles: 973167,
-    location: 'USA Stock',
-    price: 68000,
-    originalPrice: 78000,
-    discount: 13,
-    image: peterbilt389Image1,
-    description: 'The 2016 Peterbilt 389 – iconic long-hood American legend in flawless Pride & Class configuration. Glider-kit spec with fully rebuilt 550 hp Cummins ISX15 (fresh in-frame overhaul 2025, papers available), 18-speed Eaton Fuller, 3.55 rears, 273" wheelbase, dual breathers, dual stacks, and full stainless drop visor. Stunning factory Viper Red paint with 22-gauge half fenders, 11R24.5 virgin rubber all around (80%+), and spotless aluminum wheels. Interior is legacy-class tan leather with wood trim, fridge, double bunk, and original gauges. 973,167 total chassis miles, but engine rebuild at 971k miles – runs like new, no blow-by, pulls like a freight train. Clean title, DOT-ready, no leaks, ice-cold A/C. One of the strongest-resale 389 Gliders on the market right now – similar trucks bring +12–18% over book at big auctions.',
-    specs: {
-      engine: 'Cummins ISX15 550 hp (fresh in-frame 2025)',
-      transmission: 'Eaton Fuller 18-speed',
-      rearAxleRatio: '3.55',
-      wheelbase: '273 in',
-      suspension: 'Peterbilt Air Trac',
-      brakes: 'Full air, Jake brake',
-      fuelTank: 'Dual 120 gal polished aluminum',
-      tireSize: '11R24.5 Virgin (80–90%)',
-      wheels: 'Alcoa polished aluminum',
-      sleeper: '78" UltraCab with double bunk',
-      gvwr: '52,000 lb',
-      frontAxle: '12,000 lb',
-      rearAxles: '40,000 lb',
-      exhaust: 'Dual 8" stacks + breathers',
-      status: 'Rebuilt engine, DOT-ready, no issues',
-    },
-    gallery: [
-      peterbilt389Image1,
-      peterbilt389Image2,
-      peterbilt389Image3,
-      peterbilt389Image4,
-      peterbilt389Image5,
-    ],
-  },
-  {
-    id: 12,
-    name: '2019 Freightliner M2 106 Day Cab',
-    year: 2019,
-    hours: 0,
-    miles: 34893,
-    location: 'USA Stock',
-    price: 58500,
-    originalPrice: 62000,
-    discount: 6,
-    image: freightlinerM2Image,
-    description: 'The 2019 Freightliner M2 106 – super-clean, low-mileage, one-owner day cab with only 34,893 original miles! Factory Cummins L9 350 hp (new crate engine installed 2024 under warranty – 0 miles on it), Allison 3000 HS automatic, air ride suspension, 3.55 ratio, 270" wheelbase, 12k front / 40k rears on AirLiner. Bright white with chrome bumper, heated mirrors, power windows/locks, air-ride driver seat, Bluetooth radio and ice-cold A/C. Spotless aluminum wheels, 11R22.5 virgin Bridgestone rubber all around (90%+). Ready for immediate delivery, vocational or highway work – still smells new inside. Extremely rare low-mile 2019 M2 with brand-new crate engine – these trucks hold value like gold (+15–20% over book on low-mile units at auctions).',
-    specs: {
-      engine: 'Cummins L9 350 hp (NEW 2024 crate engine – 0 mi)',
-      transmission: 'Allison 3000 HS 6-speed automatic',
-      rearAxleRatio: '3.55',
-      wheelbase: '270 in',
-      suspension: 'AirLiner air ride',
-      frontAxle: '12,000 lb',
-      rearAxles: '40,000 lb',
-      brakes: 'Air brakes with ABS',
-      fuelTank: 'Dual 80 gal aluminum',
-      tireSize: '11R22.5 Bridgestone virgin (90%+)',
-      wheels: 'Polished aluminum',
-      gvwr: '52,000 lb',
-      cab: 'A/C, power windows/locks, heated mirrors, Bluetooth',
-      status: 'One-owner, new crate engine, DOT-ready',
-    },
-    gallery: [
-      freightlinerM2Image,
-    ],
-  },
-  {
     id: 13,
     name: '2022 ASV VT-70 High Output',
     year: 2022,
     hours: 1845,
     location: 'USA Stock',
     price: 52000,
-    originalPrice: 55000,
-    discount: 5,
-    image: asvVt70hoImage,
+    originalPrice: 52000,
+    discount: 0,
+    image: asvVt70hoNewImage,
     description: 'The 2022 ASV VT-70HO – one of the cleanest, lowest-hour high-output mid-frame CTL on the planet right now. Only 983 original hours, still under full ASV factory coverage on major components. Turbo Deutz 74.3 hp / 207 ft-lbs, Posi-Track beast with 15" rubber tracks at 90%+, vertical lift, 2-speed (11 mph), high-flow hydraulics, enclosed cab with heat/AC/Bluetooth/camera, hydraulic quick-attach, LED lights all around. Fully serviced, zero leaks, ready to ship nationwide today (#A4340396). Perfect rental-fleet grade or owner-operator dream machine. Insane deal – same-year/hours units still bringing $34–38k at Ritchie Bros and JJ Kane auctions.',
     specs: {
       engine: 'Deutz TCD 2.2 L3 Turbo Diesel (Tier 4 Final)',
@@ -644,198 +452,7 @@ const allMachinesRaw: Array<Omit<Machine, 'category'> & { category?: string }> =
       status: 'Remaining factory coverage on major components',
     },
     gallery: [
-      asvVt70hoImage,
-    ],
-  },
-  {
-    id: 14,
-    name: '2024 Chevrolet Silverado 5500HD 4×4 Crew Cab',
-    year: 2024,
-    hours: 0,
-    miles: 94,
-    location: 'USA Stock',
-    price: 71912,
-    originalPrice: 79900,
-    discount: 8,
-    image: silverado5500hdImage,
-    description: 'The 2024 Chevrolet Silverado 5500HD 4×4 Crew Cab – brand-new, never-titled, 94 original delivery miles only! Loaded 4-door crew with Duramax 6.6L V8 Turbo Diesel 350 hp & 700 lb-ft mated to rock-solid Allison 10-speed automatic. Full factory chassis ready for any body: dump, flatbed, service, stake, or box van. Power windows/locks, ice-cold A/C, Bluetooth, backup camera, cruise, remote start, LED cargo lights, and the full 2024 safety suite. Snowplow prep package, engine block heater, 19.5" polished wheels with brand-new Michelin rubber. Still 100% under GM factory warranty (3 yr/36k bumper-to-bumper + 5 yr/100k powertrain + 5 yr/100k Duramax). One of the very last untitled 2024 5500HD crew cabs left in the country – these are trading at +10–15% over MSRP on the few that surface at dealer auctions.',
-    specs: {
-      engine: 'Duramax 6.6L V8 Turbo Diesel',
-      power: '350 hp @ 2,700 rpm / 700 lb-ft @ 1,600 rpm',
-      transmission: 'Allison 10-speed automatic',
-      frontAxle: '8,000 lb GAWR',
-      rearAxles: '15,000 lb GAWR',
-      gvwr: '19,500 lb',
-      wheelbase: '175 in (other lengths available)',
-      fuelTank: '65 gal total capacity',
-      tireSize: '225/70R19.5 Michelin (100%)',
-      wheels: '19.5" polished aluminum',
-      brakes: '4-wheel hydraulic disc with ABS',
-      cab: '4-door Crew Cab, 6-passenger',
-      suspension: 'Part-time 4WD with auto locking hubs',
-      status: 'New, never titled, ready for any upfit, full factory GM 5 yr/100k powertrain warranty',
-    },
-    gallery: [
-      silverado5500hdImage,
-    ],
-  },
-  {
-    id: 15,
-    name: '2024 Chevrolet Silverado 6500HD 4×4 Crew Cab LCF',
-    year: 2024,
-    hours: 0,
-    miles: 100,
-    location: 'USA Stock',
-    price: 72000,
-    originalPrice: 82000,
-    discount: 12,
-    isHotOffer: true,
-    image: silverado6500hd3Image,
-    description: 'The 2024 Chevrolet Silverado 6500HD 4×4 Crew Cab – essentially new, only 100 engine hours (delivery + test hours), never titled, zero miles on the odometer still reads 000100! Fully loaded LCF chassis with the bulletproof Duramax 6.6L V8 Turbo Diesel 350 hp / 700 lb-ft + Allison 10-speed automatic, 4WD, snow plow prep, block heater, power everything, remote start, LED lights, backup camera, 19.5" polished wheels. Ready for immediate upfit: dump body, flatbed, service body, stake, or box. Full remaining Chevrolet factory warranty (5 yr/100k powertrain + 5 yr/100k Duramax). Unreal liquidation deal – identical brand-new 2024 6500HD crew cabs are still stickering $92–105k at dealers and trading $80k+ at Manheim heavy-truck lanes.',
-    specs: {
-      engine: 'Duramax 6.6L V8 Turbo Diesel',
-      power: '350 hp / 700 lb-ft torque',
-      transmission: 'Allison 10-speed automatic',
-      suspension: 'Part-time 4WD',
-      gvwr: '23,500–26,000 lb (depending on config)',
-      cab: '4-door Crew Cab, 6 seats',
-      fuelTank: '65 gal total',
-      tireSize: '225/70R19.5 Michelin (100%)',
-      wheels: '19.5" polished aluminum',
-      brakes: '4-wheel air brakes with ABS',
-      status: 'Brand-new condition, full factory 5 yr/100k powertrain + Duramax warranty, ready for any upfit',
-    },
-    gallery: [
-      silverado6500hd3Image,
-      silverado6500hd1Image,
-      silverado6500hd2Image,
-      silverado6500hd4Image,
-    ],
-  },
-  {
-    id: 16,
-    name: '2024 Chevrolet Silverado 4500HD 4×2 Reg Cab Service Truck',
-    year: 2024,
-    hours: 0,
-    miles: 31,
-    location: 'USA Stock',
-    price: 62500,
-    originalPrice: 68000,
-    discount: 8,
-    image: silverado4500hdImage,
-    description: 'The 2024 Chevrolet Silverado 4500HD 4×2 Regular Cab Service Truck – brand-new, never titled, only 31 delivery miles! Fully loaded 11 ft Knapheide service body with master locks, LED compartment lighting, bottle-gas rack, vise mount, and flip-top lids. Duramax 6.6L V8 Turbo Diesel 350 hp / 700 lb-ft, Allison 10-speed automatic, power windows/locks/mirrors, A/C, cruise, Bluetooth, backup camera, remote start, chrome bumper, 19.5" polished wheels. Still 100% under full GM factory warranty. Ships nationwide (#A0184894). Same-spec brand-new units still stickering $78–84k at dealers. This is the cheapest titled-ready 2024 4500HD service truck in the country right now.',
-    specs: {
-      engine: 'Duramax 6.6L V8 Turbo Diesel',
-      power: '350 hp / 700 lb-ft torque',
-      transmission: 'Allison 10-speed automatic',
-      suspension: '4×2',
-      gvwr: '16,500 lb',
-      cab: 'Regular Cab, 3-passenger',
-      wheelbase: '165 in',
-      fuelTank: '40 gal + optional auxiliary',
-      tireSize: '225/70R19.5 Michelin (100%)',
-      wheels: '19.5" polished aluminum',
-      brakes: '4-wheel hydraulic disc',
-      status: 'New, titled-ready, 11 ft Knapheide steel service body, full factory GM 5 yr/100k powertrain warranty, ships nationwide',
-    },
-    gallery: [
-      silverado4500hdImage,
-    ],
-  },
-  {
-    id: 17,
-    name: '2024 Chevrolet Silverado 4500HD 4×4 Crew Cab Box Truck',
-    year: 2024,
-    hours: 0,
-    miles: 57,
-    location: 'USA Stock',
-    price: 68500,
-    originalPrice: 75000,
-    discount: 9,
-    image: silverado4500hdBoxImage,
-    description: 'The 2024 Chevrolet Silverado 4500HD 4×4 Box Truck – brand-new, never titled, only 57 delivery miles! Loaded 4-door crew cab, Duramax 6.6L V8 Turbo Diesel 350 hp / 700 lb-ft, Allison 10-speed automatic, part-time 4WD, snow plow prep, block heater, power windows/locks/mirrors, remote start, backup camera, cruise, Bluetooth, LED lights, 19.5" polished aluminum wheels, 100% Michelin tires. Ready for any body tomorrow. 100% full GM factory warranty remaining. Ships nationwide (#A8893074). These exact trucks are still trading $74–82k at Manheim and dealer auctions. This is the deepest discount on a brand-new 2024 4500HD 4×4 crew in the country right now.',
-    specs: {
-      engine: 'Duramax 6.6L V8 Turbo Diesel',
-      power: '350 hp / 700 lb-ft torque',
-      transmission: 'Allison 10-speed automatic',
-      suspension: 'Part-time 4WD',
-      gvwr: '16,500 lb',
-      cab: '4-door Crew Cab, 6 seats',
-      wheelbase: '175 in',
-      fuelTank: '65 gal',
-      tireSize: '225/70R19.5 Michelin (100%)',
-      wheels: '19.5" polished aluminum',
-      brakes: '4-wheel hydraulic disc',
-      status: 'New, titled-ready, full factory 5 yr/100k powertrain + Duramax warranty, ships nationwide',
-    },
-    gallery: [
-      silverado4500hdBoxImage,
-    ],
-  },
-  {
-    id: 18,
-    name: '2024 Chevrolet Silverado 5500HD 4×2 Reg Cab 16ft Box Truck',
-    year: 2024,
-    hours: 0,
-    miles: 403,
-    location: 'USA Stock',
-    price: 72000,
-    originalPrice: 78000,
-    discount: 8,
-    image: silverado5500hdBoxImage,
-    description: 'The 2024 Chevrolet Silverado 5500HD 4×2 Regular Cab 16 ft Box Truck – brand-new condition, only 403 delivery miles! Fully equipped with 16 ft Morgan dry van body (96" W × 96" H inside, roll-up rear door, translucent roof, wood tie slats, aluminum floor, curbside door). Duramax 6.6L V8 Turbo Diesel 350 hp / 700 lb-ft, Allison 10-speed automatic, hydraulic brakes, power everything, A/C, cruise, Bluetooth, backup camera, remote start, chrome package, 19.5" polished wheels, 100% Michelin rubber. Still 100% under full GM factory warranty. Ships nationwide (#A2085767). Identical brand-new 2024 5500HD box trucks are trading $78–86k at Manheim Commercial and dealer auctions. This is the lowest-priced titled-ready unit on the market right now.',
-    specs: {
-      engine: 'Duramax 6.6L V8 Turbo Diesel',
-      power: '350 hp / 700 lb-ft torque',
-      transmission: 'Allison 10-speed automatic',
-      suspension: '4×2',
-      gvwr: '19,500 lb',
-      cab: 'Regular Cab, 3 seats',
-      wheelbase: '189 in',
-      fuelTank: '65 gal total',
-      tireSize: '225/70R19.5 Michelin (100%)',
-      wheels: '19.5" polished aluminum',
-      brakes: '4-wheel hydraulic disc with ABS',
-      status: 'Like-new, titled-ready, 16 ft Morgan dry van body 96"×96", full factory 5 yr/100k powertrain + Duramax warranty, ships nationwide',
-    },
-    gallery: [
-      silverado5500hdBoxImage,
-    ],
-  },
-  {
-    id: 19,
-    name: '2013 Mack GU713 Tri-Axle Dump Truck',
-    year: 2013,
-    hours: 0,
-    miles: 325435,
-    location: 'USA Stock',
-    price: 58000,
-    originalPrice: 65000,
-    discount: 11,
-    isHotOffer: true,
-    image: mackGu713Image1,
-    description: 'The 2013 Mack GU713 Tri-Axle Dump Truck – bulletproof Mack pedigree, ready to go straight to work tomorrow. MP8 505C 505 hp / 1,860 lb-ft, Mack mDrive 12-speed automated transmission, 18k front, 46k Camelback rears, 3.98 ratio, double frame, 20 ft heated steel body with electric tarp, pintle hitch, air tailgate. Only 325,435 miles, fresh DOT, no rust, 85%+ virgin steers, 70%+ drives/caps. Ice-cold A/C, power mirrors, heated seat, Bluetooth radio. Runs flawless – no blow-by, no leaks, no stories. Ships nationwide (#A6491997). Same-spec 2013–2014 GU713 tri-axles still bringing $58–64k all day at Ritchie Bros and JJ Kane auctions.',
-    specs: {
-      engine: 'Mack MP8 505C (505 hp / 1,860 lb-ft)',
-      transmission: 'Mack mDrive 12-speed automated',
-      frontAxle: '18,000 lb',
-      rearAxles: '46,000 lb Mack Camelback',
-      ratio: '3.98',
-      suspension: 'Camelback 46k',
-      dumpBody: '20 ft heated steel, electric tarp, air gate',
-      wheelbase: '225 in',
-      tireSize: '425 steers 85%, 11R24.5 drives 70%+ caps',
-      brakes: 'Air brakes, Jake',
-      fuelTank: 'Dual 93 gal aluminum',
-      gvwr: '84,000 lb+',
-      status: 'Fresh DOT, work-ready, ships nationwide',
-    },
-    gallery: [
-      mackGu713Image1,
-      mackGu713Image2,
-      mackGu713Image3,
-      mackGu713Image4,
-      mackGu713Image5,
+      asvVt70hoNewImage,
     ],
   },
   {
@@ -845,8 +462,8 @@ const allMachinesRaw: Array<Omit<Machine, 'category'> & { category?: string }> =
     hours: 5840,
     location: 'USA Stock',
     price: 95000,
-    originalPrice: 110000,
-    discount: 14,
+    originalPrice: 95000,
+    discount: 0,
     isHotOffer: true,
     image: komatsuWa3208Image2,
     description: 'The 2019 Komatsu WA320-8 – one of the cleanest, tightest mid-size wheel loaders left in North America. Only 7,361 original hours, full Komatsu CARE history, no leaks, no welds, no excuses. 170 hp Komatsu SAA6D107E-3 Tier 4 Final (DEF), powershift transmission with auto-shift + traction control, limited-slip diffs, 3.6 yd³ pin-on bucket with bolt-on edge, ride control, enclosed ROPS cab with heat/AC/Bluetooth/camera, LED lights all around. Fresh service, 20.5R25 Michelin XHA2 tires at 80–90%, tight center, strong hydraulics, ice-cold A/C. Work-ready tomorrow. Ships nationwide (#B6525762). Same-year / similar-hour WA320-8 units still bringing $52–58k at Ritchie Bros, IronPlanet and Alex Lyon auctions.',
@@ -874,47 +491,14 @@ const allMachinesRaw: Array<Omit<Machine, 'category'> & { category?: string }> =
     ],
   },
   {
-    id: 35,
-    name: '2011 Ford F-750 Tri-Axle Dump Truck',
-    year: 2011,
-    hours: 0,
-    miles: 79337,
-    location: 'USA Stock',
-    price: 42000,
-    originalPrice: 46000,
-    discount: 9,
-    image: fordF750DumpImage,
-    description: 'The 2011 Ford F-750 Tri-Axle Dump Truck – tough-as-nails workhorse with only 79,337 original miles, fresh DOT inspection, and zero excuses. Power Stroke 6.7L V8 Turbo Diesel cranks 300 hp / 660 lb-ft, mated to Ford 6-speed automatic, 12k front, 40k rears on Hendrickson walk-through, 4.88 ratio, double frame rails. 16 ft steel dump body with barn doors, electric tarp, pintle hitch, air tailgate, and underbody hoist. Clean cab with A/C, power windows/mirrors, cruise, Bluetooth radio, heated seats, and no rust in the floors. Runs ice-cold, pulls strong, no leaks or smoke – ready for sand, gravel, or demo hauls. Ships nationwide (#A6267663). Low-mile 2011 F-750 tri-axle dumps still trading $44–49k at Ritchie Bros and JJ Kane auctions – this one\'s a steal with the mileage.',
-    specs: {
-      engine: 'Ford Power Stroke 6.7L V8 Turbo Diesel',
-      power: '300 hp / 660 lb-ft torque',
-      transmission: 'Ford 6-speed automatic',
-      frontAxle: '12,000 lb',
-      rearAxles: '40,000 lb Hendrickson walk-through',
-      ratio: '4.88',
-      suspension: 'Hendrickson rubber block',
-      dumpBody: '16 ft steel, barn doors, electric tarp, air gate',
-      wheelbase: '200 in',
-      tireSize: '11R22.5 Michelin (80–90% life)',
-      brakes: 'Air brakes with ABS, engine retarder',
-      fuelTank: 'Dual 100 gal aluminum',
-      gvwr: '66,000 lb',
-      status: 'Fresh DOT, work-ready, ships nationwide',
-      stockNumber: 'A6267663',
-    },
-    gallery: [
-      fordF750DumpImage,
-    ],
-  },
-  {
     id: 36,
     name: '2019 Caterpillar CB16 Tandem Vibratory Roller',
     year: 2019,
     hours: 4929,
     location: 'USA Stock',
     price: 78000,
-    originalPrice: 88000,
-    discount: 11,
+    originalPrice: 78000,
+    discount: 0,
     image: caterpillarCb16Image,
     description: 'The 2019 Caterpillar CB16 – 84-inch tandem vibratory roller, 4929 original hours, open ROPS with canopy, work lights, and rotating beacon. Cat C4.4 Tier 4 Final 142 hp engine (no DEF), hydrostatic drive, dual amplitude/frequency, water spray system with triple filtration, pressurized water tank, cocoa mats, drum edge lights, and offset drum capability. Fresh full service, drums 95%, no leaks, no welds, ice-cold A/C cab version also available. Runs perfect, compacts like new. Ships nationwide (#A8006064). Same-spec 2019–2020 CB16 units with 4–6k hours still bringing $76–84k at Ritchie Bros, IronPlanet, and Alex Lyon auctions.',
     specs: {
@@ -940,110 +524,14 @@ const allMachinesRaw: Array<Omit<Machine, 'category'> & { category?: string }> =
     ],
   },
   {
-    id: 37,
-    name: '2007 Genie GTH-1056 Telehandler',
-    year: 2007,
-    hours: 7674,
-    location: 'USA Stock',
-    price: 24500,
-    originalPrice: 28000,
-    discount: 13,
-    image: genieGth1056Image,
-    description: 'The 2007 Genie GTH-1056 – legendary 10,000 lb / 56 ft telehandler that still outworks most new machines. Deutz BF4M2011 99 hp (no DEF, no regen), 4-speed powershift, 4WD, crab steer, frame leveling, foam-filled 14.00-24 tires at 70–80%, auxiliary hydraulics at boom head, quick-attach carriage + 60" forks. Only 7,674 original hours, fresh annual inspection, tight boom, no leaks, no welds, ice-cold A/C cab, fully serviced and ready to stack hay or load trucks tomorrow. Ships nationwide (#A6420133). Same-year GTH-1056 units with 7–9k hours still selling $24–28k all day at Ritchie Bros, JJ Kane, and Alex Lyon auctions.',
-    specs: {
-      engine: 'Deutz BF4M2011 99 hp (Tier 3 – no DEF)',
-      maxLiftCapacity: '10,000 lb (4,536 kg)',
-      liftHeight: '56 ft 10 in (17.32 m)',
-      forwardReach: '42 ft (12.8 m)',
-      capacityAtMaxHeight: '6,000 lb',
-      capacityAtMaxReach: '3,000 lb',
-      transmission: '4-speed powershift',
-      driveSteer: '4WD, 3-mode steer (front/crab/circle)',
-      frameLeveling: '±10°',
-      tires: '14.00-24 foam-filled (70–80%)',
-      hydraulicFlow: '43 gpm, auxiliary at boom head',
-      cab: 'Enclosed ROPS/FOPS, heat & A/C',
-      status: 'Fully serviced, work-ready, ships nationwide',
-      stockNumber: 'A6420133',
-    },
-    gallery: [
-      genieGth1056Image,
-    ],
-  },
-  {
-    id: 38,
-    name: '2016 Gehl RS6-42 Telehandler',
-    year: 2016,
-    hours: 3230,
-    location: 'USA Stock',
-    price: 28000,
-    originalPrice: 32000,
-    discount: 13,
-    isSold: true,
-    image: gehlRs642Image,
-    description: 'The 2016 Gehl RS6-42 – clean, low-hour, high-spec 6,000 lb / 42 ft telehandler that still looks and runs like a 2020 model. Only 3,230 original hours, Deutz TCD 3.6 L4 Tier 4 Final 120 hp (no DEF issues), 4-speed powershift, 4WD + crab steer, 10° frame leveling, enclosed cab with heat/AC/Bluetooth, hydraulic quick-attach carriage + 60" pallet forks, foam-filled 13.00-24 tires at 85%, LED work lights, fenders, fresh full service, no leaks, no welds, boom tight as new. Ships nationwide (#A6567925). Same-year RS6-42 units with 3–4k hours still hammering $26–31k at Ritchie Bros, IronPlanet and JJ Kane auctions.',
-    specs: {
-      engine: 'Deutz TCD 3.6 L4 120 hp (Tier 4 Final)',
-      maxLiftCapacity: '6,600 lb (2,994 kg)',
-      liftHeight: '42 ft 1 in (12.83 m)',
-      forwardReach: '28 ft 6 in (8.69 m)',
-      capacityAtMaxHeight: '6,000 lb',
-      capacityAtMaxReach: '2,000 lb',
-      transmission: '4-speed powershift',
-      driveSteer: '4×4×4, 3-mode steering',
-      frameLeveling: '±10°',
-      tires: '13.00-24 foam-filled (85%+)',
-      hydraulicFlow: '43 gpm, pilot controls, aux at boom head',
-      cab: 'Enclosed ROPS/FOPS, heat/AC, Bluetooth',
-      status: 'Fully serviced, tight boom, ships nationwide',
-      stockNumber: 'A6567925',
-    },
-    gallery: [
-      gehlRs642Image,
-    ],
-  },
-  {
-    id: 39,
-    name: '2016 John Deere 310SL Backhoe Loader',
-    year: 2016,
-    hours: 3560,
-    location: 'USA Stock',
-    price: 48000,
-    originalPrice: 54000,
-    discount: 11,
-    isSold: true,
-    image: johnDeere310slImage,
-    description: 'The 2016 John Deere 310SL – premium low-hour backhoe loader that\'s been babied on light municipal duty, with just 2,164 original hours and a spotless service history. Iconic John Deere 4.5L PowerTech diesel (Tier 4 Final, no DEF headaches), 100 hp, sync-shuttle transmission with 4F/4R speeds, 4WD, powershift on the go, extendable stick (up to 19 ft 5 in dig depth), 92 in loader bucket with bolt-on teeth, enclosed cab with heat/AC/joystick controls/Bluetooth/radio, ride control, quick-attach loader ends, fresh tracks and tires at 90%+, no leaks, no welds, tight as a drum. Fresh full service, DOT-ready for any trenching, loading, or demo job. Ships nationwide (#A8195987). Similar low-hour 2016 310SL units with 2–3k hours still fetching $46–52k at Ritchie Bros, IronPlanet, and JJ Kane auctions – this one\'s undervalued big time.',
-    specs: {
-      engine: 'John Deere PowerTech 4.5L (Tier 4 Final)',
-      power: '100 hp (74.6 kW) @ 2,000 rpm',
-      weight: '16,500 lb (7,484 kg)',
-      bucketCapacity: '1.0 yd³ (0.76 m³)',
-      breakoutForce: '9,612 lb (42.8 kN)',
-      liftHeight: '11 ft 3 in (3.43 m)',
-      maxDiggingDepth: '19 ft 5 in (5.92 m) extendable / 14 ft 8 in (4.47 m) std',
-      transmission: 'Sync-shuttle 4F/4R with powershift',
-      driveSteer: '4WD with limited-slip diffs',
-      tires: '14-17.5 front / 19.5L-24 rear (90%+)',
-      fuelTank: '42 gal (159 L)',
-      hydraulicFlow: '27 gpm loader / 28 gpm backhoe',
-      cab: 'Enclosed OPG, heat/AC, joystick, Bluetooth',
-      status: 'Fully serviced, tight machine, ships nationwide',
-      stockNumber: 'A8195987',
-    },
-    gallery: [
-      johnDeere310slImage,
-    ],
-  },
-  {
     id: 40,
     name: '2014 Caterpillar TL943C Telehandler',
     year: 2014,
     hours: 5680,
     location: 'USA Stock',
     price: 36000,
-    originalPrice: 40000,
-    discount: 10,
+    originalPrice: 36000,
+    discount: 0,
     image: caterpillarTl943cNewImage,
     description: 'The 2014 Caterpillar TL943C – rock-solid 9,000 lb / 43 ft telehandler with full Cat service history and only original hours in the mid-range sweet spot. Cat C4.4 Tier 4 Interim 124 hp (no DEF, just DOC), 4-speed powershift, 4WD + crab steer, 10° frame leveling, enclosed cab with heat/AC/Bluetooth, quick-attach carriage + 60" pallet forks, foam-filled 14.00-24 tires at 75–85%, LED work lights, fenders, fresh annual inspection, tight boom, no leaks, no welds, ready to go straight to work. Ships nationwide (#A2585619). Same-year TL943C units with comparable hours still hammering $34–39k at Ritchie Bros, IronPlanet and Alex Lyon auctions.',
     specs: {
@@ -1068,138 +556,14 @@ const allMachinesRaw: Array<Omit<Machine, 'category'> & { category?: string }> =
     ],
   },
   {
-    id: 41,
-    name: '2024 Chevrolet Colorado Z71 Crew Cab 4×4',
-    year: 2024,
-    hours: 0,
-    miles: 33169,
-    location: 'USA Stock',
-    price: 36500,
-    originalPrice: 42000,
-    discount: 13,
-    image: chevroletColoradoZ71Image,
-    description: 'The 2024 Chevrolet Colorado Z71 Crew Cab 4×4 – one-owner fleet return, only 33,169 easy highway miles, still under full GM factory warranty until 2029/100k! TurboMax 2.7L 310 hp / 430 lb-ft, 8-speed automatic, Z71 off-road package (skid plates, all-terrain tires, hill descent, red tow hooks), heated leather seats, heated steering wheel, Bose audio, wireless CarPlay/Android Auto, adaptive cruise, blind-spot, forward collision, remote start, spray-in bedliner, LED cargo lights, 18" Z71 wheels with fresh Goodyear Wrangler Territory AT tires. Zero accidents, perfect Carfax, no stories. Ships nationwide (#A8299499). Identical 2024 Z71 Colorados with 30–40k miles still bringing $42–45k at Manheim, ADESA and dealer auctions. This is the lowest-priced clean-title 2024 Z71 in the country right now.',
-    specs: {
-      engine: 'TurboMax 2.7L I4 (310 hp / 430 lb-ft)',
-      transmission: '8-speed automatic',
-      driveSteer: '4WD with AutoTrac 2-speed transfer case',
-      package: 'Z71 Off-Road + Convenience + Safety packages',
-      interior: 'Jet Black heated leather, Bose premium audio',
-      tires: '18" Z71 wheels + Goodyear AT (90%+)',
-      towingCapacity: '7,700 lb',
-      warranty: 'Full factory until 2029 or 100k miles',
-      carfax: 'One-owner, zero accidents',
-      status: 'Immaculate, titled-ready, ships nationwide',
-      stockNumber: 'A8299499',
-    },
-    gallery: [
-      chevroletColoradoZ71Image,
-    ],
-  },
-  {
-    id: 42,
-    name: '2018 Caterpillar 289D3 XR Compact Track Loader',
-    year: 2018,
-    hours: 4720,
-    location: 'USA Stock',
-    price: 32000,
-    originalPrice: 36000,
-    discount: 11,
-    image: caterpillar289d3Image,
-    description: 'The 2018 Caterpillar 289D3 XR Compact Track Loader – premium high-flow radial-lift beast with only 3,850 original hours, full Cat service records, and zero excuses. Cat C3.6 Tier 4 Final 105 hp (no DEF downtime), hydrostatic drive with two-speed (10.6 mph), 3,650 lb ROC, 12 ft 1 in hinge pin height, 3,450 psi high-flow hydraulics (40 gpm for mulchers/grapples), enclosed cab with heat/AC/joystick controls/Bluetooth/camera, LED lights, quick coupler, 78" low-profile bucket with bolt-on edge, 17.7" tracks at 85%+, fresh full service, tight undercarriage, no leaks, no welds – ready for forestry, demo, or rental fleet abuse. Ships nationwide (#A5250679). Same-year 289D3 XR units with 3–4k hours still crushing $30–35k at Ritchie Bros, IronPlanet, and JJ Kane auctions – this low-hour high-flow spec is a unicorn.',
-    specs: {
-      engine: 'Cat C3.6 105 hp (Tier 4 Final)',
-      capacity: '3,650 lb (1,656 kg) ROC',
-      tippingLoad: '10,430 lb (4,732 kg)',
-      liftHeight: '12 ft 1 in (3.68 m) hinge pin',
-      breakoutForce: '8,270 lbf (36.8 kN)',
-      travelSpeed: '5.9 / 10.6 mph (2-speed)',
-      groundClearance: '5.9 psi (40.7 kPa) ground pressure',
-      trackWidth: '17.7 in (450 mm) steel-embedded (85%+)',
-      hydraulicFlow: '40 gpm (151 L/min) @ 3,450 psi high-flow',
-      fuelTank: '27.7 gal (105 L)',
-      weight: '10,450 lb (4,738 kg)',
-      transportDimensions: '149 × 78 × 82.2 in (3.78 × 1.98 × 2.09 m)',
-      cab: 'Enclosed ROPS/FOPS, heat/AC, joystick, camera',
-      status: 'Fully serviced, tight machine, ships nationwide',
-      stockNumber: 'A5250679',
-    },
-    gallery: [
-      caterpillar289d3Image,
-    ],
-  },
-  {
-    id: 43,
-    name: '2021 Chevrolet Silverado 2500HD LTZ Crew Cab 4×4',
-    year: 2021,
-    hours: 0,
-    miles: 131,
-    location: 'USA Stock',
-    price: 58000,
-    originalPrice: 65000,
-    discount: 11,
-    image: chevroletSilverado2500hdImage,
-    description: 'The 2021 Chevrolet Silverado 2500HD LTZ Crew Cab 4×4 Z71 – basically brand-new, only 131 original delivery miles, never titled or registered! Duramax 6.6L V8 Turbo Diesel 445 hp / 910 lb-ft + Allison 10-speed automatic, LTZ Premium + Z71 Off-Road packages, heated/cooled leather buckets, heated rear seats, Bose audio, dual-zone climate, wireless CarPlay/Android Auto, heads-up display, safety suite (blind-spot, lane-keep, front/rear park assist), power running boards, spray-in bedliner, 20" polished wheels with brand-new Goodyear Wrangler tires, LED cargo + bed lights. 100% remaining GM factory warranty (5 yr/100k powertrain + 5 yr/100k Duramax). Ships nationwide (#A3488409). Identical untitled/low-mile 2021 2500HD LTZ Duramax units still trading $62–68k at Manheim, ADESA and dealer auctions. This is the deepest discount on a brand-new 2021 Duramax in the country right now.',
-    specs: {
-      engine: 'Duramax 6.6L V8 Turbo Diesel',
-      power: '445 hp / 910 lb-ft torque',
-      transmission: 'Allison 10-speed automatic',
-      package: 'LTZ Premium + Z71 Off-Road + Safety packages',
-      interior: 'Perforated leather heated/cooled, Bose, HUD',
-      towingCapacity: '18,500 lb (conventional) / 36,000 lb (gooseneck)',
-      tires: '20" polished aluminum + Goodyear (100%)',
-      warranty: 'Full factory 5 yr/100k powertrain + Duramax',
-      carfax: '0 owners, never titled',
-      status: 'Brand-new condition, ships nationwide',
-      stockNumber: 'A3488409',
-    },
-    gallery: [
-      chevroletSilverado2500hdImage,
-    ],
-  },
-  {
-    id: 44,
-    name: '2017 International 7300 4×4 SFA Service Truck',
-    year: 2017,
-    hours: 7800,
-    miles: 79134,
-    location: 'USA Stock',
-    price: 75000,
-    originalPrice: 85000,
-    discount: 12,
-    image: international7300Image1,
-    isHotOffer: true,
-    description: 'The 2017 International 7300 4×4 SFA Crew Cab Service Truck – ex-utility fleet, one-owner, only 79,134 miles / ~7,800 engine hours, Altec AT40M 45 ft material-handling boom (fully tested, current ANSI/dielectric), MaxxForce DT 300 hp (no DEF, pre-emissions), Allison 3000 RDS automatic, 14k front, 40k rears, 4.88 ratio, full double frame, 11 ft utility body with flip-tops, master locks, inverter, bottle racks, pipe vise, LED compartment lights, strobes. Ice-cold A/C, power windows, cruise, heated mirrors, air-ride seats. Fresh DOT, current boom inspection, no leaks, no rust. Ships nationwide (#A0764404). Identical 2017–2018 7300 4×4 crew Altec units with under 100k miles still bringing $78–92k at JJ Kane, Utility Fleet Sales, and Ritchie Bros auctions. This is the deepest discount on a turn-key 4×4 bucket truck in the country right now.',
-    specs: {
-      engine: 'International MaxxForce DT 300 hp (no DEF)',
-      transmission: 'Allison 3000 RDS 6-speed automatic',
-      drivetrain: '4×4 with fabco transfer case',
-      gvwr: '54,000 lb',
-      aerialDevice: 'Altec AT40M 45 ft insulated boom (current cert)',
-      utilityBody: '11 ft steel with flip-tops, inverter, master locks',
-      frontAxle: '14,000 lb',
-      rearAxles: '40,000 lb',
-      tires: '11R22.5 Michelin (70–80%+)',
-      brakes: 'Full air with Jake',
-      warranty: 'Current ANSI/dielectric + DOT',
-      status: 'Work-ready, ships nationwide',
-      stockNumber: 'A0764404',
-    },
-    gallery: [
-      international7300Image1,
-      international7300Image2,
-      international7300Image3,
-    ],
-  },
-  {
     id: 45,
     name: '2022 Caterpillar 336 Excavator',
     year: 2022,
     hours: 6769,
     location: 'Lake Worth, Texas',
     price: 265000,
-    originalPrice: 295000,
-    discount: 10,
+    originalPrice: 265000,
+    discount: 0,
     category: 'earthmoving',
     image: caterpillar336Image1,
     isHotOffer: true,
@@ -1229,52 +593,51 @@ const allMachinesRaw: Array<Omit<Machine, 'category'> & { category?: string }> =
     hours: 6015,
     location: 'Lake Worth, Texas',
     price: 145000,
-    originalPrice: 165000,
-    discount: 12,
+    originalPrice: 145000,
+    discount: 0,
     category: 'earthmoving',
-    image: hitachiZx350Image1,
+    image: hitachiZx350Image4,
     isHotOffer: true,
     description: 'Clean 2016 Hitachi ZX350 LC-6N straight out of a Texas rental fleet. Full service history, no major repairs ever needed. Fresh 500-hour service just completed – all filters, oils, greased, hydraulics 100%. Tight pins & bushings, strong undercarriage (75% remaining), ice-cold A/C. Ready to dig the day it lands. Includes 42" HD bucket.',
     specs: {
       engine: 'Isuzu 6HK1 Tier 4 Interim',
       power: '271 hp',
-      weight: '77,600 lbs (35.2 metric tons)',
-      bucketCapacity: '42" (1.1 m³) HD bucket with teeth',
-      hydraulicFlow: 'High-flow auxiliary circuit (thumb/hammer ready)',
-      cab: 'Enclosed ROPS, A/C, heat, rear-view camera',
-      trackWidth: '≈ 75% undercarriage remaining',
-      features: 'Boom/stick no cracks or welds, fresh 500-hr service, full inspection report, clean Texas title',
+      weight: '79,600 lbs (36 metric tons)',
+      bucketCapacity: '42" HD with teeth',
+      hydraulicFlow: 'High-flow auxiliary ready',
+      cab: 'Enclosed ROPS, heat & A/C, rear camera, Bluetooth, air-ride seat',
+      trackWidth: '75% remaining',
+      features: '500-hour service completed, full inspection report, clean Texas title',
       status: 'In stock – ships worldwide',
     },
     gallery: [
-      hitachiZx350Image1,
+      hitachiZx350Image4,
       hitachiZx350Image2,
       hitachiZx350Image3,
-      hitachiZx350Image4,
     ],
   },
   {
     id: 47,
-    name: '2015 John Deere 210G LC Excavator',
-    year: 2015,
-    hours: 6920,
-    location: 'Belleville, Michigan',
-    price: 98000,
+    name: '2018 John Deere 210G LC Excavator',
+    year: 2018,
+    hours: 5520,
+    location: 'Billings, Montana',
+    price: 115000,
     originalPrice: 115000,
-    discount: 15,
+    discount: 0,
     category: 'earthmoving',
     image: johnDeere210gImage1,
     isHotOffer: true,
-    description: 'One-owner 2015 John Deere 210G LC from Midwest municipal work. Full dealer service history, no salt exposure, clean southern undercarriage (78% remaining). Just completed full service – new filters, oils, greased, hydraulics tested 100%. Cold A/C, tight boom/stick, ready to load trucks or dig foundations tomorrow.',
+    description: 'Strong 2018 John Deere 210G LC from a Montana quarry operation. Single owner, full dealer service history. Fresh 500-hr service, all pins & bushings checked, undercarriage at 60–65% remaining. Tight machine, runs great. Includes 42" HD bucket with teeth. Ready to ship today.',
     specs: {
-      engine: 'John Deere PowerTech 6.8L Tier 4 Final',
+      engine: 'JD PowerTech PSS 6.8L Tier 4 Final',
       power: '159 hp',
-      weight: '48,800 lbs (22.1 metric tons)',
-      bucketCapacity: '48" (1.2 m³) heavy-duty with side cutters',
-      hydraulicFlow: 'Auxiliary circuit (thumb/hammer ready)',
-      cab: 'Enclosed ROPS, ice-cold A/C, heated seat, rear + side cameras',
-      trackWidth: '78% undercarriage remaining (tracks, rollers, idlers)',
-      features: 'Boom/stick no cracks or welds, fresh service, detailed inspection report, clean Michigan title',
+      weight: '51,440 lbs (23.3 metric tons)',
+      bucketCapacity: '42" HD with teeth',
+      hydraulicFlow: 'Aux hydraulics ready, pattern changer',
+      cab: 'Enclosed ROPS, heat & A/C, rear camera, JDLink telematics, air-ride seat',
+      trackWidth: '60–65% remaining',
+      features: 'Fresh 500-hr service, full inspection report, clean Montana title',
       status: 'In stock – ships worldwide',
     },
     gallery: [
@@ -1288,15 +651,15 @@ const allMachinesRaw: Array<Omit<Machine, 'category'> & { category?: string }> =
     id: 48,
     name: '2018 Caterpillar 950M Wheel Loader',
     year: 2018,
-    hours: 5820,
+    hours: 4280,
     location: 'Billings, Montana',
-    price: 175000,
-    originalPrice: 195000,
-    discount: 10,
+    price: 185000,
+    originalPrice: 185000,
+    discount: 0,
     category: 'loaders',
     image: caterpillar950mNewImage,
-    isHotOffer: false,
-    description: '2018 CAT 950M straight from a Montana gravel pit operation. One-owner, full Cat dealer history, no accidents. Fresh 500-hour service completed, zero leaks, excellent rubber all around (80% remaining). Ice-cold A/C, ride control, auto-lube ready. Comes with 5.5 yd³ GP bucket + bolt-on edge. Ready to load trucks today.',
+    isHotOffer: true,
+    description: 'One-owner 2018 CAT 950M from a Montana aggregate operation. Full Cat dealer service history, always shedded. Fresh 500-hour service, all filters/fluids, tight center pin, no leaks. Runs strong and quiet. Includes 5.5 yd³ GP bucket with BOE. Ready to load the day it lands.',
     specs: {
       engine: 'Cat C7.1 Tier 4 Final',
       power: '250 hp',
@@ -1319,8 +682,8 @@ const allMachinesRaw: Array<Omit<Machine, 'category'> & { category?: string }> =
     hours: 1840,
     location: 'Billings, Montana',
     price: 145000,
-    originalPrice: 160000,
-    discount: 9,
+    originalPrice: 145000,
+    discount: 0,
     category: 'loaders',
     image: johnDeere544pNewImage,
     isHotOffer: false,
@@ -1347,8 +710,8 @@ const allMachinesRaw: Array<Omit<Machine, 'category'> & { category?: string }> =
     hours: 7250,
     location: 'Salt Lake City, Utah',
     price: 125000,
-    originalPrice: 145000,
-    discount: 14,
+    originalPrice: 125000,
+    discount: 0,
     category: 'loaders',
     image: volvoL120h2016Image1,
     isHotOffer: true,
@@ -1373,45 +736,16 @@ const allMachinesRaw: Array<Omit<Machine, 'category'> & { category?: string }> =
     ],
   },
   {
-    id: 51,
-    name: '2019 Caterpillar D6 Dozer',
-    year: 2019,
-    hours: 3290,
-    location: 'Denver, Colorado',
-    price: 225000,
-    originalPrice: 250000,
-    discount: 10,
-    category: 'earthmoving',
-    image: caterpillarD6Image,
-    isHotOffer: true,
-    isSold: true,
-    description: 'One-owner 2019 CAT D6 (Next Gen) straight from a Colorado utility contractor. Full Cat dealer history, always shedded, zero accidents. Just received full service + new cutting edges. Strong VPAT blade, multi-shank ripper, ice-cold A/C, Grade with 2D. This is the cleanest low-hour D6 on the market right now. Remaining Cat Certified Powertrain warranty transferable.',
-    specs: {
-      engine: 'Cat C9.3B Tier 4 Final',
-      power: '215 hp',
-      weight: '51,800 lbs (23.5 metric tons)',
-      trackWidth: 'SystemOne ≈ 80% remaining',
-      bucketCapacity: '13\'2" VPAT blade (power angle & tilt) – new cutting edges',
-      hydraulicFlow: 'Multi-shank parallelogram ripper with 3 teeth',
-      cab: 'Enclosed ROPS, heat & A/C, heated/ventilated seat, 360° cameras, Cat Grade 2D',
-      features: 'Fresh service, full inspection report, remaining Cat warranty transferable, clean Colorado title',
-      status: 'SOLD',
-    },
-    gallery: [
-      caterpillarD6Image,
-    ],
-  },
-  {
     id: 52,
     name: '2019 Komatsu D65PXi-18 Intelligent Dozer',
     year: 2019,
     hours: 4150,
     location: 'Phoenix, Arizona',
     price: 195000,
-    originalPrice: 215000,
-    discount: 9,
+    originalPrice: 195000,
+    discount: 0,
     category: 'earthmoving',
-    image: komatsuD65pxiImage,
+    image: komatsuD65pxiNewImage,
     isHotOffer: false,
     description: 'Ultra-clean 2019 Komatsu D65PXi-18 (factory intelligent machine control). One-owner Arizona highway contractor unit, always dealer-serviced and shedded. Full iMC GPS system (3D-MC) still active with current subscription. Fresh service, new cutting edges, zero leaks. This is the smartest dozer you can buy at this price.',
     specs: {
@@ -1426,7 +760,7 @@ const allMachinesRaw: Array<Omit<Machine, 'category'> & { category?: string }> =
       status: 'In stock – ships worldwide',
     },
     gallery: [
-      komatsuD65pxiImage,
+      komatsuD65pxiNewImage,
     ],
   },
   {
@@ -1436,8 +770,8 @@ const allMachinesRaw: Array<Omit<Machine, 'category'> & { category?: string }> =
     hours: 125,
     location: 'Atlanta, Georgia',
     price: 52500,
-    originalPrice: 58000,
-    discount: 9,
+    originalPrice: 52500,
+    discount: 0,
     category: 'earthmoving',
     image: kubotaKx0404NewImage,
     isHotOffer: false,
@@ -1458,102 +792,14 @@ const allMachinesRaw: Array<Omit<Machine, 'category'> & { category?: string }> =
     ],
   },
   {
-    id: 54,
-    name: '2023 John Deere 35 P-Tier Mini Excavator',
-    year: 2023,
-    hours: 420,
-    location: 'Nashville, Tennessee',
-    price: 42500,
-    originalPrice: 48000,
-    discount: 11,
-    category: 'earthmoving',
-    image: johnDeere35pTierImage,
-    isSold: true,
-    isHotOffer: false,
-    description: '2023 John Deere 35 P-Tier with only light residential use. Still covered by full John Deere factory warranty until 2026 or 3,000 hours. Zero tail swing, expandable tracks, angle blade, hydraulic thumb – basically brand-new machine at a huge discount.',
-    specs: {
-      engine: 'Yanmar 3TNV88 Tier 4 Final',
-      power: '23.3 hp',
-      weight: '8,750 lbs (3.97 metric tons)',
-      trackWidth: 'Rubber expandable 12"–16" ≈ 97% remaining',
-      bucketCapacity: '6-way power angle blade, factory hydraulic thumb',
-      hydraulicFlow: 'Auxiliary proportional circuit',
-      cab: 'Enclosed ROPS, heat & A/C, deluxe air-ride seat, Bluetooth',
-      features: 'Full factory warranty until 2026/3,000h, fresh service, clean Tennessee title',
-      status: 'In stock – ships worldwide',
-    },
-    gallery: [
-      johnDeere35pTierImage,
-    ],
-  },
-  {
-    id: 55,
-    name: '2024 John Deere 35 P-Tier Mini Excavator',
-    year: 2024,
-    hours: 85,
-    location: 'Nashville, Tennessee',
-    price: 45000,
-    originalPrice: 50000,
-    discount: 10,
-    category: 'earthmoving',
-    image: johnDeere35pTier2024Image1,
-    isHotOffer: false,
-    description: '2024 John Deere 35 P-Tier demo unit with only dealer yard hours. Still has full factory warranty until 2028 / 3,000 h. Zero tail swing, expandable tracks, 6-way blade, factory hydraulic thumb, deluxe cab. Literally looks and smells new – save thousands vs buying brand-new.',
-    specs: {
-      engine: 'Yanmar 3TNV88 Tier 4 Final',
-      power: '23.3 hp',
-      weight: '8,750 lbs (3.97 metric tons)',
-      trackWidth: 'Rubber expandable ≈ 99% remaining',
-      bucketCapacity: 'Power angle 6-way blade, factory hydraulic thumb',
-      hydraulicFlow: 'Proportional auxiliary circuit',
-      cab: 'Enclosed ROPS, heat & ice-cold A/C, air-ride seat, Bluetooth, rear camera',
-      features: 'Full factory warranty until 2028/3,000h (transferable), fresh pre-delivery service, clean Tennessee title',
-      status: 'In stock – ships worldwide',
-    },
-    gallery: [
-      johnDeere35pTier2024Image1,
-      johnDeere35pTier2024Image2,
-      johnDeere35pTier2024Image3,
-      johnDeere35pTier2024Image4,
-    ],
-  },
-  {
-    id: 56,
-    name: '2024 John Deere 35 P-Tier Mini Excavator',
-    year: 2024,
-    hours: 45,
-    location: 'Nashville, Tennessee',
-    price: 46500,
-    originalPrice: 52000,
-    discount: 11,
-    category: 'earthmoving',
-    image: johnDeere35pTier2024bImage,
-    isHotOffer: false,
-    description: '2024 John Deere 35 P-Tier demo machine with minimal dealer yard hours. Full factory warranty remains until 2028 / 3,000 h. Zero tail swing, expandable tracks, 6-way angle blade, factory hydraulic thumb, deluxe cab. Looks and runs brand-new at a sharp discount.',
-    specs: {
-      engine: 'Yanmar 3TNV88 Tier 4 Final',
-      power: '23.3 hp',
-      weight: '8,750 lbs (3.97 metric tons)',
-      trackWidth: 'Rubber expandable ≈ 99% remaining',
-      bucketCapacity: 'Power angle 6-way blade, factory hydraulic thumb',
-      hydraulicFlow: 'Proportional auxiliary circuit',
-      cab: 'Enclosed ROPS, heat & ice-cold A/C, air-ride seat, Bluetooth, rear camera',
-      features: 'Full factory warranty until 2028/3,000h (transferable), fresh pre-delivery service, clean Tennessee title',
-      status: 'In stock – ships worldwide',
-    },
-    gallery: [
-      johnDeere35pTier2024bImage,
-    ],
-  },
-  {
     id: 57,
     name: '2019 Case 321F Wheel Loader',
     year: 2019,
     hours: 4680,
     location: 'Indianapolis, Indiana',
     price: 52000,
-    originalPrice: 58000,
-    discount: 10,
+    originalPrice: 52000,
+    discount: 0,
     category: 'loaders',
     image: case321f2019Image,
     isHotOffer: false,
@@ -1579,9 +825,9 @@ const allMachinesRaw: Array<Omit<Machine, 'category'> & { category?: string }> =
     year: 2023,
     hours: 580,
     location: 'Indianapolis, Indiana',
-    price: 68000,
-    originalPrice: 75000,
-    discount: 9,
+    price: 98799,
+    originalPrice: 98799,
+    discount: 0,
     category: 'loaders',
     image: case321f2023NewImage,
     isHotOffer: false,
@@ -1608,8 +854,8 @@ const allMachinesRaw: Array<Omit<Machine, 'category'> & { category?: string }> =
     hours: 12,
     location: 'Billings, Montana',
     price: 72000,
-    originalPrice: 80000,
-    discount: 10,
+    originalPrice: 72000,
+    discount: 0,
     category: 'loaders',
     image: case321f2024Image1,
     isHotOffer: true,
@@ -1640,63 +886,29 @@ const allMachinesRaw: Array<Omit<Machine, 'category'> & { category?: string }> =
     ],
   },
   {
-    id: 60,
-    name: '2022 Caterpillar 938M Wheel Loader',
-    year: 2022,
-    hours: 2860,
-    location: 'Billings, Montana',
-    price: 185000,
-    originalPrice: 205000,
-    discount: 10,
-    category: 'loaders',
-    image: caterpillar938mImage,
-    isSold: true,
-    description: 'One of the cleanest, lowest-hour late-model 938M units available. Only 1,850 original hours with full Cat dealer service history. Features Fusion quick-coupler, 4.0 yd³ GP bucket with bolt-on edge, ride control, high-lift arms, 23.5R25 Michelin XHA2 tires at 95%, third valve + high-flow hydraulics, reversing fan, LED lights, deluxe cab with Cat Payload & Autodig. Zero leaks, zero welds, runs whisper-quiet. Still under Cat Platinum warranty until 2027/7,500 hrs.',
-    specs: {
-      engine: 'Cat C7.1 Acert 190 hp (Tier 4 Final)',
-      power: '190 hp',
-      weight: '36,300 lb (16,466 kg) operating weight',
-      bucketCapacity: '4.0 yd³ (3.1 m³) GP with BOE',
-      breakoutForce: '34,500 lbf (153 kN)',
-      maxLiftCapacity: '25,000 lb (11,340 kg) static tipping load',
-      maxDumpHeight: '10 ft 6 in (3.20 m) high-lift dump clearance',
-      transmission: 'Cat powershift 5F/3R with lock-up torque converter',
-      travelSpeed: '25 mph (40 km/h)',
-      trackWidth: '23.5R25 Michelin XHA2 (95%+)',
-      hydraulicFlow: 'Load-sensing, high-flow + 3rd valve',
-      fuelTank: '51.5 gal (195 L)',
-      cab: 'Deluxe enclosed – heat/AC, heated air-ride seat, Bluetooth, camera, Cat Payload & Autodig, LED lights',
-      warranty: 'Cat Platinum EPP until 2027 or 7,500 hrs (powertrain + hydraulics)',
-      features: 'Fusion quick-coupler, ride control, high-lift arms, reversing fan',
-      status: 'SOLD – Full dealer service history, zero leaks, zero welds',
-    },
-    gallery: [
-      caterpillar938mImage,
-    ],
-  },
-  {
     id: 61,
     name: '2021 Caterpillar 938M Wheel Loader',
     year: 2021,
     hours: 980,
     location: 'Billings, Montana',
     price: 195000,
-    originalPrice: 215000,
-    discount: 9,
+    originalPrice: 195000,
+    discount: 0,
     category: 'loaders',
     image: caterpillar938m2021NewImage,
-    description: 'Ultra-low-hour dealer-maintained unicorn with only 1,420 original hours and remaining Cat Platinum warranty until 2026/6,000 hrs. Features Fusion coupler, 4.2 yd³ spade-nose bucket + BOE, ride control, high-lift z-bar, 23.5R25 Michelin XHA2 tires 95%+, high-flow XPS hydraulics + 3rd/4th valve, reversing fan, Autodig + Cat Payload with printer, LED 360° lighting, deluxe cab with touchscreen. Zero damage, zero leaks, fresh TA2 & SOS – runs like the day it left the factory.',
+    isSold: true,
+    description: 'Pristine 2021 Caterpillar 938M – one of the lowest-hour, most loaded late-model 938M units available anywhere. Only 980 original hours, full Cat dealer service history, never left Montana. Features Fusion quick-coupler, 4.0 yd³ GP bucket + BOE, ride control, high-lift Z-bar, 23.5R25 Michelin XHA2 tires at 98%, high-flow XPS hydraulics + 3rd/4th function, reversing fan, LED 360° lights, deluxe cab with Cat Payload + printer + Autodig. Zero leaks, zero welds, runs whisper-quiet. Remaining Cat Platinum EPP until 2026/6,000 hrs (powertrain + hydraulics transferable).',
     specs: {
-      engine: 'Cat C7.1 190 hp (Tier 4 Final)',
+      engine: 'Cat C7.1 Acert 190 hp (Tier 4 Final)',
       power: '190 hp',
-      weight: '36,667 lb (16,632 kg) operating weight',
-      bucketCapacity: '4.2 yd³ Fusion spade-nose + BOE',
-      breakoutForce: '35,800 lbf (159 kN)',
-      maxLiftCapacity: '25,850 lb (11,725 kg) static tipping load',
-      maxDumpHeight: '10 ft 8 in (3.25 m) high-lift dump clearance',
-      transmission: 'Powershift 5F/3R lock-up torque converter',
+      weight: '36,530 lb (16,574 kg) operating weight',
+      bucketCapacity: '4.0 yd³ (3.1 m³) Fusion GP + BOE',
+      breakoutForce: '34,700 lbf (154 kN)',
+      maxLiftCapacity: '25,200 lb (11,431 kg) static tipping load',
+      maxDumpHeight: '10 ft 6 in (3.20 m) high-lift dump clearance',
+      transmission: 'Cat powershift 5F/3R with lock-up torque converter',
       travelSpeed: '25 mph (40 km/h)',
-      trackWidth: '23.5R25 Michelin XHA2 (95%+)',
+      trackWidth: '23.5R25 Michelin XHA2 (98%+)',
       hydraulicFlow: 'High-flow XPS + 3rd/4th function',
       cab: 'Deluxe enclosed – heat/AC, heated air-ride seat, Bluetooth, camera, touchscreen, Cat Payload with printer, LED 360° lighting',
       warranty: 'Cat Platinum EPP until 2026 or 6,000 hrs',
@@ -1714,8 +926,8 @@ const allMachinesRaw: Array<Omit<Machine, 'category'> & { category?: string }> =
     hours: 1890,
     location: 'Billings, Montana',
     price: 175000,
-    originalPrice: 195000,
-    discount: 10,
+    originalPrice: 175000,
+    discount: 0,
     category: 'loaders',
     image: caterpillar938m2022Image1,
     description: 'Immaculate one-owner, low-hour dealer-maintained machine with only 2,680 original hours and remaining Cat Platinum warranty until 2027/7,500 hrs. Features Fusion quick-coupler, 4.0 yd³ GP bucket + BOE, ride control, standard z-bar, 23.5R25 Michelin XLD tires at 90-95%, high-flow hydraulics + 3rd valve, reversing fan, LED lights, deluxe cab with Cat Payload. Fresh full service and SOS clean.',
@@ -1750,10 +962,11 @@ const allMachinesRaw: Array<Omit<Machine, 'category'> & { category?: string }> =
     hours: 1240,
     location: 'Billings, Montana',
     price: 55000,
-    originalPrice: 62000,
-    discount: 11,
+    originalPrice: 55000,
+    discount: 0,
     category: 'earthmoving',
     image: jcb55z1Image,
+    isReserved: true,
     description: 'Zero-tailswing mini excavator powerhouse built for tight urban digs, landscaping, utilities, and rental fleets where maneuverability is king. Kohler Tier 4 Final KDI 1903 diesel cranks 48.3 hp with no AdBlue/DEF hassles, delivering massive 6,435 lbf bucket breakout and 181° rotation for unbeatable spoil retention. Full JCB service history, enclosed cab with heat/AC/joystick controls/Bluetooth/camera, 4-way dozer blade with float, high/low-flow aux hydraulics, quick-hitch ready.',
     specs: {
       engine: 'Kohler KDI 1903 TCR Tier 4 Final',
@@ -1783,8 +996,8 @@ const allMachinesRaw: Array<Omit<Machine, 'category'> & { category?: string }> =
     hours: 45,
     location: 'Atlanta, Georgia',
     price: 48000,
-    originalPrice: 54000,
-    discount: 11,
+    originalPrice: 48000,
+    discount: 0,
     category: 'earthmoving',
     image: caseCx42dImage5,
     description: 'Brand-new 4.2-ton zero-tailswing mini excavator. FPT 37.4 hp Tier 4 Final (no DEF/AdBlue), 2-speed travel, 16" rubber tracks 100%, enclosed cab with heat/AC/touchscreen joysticks/Bluetooth/radio/rear camera, proportional aux hydraulics (thumb/grapple ready), hydraulic quick-coupler + 24" digging bucket included, LED work lights, auto-idle, float blade. 100% under full CASE ProCare factory warranty: 3 yr/3,000 hr bumper-to-bumper + 5 yr powertrain.',
@@ -1813,143 +1026,14 @@ const allMachinesRaw: Array<Omit<Machine, 'category'> & { category?: string }> =
     ],
   },
   {
-    id: 65,
-    name: '2023 Wacker Neuson EZ26 Mini Excavator',
-    year: 2023,
-    hours: 35,
-    location: 'Phoenix, Arizona',
-    price: 32000,
-    originalPrice: 36000,
-    discount: 11,
-    category: 'earthmoving',
-    image: wackerNeusonEz26Image,
-    description: 'Top-tier 2.6-ton zero-tailswing mini excavator – the rental-fleet king. VDS tiltable cab (15°), Stage-V Kubota 20.6 hp (no DPF, no DEF), expandable undercarriage 51"–68", 2-speed travel, proportional aux lines (thumb/grapple ready), hydraulic quick-coupler + 24" digging bucket + grading bucket included, angle blade option, LED lights, Bluetooth radio, load-sensing hydraulics. Full remaining Wacker Neuson factory warranty 3 yr/3,000 hr.',
-    specs: {
-      engine: 'Kubota D1005 Stage V 20.6 hp',
-      power: '20.6 hp',
-      weight: '5,930 lb (2,690 kg)',
-      maxDiggingDepth: '9 ft 2 in (2.80 m)',
-      maxReach: '15 ft 9 in (4.81 m)',
-      maxDumpHeight: '10 ft 8 in (3.25 m)',
-      breakoutForce: '5,350 lbf bucket breakout',
-      tailSwing: 'Zero tail swing',
-      trackWidth: 'Rubber 11.8" – expandable 51"–68"',
-      hydraulicFlow: 'Load-sensing, proportional dual circuit aux',
-      cab: 'Heated & A/C, VDS tiltable (15°), Bluetooth radio',
-      warranty: 'Full 3 yr/3,000 hr remaining',
-      features: 'Hydraulic quick-coupler, 24" digging bucket + grading bucket, LED lights, angle blade option, 2-speed travel',
-      status: 'Brand new (0 hours), in stock Phoenix AZ – ships in 24-48 hrs',
-    },
-    gallery: [
-      wackerNeusonEz26Image,
-    ],
-  },
-  {
-    id: 66,
-    name: '2025 MachPro MP319 Mini Excavator',
-    year: 2025,
-    hours: 15,
-    location: 'Miami, Florida',
-    price: 8500,
-    originalPrice: 9500,
-    discount: 11,
-    category: 'earthmoving',
-    image: machproMp319Image,
-    description: 'Chinese-built 1.9-ton mini excavator dominating the budget/rental segment in 2025. Kubota D1703 Stage V 25 hp (no DEF, no regen), zero-tailswing, expandable tracks 39"–52", 2-speed travel, hydraulic quick-coupler + 16" digging bucket + 36" grading bucket + hydraulic thumb included, swing boom, dozer blade, enclosed cab with heat/AC/Bluetooth radio, LED lights, proportional aux lines. Full 1-year / 2,000 hr factory warranty.',
-    specs: {
-      engine: 'Kubota D1703 25 hp Stage V',
-      power: '25 hp',
-      weight: '4,200 lb (1,900 kg)',
-      maxDiggingDepth: '8 ft 6 in (2.60 m)',
-      maxReach: '14 ft 6 in (4.42 m)',
-      maxDumpHeight: '9 ft 6 in (2.90 m)',
-      breakoutForce: '4,950 lbf bucket breakout',
-      tailSwing: 'Zero tail swing',
-      trackWidth: 'Expandable 39"–52" rubber tracks',
-      hydraulicFlow: 'Proportional aux lines',
-      cab: 'Enclosed heat/AC, Bluetooth radio',
-      warranty: '1 yr / 2,000 hr full machine',
-      features: '16" dig bucket + 36" grading bucket + hydraulic thumb + quick-coupler included, swing boom, dozer blade, LED lights, 2-speed travel',
-      status: 'Brand new (0 hours), in stock Miami FL port yard – ships in 24-48 hrs',
-    },
-    gallery: [
-      machproMp319Image,
-    ],
-  },
-  {
-    id: 67,
-    name: '2025 MachPro MP319 Mini Excavator',
-    year: 2025,
-    hours: 22,
-    location: 'Los Angeles, California',
-    price: 8200,
-    originalPrice: 9200,
-    discount: 11,
-    category: 'earthmoving',
-    image: machproMp319LaImage,
-    description: 'Budget-busting 1.9-ton mini excavator exploding in the 2025 rental and small contractor market – zero-tailswing design crushes tight urban jobs, landscaping, and farm digs without breaking the bank. Kubota D1703 Stage V 25 hp diesel (no DEF, no DPF downtime), expandable tracks 39"–52", 2-speed travel up to 2.8 mph, swing boom for max reach, hydraulic quick-coupler + 16" tooth digging bucket + 36" smooth grading bucket + factory hydraulic thumb included, dozer blade with float, enclosed cab with heat/AC/Bluetooth radio/LED work lights/joystick controls, proportional aux hydraulics (20 gpm). Full 1-year / 2,000 hr warranty.',
-    specs: {
-      engine: 'Kubota D1703 25 hp Stage V (no DEF)',
-      power: '25 hp',
-      weight: '4,200 lb (1,900 kg)',
-      maxDiggingDepth: '8 ft 6 in (2.60 m)',
-      maxReach: '14 ft 6 in (4.42 m)',
-      maxDumpHeight: '9 ft 6 in (2.90 m)',
-      breakoutForce: '4,950 lbf (22 kN) bucket breakout',
-      tailSwing: 'Zero tail swing',
-      trackWidth: 'Expandable rubber 39"–52" (100%)',
-      hydraulicFlow: 'Proportional aux 20 gpm',
-      cab: 'Enclosed heat/AC, Bluetooth radio, LED lights, joystick controls',
-      warranty: '1 yr / 2,000 hr full machine',
-      features: '16" tooth bucket + 36" grading bucket + hydraulic thumb + quick-coupler included, swing boom, dozer blade with float, 2-speed travel (2.8 mph)',
-      status: 'Brand new (0 hours), in stock LA port yard – ships in 24-48 hrs',
-    },
-    gallery: [
-      machproMp319LaImage,
-    ],
-  },
-  {
-    id: 68,
-    name: '2019 Caterpillar 303E CR Mini Excavator',
-    year: 2019,
-    hours: 1850,
-    location: 'Denver, Colorado',
-    price: 32000,
-    originalPrice: 36000,
-    discount: 11,
-    category: 'earthmoving',
-    isSold: true,
-    image: caterpillar303ecrImage,
-    description: 'Iconic compact radius mini excavator – rental fleet favorite for tight urban digs, landscaping, utilities, and light demo. Zero tail swing means zero headaches on confined sites. Cat C1.8 Tier 4 Final 35 hp (no DEF regen issues), load-sensing hydraulics with 17.4 gpm aux flow for hammers/thumbs, 2-speed travel up to 3 mph, swing boom for max reach, hydraulic quick-coupler + 12" thumb-ready bucket included, dozer blade with float, enclosed ROPS cab with heat/AC/joystick controls/Bluetooth radio/rear camera/LED work lights, 12" rubber tracks at 85%+.',
-    specs: {
-      engine: 'Cat C1.8 35 hp (Tier 4 Final, no DEF)',
-      power: '35 hp',
-      weight: '7,800 lb (3,538 kg)',
-      maxDiggingDepth: '9 ft (2.75 m)',
-      maxReach: '15 ft 9 in (4.81 m)',
-      maxDumpHeight: '10 ft 2 in (3.10 m)',
-      breakoutForce: '6,400 lbf (28.5 kN) bucket breakout',
-      tailSwing: 'Compact radius (zero tail swing)',
-      trackWidth: '12" rubber tracks (85%+)',
-      hydraulicFlow: '17.4 gpm proportional aux',
-      cab: 'Enclosed ROPS/FOPS, heat/AC, Bluetooth, rear camera, LED lights',
-      warranty: 'Remaining Cat components',
-      features: 'Hydraulic quick-coupler, 12" thumb-ready bucket, dozer blade with float, swing boom, 2-speed travel (3 mph), joystick controls',
-      status: 'Dealer-serviced, tight machine, fresh service, ships in 48 hrs',
-    },
-    gallery: [
-      caterpillar303ecrImage,
-    ],
-  },
-  {
     id: 69,
     name: '2017 Bobcat E50 Compact Excavator',
     year: 2017,
     hours: 2410,
     location: 'Chicago, Illinois',
     price: 38000,
-    originalPrice: 44000,
-    discount: 14,
+    originalPrice: 38000,
+    discount: 0,
     category: 'earthmoving',
     isReserved: true,
     image: bobcatE50Image,
@@ -1979,8 +1063,8 @@ const allMachinesRaw: Array<Omit<Machine, 'category'> & { category?: string }> =
     hours: 1650,
     location: 'Seattle, Washington',
     price: 42000,
-    originalPrice: 48000,
-    discount: 13,
+    originalPrice: 42000,
+    discount: 0,
     category: 'earthmoving',
     image: caterpillar304e2crImage1,
     description: 'Versatile compact radius mini excavator – staple for urban construction, landscaping, utilities, and rental fleets. Zero tail swing for zero headaches in tight spots. Cat C2.4 Tier 4 Final 40.2 hp (no DEF downtime), load-sensing hydraulics with 17 gpm aux flow for thumbs/hammers, swing boom for max reach, hydraulic quick-coupler + 24" digging bucket included, dozer blade with float, enclosed ROPS cab with heat/AC/joystick controls/Bluetooth radio/rear camera/LED lights, 14" rubber tracks at 85%+.',
@@ -2014,9 +1098,9 @@ const allMachinesRaw: Array<Omit<Machine, 'category'> & { category?: string }> =
     year: 2023,
     hours: 1013,
     location: 'Dallas, Texas',
-    price: 38000,
-    originalPrice: 44000,
-    discount: 14,
+    price: 43800,
+    originalPrice: 43800,
+    discount: 0,
     category: 'earthmoving',
     image: kubotaKx0334Image,
     description: 'Premium compact excavator dominating the rental and small-site market – zero tail swing for ultimate maneuverability in tight urban digs, landscaping, utilities, and trenching. Kubota D1703M-DI-E4 Tier 4 Final 23.3 hp (no DEF hassles), load-sensing hydraulics with up to 15.8 gpm aux flow for thumbs/grapples/hammers, extendable dipper for +20" dig depth/reach, hydraulic angle blade with float, quick-coupler + 24" tooth bucket included, enclosed ROPS cab with heat/AC/joystick controls/Bluetooth radio/rear camera/LED lights.',
@@ -2050,25 +1134,25 @@ const allMachinesRaw: Array<Omit<Machine, 'category'> & { category?: string }> =
     hours: 0,
     location: 'Orlando, Florida',
     price: 22500,
-    originalPrice: 25000,
-    discount: 10,
+    originalPrice: 22500,
+    discount: 0,
     category: 'earthmoving',
     image: bobcatE10Image,
-    description: 'Smallest beast in Bobcat\'s lineup – ultra-compact 1-ton zero-tailswing mini excavator revolutionizing tight-space digs, landscaping, utilities, and rental fleets where hand tools are the only alternative. Kubota D722 Tier 4 Final 10.2 hp diesel (no DEF, no regen downtime), retractable undercarriage from 28" to 43" for doorways/trailers, 2-speed travel up to 1.7 mph, hydraulic quick-coupler + 8" thumb-ready digging bucket included, dozer blade with float, open ROPS canopy with joystick controls/LED work lights.',
+    description: 'Brand-new ultra-compact mini excavator – king of the 1-ton class for landscaping, tight urban digs, indoor demo, and utility trenching. Yanmar 3TNV70 Tier 4 Final 10.2 hp (no DEF), zero tail swing, retractable undercarriage 28"–39" for doorway pass-through, 2-speed travel up to 2.5 mph, proportional aux hydraulics (hammer/thumb ready), swing boom for trench walls, dozer blade with float, ROPS canopy (enclosed cab option), joystick controls, LED work lights, rubber tracks 100%.',
     specs: {
-      engine: 'Kubota D722 10.2 hp Tier 4 Final (no DEF)',
+      engine: 'Yanmar 3TNV70 10.2 hp Tier 4 Final (no DEF)',
       power: '10.2 hp',
-      weight: '2,593 lb (1,176 kg)',
-      maxDiggingDepth: '6 ft (1.83 m)',
-      maxReach: '10 ft 2 in (3.10 m) at ground level',
-      maxDumpHeight: '6 ft (1.83 m)',
-      breakoutForce: '1,865 lbf (8.29 kN) bucket / 1,248 lbf (5.55 kN) arm',
+      weight: '2,356 lb (1,069 kg)',
+      maxDiggingDepth: '5 ft 10 in (1.78 m)',
+      maxReach: '10 ft 2 in (3.10 m)',
+      maxDumpHeight: '7 ft 1 in (2.16 m)',
+      breakoutForce: '2,135 lbf (9.5 kN) bucket',
       tailSwing: 'Zero tail swing',
-      trackWidth: '7.1" rubber retractable (28"–43" width, 100%)',
-      hydraulicFlow: '5.3 gpm @ 2,756 psi proportional aux',
-      cab: 'Open ROPS canopy, joystick controls, LED lights',
-      warranty: 'Full Bobcat 2 yr/1,500 hr + 5 yr powertrain',
-      features: 'Hydraulic quick-coupler, 8" thumb-ready digging bucket, dozer blade with float, retractable undercarriage, 2-speed travel (1.7 mph), auto-idle',
+      trackWidth: '7 in rubber, retractable 28"–39" undercarriage',
+      hydraulicFlow: '6.3 gpm proportional aux',
+      cab: 'ROPS canopy (enclosed cab option)',
+      warranty: 'Full Bobcat 2 yr/2,000 hr factory warranty',
+      features: 'Swing boom, dozer blade with float, LED lights, joystick controls, 2-speed travel, fits through 36" doorways',
       status: 'Brand new (0 hours), in stock Orlando FL – ships in 24-48 hrs',
     },
     gallery: [
@@ -2077,29 +1161,28 @@ const allMachinesRaw: Array<Omit<Machine, 'category'> & { category?: string }> =
   },
   {
     id: 73,
-    name: '2023 John Deere 333G Compact Track Loader',
-    year: 2023,
-    hours: 1280,
-    location: 'Minneapolis, Minnesota',
-    price: 58000,
-    originalPrice: 65000,
-    discount: 11,
+    name: '2020 John Deere 333G Compact Track Loader',
+    year: 2020,
+    hours: 2130,
+    location: 'Memphis, Tennessee',
+    price: 52000,
+    originalPrice: 52000,
+    discount: 0,
     category: 'loaders',
-    isReserved: true,
     image: johnDeere333gImage,
-    description: 'Go-to mid-frame vertical-lift compact track loader for heavy construction, landscaping, material handling, and rental fleets – built tough with John Deere\'s legendary reliability. Yanmar 4TNV94FHT Tier 4 Final 100 hp diesel (no DEF issues), hydrostatic two-speed transmission up to 10 mph, 3,700 lb ROC for stacking pallets high, 12 ft 3 in lift height, high-flow hydraulics (32 gpm @ 3,450 psi for mulchers/grapples), electro-hydraulic joystick controls, enclosed cab with heat/AC/Bluetooth radio/rear camera/LED work lights.',
+    description: 'Flagship large-frame vertical-lift compact track loader – rental fleet and contractor staple for construction, landscaping, excavation, and material handling with unbeatable traction on mud, slopes, or rough terrain. Yanmar 3.3L Tier 4 Final 100 hp (no DEF regen issues), hydrostatic two-speed transmission up to 7.5 mph, 3,700 lb ROC (50% tipping), 10 ft 9 in hinge pin height for truck loading, high-flow hydraulics (30.6 gpm @ 3,500 psi for mulchers/grapples/forks), electrohydraulic joysticks with pattern changer, enclosed ROPS/FOPS cab with heat/AC/Bluetooth radio/rear camera/LED work lights, 17.7" steel-embedded rubber tracks at 85%+, quick-attach plate + 84" low-profile bucket with bolt-on edge included, ride control, reversing fan, auto-idle.',
     specs: {
-      engine: 'Yanmar 4TNV94FHT 100 hp (74.6 kW) Tier 4 Final (no DEF)',
-      power: '100 hp (74.6 kW)',
-      weight: '12,100 lb (5,493 kg) operating weight',
-      maxLiftCapacity: '3,700 lb (1,680 kg) rated operating capacity',
-      tippingLoad: '10,571 lb (4,797 kg)',
-      maxLiftHeight: '12 ft 3 in (3.73 m)',
-      breakoutForce: '8,990 lbf (40 kN)',
-      travelSpeed: '5.7 / 10 mph (2-speed)',
+      engine: 'Yanmar 3.3L 100 hp Tier 4 Final (no DEF)',
+      power: '100 hp (75 kW)',
+      weight: '11,850 lb (5,375 kg)',
+      capacity: '3,700 lb (1,678 kg) @ 50% tipping load',
+      tippingLoad: '7,400 lb (3,357 kg)',
+      liftHeight: '10 ft 9 in (3.28 m) hinge pin',
+      breakoutForce: '9,113 lbf (40.5 kN)',
+      travelSpeed: '7.5 mph (12 km/h) 2-speed',
       trackWidth: '17.7 in (450 mm) steel-embedded rubber (85%+)',
-      hydraulicFlow: 'High-flow 32 gpm (121 L/min) @ 3,450 psi',
-      fuelTank: '24.8 gal (94 L)',
+      hydraulicFlow: 'High-flow 30.6 gpm (116 L/min) @ 3,500 psi',
+      fuelTank: '28 gal (106 L)',
       cab: 'Enclosed ROPS/FOPS, heat/AC, Bluetooth, camera, EH joysticks',
       features: 'Quick-attach plate, 84" low-profile bucket with BOE, ride control, reversing fan, 5.1 psi ground pressure',
       status: 'Dealer-serviced, work-ready, ships in 48 hrs',
@@ -2109,48 +1192,14 @@ const allMachinesRaw: Array<Omit<Machine, 'category'> & { category?: string }> =
     ],
   },
   {
-    id: 74,
-    name: '2025 Rippa NDI665 Mini Track Loader',
-    year: 2025,
-    hours: 0,
-    location: 'Strafford, Missouri',
-    price: 14500,
-    originalPrice: 16500,
-    discount: 12,
-    isSold: true,
-    category: 'loaders',
-    image: rippaNdi665Image,
-    description: 'Budget-crushing mini track loader exploding in the 2025 rental, landscaping, and small construction market – compact 2,500 lb frame with 800 lb lift capacity crushes tight jobs like mulching, grading, and material handling without the big-brand price tag. Kubota D1105 Tier 4 Final 24 hp diesel (no DEF, no regen downtime, plus 2-year/2,000 hr Kubota engine warranty), hydrostatic drive with 2-speed up to 7 mph, joystick pilot controls, inverted hydraulic cylinder for max dump clearance, 3-pump hydraulic system.',
-    specs: {
-      engine: 'Kubota D1105 24 hp Tier 4 Final (no DEF)',
-      power: '24 hp',
-      weight: '2,500 lb (1,134 kg) operating weight',
-      maxLiftCapacity: '800 lb (363 kg) rated operating capacity',
-      tippingLoad: '2,285 lb (1,036 kg)',
-      maxLiftHeight: '8 ft 2 in (2.49 m)',
-      breakoutForce: '2,200 lbf',
-      travelSpeed: '4.3 / 7 mph (2-speed)',
-      trackWidth: '9 in (230 mm) rubber tracks (100%)',
-      hydraulicFlow: '10 gpm aux @ 2,800 psi (3-pump system)',
-      fuelTank: '7.4 gal (28 L)',
-      cab: 'Enclosed ROPS canopy, joystick pilots, LED lights, Bluetooth',
-      warranty: '1 yr parts/labor + 2 yr/2,000 hr Kubota engine',
-      features: 'Quick-attach plate, 60" low-profile bucket, inverted hydraulic cylinder, auto-idle, cold-start package, 4.2 psi ground pressure',
-      status: 'Brand new (0 hours), in stock Strafford MO – ships in 24-48 hrs',
-    },
-    gallery: [
-      rippaNdi665Image,
-    ],
-  },
-  {
     id: 75,
     name: '2018 Caterpillar 299D2 Compact Track Loader',
     year: 2018,
     hours: 2450,
     location: 'Kansas City, Missouri',
     price: 38000,
-    originalPrice: 42000,
-    discount: 10,
+    originalPrice: 38000,
+    discount: 0,
     category: 'loaders',
     image: caterpillar299d2Image,
     description: 'Heavy-duty mid-frame radial-lift compact track loader – rental fleet and contractor staple for construction, landscaping, excavation, and material handling. Unbeatable traction on mud/slopes/soft ground with zero downtime features. Cat C3.8 Tier 4 Final 95 hp diesel (no DEF regen hassles), hydrostatic two-speed transmission up to 8.4 mph, 3,200 lb ROC (35% tipping), 9 ft 6 in hinge pin height, high-flow hydraulics (32 gpm @ 3,335 psi for mulchers/grapples/forks), electro-hydraulic joysticks with pattern changer.',
@@ -2181,8 +1230,8 @@ const allMachinesRaw: Array<Omit<Machine, 'category'> & { category?: string }> =
     hours: 2180,
     location: 'St. Louis, Missouri',
     price: 62000,
-    originalPrice: 70000,
-    discount: 11,
+    originalPrice: 62000,
+    discount: 0,
     category: 'loaders',
     image: caterpillar299d3Image,
     description: 'Premium mid-frame vertical-lift compact track loader – contractor and rental fleet essential for construction, landscaping, excavation, and material handling. Suspended undercarriage delivers unmatched traction, flotation, and stability on mud, slopes, or rough terrain. Cat C3.8 Tier 4 Final 95 hp diesel (no DEF regen downtime), hydrostatic two-speed transmission up to 8.4 mph, 3,480 lb ROC (35% tipping), 10 ft 6 in hinge pin height, high-flow hydraulics (32 gpm @ 3,335 psi for mulchers/grapples/forks), electro-hydraulic joysticks with ISO/SAE pattern changer.',
@@ -2213,8 +1262,8 @@ const allMachinesRaw: Array<Omit<Machine, 'category'> & { category?: string }> =
     hours: 2340,
     location: 'Tampa, Florida',
     price: 42000,
-    originalPrice: 48000,
-    discount: 13,
+    originalPrice: 42000,
+    discount: 0,
     category: 'loaders',
     image: caterpillar279d3Image,
     description: 'The perfect mid-frame radial-lift track loader for landscaping, construction, and rental fleets – 2,940 lb ROC, 10 ft 1 in hinge pin height, and legendary Cat undercarriage traction. Cat C3.8 Tier 4 Final 74 hp (no DEF), high-flow XPS hydraulics (30 gpm @ 3,500 psi), 15.7" tracks at 85%+, ride control, reversing fan, advanced display with rear camera, Bluetooth radio, air-ride seat, self-leveling, quick-attach + 78" bucket with BOE included. Fresh full service, zero leaks, tight machine.',
@@ -2242,8 +1291,8 @@ const allMachinesRaw: Array<Omit<Machine, 'category'> & { category?: string }> =
     hours: 1950,
     location: 'Houston, Texas',
     price: 48000,
-    originalPrice: 54000,
-    discount: 11,
+    originalPrice: 48000,
+    discount: 0,
     category: 'loaders',
     image: caseTr310bImage,
     description: 'The powerhouse medium-frame radial-lift compact track loader that\'s a rental fleet and contractor favorite for construction, landscaping, material handling, and excavation – wider tracks deliver unbeatable stability and low ground pressure (4.4 psi) on soft or uneven terrain, while the 3,100 lb ROC crushes pallet stacking and truck loading. FPT 74 hp Tier 4 Final diesel (maintenance-free, no DPF/DEF fluids or filter service), hydrostatic two-speed transmission up to 8.2 mph, high-flow auxiliary hydraulics (32.4 gpm @ 3,050 psi for mulchers/grapples/forks), electro-hydraulic joysticks with selectable ISO/H-pattern controls, enclosed ROPS/FOPS cab with heat/AC/Bluetooth radio/rear camera/8-inch LCD display/LED work lights, 17.7" steel-embedded rubber tracks at 85%+, quick-attach plate + 84" low-profile bucket with bolt-on edge included, ride control, reversing fan, fresh full service, tight undercarriage, no leaks, no welds – ready to lift heavy and run all day.',
@@ -2274,8 +1323,8 @@ const allMachinesRaw: Array<Omit<Machine, 'category'> & { category?: string }> =
     hours: 980,
     location: 'Omaha, Nebraska',
     price: 52000,
-    originalPrice: 58000,
-    discount: 10,
+    originalPrice: 52000,
+    discount: 0,
     category: 'loaders',
     image: kubotaSvl753Image,
     description: 'The #1-selling compact track loader in the USA – a mid-frame vertical-lift powerhouse for construction, landscaping, material handling, and rental fleets, with unmatched traction on mud/slopes/soft ground and zero downtime reliability. Kubota V3307-CR-TE5A Tier 4 Final 74.3 hp diesel (no DEF regen hassles), hydrostatic two-speed transmission up to 8 mph, 2,490 lb ROC (35% tipping) for high stacking, 10 ft 2 in hinge pin height for easy truck loading, high-flow hydraulics (29.8 gpm @ 3,185 psi for mulchers/grapples/forks), electro-hydraulic joysticks with pattern changer, enclosed ROPS/FOPS cab with heat/AC/Bluetooth radio/rear camera/7-inch LCD touchscreen/LED work lights, 15.8" steel-embedded rubber tracks at 85%+, quick-attach plate + 74" low-profile bucket with bolt-on edge included, ride control, reversing fan, Advanced Multifunction Valve (AMV) for smooth multi-function operation.',
@@ -2307,8 +1356,8 @@ const allMachinesRaw: Array<Omit<Machine, 'category'> & { category?: string }> =
     isReserved: true,
     location: 'Phoenix, Arizona',
     price: 28000,
-    originalPrice: 32000,
-    discount: 13,
+    originalPrice: 28000,
+    discount: 0,
     category: 'loaders',
     image: bobcatA300Image,
     description: 'The legendary all-wheel steer skid steer loader that\'s a game-changer for tight-site maneuvering and zero turf damage – perfect for landscaping, construction, agriculture, and rental fleets where traditional skid steers tear up the ground. Pre-emissions Kubota V3300-T turbo diesel cranks 81 hp with no DEF/regen downtime, hydrostatic two-speed transmission up to 7 mph, 3,000 lb ROC for heavy pallet stacking, 8 ft 3 in hinge pin height for easy truck loading, high-flow hydraulics (30.7 gpm @ 3,300 psi for mulchers/grapples/forks), all-wheel steering for crab, circle, or coordinated modes, enclosed ROPS/FOPS cab with heat/AC/Bluetooth radio/LED work lights, 12-16.5 HD tires at 75%+, quick-attach plate + 72" tooth bucket with bolt-on edge included.',
@@ -2339,8 +1388,8 @@ const allMachinesRaw: Array<Omit<Machine, 'category'> & { category?: string }> =
     hours: 420,
     location: 'Atlanta, Georgia',
     price: 58000,
-    originalPrice: 65000,
-    discount: 11,
+    originalPrice: 58000,
+    discount: 0,
     category: 'earthmoving',
     image: caterpillar305crImage1,
     description: 'Versatile 5-ton mini excavator with near-zero tail swing design for tight-space excavation. Cat C2.4 Tier 4 Final diesel delivers 42.6 hp with no DEF required, enclosed cab with heat/AC/Bluetooth radio/rear-view camera, joystick controls with proportional auxiliary hydraulics for thumb or grapple, standard blade with float, rubber tracks at 90%+, quick-coupler with 24" bucket included. Ideal for residential excavation, utility work, landscaping, and farm applications.',
@@ -2350,7 +1399,7 @@ const allMachinesRaw: Array<Omit<Machine, 'category'> & { category?: string }> =
       weight: '11,662 lb (5,290 kg)',
       maxDiggingDepth: '11 ft 10 in (3.61 m)',
       maxReach: '18 ft 8 in (5.69 m)',
-      maxDumpHeight: '12 ft 8 in (3.86 m)',
+      maxDumpingHeight: '12 ft 8 in (3.86 m)',
       bucketCapacity: '0.14 - 0.33 yd³ (0.11 - 0.25 m³)',
       bucketDiggingForce: '8,543 lbf (38 kN)',
       armDiggingForce: '5,620 lbf (25 kN)',
@@ -2380,8 +1429,8 @@ const allMachinesRaw: Array<Omit<Machine, 'category'> & { category?: string }> =
     hours: 1121,
     location: 'Billings, MT',
     price: 52000,
-    originalPrice: 58000,
-    discount: 10,
+    originalPrice: 52000,
+    discount: 0,
     category: 'earthmoving',
     image: caterpillar305e2crImage1,
     description: 'Compact 5-ton mini excavator with zero tail swing design, perfect for residential and commercial jobsites with limited space. Cat C2.4 Tier 4 Final diesel delivers 40.2 hp with excellent fuel efficiency, enclosed cab with heat/AC, joystick controls with proportional auxiliary hydraulics, standard blade with float, rubber tracks at 80%+, quick-coupler with 24" bucket included. Ideal for utility work, landscaping, trenching, and foundation excavation.',
@@ -2391,7 +1440,7 @@ const allMachinesRaw: Array<Omit<Machine, 'category'> & { category?: string }> =
       weight: '11,354 lb (5,150 kg)',
       maxDiggingDepth: '11 ft 8 in (3.56 m)',
       maxReach: '18 ft 4 in (5.59 m)',
-      maxDumpHeight: '12 ft 6 in (3.81 m)',
+      maxDumpingHeight: '12 ft 6 in (3.81 m)',
       bucketCapacity: '0.13 - 0.31 yd³ (0.10 - 0.24 m³)',
       bucketDiggingForce: '8,320 lbf (37 kN)',
       armDiggingForce: '5,400 lbf (24 kN)',
@@ -2421,8 +1470,8 @@ const allMachinesRaw: Array<Omit<Machine, 'category'> & { category?: string }> =
     hours: 838,
     location: 'Billings, MT',
     price: 50580,
-    originalPrice: 56200,
-    discount: 10,
+    originalPrice: 50580,
+    discount: 0,
     category: 'earthmoving',
     image: caterpillar305e2cr2022Image2,
     description: 'Premium 5-ton mini excavator with zero tail swing design for tight-space excavation. Cat C2.4 Tier 4 Final diesel delivers 40.2 hp with excellent fuel efficiency and no DEF required. Enclosed cab with heat/AC, joystick controls with proportional auxiliary hydraulics for thumb or grapple, standard blade with float, rubber tracks at 85%+, quick-coupler with 24" bucket included. Low hours, dealer-serviced, ready for residential or commercial work.',
@@ -2432,88 +1481,7 @@ const allMachinesRaw: Array<Omit<Machine, 'category'> & { category?: string }> =
       weight: '11,354 lb (5,150 kg)',
       maxDiggingDepth: '11 ft 8 in (3.56 m)',
       maxReach: '18 ft 4 in (5.59 m)',
-      maxDumpHeight: '12 ft 6 in (3.81 m)',
-      bucketCapacity: '0.13 - 0.31 yd³ (0.10 - 0.24 m³)',
-      bucketDiggingForce: '8,320 lbf (37 kN)',
-      armDiggingForce: '5,400 lbf (24 kN)',
-      swingSpeed: '8.3 rpm',
-      travelSpeed: '2.7 mph (4.3 km/h)',
-      tailSwing: 'Zero tail swing design',
-      trackWidth: '15.7 in (400 mm) rubber tracks',
-      groundClearance: '12.6 in (320 mm)',
-      fuelTank: '18.5 gal (70 L)',
-      hydraulicTank: '12.7 gal (48 L)',
-      cab: 'Enclosed ROPS/FOPS cab, heat/AC, Bluetooth radio',
-      features: 'Quick-coupler, 24" bucket, proportional aux hydraulics, float blade, LED work lights, auto-idle',
-      status: 'In stock Billings MT – ready to ship in 48 hrs',
-    },
-    gallery: [
-      caterpillar305e2cr2022Image2,
-      caterpillar305e2cr2022Image3,
-      caterpillar305e2cr2022Image4,
-      caterpillar305e2cr2022Image5,
-    ],
-  },
-  {
-    id: 89,
-    name: '2020 Caterpillar 305E2 CR Mini Excavator',
-    year: 2020,
-    hours: 1243,
-    location: 'Billings, MT',
-    price: 38900,
-    originalPrice: 43200,
-    discount: 10,
-    category: 'earthmoving',
-    image: caterpillar305e2cr2020Image2,
-    description: 'Reliable 5-ton mini excavator with zero tail swing design for tight-space excavation. Cat C2.4 Tier 4 Final diesel delivers 40.2 hp with excellent fuel efficiency. Open ROPS canopy with joystick controls, proportional auxiliary hydraulics, standard blade with float, rubber tracks with good tread remaining. Well-maintained unit ready for utility work, landscaping, trenching, and foundation excavation.',
-    specs: {
-      engine: 'Cat C2.4 Tier 4 Final 40.2 hp',
-      power: '40.2 hp (30 kW)',
-      weight: '11,354 lb (5,150 kg)',
-      maxDiggingDepth: '11 ft 8 in (3.56 m)',
-      maxReach: '18 ft 4 in (5.59 m)',
-      maxDumpHeight: '12 ft 6 in (3.81 m)',
-      bucketCapacity: '0.13 - 0.31 yd³ (0.10 - 0.24 m³)',
-      bucketDiggingForce: '8,320 lbf (37 kN)',
-      armDiggingForce: '5,400 lbf (24 kN)',
-      swingSpeed: '8.3 rpm',
-      travelSpeed: '2.7 mph (4.3 km/h)',
-      tailSwing: 'Zero tail swing design',
-      trackWidth: '15.7 in (400 mm) rubber tracks',
-      groundClearance: '12.6 in (320 mm)',
-      fuelTank: '18.5 gal (70 L)',
-      hydraulicTank: '12.7 gal (48 L)',
-      cab: 'Open ROPS canopy, high-back seat',
-      features: 'Blade with float, proportional aux hydraulics, LED work lights',
-      status: 'In stock Billings MT – ready to ship',
-    },
-    gallery: [
-      caterpillar305e2cr2020Image2,
-      caterpillar305e2cr2020Image1,
-      caterpillar305e2cr2020Image3,
-      caterpillar305e2cr2020Image4,
-      caterpillar305e2cr2020Image5,
-    ],
-  },
-  {
-    id: 90,
-    name: '2021 Caterpillar 305E2 CR Mini Excavator',
-    year: 2021,
-    hours: 933,
-    location: 'Billings, MT',
-    price: 54300,
-    originalPrice: 59730,
-    discount: 9,
-    category: 'earthmoving',
-    image: caterpillar305e2cr2021Image1,
-    description: 'Well-maintained 5-ton mini excavator with zero tail swing design, perfect for residential and commercial jobsites. Cat C2.4 Tier 4 Final diesel delivers 40.2 hp with excellent fuel efficiency. Enclosed cab with heat/AC, joystick controls with proportional auxiliary hydraulics, standard blade with float, rubber tracks at 80%+. Ideal for utility work, landscaping, trenching, and foundation excavation.',
-    specs: {
-      engine: 'Cat C2.4 Tier 4 Final 40.2 hp',
-      power: '40.2 hp (30 kW)',
-      weight: '11,354 lb (5,150 kg)',
-      maxDiggingDepth: '11 ft 8 in (3.56 m)',
-      maxReach: '18 ft 4 in (5.59 m)',
-      maxDumpHeight: '12 ft 6 in (3.81 m)',
+      maxDumpingHeight: '12 ft 6 in (3.81 m)',
       bucketCapacity: '0.13 - 0.31 yd³ (0.10 - 0.24 m³)',
       bucketDiggingForce: '8,320 lbf (37 kN)',
       armDiggingForce: '5,400 lbf (24 kN)',
@@ -2525,14 +1493,15 @@ const allMachinesRaw: Array<Omit<Machine, 'category'> & { category?: string }> =
       fuelTank: '18.5 gal (70 L)',
       hydraulicTank: '12.7 gal (48 L)',
       cab: 'Enclosed ROPS/FOPS cab, heat/AC, high-back seat',
-      features: 'Quick-coupler, proportional aux hydraulics, float blade, LED work lights',
-      status: 'In stock Billings MT – ready to ship in 48 hrs',
+      features: 'Quick-coupler, 24" bucket, proportional aux hydraulics, float blade, LED work lights, auto-idle',
+      status: 'In stock Billings MT – dealer serviced, ready to ship',
     },
     gallery: [
-      caterpillar305e2cr2021Image1,
-      caterpillar305e2cr2021Image2,
-      caterpillar305e2cr2021Image3,
-      caterpillar305e2cr2021Image4,
+      caterpillar305e2cr2022Image2,
+      caterpillar305e2cr2022Image1,
+      caterpillar305e2cr2022Image3,
+      caterpillar305e2cr2022Image4,
+      caterpillar305e2cr2022Image5,
     ],
   },
   {
@@ -2541,9 +1510,9 @@ const allMachinesRaw: Array<Omit<Machine, 'category'> & { category?: string }> =
     year: 2024,
     hours: 320,
     location: 'Billings, MT',
-    price: 54900,
-    originalPrice: 58000,
-    discount: 9,
+    price: 63400,
+    originalPrice: 63400,
+    discount: 0,
     category: 'earthmoving',
     image: kubotaKx0404Image1,
     description: 'Nearly new 4-ton mini excavator with tight tail swing design for confined spaces. Kubota V2403 Tier 4 Final diesel delivers 40.4 hp with exceptional fuel efficiency and no DPF regeneration required. Enclosed cab with heat/AC, deluxe suspension seat, joystick controls with proportional auxiliary hydraulics for thumb attachment, standard angle blade with float, rubber tracks at 98%+, quick-coupler with 18" and 24" buckets included. Very low hours, full factory warranty remaining.',
@@ -2553,7 +1522,7 @@ const allMachinesRaw: Array<Omit<Machine, 'category'> & { category?: string }> =
       weight: '9,480 lb (4,300 kg)',
       maxDiggingDepth: '11 ft 2 in (3.41 m)',
       maxReach: '17 ft 10 in (5.44 m)',
-      maxDumpHeight: '12 ft 1 in (3.68 m)',
+      maxDumpingHeight: '12 ft 1 in (3.68 m)',
       bucketCapacity: '0.09 - 0.28 yd³ (0.07 - 0.21 m³)',
       bucketDiggingForce: '7,385 lbf (32.8 kN)',
       armDiggingForce: '4,600 lbf (20.5 kN)',
@@ -2582,9 +1551,9 @@ const allMachinesRaw: Array<Omit<Machine, 'category'> & { category?: string }> =
     year: 2024,
     hours: 180,
     location: 'Billings, MT',
-    price: 145400,
-    originalPrice: 175000,
-    discount: 9,
+    price: 322400,
+    originalPrice: 322400,
+    discount: 0,
     category: 'wheel-loaders',
     image: volvoL120h2024Image1,
     isHotOffer: true,
@@ -2620,11 +1589,11 @@ const allMachinesRaw: Array<Omit<Machine, 'category'> & { category?: string }> =
     id: 86,
     name: '2020 Manitou MLT1040-145 PS+L Telehandler',
     year: 2020,
-    hours: 2850,
+    hours: 4406,
     location: 'Billings, MT',
     price: 63750,
-    originalPrice: 70125,
-    discount: 10,
+    originalPrice: 63750,
+    discount: 0,
     category: 'telehandlers',
     image: manitouMlt1040145Image2,
     isHotOffer: true,
@@ -2662,10 +1631,10 @@ const allMachinesRaw: Array<Omit<Machine, 'category'> & { category?: string }> =
     hours: 1420,
     location: 'Billings, MT',
     price: 112480,
-    originalPrice: 123728,
-    discount: 9,
+    originalPrice: 112480,
+    discount: 0,
     category: 'backhoes',
-    image: johnDeere310sl2023Image1,
+    image: johnDeere310sl2023Image3,
     isHotOffer: true,
     description: 'Low-hour 2023 John Deere 310SL backhoe loader in excellent condition. PowerTech 4.5L Tier 4 Final engine delivers 93 hp with smooth power and excellent fuel economy. Full deluxe cab with heat/AC, air-ride seat, rear camera, and excellent visibility. Includes 1.15 yd³ loader bucket, 24" backhoe bucket, auxiliary hydraulics, ride control, and extendahoe. Perfect for utility work, landscaping, and construction.',
     specs: {
@@ -2690,9 +1659,9 @@ const allMachinesRaw: Array<Omit<Machine, 'category'> & { category?: string }> =
       status: 'In stock Billings MT – serviced and ready',
     },
     gallery: [
+      johnDeere310sl2023Image3,
       johnDeere310sl2023Image1,
       johnDeere310sl2023Image2,
-      johnDeere310sl2023Image3,
       johnDeere310sl2023Image4,
       johnDeere310sl2023Image5,
     ],
@@ -2703,12 +1672,12 @@ const allMachinesRaw: Array<Omit<Machine, 'category'> & { category?: string }> =
     year: 2022,
     hours: 1850,
     location: 'Billings, MT',
-    price: 44250,
-    originalPrice: 53300,
-    discount: 9,
+    price: 58000,
+    originalPrice: 58000,
+    discount: 0,
     category: 'track-loaders',
     image: johnDeere333g2022Image1,
-    isHotOffer: true,
+    isReserved: true,
     description: 'Powerful 2022 John Deere 333G compact track loader with excellent condition and service history. Yanmar 3.3L Tier 4 Final engine delivers 100 hp with smooth power delivery. Full cab with heat/AC, suspension seat, rear camera, and excellent visibility. High-flow hydraulics, 2-speed travel, electrohydraulic joysticks. Includes 84" bucket, quick-attach system, and LED work lights. Ready for landscaping, construction, and ag work.',
     specs: {
       engine: 'Yanmar 3.3L Tier 4 Final',
@@ -2739,14 +1708,95 @@ const allMachinesRaw: Array<Omit<Machine, 'category'> & { category?: string }> =
     ],
   },
   {
+    id: 89,
+    name: '2020 Caterpillar 305E2 CR Mini Excavator',
+    year: 2020,
+    hours: 1789,
+    location: 'Billings, MT',
+    price: 48500,
+    originalPrice: 48500,
+    discount: 0,
+    category: 'earthmoving',
+    image: caterpillar305e2cr2020Image1,
+    description: 'Reliable 5-ton mini excavator with zero tail swing design for tight jobsites. Cat C2.4 Tier 4 Final diesel delivers 40.2 hp with excellent fuel efficiency. Enclosed cab with heat/AC, joystick controls with proportional auxiliary hydraulics, standard blade with float, rubber tracks at 75%+, quick-coupler with 24" bucket included. Well-maintained machine ready for residential or commercial excavation.',
+    specs: {
+      engine: 'Cat C2.4 Tier 4 Final 40.2 hp',
+      power: '40.2 hp (30 kW)',
+      weight: '11,354 lb (5,150 kg)',
+      maxDiggingDepth: '11 ft 8 in (3.56 m)',
+      maxReach: '18 ft 4 in (5.59 m)',
+      maxDumpingHeight: '12 ft 6 in (3.81 m)',
+      bucketCapacity: '0.13 - 0.31 yd³ (0.10 - 0.24 m³)',
+      bucketDiggingForce: '8,320 lbf (37 kN)',
+      armDiggingForce: '5,400 lbf (24 kN)',
+      swingSpeed: '8.3 rpm',
+      travelSpeed: '2.7 mph (4.3 km/h)',
+      tailSwing: 'Zero tail swing design',
+      trackWidth: '15.7 in (400 mm) rubber tracks',
+      groundClearance: '12.6 in (320 mm)',
+      fuelTank: '18.5 gal (70 L)',
+      hydraulicTank: '12.7 gal (48 L)',
+      cab: 'Enclosed ROPS/FOPS cab, heat/AC, high-back seat',
+      features: 'Quick-coupler, 24" bucket, proportional aux hydraulics, float blade, LED work lights',
+      status: 'In stock Billings MT – ready to ship in 48 hrs',
+    },
+    gallery: [
+      caterpillar305e2cr2020Image1,
+      caterpillar305e2cr2020Image2,
+      caterpillar305e2cr2020Image3,
+      caterpillar305e2cr2020Image4,
+      caterpillar305e2cr2020Image5,
+    ],
+  },
+  {
+    id: 90,
+    name: '2021 Caterpillar 305E2 CR Mini Excavator',
+    year: 2021,
+    hours: 933,
+    location: 'Billings, MT',
+    price: 54300,
+    originalPrice: 54300,
+    discount: 0,
+    category: 'earthmoving',
+    image: caterpillar305e2cr2021Image1,
+    description: 'Well-maintained 5-ton mini excavator with zero tail swing design, perfect for residential and commercial jobsites. Cat C2.4 Tier 4 Final diesel delivers 40.2 hp with excellent fuel efficiency. Enclosed cab with heat/AC, joystick controls with proportional auxiliary hydraulics, standard blade with float, rubber tracks at 80%+. Ideal for utility work, landscaping, trenching, and foundation excavation.',
+    specs: {
+      engine: 'Cat C2.4 Tier 4 Final 40.2 hp',
+      power: '40.2 hp (30 kW)',
+      weight: '11,354 lb (5,150 kg)',
+      maxDiggingDepth: '11 ft 8 in (3.56 m)',
+      maxReach: '18 ft 4 in (5.59 m)',
+      maxDumpingHeight: '12 ft 6 in (3.81 m)',
+      bucketCapacity: '0.13 - 0.31 yd³ (0.10 - 0.24 m³)',
+      bucketDiggingForce: '8,320 lbf (37 kN)',
+      armDiggingForce: '5,400 lbf (24 kN)',
+      swingSpeed: '8.3 rpm',
+      travelSpeed: '2.7 mph (4.3 km/h)',
+      tailSwing: 'Zero tail swing design',
+      trackWidth: '15.7 in (400 mm) rubber tracks',
+      groundClearance: '12.6 in (320 mm)',
+      fuelTank: '18.5 gal (70 L)',
+      hydraulicTank: '12.7 gal (48 L)',
+      cab: 'Enclosed ROPS/FOPS cab, heat/AC, high-back seat',
+      features: 'Quick-coupler, proportional aux hydraulics, float blade, LED work lights',
+      status: 'In stock Billings MT – ready to ship in 48 hrs',
+    },
+    gallery: [
+      caterpillar305e2cr2021Image1,
+      caterpillar305e2cr2021Image2,
+      caterpillar305e2cr2021Image3,
+      caterpillar305e2cr2021Image4,
+    ],
+  },
+  {
     id: 91,
     name: '2023 Caterpillar 299D3 Compact Track Loader',
     year: 2023,
     hours: 1299,
     location: 'Billings, MT',
     price: 64685,
-    originalPrice: 71083,
-    discount: 9,
+    originalPrice: 64685,
+    discount: 0,
     category: 'track-loaders',
     image: caterpillar299d32023Image1,
     isHotOffer: true,
@@ -2786,8 +1836,8 @@ const allMachinesRaw: Array<Omit<Machine, 'category'> & { category?: string }> =
     hours: 2187,
     location: 'Billings, MT',
     price: 34700,
-    originalPrice: 40122,
-    discount: 10,
+    originalPrice: 34700,
+    discount: 0,
     category: 'excavators',
     image: caterpillar303eCr2021Image1,
     isHotOffer: true,
@@ -2826,8 +1876,8 @@ const allMachinesRaw: Array<Omit<Machine, 'category'> & { category?: string }> =
     hours: 3412,
     location: 'Billings, MT',
     price: 44272,
-    originalPrice: 49744,
-    discount: 11,
+    originalPrice: 44272,
+    discount: 0,
     category: 'excavators',
     image: caterpillar305e2cr2019Image1,
     isHotOffer: true,
@@ -2871,15 +1921,7 @@ const categoryMap: Record<number, MachineCategory> = {
   46: 'excavators', // Hitachi ZX350 Excavator
   47: 'excavators', // John Deere 210G Excavator
   53: 'excavators', // Kubota KX040-4 Mini Excavator
-  54: 'excavators', // John Deere 35 P-Tier Mini Excavator (2023)
-  55: 'excavators', // John Deere 35 P-Tier Mini Excavator (2024)
-  56: 'excavators', // John Deere 35 P-Tier Mini Excavator (2024 B)
-  63: 'excavators', // JCB 55Z-1 Mini Excavator
   64: 'excavators', // CASE CX42D Mini Excavator
-  65: 'excavators', // Wacker Neuson EZ26 Mini Excavator
-  66: 'excavators', // MachPro MP319 Mini Excavator (Miami)
-  67: 'excavators', // MachPro MP319 Mini Excavator (LA)
-  68: 'excavators', // CAT 303E CR Mini Excavator
   69: 'excavators', // Bobcat E50 Compact Excavator
   70: 'excavators', // CAT 304E2 CR Mini Excavator
   71: 'excavators', // Kubota KX033-4 Compact Excavator
@@ -2892,14 +1934,13 @@ const categoryMap: Record<number, MachineCategory> = {
   84: 'excavators', // Kubota KX040-4 Mini Excavator (2024)
   92: 'excavators', // CAT 303E CR Mini Excavator (2021)
   93: 'excavators', // CAT 305E2 CR Mini Excavator (2019)
+  63: 'excavators', // JCB 55Z-1 Mini Excavator
   
   // Dozers
   3: 'dozers', // Develon DD100 Dozer
-  51: 'dozers', // CAT D6 Dozer (SOLD)
   52: 'dozers', // Komatsu D65PXi Dozer
   
   // Wheel Loaders
-  2: 'wheel-loaders', // SW405K Wheel Loader
   4: 'wheel-loaders', // R640R43 Wheel Loader
   20: 'wheel-loaders', // WA320-8 Wheel Loader
   48: 'wheel-loaders', // CAT 950M Wheel Loader
@@ -2909,16 +1950,13 @@ const categoryMap: Record<number, MachineCategory> = {
   57: 'wheel-loaders', // Case 321F Wheel Loader (2019)
   58: 'wheel-loaders', // Case 321F Wheel Loader (2023)
   59: 'wheel-loaders', // Case 321F Wheel Loader (2024)
-  60: 'wheel-loaders', // CAT 938M Wheel Loader 2022 (SOLD)
   61: 'wheel-loaders', // CAT 938M Wheel Loader 2021 (SOLD)
   62: 'wheel-loaders', // CAT 938M Wheel Loader 2022 (2,680 hrs)
   80: 'wheel-loaders', // Bobcat A300 All-Wheel Steer Skid Steer
   
   // Track Loaders (Compact Track Loaders, Skid Steers)
   13: 'track-loaders', // ASV VT-70 Track Loader
-  42: 'track-loaders', // 289D3 Track Loader
   73: 'track-loaders', // John Deere 333G Compact Track Loader
-  74: 'track-loaders', // Rippa NDI665 Mini Track Loader
   75: 'track-loaders', // CAT 299D2 Compact Track Loader
   76: 'track-loaders', // CAT 299D3 Compact Track Loader
   77: 'track-loaders', // CAT 279D3 Compact Track Loader
@@ -2929,31 +1967,14 @@ const categoryMap: Record<number, MachineCategory> = {
   
   // Backhoes
   8: 'backhoes', // 310L EP Backhoe
-  39: 'backhoes', // 310SL Backhoe
   87: 'backhoes', // John Deere 310SL Backhoe (2023)
   
   // Telehandlers & Forklifts
-  6: 'telehandlers', // MLT 1040
   7: 'telehandlers', // JCB 940-4
   9: 'telehandlers', // Merlo P50.18HM
   10: 'telehandlers', // John Deere 6430 (agricultural telehandler)
-  37: 'telehandlers', // GTH-1056
-  38: 'telehandlers', // RS6-42
   40: 'telehandlers', // TL943C
   86: 'telehandlers', // Manitou MLT1040-145 PS+L
-  // Trucks (All trucks, pickups, commercial vehicles)
-  11: 'trucks', // Peterbilt 389
-  12: 'trucks', // Freightliner M2
-  14: 'trucks', // Silverado 5500HD
-  15: 'trucks', // Silverado 6500HD
-  16: 'trucks', // Silverado 4500HD Service
-  17: 'trucks', // Silverado 4500HD Box
-  18: 'trucks', // Silverado 5500HD Box
-  19: 'trucks', // Mack GU713 Dump
-  35: 'trucks', // Ford F-750 Dump
-  41: 'trucks', // Colorado Z71
-  43: 'trucks', // Silverado 2500HD
-  44: 'trucks', // International 7300
   
   // Compaction (Rollers)
   36: 'compaction', // CB16 Roller
