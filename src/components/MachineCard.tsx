@@ -104,7 +104,8 @@ export const MachineCard = memo(function MachineCard({ machine, onViewDetails, o
   const isUnavailable = machine.isSold || machine.isReserved;
   const [imageLoaded, setImageLoaded] = useState(false);
   const isNew = machine.year >= 2023;
-  const hasDiscount = machine.discount > 0;
+  // Never show discount badge for unavailable machines
+  const hasDiscount = machine.discount > 0 && !isUnavailable;
   
   const handleClick = () => {
     if (!isUnavailable) {
@@ -140,7 +141,7 @@ export const MachineCard = memo(function MachineCard({ machine, onViewDetails, o
           decoding="async"
           onLoad={handleImageLoad}
           onError={handleImageLoad}
-          className={`w-full h-full transition-opacity duration-300 ${imageLoaded ? 'opacity-100' : 'opacity-0'}`}
+          className={`w-full h-full transition-opacity duration-300 ${imageLoaded ? 'opacity-100' : 'opacity-0'} ${isUnavailable ? 'blur-[2px]' : ''}`}
           style={{
             objectFit: machine.imageFit || 'cover',
             objectPosition: 'center center'
