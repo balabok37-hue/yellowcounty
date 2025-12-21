@@ -167,6 +167,7 @@ export const categoryInfo: Record<MachineCategory, { label: string; labelRu?: st
   backhoes: { label: 'Backhoes', labelRu: 'Экскаваторы-погрузчики' },
   telehandlers: { label: 'Telehandlers', labelRu: 'Телескопические' },
   compaction: { label: 'Compaction', labelRu: 'Уплотнение' },
+  trucks: { label: 'Trucks', labelRu: 'Грузовики' },
 };
 
 // All machines in one array - will be sorted dynamically
@@ -2236,6 +2237,8 @@ const allExcavators = sortedMachines.filter(m => m.category === 'excavators');
 
 // Export the machines array
 export const machines = sortedMachines;
+export const catalogMachines = sortedMachines;
+export const allMachines = sortedMachines;
 
 // Get unique categories from actual data
 export const uniqueCategories = [...new Set(machines.map(m => m.category).filter(Boolean))] as MachineCategory[];
