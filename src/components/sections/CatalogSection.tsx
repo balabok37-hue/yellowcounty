@@ -81,10 +81,8 @@ export function CatalogSection({ isOpen, onToggle, onViewDetails, urlSearchQuery
   const [activeBrand, setActiveBrand] = useState<string>('all');
   const [condition, setCondition] = useState<ConditionFilter>('all');
 
-  // IMPORTANT: keep slider dragging smooth by updating filters only on commit.
-  // (Filtering/re-rendering on every tiny change can break pointer capture and feel like the thumb “stops dragging”.)
+  // Price range for filtering - slider is uncontrolled for smooth dragging
   const [priceRange, setPriceRange] = useState<[number, number]>([minPrice, maxPrice]);
-  const [priceRangeDraft, setPriceRangeDraft] = useState<[number, number]>([minPrice, maxPrice]);
 
   const [sortBy, setSortBy] = useState<SortOption>('featured');
   const [showMobileFilters, setShowMobileFilters] = useState(false);
@@ -145,6 +143,14 @@ export function CatalogSection({ isOpen, onToggle, onViewDetails, urlSearchQuery
   }, [activeCategory, activeBrand, condition, priceRange, searchQuery, sortBy]);
 
   const catalogCount = catalogMachines.length;
+
+  const resetFilters = useCallback(() => {
+    handleCategoryChange('all');
+    setActiveBrand('all');
+    setCondition('all');
+    setPriceRange([minPrice, maxPrice]);
+    handleSearchChange('');
+  }, [handleCategoryChange, handleSearchChange]);
 
   // Sidebar content
   const FilterSidebar = ({ className = '' }: { className?: string }) => (
@@ -251,35 +257,24 @@ export function CatalogSection({ isOpen, onToggle, onViewDetails, urlSearchQuery
         </Label>
         <div className="px-1">
           <Slider
-            value={priceRangeDraft}
-            onValueChange={(value) => setPriceRangeDraft(value as [number, number])}
-            onValueCommit={(value) => {
-              const next = value as [number, number];
-              setPriceRangeDraft(next);
-              setPriceRange(next);
-            }}
+            key={`${priceRange[0]}-${priceRange[1]}`}
+            defaultValue={priceRange}
+            onValueCommit={(value) => setPriceRange(value as [number, number])}
             min={minPrice}
             max={maxPrice}
             step={100}
             className="mb-3"
           />
           <div className="flex justify-between text-sm text-muted-foreground">
-            <span>${priceRangeDraft[0].toLocaleString()}</span>
-            <span>${priceRangeDraft[1].toLocaleString()}</span>
+            <span>${priceRange[0].toLocaleString()}</span>
+            <span>${priceRange[1].toLocaleString()}</span>
           </div>
         </div>
       </div>
 
       {/* Reset Filters */}
       <button
-        onClick={() => {
-          handleCategoryChange('all');
-          setActiveBrand('all');
-          setCondition('all');
-          setPriceRange([minPrice, maxPrice]);
-          setPriceRangeDraft([minPrice, maxPrice]);
-          handleSearchChange('');
-        }}
+        onClick={resetFilters}
         className="w-full py-2 text-sm text-primary hover:underline"
       >
         Reset Filters
@@ -384,19 +379,12 @@ export function CatalogSection({ isOpen, onToggle, onViewDetails, urlSearchQuery
             {filteredMachines.length === 0 && (
               <div className="text-center py-16">
                 <p className="text-lg text-muted-foreground">No equipment found matching your criteria.</p>
-              <button
-                onClick={() => {
-                  handleCategoryChange('all');
-                  setActiveBrand('all');
-                  setCondition('all');
-                  setPriceRange([minPrice, maxPrice]);
-                  setPriceRangeDraft([minPrice, maxPrice]);
-                  handleSearchChange('');
-                }}
-                className="mt-4 text-primary hover:underline"
-              >
-                Clear all filters
-              </button>
+                <button
+                  onClick={resetFilters}
+                  className="mt-4 text-primary hover:underline"
+                >
+                  Clear all filters
+                </button>
               </div>
             )}
           </div>
