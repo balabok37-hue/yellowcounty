@@ -1,14 +1,11 @@
 <svg viewBox="0 0 160 45" xmlns="http://www.w3.org/2000/svg">
-  <!-- Ready Logistics Logo -->
-  <!-- Red diagonal stripes icon -->
-  <g fill="#B91C1C">
-    <rect x="2" y="8" width="6" height="30" transform="skewX(-15)"/>
-    <rect x="12" y="8" width="6" height="30" transform="skewX(-15)"/>
-  </g>
+  <!-- Red diagonal stripes -->
+  <polygon points="0,40 8,0 14,0 6,40" fill="#B91C1C"/>
+  <polygon points="10,40 18,0 24,0 16,40" fill="#B91C1C"/>
   
-  <!-- Ready text in red -->
-  <text x="30" y="28" font-family="Georgia, Times, serif" font-size="24" font-weight="bold" font-style="italic" fill="#B91C1C">Ready</text>
+  <!-- Ready text in dark blue italic -->
+  <text x="26" y="28" font-family="Georgia, Times New Roman, serif" font-size="28" font-weight="bold" font-style="italic" fill="#1E3A5F">Ready</text>
   
-  <!-- Logistics text -->
-  <text x="95" y="28" font-family="Arial, Helvetica, sans-serif" font-size="14" fill="#1F2937" letter-spacing="0.5">Logistics</text>
+  <!-- Logistics text in dark blue italic -->
+  <text x="48" y="42" font-family="Arial, sans-serif" font-size="12" font-style="italic" fill="#1E3A5F">Logistics</text>
 </svg>
