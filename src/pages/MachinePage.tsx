@@ -46,6 +46,25 @@ export default function MachinePage() {
       .slice(0, 4);
   }, [machine]);
 
+  // Update page title and meta for SEO
+  useEffect(() => {
+    if (machine) {
+      const modelName = machine.name.replace(/^\d{4}\s+/, '');
+      document.title = `${machine.year} ${modelName} - $${machine.price.toLocaleString()} | YellowStone Equipment`;
+      
+      // Update meta description
+      const metaDescription = document.querySelector('meta[name="description"]');
+      const description = `Buy ${machine.year} ${modelName} for $${machine.price.toLocaleString()}. ${machine.hours ? `${machine.hours} hours` : machine.miles ? `${machine.miles} miles` : ''}. ${machine.location}. Premium used heavy equipment.`;
+      if (metaDescription) {
+        metaDescription.setAttribute('content', description);
+      }
+    }
+    
+    return () => {
+      document.title = 'YellowStone County Equipment';
+    };
+  }, [machine]);
+
   // Scroll to top when page loads or machine changes
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -183,8 +202,11 @@ export default function MachinePage() {
                   imageLoadStates[currentImageIndex] ? 'opacity-100' : 'opacity-0'
                 }`}
                 loading="eager"
+                decoding="async"
+                fetchPriority="high"
                 draggable={false}
                 onLoad={() => handleImageLoad(String(currentImageIndex))}
+                onError={() => handleImageLoad(String(currentImageIndex))}
               />
               
               {/* Zoom indicator - hidden on mobile */}
@@ -318,6 +340,25 @@ export default function MachinePage() {
                 <span>{machine.location}</span>
               </div>
             </div>
+
+            {/* Available Zones */}
+            {machine.availableZones && machine.availableZones.length > 0 && (
+              <div>
+                <h2 className="text-sm font-bold text-foreground uppercase tracking-wide mb-2">
+                  Available Locations
+                </h2>
+                <div className="flex flex-wrap gap-2">
+                  {machine.availableZones.map((zone) => (
+                    <span 
+                      key={zone}
+                      className="px-3 py-1 bg-muted text-muted-foreground text-sm rounded-full capitalize border border-border"
+                    >
+                      {zone.replace(/-/g, ' ')}
+                    </span>
+                  ))}
+                </div>
+              </div>
+            )}
 
             {/* Price Block */}
             <div className="py-5 px-5 rounded-xl bg-muted/50 border border-border">
