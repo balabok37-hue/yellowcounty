@@ -2,6 +2,7 @@ import { useState, useCallback, useEffect, useRef, useMemo } from 'react';
 import { useParams, useNavigate, Link } from 'react-router-dom';
 import { MapPin, Send, ChevronLeft, ChevronRight, Shield, Truck, CheckCircle2, Clock, ZoomIn, ArrowLeft, X, Gavel } from 'lucide-react';
 import { Button } from '@/components/ui/button';
+import { Input } from '@/components/ui/input';
 import { Header } from '@/components/Header';
 import { Footer } from '@/components/sections/Footer';
 import { MachineCard } from '@/components/MachineCard';
@@ -16,6 +17,8 @@ export default function MachinePage() {
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
   const [imageLoadStates, setImageLoadStates] = useState<Record<string, boolean>>({});
   const [isFullscreen, setIsFullscreen] = useState(false);
+  const [showBidInput, setShowBidInput] = useState(false);
+  const [bidAmount, setBidAmount] = useState('');
   
   // Touch/swipe handling
   const touchStartX = useRef<number | null>(null);
@@ -164,13 +167,20 @@ export default function MachinePage() {
   }
 
   const handleRequestQuote = () => {
-    const message = `Hi! I'm interested in the ${machine.year} ${machine.name} listed at $${machine.price.toLocaleString()}. Is it still available?`;
+    const message = `Hi! I'm interested in the ${machine.year} ${modelName} listed at $${machine.price.toLocaleString()}. Is it still available?`;
     scrollToContact(message);
   };
 
   const handlePlaceBid = () => {
-    const message = `BID REQUEST: I would like to place a bid on the ${machine.year} ${machine.name} (listed at $${machine.price.toLocaleString()}). My offer is: $`;
+    setShowBidInput(true);
+  };
+
+  const handleSubmitBid = () => {
+    if (!bidAmount) return;
+    const message = `BID REQUEST: I would like to place a bid on the ${machine.year} ${modelName} (listed at $${machine.price.toLocaleString()}). My offer is: $${bidAmount}`;
     scrollToContact(message);
+    setShowBidInput(false);
+    setBidAmount('');
   };
 
   const nextImage = () => {
@@ -362,9 +372,16 @@ export default function MachinePage() {
                 <span>{machine.miles ? `${machine.miles.toLocaleString()} Miles` : `${machine.hours?.toLocaleString()} Hours`}</span>
               </div>
               <div className="flex items-center gap-1.5 text-accent font-medium">
-                <span className="inline-block w-5 h-3.5 rounded-sm overflow-hidden flex-shrink-0" style={{ background: 'linear-gradient(180deg, #002868 0%, #002868 46%, #bf0a30 46%, #bf0a30 54%, white 54%, white 100%)' }}>
-                  <span className="sr-only">USA Flag</span>
-                </span>
+                <svg className="w-5 h-3.5 flex-shrink-0" viewBox="0 0 20 14" fill="none">
+                  <rect width="20" height="14" fill="#002868"/>
+                  <rect y="1.08" width="20" height="1.08" fill="white"/>
+                  <rect y="3.23" width="20" height="1.08" fill="#BF0A30"/>
+                  <rect y="5.38" width="20" height="1.08" fill="white"/>
+                  <rect y="7.54" width="20" height="1.08" fill="#BF0A30"/>
+                  <rect y="9.69" width="20" height="1.08" fill="white"/>
+                  <rect y="11.85" width="20" height="2.15" fill="#BF0A30"/>
+                  <rect width="8" height="7.54" fill="#002868"/>
+                </svg>
                 USA Stock
               </div>
             </div>
@@ -435,6 +452,42 @@ export default function MachinePage() {
                     </div>
                   )}
                 </div>
+
+                {/* Bid Input */}
+                {showBidInput && canBid && (
+                  <div className="mt-4 p-4 rounded-lg bg-accent/10 border border-accent/30">
+                    <label className="text-sm font-medium text-foreground mb-2 block">
+                      Enter your bid amount:
+                    </label>
+                    <div className="flex gap-2">
+                      <div className="relative flex-1">
+                        <span className="absolute left-3 top-1/2 -translate-y-1/2 text-muted-foreground font-medium">$</span>
+                        <Input
+                          type="number"
+                          placeholder="Your offer"
+                          value={bidAmount}
+                          onChange={(e) => setBidAmount(e.target.value)}
+                          className="pl-7"
+                          min="1"
+                        />
+                      </div>
+                      <Button
+                        onClick={handleSubmitBid}
+                        disabled={!bidAmount}
+                        className="font-bold bg-accent text-accent-foreground hover:bg-accent/90"
+                      >
+                        <Send className="w-4 h-4 mr-2" />
+                        Submit Bid
+                      </Button>
+                    </div>
+                    <button 
+                      onClick={() => { setShowBidInput(false); setBidAmount(''); }}
+                      className="text-xs text-muted-foreground hover:text-foreground mt-2"
+                    >
+                      Cancel
+                    </button>
+                  </div>
+                )}
               </div>
             </div>
 

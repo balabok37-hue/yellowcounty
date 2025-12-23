@@ -224,9 +224,16 @@ export const MachineCard = memo(function MachineCard({
         {/* USA Available Badge */}
         {!isUnavailable && (
           <div className="flex items-center gap-1.5 text-xs text-accent font-medium">
-            <span className="inline-block w-4 h-3 rounded-sm overflow-hidden flex-shrink-0" style={{ background: 'linear-gradient(180deg, #002868 0%, #002868 46%, #bf0a30 46%, #bf0a30 54%, white 54%, white 100%)' }}>
-              <span className="sr-only">USA Flag</span>
-            </span>
+            <svg className="w-4 h-3 flex-shrink-0" viewBox="0 0 20 14" fill="none">
+              <rect width="20" height="14" fill="#002868"/>
+              <rect y="1.08" width="20" height="1.08" fill="white"/>
+              <rect y="3.23" width="20" height="1.08" fill="#BF0A30"/>
+              <rect y="5.38" width="20" height="1.08" fill="white"/>
+              <rect y="7.54" width="20" height="1.08" fill="#BF0A30"/>
+              <rect y="9.69" width="20" height="1.08" fill="white"/>
+              <rect y="11.85" width="20" height="2.15" fill="#BF0A30"/>
+              <rect width="8" height="7.54" fill="#002868"/>
+            </svg>
             USA Available
           </div>
         )}
