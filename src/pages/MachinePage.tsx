@@ -260,7 +260,7 @@ export default function MachinePage() {
     <div className="min-h-screen bg-background text-foreground">
       <Header />
       
-      <main key={slug} className="container px-4 py-6 animate-fade-in">
+      <main key={slug} className="container px-4 py-6 animate-fade-in overflow-x-hidden">
         {/* Back Button */}
         <Link 
           to="/#catalog" 
@@ -547,7 +547,7 @@ export default function MachinePage() {
                     <label className="text-sm font-medium text-foreground mb-2 block">
                       Enter your bid amount:
                     </label>
-                    <div className="flex gap-2">
+                    <div className="flex flex-col sm:flex-row gap-2">
                       <div className="relative flex-1">
                         <span className="absolute left-3 top-1/2 -translate-y-1/2 text-muted-foreground font-medium">$</span>
                         <Input
