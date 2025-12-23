@@ -1,4 +1,6 @@
 import { memo, useState, useCallback } from 'react';
+import { Link } from 'react-router-dom';
+import { generateMachineSlug } from '@/lib/machine-utils';
 
 export type MachineCategory = 'excavators' | 'dozers' | 'wheel-loaders' | 'track-loaders' | 'backhoes' | 'telehandlers' | 'trucks' | 'compaction';
 
@@ -101,7 +103,7 @@ export interface Machine {
 
 interface MachineCardProps {
   machine: Machine;
-  onViewDetails: (machine: Machine) => void;
+  onViewDetails?: (machine: Machine) => void;
   onImageLoaded?: () => void;
   priority?: boolean;
   index?: number;
@@ -130,11 +132,7 @@ export const MachineCard = memo(function MachineCard({
   const shouldPrioritize = priority || index < 6;
   const isHighPriority = index < 3;
   
-  const handleClick = () => {
-    if (!isUnavailable) {
-      onViewDetails(machine);
-    }
-  };
+  const machineUrl = `/machine/${generateMachineSlug(machine)}`;
 
   const handleImageLoad = useCallback(() => {
     setImageLoaded(true);
@@ -144,11 +142,8 @@ export const MachineCard = memo(function MachineCard({
   // Extract model name (remove year from name)
   const modelName = machine.name.replace(/^\d{4}\s+/, '');
 
-  return (
-    <div
-      onClick={handleClick}
-      className={`machine-card ${isUnavailable ? 'cursor-default opacity-75' : 'cursor-pointer hover:shadow-xl'}`}
-    >
+  const cardContent = (
+    <>
       {/* Image Container */}
       <div className="relative aspect-[4/3] bg-muted overflow-hidden flex items-center justify-center">
         {/* Loading skeleton with shimmer */}
@@ -223,6 +218,22 @@ export const MachineCard = memo(function MachineCard({
           {modelName}
         </h3>
       </div>
-    </div>
+    </>
+  );
+
+  // Unavailable machines are not clickable
+  if (isUnavailable) {
+    return (
+      <div className="machine-card cursor-default opacity-75">
+        {cardContent}
+      </div>
+    );
+  }
+
+  // Available machines link to detail page
+  return (
+    <Link to={machineUrl} className="machine-card cursor-pointer hover:shadow-xl block">
+      {cardContent}
+    </Link>
   );
 });

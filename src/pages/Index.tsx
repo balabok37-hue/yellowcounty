@@ -1,19 +1,15 @@
-import { useState, useEffect, useRef } from 'react';
+import { useEffect, useRef } from 'react';
 import { useLocation, useSearchParams, useNavigate } from 'react-router-dom';
 import { Header } from '@/components/Header';
 import { HeroSection } from '@/components/sections/HeroSection';
 import { CatalogSection } from '@/components/sections/CatalogSection';
 import { ContactSection } from '@/components/sections/ContactSection';
 import { Footer } from '@/components/sections/Footer';
-import { MachineModal } from '@/components/MachineModal';
 import { ScrollToTop } from '@/components/ScrollToTop';
-import { catalogMachines, allMachines } from '@/data/machines';
-import { generateMachineSlug, findMachineBySlug } from '@/lib/machine-utils';
-import type { Machine } from '@/components/MachineCard';
+import { allMachines } from '@/data/machines';
+import { findMachineBySlug, generateMachineSlug } from '@/lib/machine-utils';
 
 const Index = () => {
-  const [selectedMachine, setSelectedMachine] = useState<Machine | null>(null);
-  const [modalOpen, setModalOpen] = useState(false);
   const catalogRef = useRef<HTMLDivElement>(null);
   const location = useLocation();
   const navigate = useNavigate();
@@ -23,21 +19,23 @@ const Index = () => {
   const urlSearchQuery = searchParams.get('search') || '';
   const urlCategory = searchParams.get('category') || '';
 
-  // Handle URL parameter for direct machine links
+  // Handle legacy URL parameter for direct machine links - redirect to new page
   useEffect(() => {
     const machineSlug = searchParams.get('machine');
     
     if (machineSlug) {
       const machine = findMachineBySlug(allMachines, machineSlug);
       if (machine) {
-        const fullMachine = allMachines.find(m => m.id === machine.id);
-        if (fullMachine) {
-          setSelectedMachine(fullMachine);
-          setModalOpen(true);
-        }
+        // Redirect to the new machine page
+        navigate(`/machine/${generateMachineSlug(machine)}`, { replace: true });
+      } else {
+        // Remove invalid machine parameter
+        const newParams = new URLSearchParams(searchParams);
+        newParams.delete('machine');
+        navigate(newParams.toString() ? `?${newParams.toString()}` : '/', { replace: true });
       }
     }
-  }, [searchParams]);
+  }, [searchParams, navigate]);
 
   // Handle scroll to section when navigating from other pages
   useEffect(() => {
@@ -51,26 +49,6 @@ const Index = () => {
     }
   }, [location.state]);
 
-  const handleViewDetails = (machine: Machine) => {
-    setSelectedMachine(machine);
-    setModalOpen(true);
-    // Update URL with machine slug (do not reset scroll position)
-    const newParams = new URLSearchParams(searchParams);
-    newParams.set('machine', generateMachineSlug(machine));
-    navigate(`?${newParams.toString()}`, { replace: true, preventScrollReset: true });
-  };
-
-  const handleCloseModal = () => {
-    setModalOpen(false);
-    setSelectedMachine(null);
-
-    // Update URL without machine parameter (do not reset scroll position)
-    const newParams = new URLSearchParams(searchParams);
-    newParams.delete('machine');
-    const paramString = newParams.toString();
-    navigate(paramString ? `?${paramString}` : '/', { replace: true, preventScrollReset: true });
-  };
-
   return (
     <div className="min-h-screen bg-background text-foreground">
       <Header />
@@ -81,7 +59,6 @@ const Index = () => {
           <CatalogSection
             isOpen={true}
             onToggle={() => {}}
-            onViewDetails={handleViewDetails}
             urlSearchQuery={urlSearchQuery}
             urlCategory={urlCategory}
             onSearchChange={(query) => {
@@ -111,12 +88,6 @@ const Index = () => {
 
       <ScrollToTop targetRef={catalogRef} showAfter={400} />
       <Footer />
-
-      <MachineModal
-        machine={selectedMachine}
-        isOpen={modalOpen}
-        onClose={handleCloseModal}
-      />
     </div>
   );
 };

@@ -22,7 +22,7 @@ type ConditionFilter = 'all' | 'new' | 'used';
 interface CatalogSectionProps {
   isOpen: boolean;
   onToggle: () => void;
-  onViewDetails: (machine: Machine) => void;
+  onViewDetails?: (machine: Machine) => void;
   urlSearchQuery?: string;
   urlCategory?: string;
   onSearchChange?: (query: string) => void;
@@ -456,7 +456,6 @@ export function CatalogSection({ isOpen, onToggle, onViewDetails, urlSearchQuery
                 <MachineCard
                   key={machine.id}
                   machine={machine}
-                  onViewDetails={onViewDetails}
                   priority={index < 6}
                   index={index}
                 />
