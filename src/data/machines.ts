@@ -163,6 +163,86 @@ import peterbilt389Image2 from '@/assets/machines/peterbilt-389-2.webp';
 import peterbilt389Image3 from '@/assets/machines/peterbilt-389-3.webp';
 import peterbilt389Image4 from '@/assets/machines/peterbilt-389-4.webp';
 import peterbilt389Image5 from '@/assets/machines/peterbilt-389-5.webp';
+
+// December 2024 batch - 10 new machines from GitHub sync
+// 2021 BOBCAT T770 - $48,500 - 1,271 hours (9 photos)
+import bobcatT7702021_1 from '@/assets/machines/2021-BOBCAT-T770----48,500---1,271-Hours-(1).webp';
+import bobcatT7702021_2 from '@/assets/machines/2021-BOBCAT-T770----48,500---1,271-Hours-(2).webp';
+import bobcatT7702021_3 from '@/assets/machines/2021-BOBCAT-T770----48,500---1,271-Hours-(3).webp';
+import bobcatT7702021_4 from '@/assets/machines/2021-BOBCAT-T770----48,500---1,271-Hours-(4).webp';
+import bobcatT7702021_5 from '@/assets/machines/2021-BOBCAT-T770----48,500---1,271-Hours-(5).webp';
+import bobcatT7702021_6 from '@/assets/machines/2021-BOBCAT-T770----48,500---1,271-Hours-(6).webp';
+import bobcatT7702021_7 from '@/assets/machines/2021-BOBCAT-T770----48,500---1,271-Hours-(7).webp';
+import bobcatT7702021_8 from '@/assets/machines/2021-BOBCAT-T770----48,500---1,271-Hours-(8).webp';
+import bobcatT7702021_9 from '@/assets/machines/2021-BOBCAT-T770----48,500---1,271-Hours-(9).webp';
+
+// 2022 BOBCAT T770 - $41,400 - 2,189 hours (9 photos)
+import bobcatT7702022_1 from '@/assets/machines/2022-BOBCAT-T770----41,400---2189-hours-(1).webp';
+import bobcatT7702022_2 from '@/assets/machines/2022-BOBCAT-T770----41,400---2189-hours-(2).webp';
+import bobcatT7702022_3 from '@/assets/machines/2022-BOBCAT-T770----41,400---2189-hours-(3).webp';
+import bobcatT7702022_4 from '@/assets/machines/2022-BOBCAT-T770----41,400---2189-hours-(4).webp';
+import bobcatT7702022_5 from '@/assets/machines/2022-BOBCAT-T770----41,400---2189-hours-(5).webp';
+import bobcatT7702022_6 from '@/assets/machines/2022-BOBCAT-T770----41,400---2189-hours-(6).webp';
+import bobcatT7702022_7 from '@/assets/machines/2022-BOBCAT-T770----41,400---2189-hours-(7).webp';
+import bobcatT7702022_8 from '@/assets/machines/2022-BOBCAT-T770----41,400---2189-hours-(8).webp';
+import bobcatT7702022_9 from '@/assets/machines/2022-BOBCAT-T770----41,400---2189-hours-(9).webp';
+
+// 2022 CAT 259D3 - $37,400 - 2,282 hours (20 photos - using first 5)
+import cat259d32022_1 from '@/assets/machines/2022-CATERPILLAR-259D3----37,400---2,282-hours-(1).webp';
+import cat259d32022_2 from '@/assets/machines/2022-CATERPILLAR-259D3----37,400---2,282-hours-(2).webp';
+import cat259d32022_3 from '@/assets/machines/2022-CATERPILLAR-259D3----37,400---2,282-hours-(3).webp';
+import cat259d32022_4 from '@/assets/machines/2022-CATERPILLAR-259D3----37,400---2,282-hours-(4).webp';
+import cat259d32022_5 from '@/assets/machines/2022-CATERPILLAR-259D3----37,400---2,282-hours-(5).webp';
+
+// 2022 KUBOTA SVL97-2 - $46,760 - 1,640 hours (27 photos - using first 5)
+import kubotaSvl972_2022_1 from '@/assets/machines/2022-KUBOTA-SVL97-2----46,760---1,640-hours-(1).webp';
+import kubotaSvl972_2022_2 from '@/assets/machines/2022-KUBOTA-SVL97-2----46,760---1,640-hours-(2).webp';
+import kubotaSvl972_2022_3 from '@/assets/machines/2022-KUBOTA-SVL97-2----46,760---1,640-hours-(3).webp';
+import kubotaSvl972_2022_4 from '@/assets/machines/2022-KUBOTA-SVL97-2----46,760---1,640-hours-(4).webp';
+import kubotaSvl972_2022_5 from '@/assets/machines/2022-KUBOTA-SVL97-2----46,760---1,640-hours-(5).webp';
+
+// 2023 CAT 259D3 - $50,000 - 1,217 hours (13 photos - using first 5)
+import cat259d32023_1 from '@/assets/machines/2023-CATERPILLAR-259D3----50,000---1,217-hours-(1).webp';
+import cat259d32023_2 from '@/assets/machines/2023-CATERPILLAR-259D3----50,000---1,217-hours-(2).webp';
+import cat259d32023_3 from '@/assets/machines/2023-CATERPILLAR-259D3----50,000---1,217-hours-(3).webp';
+import cat259d32023_4 from '@/assets/machines/2023-CATERPILLAR-259D3----50,000---1,217-hours-(4).webp';
+import cat259d32023_5 from '@/assets/machines/2023-CATERPILLAR-259D3----50,000---1,217-hours-(5).webp';
+
+// 2023 DEERE 333G - $45,700 - 1,426 hours (28 photos - using first 5)
+import deere333g2023_45700_1 from '@/assets/machines/2023-DEERE-333G---45,700---1426-hours-(1).webp';
+import deere333g2023_45700_2 from '@/assets/machines/2023-DEERE-333G---45,700---1426-hours-(2).webp';
+import deere333g2023_45700_3 from '@/assets/machines/2023-DEERE-333G---45,700---1426-hours-(3).webp';
+import deere333g2023_45700_4 from '@/assets/machines/2023-DEERE-333G---45,700---1426-hours-(4).webp';
+import deere333g2023_45700_5 from '@/assets/machines/2023-DEERE-333G---45,700---1426-hours-(5).webp';
+
+// 2023 DEERE 333G - $57,600 - 1,490 hours (7 photos - using first 5)
+import deere333g2023_57600_1 from '@/assets/machines/2023-DEERE-333G---57,600---1490-hours-(1).webp';
+import deere333g2023_57600_2 from '@/assets/machines/2023-DEERE-333G---57,600---1490-hours-(2).webp';
+import deere333g2023_57600_3 from '@/assets/machines/2023-DEERE-333G---57,600---1490-hours-(3).webp';
+import deere333g2023_57600_4 from '@/assets/machines/2023-DEERE-333G---57,600---1490-hours-(4).webp';
+import deere333g2023_57600_5 from '@/assets/machines/2023-DEERE-333G---57,600---1490-hours-(5).webp';
+
+// 2023 KUBOTA SVL97-2 - $51,800 - 813 hours (29 photos - using first 5)
+import kubotaSvl972_2023_1 from '@/assets/machines/2023-KUBOTA-SVL97-2---51,800---813-Hours-(1).webp';
+import kubotaSvl972_2023_2 from '@/assets/machines/2023-KUBOTA-SVL97-2---51,800---813-Hours-(2).webp';
+import kubotaSvl972_2023_3 from '@/assets/machines/2023-KUBOTA-SVL97-2---51,800---813-Hours-(3).webp';
+import kubotaSvl972_2023_4 from '@/assets/machines/2023-KUBOTA-SVL97-2---51,800---813-Hours-(4).webp';
+import kubotaSvl972_2023_5 from '@/assets/machines/2023-KUBOTA-SVL97-2---51,800---813-Hours-(5).webp';
+
+// 2024 KUBOTA SVL75-3 - $54,950 - 447 hours (15 photos - using first 5)
+import kubotaSvl753_2024_54950_1 from '@/assets/machines/2024-KUBOTA-SVL75-3----54,950---447-hours-(1).webp';
+import kubotaSvl753_2024_54950_2 from '@/assets/machines/2024-KUBOTA-SVL75-3----54,950---447-hours-(2).webp';
+import kubotaSvl753_2024_54950_3 from '@/assets/machines/2024-KUBOTA-SVL75-3----54,950---447-hours-(3).webp';
+import kubotaSvl753_2024_54950_4 from '@/assets/machines/2024-KUBOTA-SVL75-3----54,950---447-hours-(4).webp';
+import kubotaSvl753_2024_54950_5 from '@/assets/machines/2024-KUBOTA-SVL75-3----54,950---447-hours-(5).webp';
+
+// 2024 KUBOTA SVL75-3 - $55,800 - 187 hours (16 photos - using first 5)
+import kubotaSvl753_2024_55800_1 from '@/assets/machines/2024-KUBOTA-SVL75-3-(1).webp';
+import kubotaSvl753_2024_55800_2 from '@/assets/machines/2024-KUBOTA-SVL75-3-(2).webp';
+import kubotaSvl753_2024_55800_3 from '@/assets/machines/2024-KUBOTA-SVL75-3-(3).webp';
+import kubotaSvl753_2024_55800_4 from '@/assets/machines/2024-KUBOTA-SVL75-3-(4).webp';
+import kubotaSvl753_2024_55800_5 from '@/assets/machines/2024-KUBOTA-SVL75-3-(5).webp';
+
 // bobcatE50Image removed - file doesn't exist
 
 
@@ -1843,8 +1923,366 @@ const allMachinesRaw: Array<Omit<Machine, 'category'> & { category?: string }> =
       peterbilt389Image5,
     ],
   },
+  // ========== DECEMBER 2024 BATCH - 10 NEW MACHINES ==========
+  {
+    id: 97,
+    name: '2021 Bobcat T770 Compact Track Loader',
+    year: 2021,
+    hours: 1271,
+    location: 'USA Stock',
+    price: 48500,
+    originalPrice: 48500,
+    discount: 0,
+    category: 'track-loaders',
+    image: bobcatT7702021_1,
+    isHotOffer: false,
+    description: 'Well-maintained 2021 Bobcat T770 compact track loader with low hours. Bobcat turbocharged diesel delivers 92 hp for excellent power and performance. Features vertical lift path, selectable joystick controls, pressurized cab with AC/heat, and excellent visibility. Ideal for construction, landscaping, and material handling.',
+    specs: {
+      engine: 'Bobcat 3.4L Turbocharged Diesel',
+      power: '92 hp (68.6 kW)',
+      weight: '11,529 lb (5,229 kg)',
+      ratedOperatingCapacity: '3,475 lb (1,576 kg) @ 50% tipping',
+      bucketCapacity: '0.67 yd³ (0.51 m³)',
+      travelSpeed: '7.1 mph (11.4 km/h) 2-speed',
+      trackWidth: '17.7 in (450 mm)',
+      hydraulicFlow: '27.4 gpm (103.7 L/min)',
+      fuelTank: '33 gal (125 L)',
+      cab: 'Enclosed ROPS/FOPS cab, heat/AC, suspension seat',
+      features: 'Vertical lift path, selectable joystick controls, 2-speed travel, LED lights',
+      status: 'In stock – work ready',
+    },
+    gallery: [
+      bobcatT7702021_1,
+      bobcatT7702021_2,
+      bobcatT7702021_3,
+      bobcatT7702021_4,
+      bobcatT7702021_5,
+      bobcatT7702021_6,
+      bobcatT7702021_7,
+      bobcatT7702021_8,
+      bobcatT7702021_9,
+    ],
+  },
+  {
+    id: 98,
+    name: '2022 Bobcat T770 Compact Track Loader',
+    year: 2022,
+    hours: 2189,
+    location: 'USA Stock',
+    price: 41400,
+    originalPrice: 41400,
+    discount: 0,
+    category: 'track-loaders',
+    image: bobcatT7702022_1,
+    isHotOffer: false,
+    description: 'Reliable 2022 Bobcat T770 compact track loader ready for work. Bobcat 3.4L turbocharged diesel delivers 92 hp with excellent fuel efficiency. Features vertical lift path, deluxe instrumentation, pressurized cab, and standard 2-speed travel. Great value for demanding jobsites.',
+    specs: {
+      engine: 'Bobcat 3.4L Turbocharged Diesel',
+      power: '92 hp (68.6 kW)',
+      weight: '11,529 lb (5,229 kg)',
+      ratedOperatingCapacity: '3,475 lb (1,576 kg) @ 50% tipping',
+      bucketCapacity: '0.67 yd³ (0.51 m³)',
+      travelSpeed: '7.1 mph (11.4 km/h) 2-speed',
+      trackWidth: '17.7 in (450 mm)',
+      hydraulicFlow: '27.4 gpm (103.7 L/min)',
+      fuelTank: '33 gal (125 L)',
+      cab: 'Enclosed ROPS/FOPS cab, heat/AC, deluxe instrumentation',
+      features: 'Vertical lift path, 2-speed travel, rear camera, work lights',
+      status: 'In stock – serviced and ready',
+    },
+    gallery: [
+      bobcatT7702022_1,
+      bobcatT7702022_2,
+      bobcatT7702022_3,
+      bobcatT7702022_4,
+      bobcatT7702022_5,
+      bobcatT7702022_6,
+      bobcatT7702022_7,
+      bobcatT7702022_8,
+      bobcatT7702022_9,
+    ],
+  },
+  {
+    id: 99,
+    name: '2022 Caterpillar 259D3 Compact Track Loader',
+    year: 2022,
+    hours: 2282,
+    location: 'USA Stock',
+    price: 37400,
+    originalPrice: 37400,
+    discount: 0,
+    category: 'track-loaders',
+    image: cat259d32022_1,
+    isHotOffer: false,
+    description: 'Proven 2022 Caterpillar 259D3 compact track loader with solid performance. Cat C3.3B Tier 4 Final engine delivers 74.3 hp for reliable power. Features radial lift design, advanced Cat electronics, sealed cab with AC/heat, and excellent serviceability. Ideal for landscaping, construction, and agriculture.',
+    specs: {
+      engine: 'Cat C3.3B Tier 4 Final',
+      power: '74.3 hp (55.4 kW)',
+      weight: '9,039 lb (4,100 kg)',
+      ratedOperatingCapacity: '2,650 lb (1,202 kg) @ 50% tipping',
+      bucketCapacity: '0.50 yd³ (0.38 m³)',
+      travelSpeed: '7.3 mph (11.8 km/h) 2-speed',
+      trackWidth: '15.7 in (400 mm)',
+      hydraulicFlow: '23.9 gpm (90.5 L/min)',
+      fuelTank: '24 gal (91 L)',
+      cab: 'Enclosed ROPS/FOPS cab, heat/AC, suspension seat',
+      features: 'Radial lift design, 2-speed travel, reversing fan, work lights',
+      status: 'In stock – great value',
+    },
+    gallery: [
+      cat259d32022_1,
+      cat259d32022_2,
+      cat259d32022_3,
+      cat259d32022_4,
+      cat259d32022_5,
+    ],
+  },
+  {
+    id: 100,
+    name: '2022 Kubota SVL97-2 Compact Track Loader',
+    year: 2022,
+    hours: 1640,
+    location: 'USA Stock',
+    price: 46760,
+    originalPrice: 46760,
+    discount: 0,
+    category: 'track-loaders',
+    image: kubotaSvl972_2022_1,
+    isHotOffer: false,
+    description: 'High-performance 2022 Kubota SVL97-2 compact track loader. Kubota V3800 Tier 4 Final engine delivers 96.4 hp for excellent power-to-weight ratio. Features vertical lift path, high-flow hydraulics, spacious cab with AC/heat, and superior ground clearance. Perfect for demanding construction and landscaping work.',
+    specs: {
+      engine: 'Kubota V3800 Tier 4 Final',
+      power: '96.4 hp (71.9 kW)',
+      weight: '12,566 lb (5,700 kg)',
+      ratedOperatingCapacity: '3,200 lb (1,451 kg) @ 50% tipping',
+      bucketCapacity: '0.72 yd³ (0.55 m³)',
+      travelSpeed: '7.4 mph (11.9 km/h) 2-speed',
+      trackWidth: '17.7 in (450 mm)',
+      hydraulicFlow: '34.7 gpm (131.3 L/min) high-flow',
+      fuelTank: '32.1 gal (121.5 L)',
+      cab: 'Enclosed ROPS/FOPS cab, heat/AC, suspension seat, excellent visibility',
+      features: 'Vertical lift path, high-flow hydraulics, 2-speed travel, rear camera',
+      status: 'In stock – well maintained',
+    },
+    gallery: [
+      kubotaSvl972_2022_1,
+      kubotaSvl972_2022_2,
+      kubotaSvl972_2022_3,
+      kubotaSvl972_2022_4,
+      kubotaSvl972_2022_5,
+    ],
+  },
+  {
+    id: 101,
+    name: '2023 Caterpillar 259D3 Compact Track Loader',
+    year: 2023,
+    hours: 1217,
+    location: 'USA Stock',
+    price: 50000,
+    originalPrice: 50000,
+    discount: 0,
+    category: 'track-loaders',
+    image: cat259d32023_1,
+    isHotOffer: true,
+    description: 'Low-hour 2023 Caterpillar 259D3 compact track loader in excellent condition. Cat C3.3B Tier 4 Final engine delivers 74.3 hp with smooth power delivery. Features advanced Cat electronics, sealed and pressurized cab, standard 2-speed travel, and easy service access. Ideal for precision grading, landscaping, and construction.',
+    specs: {
+      engine: 'Cat C3.3B Tier 4 Final',
+      power: '74.3 hp (55.4 kW)',
+      weight: '9,039 lb (4,100 kg)',
+      ratedOperatingCapacity: '2,650 lb (1,202 kg) @ 50% tipping',
+      bucketCapacity: '0.50 yd³ (0.38 m³)',
+      travelSpeed: '7.3 mph (11.8 km/h) 2-speed',
+      trackWidth: '15.7 in (400 mm)',
+      hydraulicFlow: '23.9 gpm (90.5 L/min)',
+      fuelTank: '24 gal (91 L)',
+      cab: 'Enclosed ROPS/FOPS cab, heat/AC, advanced display',
+      features: 'Radial lift design, 2-speed travel, reversing fan, LED lights, rear camera',
+      status: 'In stock – low hours, excellent condition',
+    },
+    gallery: [
+      cat259d32023_1,
+      cat259d32023_2,
+      cat259d32023_3,
+      cat259d32023_4,
+      cat259d32023_5,
+    ],
+  },
+  {
+    id: 102,
+    name: '2023 John Deere 333G Compact Track Loader',
+    year: 2023,
+    hours: 1426,
+    location: 'USA Stock',
+    price: 45700,
+    originalPrice: 45700,
+    discount: 0,
+    category: 'track-loaders',
+    image: deere333g2023_45700_1,
+    isHotOffer: true,
+    description: 'Premium 2023 John Deere 333G large-frame compact track loader. Yanmar 4TNV98C Tier 4 Final engine delivers 100 hp for exceptional power. Features vertical lift path, electrohydraulic joystick controls, premium cab with AC/heat, and excellent visibility. Ideal for heavy construction and land clearing.',
+    specs: {
+      engine: 'Yanmar 4TNV98C Tier 4 Final',
+      power: '100 hp (74.6 kW)',
+      weight: '12,555 lb (5,695 kg)',
+      ratedOperatingCapacity: '3,700 lb (1,678 kg) @ 50% tipping',
+      bucketCapacity: '0.78 yd³ (0.60 m³)',
+      travelSpeed: '7.5 mph (12.1 km/h) 2-speed',
+      trackWidth: '17.7 in (450 mm)',
+      hydraulicFlow: '35.1 gpm (132.9 L/min) high-flow',
+      fuelTank: '32 gal (121 L)',
+      cab: 'Premium enclosed cab, heat/AC, air-ride seat, touchscreen display',
+      features: 'EH joystick controls, 2-speed travel, auto-idle, work lights',
+      status: 'In stock – ready for heavy work',
+    },
+    gallery: [
+      deere333g2023_45700_1,
+      deere333g2023_45700_2,
+      deere333g2023_45700_3,
+      deere333g2023_45700_4,
+      deere333g2023_45700_5,
+    ],
+  },
+  {
+    id: 103,
+    name: '2023 John Deere 333G Compact Track Loader',
+    year: 2023,
+    hours: 1490,
+    location: 'USA Stock',
+    price: 57600,
+    originalPrice: 57600,
+    discount: 0,
+    category: 'track-loaders',
+    image: deere333g2023_57600_1,
+    isHotOffer: true,
+    description: 'Premium-equipped 2023 John Deere 333G large-frame compact track loader with advanced features. Yanmar 4TNV98C Tier 4 Final engine delivers 100 hp. Features vertical lift path, full cab with AC/heat, electrohydraulic controls, high-flow hydraulics, and premium lighting package. Top-tier machine for demanding applications.',
+    specs: {
+      engine: 'Yanmar 4TNV98C Tier 4 Final',
+      power: '100 hp (74.6 kW)',
+      weight: '12,555 lb (5,695 kg)',
+      ratedOperatingCapacity: '3,700 lb (1,678 kg) @ 50% tipping',
+      bucketCapacity: '0.78 yd³ (0.60 m³)',
+      travelSpeed: '7.5 mph (12.1 km/h) 2-speed',
+      trackWidth: '17.7 in (450 mm)',
+      hydraulicFlow: '35.1 gpm (132.9 L/min) high-flow',
+      fuelTank: '32 gal (121 L)',
+      cab: 'Premium enclosed cab, heat/AC, air-ride seat, premium sound',
+      features: 'Full option package, EH controls, rear camera, LED lights, auto-idle',
+      status: 'In stock – premium equipped',
+    },
+    gallery: [
+      deere333g2023_57600_1,
+      deere333g2023_57600_2,
+      deere333g2023_57600_3,
+      deere333g2023_57600_4,
+      deere333g2023_57600_5,
+    ],
+  },
+  {
+    id: 104,
+    name: '2023 Kubota SVL97-2 Compact Track Loader',
+    year: 2023,
+    hours: 813,
+    location: 'USA Stock',
+    price: 51800,
+    originalPrice: 51800,
+    discount: 0,
+    category: 'track-loaders',
+    image: kubotaSvl972_2023_1,
+    isHotOffer: true,
+    description: 'Low-hour 2023 Kubota SVL97-2 compact track loader in excellent condition. Kubota V3800 Tier 4 Final engine delivers 96.4 hp for excellent performance. Features vertical lift path, high-flow hydraulics, premium cab with AC/heat, and superior ground clearance. Perfect for construction and landscaping professionals.',
+    specs: {
+      engine: 'Kubota V3800 Tier 4 Final',
+      power: '96.4 hp (71.9 kW)',
+      weight: '12,566 lb (5,700 kg)',
+      ratedOperatingCapacity: '3,200 lb (1,451 kg) @ 50% tipping',
+      bucketCapacity: '0.72 yd³ (0.55 m³)',
+      travelSpeed: '7.4 mph (11.9 km/h) 2-speed',
+      trackWidth: '17.7 in (450 mm)',
+      hydraulicFlow: '34.7 gpm (131.3 L/min) high-flow',
+      fuelTank: '32.1 gal (121.5 L)',
+      cab: 'Enclosed ROPS/FOPS cab, heat/AC, suspension seat, premium visibility',
+      features: 'Vertical lift path, high-flow hydraulics, 2-speed, rear camera, LED lights',
+      status: 'In stock – low hours, like new',
+    },
+    gallery: [
+      kubotaSvl972_2023_1,
+      kubotaSvl972_2023_2,
+      kubotaSvl972_2023_3,
+      kubotaSvl972_2023_4,
+      kubotaSvl972_2023_5,
+    ],
+  },
+  {
+    id: 105,
+    name: '2024 Kubota SVL75-3 Compact Track Loader',
+    year: 2024,
+    hours: 447,
+    location: 'USA Stock',
+    price: 54950,
+    originalPrice: 54950,
+    discount: 0,
+    category: 'track-loaders',
+    image: kubotaSvl753_2024_54950_1,
+    isHotOffer: true,
+    description: 'Nearly new 2024 Kubota SVL75-3 compact track loader with very low hours. Kubota V3307 Tier 4 Final engine delivers 74.3 hp with excellent fuel efficiency. Features vertical lift path, high-flow hydraulics option, premium cab with AC/heat, and superior visibility. Perfect for landscaping, construction, and agriculture.',
+    specs: {
+      engine: 'Kubota V3307 Tier 4 Final',
+      power: '74.3 hp (55.4 kW)',
+      weight: '10,384 lb (4,710 kg)',
+      ratedOperatingCapacity: '2,690 lb (1,220 kg) @ 50% tipping',
+      bucketCapacity: '0.56 yd³ (0.43 m³)',
+      travelSpeed: '7.2 mph (11.6 km/h) 2-speed',
+      trackWidth: '15.7 in (400 mm)',
+      hydraulicFlow: '24.9 gpm (94.3 L/min)',
+      fuelTank: '25.7 gal (97.3 L)',
+      cab: 'Enclosed ROPS/FOPS cab, heat/AC, suspension seat, large door opening',
+      features: 'Vertical lift path, 2-speed travel, rear camera, LED work lights',
+      status: 'In stock – nearly new condition',
+    },
+    gallery: [
+      kubotaSvl753_2024_54950_1,
+      kubotaSvl753_2024_54950_2,
+      kubotaSvl753_2024_54950_3,
+      kubotaSvl753_2024_54950_4,
+      kubotaSvl753_2024_54950_5,
+    ],
+  },
+  {
+    id: 106,
+    name: '2024 Kubota SVL75-3 Compact Track Loader',
+    year: 2024,
+    hours: 187,
+    location: 'USA Stock',
+    price: 55800,
+    originalPrice: 55800,
+    discount: 0,
+    category: 'track-loaders',
+    image: kubotaSvl753_2024_55800_1,
+    isHotOffer: true,
+    description: 'Pristine 2024 Kubota SVL75-3 compact track loader with extremely low hours. Kubota V3307 Tier 4 Final engine delivers 74.3 hp. Features vertical lift path, high-flow hydraulics, full premium cab with AC/heat, and excellent all-around visibility. Essentially new condition for professional contractors.',
+    specs: {
+      engine: 'Kubota V3307 Tier 4 Final',
+      power: '74.3 hp (55.4 kW)',
+      weight: '10,384 lb (4,710 kg)',
+      ratedOperatingCapacity: '2,690 lb (1,220 kg) @ 50% tipping',
+      bucketCapacity: '0.56 yd³ (0.43 m³)',
+      travelSpeed: '7.2 mph (11.6 km/h) 2-speed',
+      trackWidth: '15.7 in (400 mm)',
+      hydraulicFlow: '24.9 gpm (94.3 L/min)',
+      fuelTank: '25.7 gal (97.3 L)',
+      cab: 'Enclosed ROPS/FOPS cab, heat/AC, suspension seat, premium package',
+      features: 'Vertical lift path, high-flow, 2-speed, rear camera, LED lights, warranty remaining',
+      status: 'In stock – like new, warranty remaining',
+    },
+    gallery: [
+      kubotaSvl753_2024_55800_1,
+      kubotaSvl753_2024_55800_2,
+      kubotaSvl753_2024_55800_3,
+      kubotaSvl753_2024_55800_4,
+      kubotaSvl753_2024_55800_5,
+    ],
+  },
 ];
-
 // Category assignments by machine ID - prioritized over inline category values
 const categoryMap: Record<number, MachineCategory> = {
   // Excavators (Mini, Compact, Hydraulic)
@@ -1916,6 +2354,18 @@ const categoryMap: Record<number, MachineCategory> = {
   94: 'track-loaders', // CAT 289D3 Compact Track Loader
   95: 'trucks', // Mack GU713 Dump Truck
   96: 'trucks', // Peterbilt 389 Sleeper
+  
+  // December 2024 batch - 10 new machines
+  97: 'track-loaders', // Bobcat T770 2021
+  98: 'track-loaders', // Bobcat T770 2022
+  99: 'track-loaders', // CAT 259D3 2022
+  100: 'track-loaders', // Kubota SVL97-2 2022
+  101: 'track-loaders', // CAT 259D3 2023
+  102: 'track-loaders', // John Deere 333G 2023 ($45,700)
+  103: 'track-loaders', // John Deere 333G 2023 ($57,600)
+  104: 'track-loaders', // Kubota SVL97-2 2023
+  105: 'track-loaders', // Kubota SVL75-3 2024 ($54,950)
+  106: 'track-loaders', // Kubota SVL75-3 2024 ($55,800)
 };
 
 const availabilityRegions = ['midwest', 'west', 'east', 'south'] as const;
