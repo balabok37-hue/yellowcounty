@@ -9,6 +9,7 @@ import {
   DropdownMenuTrigger,
 } from '@/components/ui/dropdown-menu';
 import { CompanyInfoModal } from './CompanyInfoModal';
+import yellowstoneLogo from '@/assets/yellowstone-logo.svg';
 
 export function Header() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -62,7 +63,8 @@ export function Header() {
         <div className="container px-4">
           <div className="flex items-center justify-between h-16">
             {/* Logo */}
-            <Link to="/" className="flex items-center gap-2">
+            <Link to="/" className="flex items-center gap-2.5">
+              <img src={yellowstoneLogo} alt="YellowStone" className="w-9 h-9" />
               <div className="text-xl font-bold text-secondary-foreground">
                 Yellow<span className="text-[hsl(45,100%,50%)]">Stone</span>
               </div>
@@ -163,9 +165,12 @@ export function Header() {
       {isMobileMenuOpen && (
         <div className="fixed inset-0 z-[100] bg-card lg:hidden">
           <div className="flex items-center justify-between h-16 px-4 border-b border-border">
-            <span className="text-xl font-bold text-foreground">
-              Yellow<span className="text-[hsl(45,100%,50%)]">Stone</span>
-            </span>
+            <div className="flex items-center gap-2.5">
+              <img src={yellowstoneLogo} alt="YellowStone" className="w-8 h-8" />
+              <span className="text-xl font-bold text-foreground">
+                Yellow<span className="text-[hsl(45,100%,50%)]">Stone</span>
+              </span>
+            </div>
             <button
               className="p-2 text-foreground"
               onClick={() => setIsMobileMenuOpen(false)}
