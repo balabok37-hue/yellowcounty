@@ -1,6 +1,6 @@
-import { X, MapPin, Send, ChevronLeft, ChevronRight, Shield, Truck, CheckCircle2, Clock } from 'lucide-react';
+import { X, MapPin, Send, ChevronLeft, ChevronRight, Shield, Truck, CheckCircle2, Clock, ZoomIn } from 'lucide-react';
 import { Button } from '@/components/ui/button';
-import { useState, useCallback, useEffect, memo } from 'react';
+import { useState, useCallback, useEffect } from 'react';
 import type { Machine } from './MachineCard';
 import { useGalleryPreload } from '@/hooks/useCriticalImagePreload';
 
@@ -12,6 +12,8 @@ interface MachineModalProps {
 
 export function MachineModal({ machine, isOpen, onClose }: MachineModalProps) {
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
+  const [imageLoadStates, setImageLoadStates] = useState<Record<number, boolean>>({});
+  const [isFullscreen, setIsFullscreen] = useState(false);
 
   // Build gallery - always include main image first, then add gallery images
   const images = machine?.gallery && machine.gallery.length > 0 
@@ -21,9 +23,11 @@ export function MachineModal({ machine, isOpen, onClose }: MachineModalProps) {
   // Preload adjacent images for smooth navigation - MUST be called before any conditional returns
   useGalleryPreload(images, currentImageIndex, 2);
 
-  // Reset image index when machine changes
+  // Reset image index and load states when machine changes
   useEffect(() => {
     setCurrentImageIndex(0);
+    setImageLoadStates({});
+    setIsFullscreen(false);
   }, [machine?.id]);
 
   // Lock body scroll when modal is open - preserve scroll position
@@ -101,6 +105,20 @@ export function MachineModal({ machine, isOpen, onClose }: MachineModalProps) {
     setCurrentImageIndex(idx);
   };
 
+  const handleImageLoad = (idx: number) => {
+    setImageLoadStates(prev => ({ ...prev, [idx]: true }));
+  };
+
+  const openFullscreen = (e: React.MouseEvent) => {
+    e.stopPropagation();
+    setIsFullscreen(true);
+  };
+
+  const closeFullscreen = (e: React.MouseEvent) => {
+    e.stopPropagation();
+    setIsFullscreen(false);
+  };
+
   // Extract model name
   const modelName = machine.name.replace(/^\d{4}\s+/, '');
 
@@ -126,18 +144,42 @@ export function MachineModal({ machine, isOpen, onClose }: MachineModalProps) {
           {/* Image Gallery Section */}
           <div className="relative lg:w-[55%] flex-shrink-0 bg-muted flex flex-col">
             {/* Main Image */}
-            <div className="relative h-[35vh] sm:h-[40vh] lg:h-[350px] flex items-center justify-center overflow-hidden">
+            <div 
+              className="relative h-[35vh] sm:h-[40vh] lg:h-[350px] flex items-center justify-center overflow-hidden cursor-zoom-in group"
+              onClick={openFullscreen}
+            >
+              {/* Loading shimmer */}
+              {!imageLoadStates[currentImageIndex] && (
+                <div className="absolute inset-0 bg-gradient-to-r from-muted via-muted/50 to-muted animate-pulse">
+                  <div 
+                    className="absolute inset-0 bg-gradient-to-r from-transparent via-background/20 to-transparent"
+                    style={{
+                      animation: 'shimmer 1.5s infinite',
+                      backgroundSize: '200% 100%',
+                    }}
+                  />
+                </div>
+              )}
               <img
                 key={currentImageIndex}
                 src={images[currentImageIndex]}
                 alt={`${machine.name} - Image ${currentImageIndex + 1}`}
-                className="w-full h-full object-cover bg-muted"
+                className={`w-full h-full object-cover bg-muted transition-opacity duration-300 ${
+                  imageLoadStates[currentImageIndex] ? 'opacity-100' : 'opacity-0'
+                }`}
                 loading="eager"
                 decoding="async"
                 fetchPriority="high"
                 width={600}
                 height={400}
+                onLoad={() => handleImageLoad(currentImageIndex)}
               />
+              
+              {/* Zoom indicator */}
+              <div className="absolute bottom-3 left-3 px-2 py-1 rounded-lg bg-card/80 text-xs font-medium text-foreground opacity-0 group-hover:opacity-100 transition-opacity flex items-center gap-1">
+                <ZoomIn className="w-3 h-3" />
+                Click to zoom
+              </div>
               
               {/* Navigation Arrows */}
               {images.length > 1 && (
@@ -183,15 +225,24 @@ export function MachineModal({ machine, isOpen, onClose }: MachineModalProps) {
                         : 'border-transparent hover:border-muted-foreground/30'
                     }`}
                   >
-                    <img
-                      src={img}
-                      alt={`Thumbnail ${idx + 1}`}
-                      className="w-full h-full object-cover"
-                      loading="lazy"
-                      decoding="async"
-                      width={80}
-                      height={80}
-                    />
+                    {/* Thumbnail loading state */}
+                    <div className="relative w-full h-full">
+                      {!imageLoadStates[`thumb-${idx}`] && (
+                        <div className="absolute inset-0 bg-muted animate-pulse" />
+                      )}
+                      <img
+                        src={img}
+                        alt={`Thumbnail ${idx + 1}`}
+                        className={`w-full h-full object-cover transition-opacity duration-200 ${
+                          imageLoadStates[`thumb-${idx}`] ? 'opacity-100' : 'opacity-0'
+                        }`}
+                        loading="lazy"
+                        decoding="async"
+                        width={80}
+                        height={80}
+                        onLoad={() => setImageLoadStates(prev => ({ ...prev, [`thumb-${idx}`]: true }))}
+                      />
+                    </div>
                   </button>
                 ))}
               </div>
@@ -335,6 +386,52 @@ export function MachineModal({ machine, isOpen, onClose }: MachineModalProps) {
           </div>
         </div>
       </div>
+      {/* Fullscreen Lightbox */}
+      {isFullscreen && (
+        <div 
+          className="fixed inset-0 z-[60] bg-black/95 flex items-center justify-center"
+          onClick={closeFullscreen}
+        >
+          {/* Close button */}
+          <button
+            onClick={closeFullscreen}
+            className="absolute top-4 right-4 z-10 p-3 rounded-full bg-card/20 hover:bg-card/40 transition-colors"
+          >
+            <X className="w-6 h-6 text-white" />
+          </button>
+
+          {/* Navigation */}
+          {images.length > 1 && (
+            <>
+              <button
+                onClick={(e) => { e.stopPropagation(); prevImage(e); }}
+                className="absolute left-4 top-1/2 -translate-y-1/2 p-3 rounded-full bg-card/20 hover:bg-card/40 transition-colors"
+              >
+                <ChevronLeft className="w-8 h-8 text-white" />
+              </button>
+              <button
+                onClick={(e) => { e.stopPropagation(); nextImage(e); }}
+                className="absolute right-4 top-1/2 -translate-y-1/2 p-3 rounded-full bg-card/20 hover:bg-card/40 transition-colors"
+              >
+                <ChevronRight className="w-8 h-8 text-white" />
+              </button>
+            </>
+          )}
+
+          {/* Fullscreen image */}
+          <img
+            src={images[currentImageIndex]}
+            alt={`${machine.name} - Fullscreen`}
+            className="max-w-[95vw] max-h-[90vh] object-contain"
+            onClick={(e) => e.stopPropagation()}
+          />
+
+          {/* Image counter */}
+          <div className="absolute bottom-4 left-1/2 -translate-x-1/2 px-4 py-2 rounded-full bg-card/30 text-white text-sm font-medium">
+            {currentImageIndex + 1} / {images.length}
+          </div>
+        </div>
+      )}
     </div>
   );
 }
