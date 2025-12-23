@@ -26,6 +26,42 @@ export default function MachinePage() {
   const touchEndX = useRef<number | null>(null);
   const minSwipeDistance = 50;
 
+  // Drag scroll for thumbnails on PC
+  const thumbnailsRef = useRef<HTMLDivElement>(null);
+  const isDragging = useRef(false);
+  const startX = useRef(0);
+  const scrollLeft = useRef(0);
+
+  const handleMouseDown = (e: React.MouseEvent) => {
+    if (!thumbnailsRef.current) return;
+    isDragging.current = true;
+    startX.current = e.pageX - thumbnailsRef.current.offsetLeft;
+    scrollLeft.current = thumbnailsRef.current.scrollLeft;
+    thumbnailsRef.current.style.cursor = 'grabbing';
+  };
+
+  const handleMouseMove = (e: React.MouseEvent) => {
+    if (!isDragging.current || !thumbnailsRef.current) return;
+    e.preventDefault();
+    const x = e.pageX - thumbnailsRef.current.offsetLeft;
+    const walk = (x - startX.current) * 1.5;
+    thumbnailsRef.current.scrollLeft = scrollLeft.current - walk;
+  };
+
+  const handleMouseUp = () => {
+    isDragging.current = false;
+    if (thumbnailsRef.current) {
+      thumbnailsRef.current.style.cursor = 'grab';
+    }
+  };
+
+  const handleMouseLeave = () => {
+    isDragging.current = false;
+    if (thumbnailsRef.current) {
+      thumbnailsRef.current.style.cursor = 'grab';
+    }
+  };
+
   // Find machine by slug
   const machine: Machine | undefined = slug ? findMachineBySlug(allMachines, slug) : undefined;
 
@@ -317,30 +353,34 @@ export default function MachinePage() {
               )}
             </div>
 
-            {/* Thumbnail Gallery - horizontal scroll with touch */}
+            {/* Thumbnail Gallery - horizontal scroll with drag on PC */}
             {images.length > 1 && (
               <div 
-                className="flex gap-2 pb-2 -mx-4 px-4 overflow-x-auto overflow-y-hidden cursor-grab active:cursor-grabbing"
+                ref={thumbnailsRef}
+                className="flex gap-2 pb-2 overflow-x-auto overflow-y-hidden cursor-grab select-none"
                 style={{ 
                   WebkitOverflowScrolling: 'touch',
                   scrollbarWidth: 'none',
                   msOverflowStyle: 'none',
-                  overscrollBehaviorX: 'contain',
-                  touchAction: 'pan-x',
                 }}
+                onMouseDown={handleMouseDown}
+                onMouseMove={handleMouseMove}
+                onMouseUp={handleMouseUp}
+                onMouseLeave={handleMouseLeave}
               >
                 {images.map((img, idx) => (
                   <button
                     key={idx}
-                    onClick={() => selectImage(idx)}
-                    className={`flex-shrink-0 w-16 h-16 sm:w-20 sm:h-20 rounded-lg overflow-hidden border-2 transition-all will-change-transform touch-manipulation ${
+                    onClick={() => {
+                      if (!isDragging.current) selectImage(idx);
+                    }}
+                    className={`flex-shrink-0 w-14 h-14 sm:w-20 sm:h-20 rounded-lg overflow-hidden border-2 transition-all ${
                       idx === currentImageIndex 
-                        ? 'border-primary ring-2 ring-primary/30 scale-105' 
+                        ? 'border-primary ring-2 ring-primary/30' 
                         : 'border-transparent hover:border-muted-foreground/30'
                     }`}
                   >
                     <div className="relative w-full h-full bg-muted">
-                      {/* Always show placeholder first */}
                       <div 
                         className={`absolute inset-0 bg-muted transition-opacity duration-200 ${
                           imageLoadStates[`thumb-${idx}`] ? 'opacity-0' : 'opacity-100'
@@ -349,7 +389,7 @@ export default function MachinePage() {
                       <img
                         src={img}
                         alt={`Thumbnail ${idx + 1}`}
-                        className={`w-full h-full object-cover transition-opacity duration-200 ${
+                        className={`w-full h-full object-cover transition-opacity duration-200 pointer-events-none ${
                           imageLoadStates[`thumb-${idx}`] ? 'opacity-100' : 'opacity-0'
                         }`}
                         loading="eager"
