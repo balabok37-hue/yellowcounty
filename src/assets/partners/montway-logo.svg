@@ -1,13 +1,11 @@
-<svg viewBox="0 0 200 45" xmlns="http://www.w3.org/2000/svg">
-  <!-- Montway Auto Transport Logo -->
-  <!-- Blue swoosh/wave icon -->
-  <ellipse cx="22" cy="22" rx="18" ry="14" fill="none" stroke="#0077C8" stroke-width="4" transform="rotate(-15 22 22)"/>
-  <ellipse cx="22" cy="22" rx="12" ry="9" fill="none" stroke="#0077C8" stroke-width="3" transform="rotate(-15 22 22)"/>
-  <ellipse cx="22" cy="22" rx="6" ry="4" fill="#0077C8" transform="rotate(-15 22 22)"/>
+<svg viewBox="0 0 180 50" xmlns="http://www.w3.org/2000/svg">
+  <!-- Blue circle with M -->
+  <circle cx="90" cy="14" r="12" fill="#0077C8"/>
+  <text x="90" y="19" font-family="Brush Script MT, cursive" font-size="16" fill="#FFFFFF" text-anchor="middle" font-style="italic">M</text>
   
   <!-- MONTWAY text -->
-  <text x="48" y="26" font-family="Arial, Helvetica, sans-serif" font-size="22" font-weight="bold" fill="#00263A" letter-spacing="0.5">MONTWAY</text>
+  <text x="90" y="36" font-family="Arial Black, sans-serif" font-size="14" font-weight="900" fill="#00263A" text-anchor="middle" letter-spacing="1">MONTWAY</text>
   
   <!-- AUTO TRANSPORT subtitle -->
-  <text x="48" y="40" font-family="Arial, Helvetica, sans-serif" font-size="10" fill="#00263A" letter-spacing="2">AUTO TRANSPORT</text>
+  <text x="90" y="46" font-family="Arial, sans-serif" font-size="7" fill="#00263A" text-anchor="middle" letter-spacing="3">AUTO TRANSPORT</text>
 </svg>
