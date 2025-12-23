@@ -79,7 +79,7 @@ export default function MachinePage() {
       
       // Update meta description
       const metaDescription = document.querySelector('meta[name="description"]');
-      const description = `Buy ${machine.year} ${modelName} for $${machine.price.toLocaleString()}. ${machine.hours ? `${machine.hours} hours` : machine.miles ? `${machine.miles} miles` : ''}. ${machine.location}. Premium used heavy equipment.`;
+      const description = `Buy ${machine.year} ${modelName} for $${machine.price.toLocaleString()}. ${machine.hours ? `${machine.hours} hours` : machine.miles ? `${machine.miles} miles` : ''}. USA Stock. Premium used heavy equipment.`;
       if (metaDescription) {
         metaDescription.setAttribute('content', description);
       }
