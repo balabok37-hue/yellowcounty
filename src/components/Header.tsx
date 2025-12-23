@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Phone, Menu, X, ChevronDown, Search } from 'lucide-react';
+import { Phone, Menu, X, ChevronDown, Search, Info } from 'lucide-react';
 import { Link, useNavigate, useLocation } from 'react-router-dom';
 import { Input } from '@/components/ui/input';
 import {
@@ -8,10 +8,12 @@ import {
   DropdownMenuItem,
   DropdownMenuTrigger,
 } from '@/components/ui/dropdown-menu';
+import { CompanyInfoModal } from './CompanyInfoModal';
 
 export function Header() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [searchQuery, setSearchQuery] = useState('');
+  const [isCompanyInfoOpen, setIsCompanyInfoOpen] = useState(false);
   const navigate = useNavigate();
   const location = useLocation();
 
@@ -115,7 +117,7 @@ export function Header() {
               </button>
             </nav>
 
-            {/* Right Side - Search, Phone, Cart */}
+            {/* Right Side - Search, Info, Phone */}
             <div className="hidden lg:flex items-center gap-3">
               <form onSubmit={handleSearch} className="relative">
                 <Input
@@ -127,6 +129,14 @@ export function Header() {
                 />
                 <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-secondary-foreground/50" />
               </form>
+
+              <button
+                onClick={() => setIsCompanyInfoOpen(true)}
+                className="p-2 text-secondary-foreground/80 hover:text-secondary-foreground transition-colors rounded hover:bg-secondary-foreground/10"
+                title="Company Info"
+              >
+                <Info className="w-5 h-5" />
+              </button>
 
               <a
                 href="tel:+16783106065"
@@ -208,6 +218,18 @@ export function Header() {
               CONTACT
             </button>
 
+            {/* Company Info Button for Mobile */}
+            <button
+              onClick={() => {
+                setIsMobileMenuOpen(false);
+                setIsCompanyInfoOpen(true);
+              }}
+              className="w-full text-left px-4 py-3 text-lg font-medium text-foreground hover:bg-muted rounded-lg transition-colors flex items-center gap-2"
+            >
+              <Info className="w-5 h-5" />
+              COMPANY INFO
+            </button>
+
             <div className="pt-4 border-t border-border mt-4">
               <a
                 href="tel:+16783106065"
@@ -220,6 +242,12 @@ export function Header() {
           </div>
         </div>
       )}
+
+      {/* Company Info Modal */}
+      <CompanyInfoModal 
+        open={isCompanyInfoOpen} 
+        onOpenChange={setIsCompanyInfoOpen} 
+      />
     </>
   );
 }
