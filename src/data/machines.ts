@@ -1,4 +1,4 @@
-import type { Machine, MachineCategory } from '@/components/MachineCard';
+import type { Machine, MachineCategory, AvailableZone } from '@/components/MachineCard';
 import sanySy80uImage from '@/assets/machines/sany-sy80u-1.webp';
 import sanySy80uImage2 from '@/assets/machines/sany-sy80u-2.webp';
 import sanySy80uImage3 from '@/assets/machines/sany-sy80u-3.webp';
@@ -2810,15 +2810,24 @@ const categoryMap: Record<number, MachineCategory> = {
   110: 'excavators', // John Deere 35P Tier 2025
 };
 
-const availabilityRegions = ['midwest', 'west', 'east', 'south'] as const;
-const regionForMachine = (id: number) => availabilityRegions[id % availabilityRegions.length];
+// All available zones
+const allZones: AvailableZone[] = ['west', 'east', 'south', 'north', 'southeast', 'northeast', 'midwest', 'northwest', 'southwest'];
 
-// Apply categories to all machines - categoryMap takes priority
+// Deterministic random zones based on machine id (always returns same 3 zones for same id)
+function getRandomZones(id: number): AvailableZone[] {
+  const shuffled = [...allZones].sort((a, b) => {
+    const hashA = (id * 31 + a.charCodeAt(0)) % 100;
+    const hashB = (id * 31 + b.charCodeAt(0)) % 100;
+    return hashA - hashB;
+  });
+  return shuffled.slice(0, 3);
+}
+
+// Apply categories and zones to all machines
 const machinesWithCategories: Machine[] = allMachinesRaw.map(machine => ({
   ...machine,
   category: categoryMap[machine.id] || 'excavators',
-  // per request: show ONLY availability region
-  location: regionForMachine(machine.id),
+  availableZones: getRandomZones(machine.id),
 }));
 
 // Sort function: HOT OFFERS first, then by discount (desc), then by year (desc)

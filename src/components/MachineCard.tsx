@@ -4,6 +4,8 @@ import { generateMachineSlug } from '@/lib/machine-utils';
 
 export type MachineCategory = 'excavators' | 'dozers' | 'wheel-loaders' | 'track-loaders' | 'backhoes' | 'telehandlers' | 'trucks' | 'compaction';
 
+export type AvailableZone = 'west' | 'east' | 'south' | 'north' | 'southeast' | 'northeast' | 'midwest' | 'northwest' | 'southwest';
+
 export interface Machine {
   id: number;
   name: string;
@@ -99,6 +101,7 @@ export interface Machine {
     ratedOperatingCapacity?: string;
   };
   gallery?: string[];
+  availableZones?: AvailableZone[];
 }
 
 interface MachineCardProps {
