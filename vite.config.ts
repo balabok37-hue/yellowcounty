@@ -47,12 +47,5 @@ export default defineConfig(({ mode }) => ({
         },
       },
     },
-    // Enable minification and compression
-    minify: 'terser',
-    terserOptions: {
-      compress: {
-        drop_console: true,
-      },
-    },
   },
 }));
