@@ -100,6 +100,7 @@ export interface Machine {
     sleeperSize?: string;
     // Track loader specs
     ratedOperatingCapacity?: string;
+    groundPressure?: string;
   };
   gallery?: string[];
   availableZones?: AvailableZone[];
