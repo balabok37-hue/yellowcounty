@@ -78,9 +78,25 @@ export default function MachinePage() {
     window.scrollTo(0, 0);
   }, [slug]);
 
+  // Check for cached images on mount or when images change
+  useEffect(() => {
+    if (images.length === 0) return;
+    
+    images.forEach((imgUrl) => {
+      const img = new Image();
+      img.src = imgUrl;
+      if (img.complete && img.naturalHeight !== 0) {
+        setImageLoadStates(prev => ({ 
+          ...prev, 
+          [imgUrl]: true,
+          [`thumb-${imgUrl}`]: true 
+        }));
+      }
+    });
+  }, [images]);
+
   // Preload adjacent images
   useGalleryPreload(images, currentImageIndex, 2);
-
   // Get similar machines (same category, excluding current) - fallback to other categories if none
   const similarMachines = useMemo(() => {
     if (!machine) return [];
@@ -139,12 +155,6 @@ export default function MachinePage() {
     window.scrollTo(0, 0);
   }, [slug]);
 
-  // Reset state when machine changes
-  useEffect(() => {
-    setCurrentImageIndex(0);
-    setImageLoadStates({});
-    setIsFullscreen(false);
-  }, [machine?.id]);
 
   // Close fullscreen on Escape
   useEffect(() => {
@@ -284,7 +294,7 @@ export default function MachinePage() {
               {/* Loading shimmer - always present for smooth transitions */}
               <div 
                 className={`absolute inset-0 bg-muted transition-opacity duration-300 ${
-                  imageLoadStates[currentImageIndex] ? 'opacity-0 pointer-events-none' : 'opacity-100'
+                  imageLoadStates[images[currentImageIndex]] ? 'opacity-0 pointer-events-none' : 'opacity-100'
                 }`}
               >
                 <div 
@@ -296,17 +306,17 @@ export default function MachinePage() {
                 />
               </div>
               <img
-                key={`main-${currentImageIndex}`}
+                key={`main-${images[currentImageIndex]}`}
                 src={images[currentImageIndex]}
                 alt={`${machine.name} - Image ${currentImageIndex + 1}`}
                 className={`w-full h-full object-cover transition-opacity duration-200 select-none will-change-opacity ${
-                  imageLoadStates[currentImageIndex] ? 'opacity-100' : 'opacity-0'
+                  imageLoadStates[images[currentImageIndex]] ? 'opacity-100' : 'opacity-0'
                 }`}
                 loading="eager"
                 decoding="async"
                 draggable={false}
-                onLoad={() => handleImageLoad(String(currentImageIndex))}
-                onError={() => handleImageLoad(String(currentImageIndex))}
+                onLoad={() => handleImageLoad(images[currentImageIndex])}
+                onError={() => handleImageLoad(images[currentImageIndex])}
               />
               
               {/* Zoom indicator - hidden on mobile */}
@@ -410,20 +420,20 @@ export default function MachinePage() {
                       <div className="relative w-full h-full bg-muted">
                         <div 
                           className={`absolute inset-0 bg-muted transition-opacity duration-200 ${
-                            imageLoadStates[`thumb-${idx}`] ? 'opacity-0' : 'opacity-100'
+                            imageLoadStates[`thumb-${img}`] ? 'opacity-0' : 'opacity-100'
                           }`}
                         />
                         <img
                           src={img}
                           alt={`Thumbnail ${idx + 1}`}
                           className={`w-full h-full object-cover transition-opacity duration-200 pointer-events-none ${
-                            imageLoadStates[`thumb-${idx}`] ? 'opacity-100' : 'opacity-0'
+                            imageLoadStates[`thumb-${img}`] ? 'opacity-100' : 'opacity-0'
                           }`}
                           loading="eager"
                           decoding="async"
                           draggable={false}
-                          onLoad={() => handleImageLoad(`thumb-${idx}`)}
-                          onError={() => handleImageLoad(`thumb-${idx}`)}
+                          onLoad={() => handleImageLoad(`thumb-${img}`)}
+                          onError={() => handleImageLoad(`thumb-${img}`)}
                         />
                       </div>
                     </button>
