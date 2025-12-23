@@ -61,15 +61,15 @@ export function Footer() {
                 href="https://www.montway.com" 
                 target="_blank" 
                 rel="noopener noreferrer"
-                className="flex items-center justify-center px-3 py-2 rounded-lg bg-[#00263A] hover:opacity-90 transition-opacity h-14 min-w-[160px]"
+                className="flex items-center justify-center px-4 py-3 rounded-lg bg-white hover:bg-white/90 transition-colors h-14 min-w-[180px]"
               >
-                <img src={montwayLogo} alt="Montway Auto Transport" className="h-8 w-auto" />
+                <img src={montwayLogo} alt="Montway Auto Transport" className="h-9 w-auto" />
               </a>
               <a 
                 href="https://www.readylogistics.com" 
                 target="_blank" 
                 rel="noopener noreferrer"
-                className="flex items-center justify-center px-3 py-2 rounded-lg bg-[#950e14] hover:opacity-90 transition-opacity h-14 min-w-[160px]"
+                className="flex items-center justify-center px-4 py-3 rounded-lg bg-white hover:bg-white/90 transition-colors h-14 min-w-[160px]"
               >
                 <img src={readyLogisticsLogo} alt="Ready Logistics" className="h-8 w-auto" />
               </a>
