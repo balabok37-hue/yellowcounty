@@ -1,5 +1,6 @@
 import { useMemo, useState, useRef, useEffect, useCallback } from 'react';
 import { MachineCard } from '@/components/MachineCard';
+import { useCriticalImagePreload } from '@/hooks/useCriticalImagePreload';
 import { catalogMachines, categoryInfo } from '@/data/machines';
 import { Input } from '@/components/ui/input';
 import { Checkbox } from '@/components/ui/checkbox';
@@ -143,6 +144,9 @@ export function CatalogSection({ isOpen, onToggle, onViewDetails, urlSearchQuery
   }, [activeCategory, activeBrand, condition, priceRange, searchQuery, sortBy]);
 
   const catalogCount = catalogMachines.length;
+
+  // Preload critical images for faster LCP
+  useCriticalImagePreload(filteredMachines, 6);
 
   const resetFilters = useCallback(() => {
     handleCategoryChange('all');
@@ -371,6 +375,7 @@ export function CatalogSection({ isOpen, onToggle, onViewDetails, urlSearchQuery
                   machine={machine}
                   onViewDetails={onViewDetails}
                   priority={index < 6}
+                  index={index}
                 />
               ))}
             </div>
