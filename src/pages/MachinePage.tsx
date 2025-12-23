@@ -257,10 +257,10 @@ export default function MachinePage() {
   };
 
   return (
-    <div className="min-h-screen bg-background text-foreground">
+    <div className="min-h-[100dvh] bg-background text-foreground w-full max-w-full overflow-x-hidden">
       <Header />
       
-      <main key={slug} className="container px-4 py-6 animate-fade-in overflow-x-hidden">
+      <main key={slug} className="w-full max-w-full px-4 py-6 animate-fade-in overflow-x-hidden mx-auto" style={{ maxWidth: 'min(1280px, 100%)' }}>
         {/* Back Button */}
         <Link 
           to="/#catalog" 
@@ -270,12 +270,12 @@ export default function MachinePage() {
           Back to Catalog
         </Link>
 
-        <div className="grid lg:grid-cols-2 gap-8">
+        <div className="grid lg:grid-cols-2 gap-6 lg:gap-8 w-full max-w-full">
           {/* Image Gallery Section */}
-          <div className="space-y-4">
+          <div className="space-y-3 sm:space-y-4 w-full max-w-full overflow-hidden">
             {/* Main Image with swipe support */}
             <div 
-              className="relative aspect-[4/3] bg-muted rounded-xl overflow-hidden cursor-zoom-in group touch-pan-y will-change-transform"
+              className="relative aspect-[4/3] max-h-[50dvh] sm:max-h-none bg-muted rounded-xl overflow-hidden cursor-zoom-in group touch-pan-y will-change-transform"
               onClick={() => setIsFullscreen(true)}
               onTouchStart={onTouchStart}
               onTouchMove={onTouchMove}
@@ -304,7 +304,6 @@ export default function MachinePage() {
                 }`}
                 loading="eager"
                 decoding="async"
-                fetchPriority="high"
                 draggable={false}
                 onLoad={() => handleImageLoad(String(currentImageIndex))}
                 onError={() => handleImageLoad(String(currentImageIndex))}
@@ -457,7 +456,7 @@ export default function MachinePage() {
                   </span>
                 )}
               </div>
-              <h1 className="text-2xl sm:text-3xl font-bold text-foreground leading-tight">
+              <h1 className="text-xl sm:text-2xl md:text-3xl font-bold text-foreground leading-tight break-words hyphens-auto">
                 {modelName}
               </h1>
             </div>
@@ -494,11 +493,11 @@ export default function MachinePage() {
             )}
 
             {/* Price Block */}
-            <div className="py-5 px-5 rounded-xl bg-muted/50 border border-border">
+            <div className="py-4 px-4 sm:py-5 sm:px-5 rounded-xl bg-muted/50 border border-border">
               <div className="flex flex-col gap-4">
                 <div>
-                  <div className="flex items-baseline gap-2 flex-wrap">
-                    <span className="text-3xl font-bold text-foreground">
+                  <div className="flex items-baseline gap-2 flex-wrap min-w-0">
+                    <span className="text-2xl sm:text-3xl font-bold text-foreground">
                       ${machine.price.toLocaleString()}
                     </span>
                     {machine.discount > 0 && (
@@ -597,7 +596,7 @@ export default function MachinePage() {
                 <h2 className="text-sm font-bold text-foreground uppercase tracking-wide mb-3">
                   Specifications
                 </h2>
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-6 gap-y-0.5 text-sm">
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-4 lg:gap-x-6 gap-y-0.5 text-sm w-full max-w-full overflow-hidden">
                   {Object.entries(machine.specs).map(([key, value]) => {
                     if (!value) return null;
                     const label = key
@@ -605,9 +604,9 @@ export default function MachinePage() {
                       .replace(/^./, str => str.toUpperCase())
                       .trim();
                     return (
-                      <div key={key} className="flex flex-col py-2 border-b border-border/50">
+                      <div key={key} className="flex flex-col py-2 border-b border-border/50 min-w-0 overflow-hidden">
                         <span className="text-muted-foreground text-xs">{label}</span>
-                        <span className="font-medium text-foreground break-words">{value}</span>
+                        <span className="font-medium text-foreground break-words overflow-wrap-anywhere" style={{ overflowWrap: 'anywhere' }}>{value}</span>
                       </div>
                     );
                   })}
@@ -630,13 +629,13 @@ export default function MachinePage() {
         </div>
 
         {/* Similar Machines Section - always show since we fallback to other categories */}
-        <section className="mt-16 pt-8 border-t border-border">
-          <h2 className="text-xl font-bold text-foreground mb-6">
+        <section className="mt-10 sm:mt-16 pt-6 sm:pt-8 border-t border-border w-full max-w-full overflow-hidden">
+          <h2 className="text-lg sm:text-xl font-bold text-foreground mb-4 sm:mb-6">
             {similarMachines.some(m => m.category === machine.category) 
               ? 'Similar Equipment' 
               : 'More Equipment'}
           </h2>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
             {similarMachines.map((m, index) => (
               <MachineCard
                 key={m.id}

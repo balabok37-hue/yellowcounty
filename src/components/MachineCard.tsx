@@ -164,7 +164,6 @@ export const MachineCard = memo(function MachineCard({
           alt={machine.name}
           loading={shouldPrioritize ? 'eager' : 'lazy'}
           decoding={shouldPrioritize ? 'sync' : 'async'}
-          fetchPriority={isHighPriority ? 'high' : 'auto'}
           onLoad={handleImageLoad}
           onError={handleImageLoad}
           className={`w-full h-full transition-opacity duration-300 ${imageLoaded ? 'opacity-100' : 'opacity-0'} ${isUnavailable ? 'blur-[2px]' : ''}`}
@@ -202,9 +201,9 @@ export const MachineCard = memo(function MachineCard({
       </div>
 
       {/* Content */}
-      <div className="p-4 space-y-3">
+      <div className="p-3 sm:p-4 space-y-2 sm:space-y-3">
         {/* Price Row */}
-        <div className="flex items-baseline gap-2 flex-wrap">
+        <div className="flex items-baseline gap-2 flex-wrap min-w-0">
           <span className="price-main">
             ${machine.price.toLocaleString()}
           </span>
@@ -219,7 +218,7 @@ export const MachineCard = memo(function MachineCard({
         </div>
 
         {/* Model Name */}
-        <h3 className="text-lg font-bold text-foreground leading-tight line-clamp-2">
+        <h3 className="text-base sm:text-lg font-bold text-foreground leading-tight line-clamp-2 break-words">
           {modelName}
         </h3>
 
