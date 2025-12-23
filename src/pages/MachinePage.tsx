@@ -250,12 +250,18 @@ export default function MachinePage() {
 
             {/* Thumbnail Gallery - horizontal scroll with touch */}
             {images.length > 1 && (
-              <div className="flex gap-2 overflow-x-auto pb-2 scrollbar-hide -mx-1 px-1 snap-x snap-mandatory">
+              <div 
+                className="flex gap-2 overflow-x-auto pb-3 -mx-4 px-4"
+                style={{ 
+                  WebkitOverflowScrolling: 'touch',
+                  scrollbarWidth: 'thin'
+                }}
+              >
                 {images.map((img, idx) => (
                   <button
                     key={idx}
                     onClick={() => selectImage(idx)}
-                    className={`flex-shrink-0 w-16 h-16 sm:w-20 sm:h-20 rounded-lg overflow-hidden border-2 transition-all snap-start ${
+                    className={`flex-shrink-0 w-16 h-16 sm:w-20 sm:h-20 rounded-lg overflow-hidden border-2 transition-all ${
                       idx === currentImageIndex 
                         ? 'border-primary ring-2 ring-primary/30' 
                         : 'border-transparent hover:border-muted-foreground/30'
