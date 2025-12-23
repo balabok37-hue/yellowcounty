@@ -141,6 +141,7 @@ import caterpillar336Image1 from '@/assets/machines/caterpillar-336-1.webp';
 import caterpillar336Image2 from '@/assets/machines/caterpillar-336-2.webp';
 import caterpillar336Image3 from '@/assets/machines/caterpillar-336-3.webp';
 import caterpillar336Image4 from '@/assets/machines/caterpillar-336-4.webp';
+import hitachiZx350Image1 from '@/assets/machines/hitachi-zx350-1.webp';
 import hitachiZx350Image2 from '@/assets/machines/hitachi-zx350-2.webp';
 import hitachiZx350Image3 from '@/assets/machines/hitachi-zx350-3.webp';
 import hitachiZx350Image4 from '@/assets/machines/hitachi-zx350-4.webp';
@@ -148,6 +149,20 @@ import johnDeere210gImage1 from '@/assets/machines/john-deere-210g-1.webp';
 import johnDeere210gImage2 from '@/assets/machines/john-deere-210g-2.webp';
 import johnDeere210gImage3 from '@/assets/machines/john-deere-210g-3.webp';
 import johnDeere210gImage4 from '@/assets/machines/john-deere-210g-4.webp';
+import johnDeere310slImage from '@/assets/machines/john-deere-310sl.webp';
+import manitouMlt1040Image2 from '@/assets/machines/manitou-mlt1040-2.webp';
+// New machine imports
+import caterpillar289d3Image from '@/assets/machines/caterpillar-289d3.webp';
+import mackGu713Image1 from '@/assets/machines/mack-gu713-1.webp';
+import mackGu713Image2 from '@/assets/machines/mack-gu713-2.webp';
+import mackGu713Image3 from '@/assets/machines/mack-gu713-3.webp';
+import mackGu713Image4 from '@/assets/machines/mack-gu713-4.webp';
+import mackGu713Image5 from '@/assets/machines/mack-gu713-5.webp';
+import peterbilt389Image1 from '@/assets/machines/peterbilt-389-1.webp';
+import peterbilt389Image2 from '@/assets/machines/peterbilt-389-2.webp';
+import peterbilt389Image3 from '@/assets/machines/peterbilt-389-3.webp';
+import peterbilt389Image4 from '@/assets/machines/peterbilt-389-4.webp';
+import peterbilt389Image5 from '@/assets/machines/peterbilt-389-5.webp';
 // bobcatE50Image removed - file doesn't exist
 
 
@@ -552,6 +567,7 @@ const allMachinesRaw: Array<Omit<Machine, 'category'> & { category?: string }> =
     },
     gallery: [
       hitachiZx350Image4,
+      hitachiZx350Image1,
       hitachiZx350Image2,
       hitachiZx350Image3,
     ],
@@ -1436,6 +1452,7 @@ const allMachinesRaw: Array<Omit<Machine, 'category'> & { category?: string }> =
     gallery: [
       manitouMlt1040145Image2,
       manitouMlt1040145Image1,
+      manitouMlt1040Image2,
       manitouMlt1040145Image3,
       manitouMlt1040145Image4,
     ],
@@ -1476,6 +1493,7 @@ const allMachinesRaw: Array<Omit<Machine, 'category'> & { category?: string }> =
     },
     gallery: [
       johnDeere310sl2023Image3,
+      johnDeere310slImage,
       johnDeere310sl2023Image2,
       johnDeere310sl2023Image4,
       johnDeere310sl2023Image5,
@@ -1725,6 +1743,106 @@ const allMachinesRaw: Array<Omit<Machine, 'category'> & { category?: string }> =
       caterpillar305e2cr2019Image5,
     ],
   },
+  // NEW MACHINES - December 2024
+  {
+    id: 94,
+    name: '2023 Caterpillar 289D3 Compact Track Loader',
+    year: 2023,
+    hours: 1200,
+    location: 'USA Stock',
+    price: 52000,
+    originalPrice: 52000,
+    discount: 0,
+    category: 'track-loaders',
+    image: caterpillar289d3Image,
+    isHotOffer: false,
+    description: 'Clean 2023 Caterpillar 289D3 compact track loader with low hours. Cat C3.3B Tier 4 Final engine delivers 74.3 hp for excellent power and efficiency. Features advanced Cat electronics, sealed and pressurized cab with AC/heat, standard 2-speed travel, and easy service access. High-flow hydraulics ready for demanding attachments. Ideal for landscaping, construction, and site prep work.',
+    specs: {
+      engine: 'Cat C3.3B Tier 4 Final',
+      power: '74.3 hp (55.4 kW)',
+      weight: '9,984 lb (4,529 kg)',
+      ratedOperatingCapacity: '2,900 lb (1,315 kg) @ 50% tipping',
+      bucketCapacity: '0.56 yd³ (0.43 m³)',
+      travelSpeed: '7.3 mph (11.8 km/h) 2-speed',
+      trackWidth: '15.7 in (400 mm)',
+      hydraulicFlow: '23.9 gpm (90.5 L/min) standard',
+      fuelTank: '24 gal (91 L)',
+      cab: 'Enclosed ROPS/FOPS cab, heat/AC, suspension seat, advanced display',
+      features: 'High-flow hydraulics, 2-speed travel, reversing fan, LED lights, rearview camera',
+      status: 'In stock – low hours, well maintained',
+    },
+    gallery: [caterpillar289d3Image],
+  },
+  {
+    id: 95,
+    name: '2022 Mack GU713 Granite Dump Truck',
+    year: 2022,
+    miles: 45000,
+    location: 'USA Stock',
+    price: 85000,
+    originalPrice: 85000,
+    discount: 0,
+    category: 'trucks',
+    image: mackGu713Image1,
+    isHotOffer: false,
+    description: 'Well-maintained 2022 Mack GU713 Granite dump truck with 45,000 miles. Mack MP7 engine delivers 425 hp with excellent torque for heavy hauling. mDrive HD automated transmission for smooth, efficient shifting. Full air ride cab, heated mirrors, and excellent visibility. 16-18 yd steel dump body with tarp system. Perfect for aggregate, demolition, and construction hauling.',
+    specs: {
+      engine: 'Mack MP7 425 hp Tier 4 Final',
+      power: '425 hp (317 kW) @ 1,800 rpm',
+      torque: '1,560 lb-ft (2,115 Nm)',
+      transmission: 'mDrive HD 12-speed automated',
+      gvwr: '56,000 lb (25,401 kg)',
+      wheelbase: '192 in (4,877 mm)',
+      axles: 'Tandem rear axle, 46,000 lb capacity',
+      dumpBody: '16-18 yd³ steel body with tarp',
+      fuelTank: '100 gal (379 L)',
+      cab: 'Day cab, air ride, heated mirrors, power windows/locks',
+      features: 'Diff lock, exhaust brake, PTO, steel dump body, tarp system',
+      status: 'Work ready – serviced and inspected',
+    },
+    gallery: [
+      mackGu713Image1,
+      mackGu713Image2,
+      mackGu713Image3,
+      mackGu713Image4,
+      mackGu713Image5,
+    ],
+  },
+  {
+    id: 96,
+    name: '2021 Peterbilt 389 Sleeper Truck',
+    year: 2021,
+    miles: 120000,
+    location: 'USA Stock',
+    price: 95000,
+    originalPrice: 95000,
+    discount: 0,
+    category: 'trucks',
+    image: peterbilt389Image1,
+    isHotOffer: false,
+    description: 'Classic 2021 Peterbilt 389 with 70-inch sleeper cab. Cummins X15 engine delivers 565 hp for powerful, reliable performance. Eaton Fuller 18-speed transmission. Extended hood design with premium chrome package. Sleeper features full amenities including bunk heater, refrigerator, and storage. Excellent highway truck for long-haul operations.',
+    specs: {
+      engine: 'Cummins X15 565 hp Tier 4 Final',
+      power: '565 hp (421 kW) @ 1,800 rpm',
+      torque: '1,850 lb-ft (2,508 Nm)',
+      transmission: 'Eaton Fuller 18-speed manual',
+      gvwr: '52,000 lb (23,587 kg)',
+      wheelbase: '244 in (6,198 mm)',
+      sleeperSize: '70-inch flat-top sleeper',
+      axles: 'Tandem rear axle, 40,000 lb capacity',
+      fuelTank: '150 gal (568 L) dual tanks',
+      cab: 'Premium cab with 70-in sleeper, bunk heater, fridge, storage',
+      features: 'Chrome package, air ride, power windows/locks, APU-ready, diff lock',
+      status: 'Road ready – well maintained fleet truck',
+    },
+    gallery: [
+      peterbilt389Image1,
+      peterbilt389Image2,
+      peterbilt389Image3,
+      peterbilt389Image4,
+      peterbilt389Image5,
+    ],
+  },
 ];
 
 // Category assignments by machine ID - prioritized over inline category values
@@ -1793,6 +1911,11 @@ const categoryMap: Record<number, MachineCategory> = {
   
   // Compaction (Rollers)
   36: 'compaction', // CB16 Roller
+  
+  // NEW - December 2024
+  94: 'track-loaders', // CAT 289D3 Compact Track Loader
+  95: 'trucks', // Mack GU713 Dump Truck
+  96: 'trucks', // Peterbilt 389 Sleeper
 };
 
 const availabilityRegions = ['midwest', 'west', 'east', 'south'] as const;

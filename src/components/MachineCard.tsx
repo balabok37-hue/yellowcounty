@@ -6,7 +6,7 @@ export interface Machine {
   id: number;
   name: string;
   year: number;
-  hours: number;
+  hours?: number;
   miles?: number;
   location: string;
   price: number;
@@ -89,6 +89,12 @@ export interface Machine {
     drivetrain?: string;
     aerialDevice?: string;
     utilityBody?: string;
+    // Truck-specific specs
+    torque?: string;
+    axles?: string;
+    sleeperSize?: string;
+    // Track loader specs
+    ratedOperatingCapacity?: string;
   };
   gallery?: string[];
 }
