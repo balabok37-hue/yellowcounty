@@ -70,6 +70,14 @@ export default function MachinePage() {
     ? machine.gallery 
     : machine?.image ? [machine.image] : [];
 
+  // Reset state when slug changes (navigating to different machine)
+  useEffect(() => {
+    setCurrentImageIndex(0);
+    setImageLoadStates({});
+    setIsFullscreen(false);
+    window.scrollTo(0, 0);
+  }, [slug]);
+
   // Preload adjacent images
   useGalleryPreload(images, currentImageIndex, 2);
 
