@@ -15,7 +15,6 @@ const Index = () => {
   const [selectedMachine, setSelectedMachine] = useState<Machine | null>(null);
   const [modalOpen, setModalOpen] = useState(false);
   const catalogRef = useRef<HTMLDivElement>(null);
-  const lastScrollYRef = useRef(0);
   const location = useLocation();
   const navigate = useNavigate();
   const [searchParams] = useSearchParams();
@@ -53,27 +52,23 @@ const Index = () => {
   }, [location.state]);
 
   const handleViewDetails = (machine: Machine) => {
-    lastScrollYRef.current = window.scrollY;
     setSelectedMachine(machine);
     setModalOpen(true);
+    // Update URL with machine slug
     const newParams = new URLSearchParams(searchParams);
     newParams.set('machine', generateMachineSlug(machine));
     navigate(`?${newParams.toString()}`, { replace: true });
   };
 
   const handleCloseModal = () => {
-    const scrollY = lastScrollYRef.current;
     setModalOpen(false);
     setSelectedMachine(null);
     
+    // Update URL without machine parameter
     const newParams = new URLSearchParams(searchParams);
     newParams.delete('machine');
     const paramString = newParams.toString();
     navigate(paramString ? `?${paramString}` : '/', { replace: true });
-
-    requestAnimationFrame(() => {
-      window.scrollTo(0, scrollY);
-    });
   };
 
   return (

@@ -26,23 +26,38 @@ export function MachineModal({ machine, isOpen, onClose }: MachineModalProps) {
     setCurrentImageIndex(0);
   }, [machine?.id]);
 
-  // Lock body scroll when modal is open
+  // Lock body scroll when modal is open - preserve scroll position
   useEffect(() => {
     if (isOpen) {
+      // Get current scroll position BEFORE locking
       const scrollY = window.scrollY;
+      
+      // Lock body scroll with fixed positioning
       document.body.style.position = 'fixed';
       document.body.style.top = `-${scrollY}px`;
       document.body.style.left = '0';
       document.body.style.right = '0';
+      document.body.style.width = '100%';
       document.body.style.overflow = 'hidden';
       
+      // Store scroll position in data attribute for restoration
+      document.body.dataset.scrollY = String(scrollY);
+      
       return () => {
+        // Get stored scroll position
+        const storedScrollY = parseInt(document.body.dataset.scrollY || '0', 10);
+        
+        // Unlock body
         document.body.style.position = '';
         document.body.style.top = '';
         document.body.style.left = '';
         document.body.style.right = '';
+        document.body.style.width = '';
         document.body.style.overflow = '';
-        window.scrollTo(0, scrollY);
+        delete document.body.dataset.scrollY;
+        
+        // Restore scroll position immediately (no animation)
+        window.scrollTo(0, storedScrollY);
       };
     }
   }, [isOpen]);
