@@ -78,6 +78,7 @@ const sortMachines = (machines: Machine[], sortBy: SortOption): Machine[] => {
 
 export function CatalogSection({ isOpen, onToggle, onViewDetails, urlSearchQuery = '', urlCategory = '', onSearchChange, onCategoryChange }: CatalogSectionProps) {
   const [searchQuery, setSearchQuery] = useState(urlSearchQuery);
+  const [searchInput, setSearchInput] = useState(urlSearchQuery); // Local input state
   const [activeCategory, setActiveCategory] = useState<string>(urlCategory || 'all');
   const [activeBrand, setActiveBrand] = useState<string>('all');
   const [condition, setCondition] = useState<ConditionFilter>('all');
@@ -91,16 +92,19 @@ export function CatalogSection({ isOpen, onToggle, onViewDetails, urlSearchQuery
 
   useEffect(() => {
     setSearchQuery(urlSearchQuery);
+    setSearchInput(urlSearchQuery);
   }, [urlSearchQuery]);
 
   useEffect(() => {
     setActiveCategory(urlCategory || 'all');
   }, [urlCategory]);
 
-  const handleSearchChange = useCallback((value: string) => {
-    setSearchQuery(value);
-    onSearchChange?.(value);
-  }, [onSearchChange]);
+  // Submit search only on Enter or button click
+  const handleSearchSubmit = useCallback((e?: React.FormEvent) => {
+    e?.preventDefault();
+    setSearchQuery(searchInput);
+    onSearchChange?.(searchInput);
+  }, [searchInput, onSearchChange]);
 
   const handleCategoryChange = useCallback((value: string) => {
     setActiveCategory(value);
@@ -153,8 +157,10 @@ export function CatalogSection({ isOpen, onToggle, onViewDetails, urlSearchQuery
     setActiveBrand('all');
     setCondition('all');
     setPriceRange([minPrice, maxPrice]);
-    handleSearchChange('');
-  }, [handleCategoryChange, handleSearchChange]);
+    setSearchInput('');
+    setSearchQuery('');
+    onSearchChange?.('');
+  }, [handleCategoryChange, onSearchChange]);
 
   // Sidebar content
   const FilterSidebar = ({ className = '' }: { className?: string }) => (
@@ -165,7 +171,7 @@ export function CatalogSection({ isOpen, onToggle, onViewDetails, urlSearchQuery
       </div>
 
       {/* Search */}
-      <div>
+      <form onSubmit={handleSearchSubmit}>
         <Label className="text-xs font-bold text-muted-foreground uppercase tracking-wide mb-2 block">
           Search Make/Model
         </Label>
@@ -173,13 +179,13 @@ export function CatalogSection({ isOpen, onToggle, onViewDetails, urlSearchQuery
           <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-muted-foreground" />
           <Input
             type="text"
-            placeholder="Search..."
-            value={searchQuery}
-            onChange={(e) => handleSearchChange(e.target.value)}
+            placeholder="Search... (press Enter)"
+            value={searchInput}
+            onChange={(e) => setSearchInput(e.target.value)}
             className="pl-10 bg-background border-border"
           />
         </div>
-      </div>
+      </form>
 
       {/* Category Filter */}
       <div>

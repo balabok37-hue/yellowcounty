@@ -187,61 +187,176 @@ import bobcatT7702022_7 from '@/assets/machines/2022-BOBCAT-T770----41,400---218
 import bobcatT7702022_8 from '@/assets/machines/2022-BOBCAT-T770----41,400---2189-hours-(8).webp';
 import bobcatT7702022_9 from '@/assets/machines/2022-BOBCAT-T770----41,400---2189-hours-(9).webp';
 
-// 2022 CAT 259D3 - $37,400 - 2,282 hours (20 photos - using first 5)
+// 2022 CAT 259D3 - $37,400 - 2,282 hours (20 photos)
 import cat259d32022_1 from '@/assets/machines/2022-CATERPILLAR-259D3----37,400---2,282-hours-(1).webp';
 import cat259d32022_2 from '@/assets/machines/2022-CATERPILLAR-259D3----37,400---2,282-hours-(2).webp';
 import cat259d32022_3 from '@/assets/machines/2022-CATERPILLAR-259D3----37,400---2,282-hours-(3).webp';
 import cat259d32022_4 from '@/assets/machines/2022-CATERPILLAR-259D3----37,400---2,282-hours-(4).webp';
 import cat259d32022_5 from '@/assets/machines/2022-CATERPILLAR-259D3----37,400---2,282-hours-(5).webp';
+import cat259d32022_6 from '@/assets/machines/2022-CATERPILLAR-259D3----37,400---2,282-hours-(6).webp';
+import cat259d32022_7 from '@/assets/machines/2022-CATERPILLAR-259D3----37,400---2,282-hours-(7).webp';
+import cat259d32022_8 from '@/assets/machines/2022-CATERPILLAR-259D3----37,400---2,282-hours-(8).webp';
+import cat259d32022_9 from '@/assets/machines/2022-CATERPILLAR-259D3----37,400---2,282-hours-(9).webp';
+import cat259d32022_10 from '@/assets/machines/2022-CATERPILLAR-259D3----37,400---2,282-hours-(10).webp';
+import cat259d32022_11 from '@/assets/machines/2022-CATERPILLAR-259D3----37,400---2,282-hours-(11).webp';
+import cat259d32022_12 from '@/assets/machines/2022-CATERPILLAR-259D3----37,400---2,282-hours-(12).webp';
+import cat259d32022_13 from '@/assets/machines/2022-CATERPILLAR-259D3----37,400---2,282-hours-(13).webp';
+import cat259d32022_14 from '@/assets/machines/2022-CATERPILLAR-259D3----37,400---2,282-hours-(14).webp';
+import cat259d32022_15 from '@/assets/machines/2022-CATERPILLAR-259D3----37,400---2,282-hours-(15).webp';
+import cat259d32022_16 from '@/assets/machines/2022-CATERPILLAR-259D3----37,400---2,282-hours-(16).webp';
+import cat259d32022_17 from '@/assets/machines/2022-CATERPILLAR-259D3----37,400---2,282-hours-(17).webp';
+import cat259d32022_18 from '@/assets/machines/2022-CATERPILLAR-259D3----37,400---2,282-hours-(18).webp';
+import cat259d32022_19 from '@/assets/machines/2022-CATERPILLAR-259D3----37,400---2,282-hours-(19).webp';
+import cat259d32022_20 from '@/assets/machines/2022-CATERPILLAR-259D3----37,400---2,282-hours-(20).webp';
 
-// 2022 KUBOTA SVL97-2 - $46,760 - 1,640 hours (27 photos - using first 5)
+// 2022 KUBOTA SVL97-2 - $46,760 - 1,640 hours (27 photos)
 import kubotaSvl972_2022_1 from '@/assets/machines/2022-KUBOTA-SVL97-2----46,760---1,640-hours-(1).webp';
 import kubotaSvl972_2022_2 from '@/assets/machines/2022-KUBOTA-SVL97-2----46,760---1,640-hours-(2).webp';
 import kubotaSvl972_2022_3 from '@/assets/machines/2022-KUBOTA-SVL97-2----46,760---1,640-hours-(3).webp';
 import kubotaSvl972_2022_4 from '@/assets/machines/2022-KUBOTA-SVL97-2----46,760---1,640-hours-(4).webp';
 import kubotaSvl972_2022_5 from '@/assets/machines/2022-KUBOTA-SVL97-2----46,760---1,640-hours-(5).webp';
+import kubotaSvl972_2022_6 from '@/assets/machines/2022-KUBOTA-SVL97-2----46,760---1,640-hours-(6).webp';
+import kubotaSvl972_2022_7 from '@/assets/machines/2022-KUBOTA-SVL97-2----46,760---1,640-hours-(7).webp';
+import kubotaSvl972_2022_8 from '@/assets/machines/2022-KUBOTA-SVL97-2----46,760---1,640-hours-(8).webp';
+import kubotaSvl972_2022_9 from '@/assets/machines/2022-KUBOTA-SVL97-2----46,760---1,640-hours-(9).webp';
+import kubotaSvl972_2022_10 from '@/assets/machines/2022-KUBOTA-SVL97-2----46,760---1,640-hours-(10).webp';
+import kubotaSvl972_2022_11 from '@/assets/machines/2022-KUBOTA-SVL97-2----46,760---1,640-hours-(11).webp';
+import kubotaSvl972_2022_12 from '@/assets/machines/2022-KUBOTA-SVL97-2----46,760---1,640-hours-(12).webp';
+import kubotaSvl972_2022_13 from '@/assets/machines/2022-KUBOTA-SVL97-2----46,760---1,640-hours-(13).webp';
+import kubotaSvl972_2022_14 from '@/assets/machines/2022-KUBOTA-SVL97-2----46,760---1,640-hours-(14).webp';
+import kubotaSvl972_2022_15 from '@/assets/machines/2022-KUBOTA-SVL97-2----46,760---1,640-hours-(15).webp';
+import kubotaSvl972_2022_16 from '@/assets/machines/2022-KUBOTA-SVL97-2----46,760---1,640-hours-(16).webp';
+import kubotaSvl972_2022_17 from '@/assets/machines/2022-KUBOTA-SVL97-2----46,760---1,640-hours-(17).webp';
+import kubotaSvl972_2022_18 from '@/assets/machines/2022-KUBOTA-SVL97-2----46,760---1,640-hours-(18).webp';
+import kubotaSvl972_2022_19 from '@/assets/machines/2022-KUBOTA-SVL97-2----46,760---1,640-hours-(19).webp';
+import kubotaSvl972_2022_20 from '@/assets/machines/2022-KUBOTA-SVL97-2----46,760---1,640-hours-(20).webp';
+import kubotaSvl972_2022_21 from '@/assets/machines/2022-KUBOTA-SVL97-2----46,760---1,640-hours-(21).webp';
+import kubotaSvl972_2022_22 from '@/assets/machines/2022-KUBOTA-SVL97-2----46,760---1,640-hours-(22).webp';
+import kubotaSvl972_2022_23 from '@/assets/machines/2022-KUBOTA-SVL97-2----46,760---1,640-hours-(23).webp';
+import kubotaSvl972_2022_24 from '@/assets/machines/2022-KUBOTA-SVL97-2----46,760---1,640-hours-(24).webp';
+import kubotaSvl972_2022_25 from '@/assets/machines/2022-KUBOTA-SVL97-2----46,760---1,640-hours-(25).webp';
+import kubotaSvl972_2022_26 from '@/assets/machines/2022-KUBOTA-SVL97-2----46,760---1,640-hours-(26).webp';
+import kubotaSvl972_2022_27 from '@/assets/machines/2022-KUBOTA-SVL97-2----46,760---1,640-hours-(27).webp';
 
-// 2023 CAT 259D3 - $50,000 - 1,217 hours (13 photos - using first 5)
+// 2023 CAT 259D3 - $50,000 - 1,217 hours (13 photos)
 import cat259d32023_1 from '@/assets/machines/2023-CATERPILLAR-259D3----50,000---1,217-hours-(1).webp';
 import cat259d32023_2 from '@/assets/machines/2023-CATERPILLAR-259D3----50,000---1,217-hours-(2).webp';
 import cat259d32023_3 from '@/assets/machines/2023-CATERPILLAR-259D3----50,000---1,217-hours-(3).webp';
 import cat259d32023_4 from '@/assets/machines/2023-CATERPILLAR-259D3----50,000---1,217-hours-(4).webp';
 import cat259d32023_5 from '@/assets/machines/2023-CATERPILLAR-259D3----50,000---1,217-hours-(5).webp';
+import cat259d32023_6 from '@/assets/machines/2023-CATERPILLAR-259D3----50,000---1,217-hours-(6).webp';
+import cat259d32023_7 from '@/assets/machines/2023-CATERPILLAR-259D3----50,000---1,217-hours-(7).webp';
+import cat259d32023_8 from '@/assets/machines/2023-CATERPILLAR-259D3----50,000---1,217-hours-(8).webp';
+import cat259d32023_9 from '@/assets/machines/2023-CATERPILLAR-259D3----50,000---1,217-hours-(9).webp';
+import cat259d32023_10 from '@/assets/machines/2023-CATERPILLAR-259D3----50,000---1,217-hours-(10).webp';
+import cat259d32023_11 from '@/assets/machines/2023-CATERPILLAR-259D3----50,000---1,217-hours-(11).webp';
+import cat259d32023_12 from '@/assets/machines/2023-CATERPILLAR-259D3----50,000---1,217-hours-(12).webp';
+import cat259d32023_13 from '@/assets/machines/2023-CATERPILLAR-259D3----50,000---1,217-hours-(13).webp';
 
-// 2023 DEERE 333G - $45,700 - 1,426 hours (28 photos - using first 5)
+// 2023 DEERE 333G - $45,700 - 1,426 hours (28 photos)
 import deere333g2023_45700_1 from '@/assets/machines/2023-DEERE-333G---45,700---1426-hours-(1).webp';
 import deere333g2023_45700_2 from '@/assets/machines/2023-DEERE-333G---45,700---1426-hours-(2).webp';
 import deere333g2023_45700_3 from '@/assets/machines/2023-DEERE-333G---45,700---1426-hours-(3).webp';
 import deere333g2023_45700_4 from '@/assets/machines/2023-DEERE-333G---45,700---1426-hours-(4).webp';
 import deere333g2023_45700_5 from '@/assets/machines/2023-DEERE-333G---45,700---1426-hours-(5).webp';
+import deere333g2023_45700_6 from '@/assets/machines/2023-DEERE-333G---45,700---1426-hours-(6).webp';
+import deere333g2023_45700_7 from '@/assets/machines/2023-DEERE-333G---45,700---1426-hours-(7).webp';
+import deere333g2023_45700_8 from '@/assets/machines/2023-DEERE-333G---45,700---1426-hours-(8).webp';
+import deere333g2023_45700_9 from '@/assets/machines/2023-DEERE-333G---45,700---1426-hours-(9).webp';
+import deere333g2023_45700_10 from '@/assets/machines/2023-DEERE-333G---45,700---1426-hours-(10).webp';
+import deere333g2023_45700_11 from '@/assets/machines/2023-DEERE-333G---45,700---1426-hours-(11).webp';
+import deere333g2023_45700_12 from '@/assets/machines/2023-DEERE-333G---45,700---1426-hours-(12).webp';
+import deere333g2023_45700_13 from '@/assets/machines/2023-DEERE-333G---45,700---1426-hours-(13).webp';
+import deere333g2023_45700_14 from '@/assets/machines/2023-DEERE-333G---45,700---1426-hours-(14).webp';
+import deere333g2023_45700_15 from '@/assets/machines/2023-DEERE-333G---45,700---1426-hours-(15).webp';
+import deere333g2023_45700_16 from '@/assets/machines/2023-DEERE-333G---45,700---1426-hours-(16).webp';
+import deere333g2023_45700_17 from '@/assets/machines/2023-DEERE-333G---45,700---1426-hours-(17).webp';
+import deere333g2023_45700_18 from '@/assets/machines/2023-DEERE-333G---45,700---1426-hours-(18).webp';
+import deere333g2023_45700_19 from '@/assets/machines/2023-DEERE-333G---45,700---1426-hours-(19).webp';
+import deere333g2023_45700_20 from '@/assets/machines/2023-DEERE-333G---45,700---1426-hours-(20).webp';
+import deere333g2023_45700_21 from '@/assets/machines/2023-DEERE-333G---45,700---1426-hours-(21).webp';
+import deere333g2023_45700_22 from '@/assets/machines/2023-DEERE-333G---45,700---1426-hours-(22).webp';
+import deere333g2023_45700_23 from '@/assets/machines/2023-DEERE-333G---45,700---1426-hours-(23).webp';
+import deere333g2023_45700_24 from '@/assets/machines/2023-DEERE-333G---45,700---1426-hours-(24).webp';
+import deere333g2023_45700_25 from '@/assets/machines/2023-DEERE-333G---45,700---1426-hours-(25).webp';
+import deere333g2023_45700_26 from '@/assets/machines/2023-DEERE-333G---45,700---1426-hours-(26).webp';
+import deere333g2023_45700_27 from '@/assets/machines/2023-DEERE-333G---45,700---1426-hours-(27).webp';
+import deere333g2023_45700_28 from '@/assets/machines/2023-DEERE-333G---45,700---1426-hours-(28).webp';
 
-// 2023 DEERE 333G - $57,600 - 1,490 hours (7 photos - using first 5)
+// 2023 DEERE 333G - $57,600 - 1,490 hours (7 photos)
 import deere333g2023_57600_1 from '@/assets/machines/2023-DEERE-333G---57,600---1490-hours-(1).webp';
 import deere333g2023_57600_2 from '@/assets/machines/2023-DEERE-333G---57,600---1490-hours-(2).webp';
 import deere333g2023_57600_3 from '@/assets/machines/2023-DEERE-333G---57,600---1490-hours-(3).webp';
 import deere333g2023_57600_4 from '@/assets/machines/2023-DEERE-333G---57,600---1490-hours-(4).webp';
 import deere333g2023_57600_5 from '@/assets/machines/2023-DEERE-333G---57,600---1490-hours-(5).webp';
+import deere333g2023_57600_6 from '@/assets/machines/2023-DEERE-333G---57,600---1490-hours-(6).webp';
+import deere333g2023_57600_7 from '@/assets/machines/2023-DEERE-333G---57,600---1490-hours-(7).webp';
 
-// 2023 KUBOTA SVL97-2 - $51,800 - 813 hours (29 photos - using first 5)
+// 2023 KUBOTA SVL97-2 - $51,800 - 813 hours (29 photos)
 import kubotaSvl972_2023_1 from '@/assets/machines/2023-KUBOTA-SVL97-2---51,800---813-Hours-(1).webp';
 import kubotaSvl972_2023_2 from '@/assets/machines/2023-KUBOTA-SVL97-2---51,800---813-Hours-(2).webp';
 import kubotaSvl972_2023_3 from '@/assets/machines/2023-KUBOTA-SVL97-2---51,800---813-Hours-(3).webp';
 import kubotaSvl972_2023_4 from '@/assets/machines/2023-KUBOTA-SVL97-2---51,800---813-Hours-(4).webp';
 import kubotaSvl972_2023_5 from '@/assets/machines/2023-KUBOTA-SVL97-2---51,800---813-Hours-(5).webp';
+import kubotaSvl972_2023_6 from '@/assets/machines/2023-KUBOTA-SVL97-2---51,800---813-Hours-(6).webp';
+import kubotaSvl972_2023_7 from '@/assets/machines/2023-KUBOTA-SVL97-2---51,800---813-Hours-(7).webp';
+import kubotaSvl972_2023_8 from '@/assets/machines/2023-KUBOTA-SVL97-2---51,800---813-Hours-(8).webp';
+import kubotaSvl972_2023_9 from '@/assets/machines/2023-KUBOTA-SVL97-2---51,800---813-Hours-(9).webp';
+import kubotaSvl972_2023_10 from '@/assets/machines/2023-KUBOTA-SVL97-2---51,800---813-Hours-(10).webp';
+import kubotaSvl972_2023_11 from '@/assets/machines/2023-KUBOTA-SVL97-2---51,800---813-Hours-(11).webp';
+import kubotaSvl972_2023_12 from '@/assets/machines/2023-KUBOTA-SVL97-2---51,800---813-Hours-(12).webp';
+import kubotaSvl972_2023_13 from '@/assets/machines/2023-KUBOTA-SVL97-2---51,800---813-Hours-(13).webp';
+import kubotaSvl972_2023_14 from '@/assets/machines/2023-KUBOTA-SVL97-2---51,800---813-Hours-(14).webp';
+import kubotaSvl972_2023_15 from '@/assets/machines/2023-KUBOTA-SVL97-2---51,800---813-Hours-(15).webp';
+import kubotaSvl972_2023_16 from '@/assets/machines/2023-KUBOTA-SVL97-2---51,800---813-Hours-(16).webp';
+import kubotaSvl972_2023_17 from '@/assets/machines/2023-KUBOTA-SVL97-2---51,800---813-Hours-(17).webp';
+import kubotaSvl972_2023_18 from '@/assets/machines/2023-KUBOTA-SVL97-2---51,800---813-Hours-(18).webp';
+import kubotaSvl972_2023_19 from '@/assets/machines/2023-KUBOTA-SVL97-2---51,800---813-Hours-(19).webp';
+import kubotaSvl972_2023_20 from '@/assets/machines/2023-KUBOTA-SVL97-2---51,800---813-Hours-(20).webp';
+import kubotaSvl972_2023_21 from '@/assets/machines/2023-KUBOTA-SVL97-2---51,800---813-Hours-(21).webp';
+import kubotaSvl972_2023_22 from '@/assets/machines/2023-KUBOTA-SVL97-2---51,800---813-Hours-(22).webp';
+import kubotaSvl972_2023_23 from '@/assets/machines/2023-KUBOTA-SVL97-2---51,800---813-Hours-(23).webp';
+import kubotaSvl972_2023_24 from '@/assets/machines/2023-KUBOTA-SVL97-2---51,800---813-Hours-(24).webp';
+import kubotaSvl972_2023_25 from '@/assets/machines/2023-KUBOTA-SVL97-2---51,800---813-Hours-(25).webp';
+import kubotaSvl972_2023_26 from '@/assets/machines/2023-KUBOTA-SVL97-2---51,800---813-Hours-(26).webp';
+import kubotaSvl972_2023_27 from '@/assets/machines/2023-KUBOTA-SVL97-2---51,800---813-Hours-(27).webp';
+import kubotaSvl972_2023_28 from '@/assets/machines/2023-KUBOTA-SVL97-2---51,800---813-Hours-(28).webp';
+import kubotaSvl972_2023_29 from '@/assets/machines/2023-KUBOTA-SVL97-2---51,800---813-Hours-(29).webp';
 
-// 2024 KUBOTA SVL75-3 - $54,950 - 447 hours (15 photos - using first 5)
+// 2024 KUBOTA SVL75-3 - $54,950 - 447 hours (15 photos)
 import kubotaSvl753_2024_54950_1 from '@/assets/machines/2024-KUBOTA-SVL75-3----54,950---447-hours-(1).webp';
 import kubotaSvl753_2024_54950_2 from '@/assets/machines/2024-KUBOTA-SVL75-3----54,950---447-hours-(2).webp';
 import kubotaSvl753_2024_54950_3 from '@/assets/machines/2024-KUBOTA-SVL75-3----54,950---447-hours-(3).webp';
 import kubotaSvl753_2024_54950_4 from '@/assets/machines/2024-KUBOTA-SVL75-3----54,950---447-hours-(4).webp';
 import kubotaSvl753_2024_54950_5 from '@/assets/machines/2024-KUBOTA-SVL75-3----54,950---447-hours-(5).webp';
+import kubotaSvl753_2024_54950_6 from '@/assets/machines/2024-KUBOTA-SVL75-3----54,950---447-hours-(6).webp';
+import kubotaSvl753_2024_54950_7 from '@/assets/machines/2024-KUBOTA-SVL75-3----54,950---447-hours-(7).webp';
+import kubotaSvl753_2024_54950_8 from '@/assets/machines/2024-KUBOTA-SVL75-3----54,950---447-hours-(8).webp';
+import kubotaSvl753_2024_54950_9 from '@/assets/machines/2024-KUBOTA-SVL75-3----54,950---447-hours-(9).webp';
+import kubotaSvl753_2024_54950_10 from '@/assets/machines/2024-KUBOTA-SVL75-3----54,950---447-hours-(10).webp';
+import kubotaSvl753_2024_54950_11 from '@/assets/machines/2024-KUBOTA-SVL75-3----54,950---447-hours-(11).webp';
+import kubotaSvl753_2024_54950_12 from '@/assets/machines/2024-KUBOTA-SVL75-3----54,950---447-hours-(12).webp';
+import kubotaSvl753_2024_54950_13 from '@/assets/machines/2024-KUBOTA-SVL75-3----54,950---447-hours-(13).webp';
+import kubotaSvl753_2024_54950_14 from '@/assets/machines/2024-KUBOTA-SVL75-3----54,950---447-hours-(14).webp';
+import kubotaSvl753_2024_54950_15 from '@/assets/machines/2024-KUBOTA-SVL75-3----54,950---447-hours-(15).webp';
 
-// 2024 KUBOTA SVL75-3 - $55,800 - 187 hours (16 photos - using first 5)
+// 2024 KUBOTA SVL75-3 - $55,800 - 187 hours (16 photos)
 import kubotaSvl753_2024_55800_1 from '@/assets/machines/2024-KUBOTA-SVL75-3-(1).webp';
 import kubotaSvl753_2024_55800_2 from '@/assets/machines/2024-KUBOTA-SVL75-3-(2).webp';
 import kubotaSvl753_2024_55800_3 from '@/assets/machines/2024-KUBOTA-SVL75-3-(3).webp';
 import kubotaSvl753_2024_55800_4 from '@/assets/machines/2024-KUBOTA-SVL75-3-(4).webp';
 import kubotaSvl753_2024_55800_5 from '@/assets/machines/2024-KUBOTA-SVL75-3-(5).webp';
+import kubotaSvl753_2024_55800_6 from '@/assets/machines/2024-KUBOTA-SVL75-3-(6).webp';
+import kubotaSvl753_2024_55800_7 from '@/assets/machines/2024-KUBOTA-SVL75-3-(7).webp';
+import kubotaSvl753_2024_55800_8 from '@/assets/machines/2024-KUBOTA-SVL75-3-(8).webp';
+import kubotaSvl753_2024_55800_9 from '@/assets/machines/2024-KUBOTA-SVL75-3-(9).webp';
+import kubotaSvl753_2024_55800_10 from '@/assets/machines/2024-KUBOTA-SVL75-3-(10).webp';
+import kubotaSvl753_2024_55800_11 from '@/assets/machines/2024-KUBOTA-SVL75-3-(11).webp';
+import kubotaSvl753_2024_55800_12 from '@/assets/machines/2024-KUBOTA-SVL75-3-(12).webp';
+import kubotaSvl753_2024_55800_13 from '@/assets/machines/2024-KUBOTA-SVL75-3-(13).webp';
+import kubotaSvl753_2024_55800_14 from '@/assets/machines/2024-KUBOTA-SVL75-3-(14).webp';
+import kubotaSvl753_2024_55800_15 from '@/assets/machines/2024-KUBOTA-SVL75-3-(15).webp';
+import kubotaSvl753_2024_55800_16 from '@/assets/machines/2024-KUBOTA-SVL75-3-(16).webp';
 
 // bobcatE50Image removed - file doesn't exist
 
@@ -2035,6 +2150,21 @@ const allMachinesRaw: Array<Omit<Machine, 'category'> & { category?: string }> =
       cat259d32022_3,
       cat259d32022_4,
       cat259d32022_5,
+      cat259d32022_6,
+      cat259d32022_7,
+      cat259d32022_8,
+      cat259d32022_9,
+      cat259d32022_10,
+      cat259d32022_11,
+      cat259d32022_12,
+      cat259d32022_13,
+      cat259d32022_14,
+      cat259d32022_15,
+      cat259d32022_16,
+      cat259d32022_17,
+      cat259d32022_18,
+      cat259d32022_19,
+      cat259d32022_20,
     ],
   },
   {
@@ -2070,6 +2200,28 @@ const allMachinesRaw: Array<Omit<Machine, 'category'> & { category?: string }> =
       kubotaSvl972_2022_3,
       kubotaSvl972_2022_4,
       kubotaSvl972_2022_5,
+      kubotaSvl972_2022_6,
+      kubotaSvl972_2022_7,
+      kubotaSvl972_2022_8,
+      kubotaSvl972_2022_9,
+      kubotaSvl972_2022_10,
+      kubotaSvl972_2022_11,
+      kubotaSvl972_2022_12,
+      kubotaSvl972_2022_13,
+      kubotaSvl972_2022_14,
+      kubotaSvl972_2022_15,
+      kubotaSvl972_2022_16,
+      kubotaSvl972_2022_17,
+      kubotaSvl972_2022_18,
+      kubotaSvl972_2022_19,
+      kubotaSvl972_2022_20,
+      kubotaSvl972_2022_21,
+      kubotaSvl972_2022_22,
+      kubotaSvl972_2022_23,
+      kubotaSvl972_2022_24,
+      kubotaSvl972_2022_25,
+      kubotaSvl972_2022_26,
+      kubotaSvl972_2022_27,
     ],
   },
   {
@@ -2105,6 +2257,14 @@ const allMachinesRaw: Array<Omit<Machine, 'category'> & { category?: string }> =
       cat259d32023_3,
       cat259d32023_4,
       cat259d32023_5,
+      cat259d32023_6,
+      cat259d32023_7,
+      cat259d32023_8,
+      cat259d32023_9,
+      cat259d32023_10,
+      cat259d32023_11,
+      cat259d32023_12,
+      cat259d32023_13,
     ],
   },
   {
@@ -2140,6 +2300,29 @@ const allMachinesRaw: Array<Omit<Machine, 'category'> & { category?: string }> =
       deere333g2023_45700_3,
       deere333g2023_45700_4,
       deere333g2023_45700_5,
+      deere333g2023_45700_6,
+      deere333g2023_45700_7,
+      deere333g2023_45700_8,
+      deere333g2023_45700_9,
+      deere333g2023_45700_10,
+      deere333g2023_45700_11,
+      deere333g2023_45700_12,
+      deere333g2023_45700_13,
+      deere333g2023_45700_14,
+      deere333g2023_45700_15,
+      deere333g2023_45700_16,
+      deere333g2023_45700_17,
+      deere333g2023_45700_18,
+      deere333g2023_45700_19,
+      deere333g2023_45700_20,
+      deere333g2023_45700_21,
+      deere333g2023_45700_22,
+      deere333g2023_45700_23,
+      deere333g2023_45700_24,
+      deere333g2023_45700_25,
+      deere333g2023_45700_26,
+      deere333g2023_45700_27,
+      deere333g2023_45700_28,
     ],
   },
   {
@@ -2175,6 +2358,8 @@ const allMachinesRaw: Array<Omit<Machine, 'category'> & { category?: string }> =
       deere333g2023_57600_3,
       deere333g2023_57600_4,
       deere333g2023_57600_5,
+      deere333g2023_57600_6,
+      deere333g2023_57600_7,
     ],
   },
   {
@@ -2210,6 +2395,30 @@ const allMachinesRaw: Array<Omit<Machine, 'category'> & { category?: string }> =
       kubotaSvl972_2023_3,
       kubotaSvl972_2023_4,
       kubotaSvl972_2023_5,
+      kubotaSvl972_2023_6,
+      kubotaSvl972_2023_7,
+      kubotaSvl972_2023_8,
+      kubotaSvl972_2023_9,
+      kubotaSvl972_2023_10,
+      kubotaSvl972_2023_11,
+      kubotaSvl972_2023_12,
+      kubotaSvl972_2023_13,
+      kubotaSvl972_2023_14,
+      kubotaSvl972_2023_15,
+      kubotaSvl972_2023_16,
+      kubotaSvl972_2023_17,
+      kubotaSvl972_2023_18,
+      kubotaSvl972_2023_19,
+      kubotaSvl972_2023_20,
+      kubotaSvl972_2023_21,
+      kubotaSvl972_2023_22,
+      kubotaSvl972_2023_23,
+      kubotaSvl972_2023_24,
+      kubotaSvl972_2023_25,
+      kubotaSvl972_2023_26,
+      kubotaSvl972_2023_27,
+      kubotaSvl972_2023_28,
+      kubotaSvl972_2023_29,
     ],
   },
   {
@@ -2245,6 +2454,16 @@ const allMachinesRaw: Array<Omit<Machine, 'category'> & { category?: string }> =
       kubotaSvl753_2024_54950_3,
       kubotaSvl753_2024_54950_4,
       kubotaSvl753_2024_54950_5,
+      kubotaSvl753_2024_54950_6,
+      kubotaSvl753_2024_54950_7,
+      kubotaSvl753_2024_54950_8,
+      kubotaSvl753_2024_54950_9,
+      kubotaSvl753_2024_54950_10,
+      kubotaSvl753_2024_54950_11,
+      kubotaSvl753_2024_54950_12,
+      kubotaSvl753_2024_54950_13,
+      kubotaSvl753_2024_54950_14,
+      kubotaSvl753_2024_54950_15,
     ],
   },
   {
@@ -2280,6 +2499,17 @@ const allMachinesRaw: Array<Omit<Machine, 'category'> & { category?: string }> =
       kubotaSvl753_2024_55800_3,
       kubotaSvl753_2024_55800_4,
       kubotaSvl753_2024_55800_5,
+      kubotaSvl753_2024_55800_6,
+      kubotaSvl753_2024_55800_7,
+      kubotaSvl753_2024_55800_8,
+      kubotaSvl753_2024_55800_9,
+      kubotaSvl753_2024_55800_10,
+      kubotaSvl753_2024_55800_11,
+      kubotaSvl753_2024_55800_12,
+      kubotaSvl753_2024_55800_13,
+      kubotaSvl753_2024_55800_14,
+      kubotaSvl753_2024_55800_15,
+      kubotaSvl753_2024_55800_16,
     ],
   },
 ];
