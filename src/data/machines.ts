@@ -478,7 +478,6 @@ const allMachinesRaw: Array<Omit<Machine, 'category'> & { category?: string }> =
     gallery: [
       kubotaR640r43Image1,
       kubotaR640r43Image2,
-      kubotaR640r43Image3,
       kubotaR640r43Image4,
       kubotaR640r43Image5,
     ],
