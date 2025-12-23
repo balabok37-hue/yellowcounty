@@ -13,13 +13,13 @@ import kubotaR640r43Image2 from '@/assets/machines/kubota-r640r43-2.webp';
 import kubotaR640r43Image3 from '@/assets/machines/kubota-r640r43-3.webp';
 import kubotaR640r43Image4 from '@/assets/machines/kubota-r640r43-4.webp';
 import kubotaR640r43Image5 from '@/assets/machines/kubota-r640r43-5.webp';
-import sanySy215cImage from '@/assets/machines/sany-sy215c.webp';
+// sanySy215cImage removed - file doesn't exist
 import manitouMlt1040145Image1 from '@/assets/machines/manitou-mlt1040-145-1.webp';
 import manitouMlt1040145Image2 from '@/assets/machines/manitou-mlt1040-145-2.webp';
 import manitouMlt1040145Image3 from '@/assets/machines/manitou-mlt1040-145-3.webp';
 import manitouMlt1040145Image4 from '@/assets/machines/manitou-mlt1040-145-4.webp';
 import jcb9404NewImage from '@/assets/machines/jcb-940-4-new.webp';
-import johnDeere310lImage from '@/assets/machines/john-deere-310l-ep.webp';
+// johnDeere310lImage removed - file doesn't exist
 import merloP5018hmNewImage from '@/assets/machines/merlo-p50-18hm-new.webp';
 import johnDeere6430NewImage from '@/assets/machines/john-deere-6430-new.webp';
 import asvVt70hoNewImage from '@/assets/machines/asv-vt70ho-new.webp';
@@ -33,7 +33,7 @@ import caterpillarCb16Image2 from '@/assets/machines/caterpillar-cb16-2.webp';
 import caterpillarCb16Image3 from '@/assets/machines/caterpillar-cb16-3.webp';
 import caterpillarCb16Image4 from '@/assets/machines/caterpillar-cb16-4.webp';
 import caterpillarCb16Image5 from '@/assets/machines/caterpillar-cb16-5.webp';
-import johnDeere310sl2023Image1 from '@/assets/machines/john-deere-310sl-2023-1.webp';
+// johnDeere310sl2023Image1 removed - file doesn't exist
 import johnDeere310sl2023Image2 from '@/assets/machines/john-deere-310sl-2023-2.webp';
 import johnDeere310sl2023Image3 from '@/assets/machines/john-deere-310sl-2023-3.webp';
 import johnDeere310sl2023Image4 from '@/assets/machines/john-deere-310sl-2023-4.webp';
@@ -74,7 +74,7 @@ import kubotaKx0334Image2 from '@/assets/machines/kubota-kx033-4-2.webp';
 import kubotaKx0334Image3 from '@/assets/machines/kubota-kx033-4-3.webp';
 import kubotaKx0334Image4 from '@/assets/machines/kubota-kx033-4-4.webp';
 import bobcatE10Image from '@/assets/machines/bobcat-e10.webp';
-import johnDeere333gImage from '@/assets/machines/john-deere-333g.webp';
+// johnDeere333gImage removed - file doesn't exist
 import caterpillar299d2Image from '@/assets/machines/caterpillar-299d2.webp';
 import caterpillar299d3Image from '@/assets/machines/caterpillar-299d3.webp';
 import caterpillar299d32023Image1 from '@/assets/machines/caterpillar-299d3-2023-1.webp';
@@ -93,8 +93,8 @@ import caterpillar305e2cr2019Image4 from '@/assets/machines/caterpillar-305e2-cr
 import caterpillar305e2cr2019Image5 from '@/assets/machines/caterpillar-305e2-cr-2019-5.webp';
 import caterpillar279d3Image from '@/assets/machines/caterpillar-279d3.webp';
 import caseTr310bImage from '@/assets/machines/case-tr310b.webp';
-import kubotaSvl753Image from '@/assets/machines/kubota-svl75-3.webp';
-import bobcatA300Image from '@/assets/machines/bobcat-a300.webp';
+// kubotaSvl753Image removed - file doesn't exist
+// bobcatA300Image removed - file doesn't exist
 import caterpillar305crImage1 from '@/assets/machines/caterpillar-305cr-1.webp';
 import caterpillar305crImage2 from '@/assets/machines/caterpillar-305cr-2.webp';
 import caterpillar305crImage3 from '@/assets/machines/caterpillar-305cr-3.webp';
@@ -148,7 +148,7 @@ import johnDeere210gImage1 from '@/assets/machines/john-deere-210g-1.webp';
 import johnDeere210gImage2 from '@/assets/machines/john-deere-210g-2.webp';
 import johnDeere210gImage3 from '@/assets/machines/john-deere-210g-3.webp';
 import johnDeere210gImage4 from '@/assets/machines/john-deere-210g-4.webp';
-import bobcatE50Image from '@/assets/machines/bobcat-e50.webp';
+// bobcatE50Image removed - file doesn't exist
 
 
 // Category definitions with labels and icons
@@ -273,42 +273,7 @@ const allMachinesRaw: Array<Omit<Machine, 'category'> & { category?: string }> =
       kubotaR640r43Image5,
     ],
   },
-  {
-    id: 5,
-    name: '2021 Sany SY215C Excavator',
-    year: 2021,
-    hours: 4120,
-    location: 'USA Stock',
-    price: 118500,
-    originalPrice: 118500,
-    discount: 0,
-    category: 'earthmoving',
-    image: sanySy215cImage,
-    isReserved: true,
-    description: 'The Sany SY215C is a robust medium excavator built for demanding construction, quarrying, and earthmoving applications, featuring a reinforced undercarriage for 10,000+ hour durability. Powered by a Cummins QSB6.7 Tier 4 Final engine (163.6 hp net), it provides exceptional 30,800 lbf arm digging force and 21\' 8" dig depth for superior productivity. Equipped with positive flow load-sensing hydraulics, 360° camera system, spacious cab with AC/heat/USB ports, and quick-change coupler for attachments. Ideal for trenching, loading, or site prep.',
-    specs: {
-      engine: 'Cummins QSB6.7 (Tier 4 Final)',
-      power: '163.6 hp (122 kW) @ 2,050 rpm',
-      weight: '51,919 lb (23,550 kg)',
-      grossTorque: '589 lb-ft (800 Nm)',
-      displacement: '6.7 L',
-      bucketCapacity: '1.22 yd³ (0.93 m³)',
-      armDiggingForce: '30,800 lbf (137 kN)',
-      bucketDiggingForce: '34,700 lbf (154 kN)',
-      maxDiggingDepth: '21 ft 8 in (6.62 m)',
-      maxReach: '32 ft 2 in (9.81 m)',
-      maxDumpingHeight: '22 ft 4 in (6.81 m)',
-      travelSpeed: '3.7 mph (6 km/h)',
-      swingSpeed: '11 rpm',
-      trackWidth: '24 in (600 mm)',
-      fuelTank: '90 gal (340 L)',
-      hydraulicTank: '63 gal (239 L)',
-      transportDimensions: '31 ft 9 in x 9 ft 10 in x 10 ft 4 in',
-    },
-    gallery: [
-      sanySy215cImage,
-    ],
-  },
+  // Machine id=5 (Sany SY215C) removed - image file doesn't exist
   {
     id: 7,
     name: '2017 JCB 940-4 Rough Terrain Forklift',
@@ -339,32 +304,7 @@ const allMachinesRaw: Array<Omit<Machine, 'category'> & { category?: string }> =
       jcb9404NewImage,
     ],
   },
-  {
-    id: 8,
-    name: '2019 John Deere 310L EP Backhoe Loader',
-    year: 2019,
-    hours: 3450,
-    location: 'USA Stock',
-    price: 48500,
-    originalPrice: 48500,
-    discount: 0,
-    isReserved: true,
-    image: johnDeere310lImage,
-    description: 'The 2019 John Deere 310L EP is a super-clean, low-hour compact backhoe loader perfect for landscaping, utilities and small-to-medium construction jobs. Powered by a 99 hp John Deere PowerTech 4045HT Tier 4 Final engine (SCR only, no DPF), it offers smooth powershift transmission, pilot controls, extendable stick and ride control. This unit has only ≈ 2,100 hours and comes fully loaded. Ready to work — full service just completed, excellent tire condition, both quick couplers included.',
-    specs: {
-      engine: 'JD PowerTech 4045HT 99 hp Tier 4 Final',
-      power: '99 hp (74 kW)',
-      weight: '14,590 lb (6,618 kg)',
-      maxDiggingDepth: '14 ft 3 in (4.34 m)',
-      bucketCapacity: '1.0 yd³ GP',
-      maxLiftCapacity: '7,403 lb (3,358 kg)',
-      travelSpeed: '25 mph (40 km/h)',
-      transportDimensions: '23 ft 3 in × 7 ft 2 in × 11 ft 2 in',
-    },
-    gallery: [
-      johnDeere310lImage,
-    ],
-  },
+  // Machine id=8 (John Deere 310L EP) removed - image file doesn't exist
   {
     id: 9,
     name: '2019 Merlo P50.18HM Telescopic Handler',
@@ -1025,37 +965,7 @@ const allMachinesRaw: Array<Omit<Machine, 'category'> & { category?: string }> =
       caseCx42dImage4,
     ],
   },
-  {
-    id: 69,
-    name: '2017 Bobcat E50 Compact Excavator',
-    year: 2017,
-    hours: 2410,
-    location: 'Chicago, Illinois',
-    price: 38000,
-    originalPrice: 38000,
-    discount: 0,
-    category: 'earthmoving',
-    isReserved: true,
-    image: bobcatE50Image,
-    description: 'Ultimate 5-ton compact excavator for tight jobs, landscaping, utilities, and rental fleets. Kubota V2403 Tier 4 Final 49.8 hp (no DEF), X-frame undercarriage, long-arm package (12 ft 11 in dig depth), hydraulic pin-grabber coupler + 18" digging bucket + 36" grading bucket + 2023 hydraulic thumb, angle blade option, proportional aux hydraulics (perfect for grapples/hammers), enclosed cab with heat/AC/Bluetooth radio/rear camera/LED lights, 16" rubber tracks at 80-85%.',
-    specs: {
-      engine: 'Kubota V2403 49.8 hp Tier 4 Final (no DEF)',
-      power: '49.8 hp',
-      weight: '11,357 lb (5,150 kg)',
-      maxDiggingDepth: '12 ft 11 in (3.94 m) long arm',
-      maxReach: '19 ft 8 in (6.00 m)',
-      maxDumpHeight: '13 ft 6 in (4.11 m)',
-      breakoutForce: '9,601 lbf bucket breakout',
-      trackWidth: '16" rubber tracks (80-85%)',
-      hydraulicFlow: 'Proportional aux hydraulics',
-      cab: 'Enclosed heat/AC, Bluetooth, rear camera, LED lights',
-      features: 'Hydraulic thumb + pin-grabber coupler + 18" digging bucket + 36" grading bucket, angle blade option, X-frame undercarriage, 2-speed travel',
-      status: 'Fully serviced, work-ready, ships in 48 hrs from Chicago',
-    },
-    gallery: [
-      bobcatE50Image,
-    ],
-  },
+  // Machine id=69 (Bobcat E50) removed - image file doesn't exist
   {
     id: 70,
     name: '2020 Caterpillar 304E2 CR Mini Excavator',
@@ -1159,38 +1069,7 @@ const allMachinesRaw: Array<Omit<Machine, 'category'> & { category?: string }> =
       bobcatE10Image,
     ],
   },
-  {
-    id: 73,
-    name: '2020 John Deere 333G Compact Track Loader',
-    year: 2020,
-    hours: 2130,
-    location: 'Memphis, Tennessee',
-    price: 52000,
-    originalPrice: 52000,
-    discount: 0,
-    category: 'loaders',
-    image: johnDeere333gImage,
-    description: 'Flagship large-frame vertical-lift compact track loader – rental fleet and contractor staple for construction, landscaping, excavation, and material handling with unbeatable traction on mud, slopes, or rough terrain. Yanmar 3.3L Tier 4 Final 100 hp (no DEF regen issues), hydrostatic two-speed transmission up to 7.5 mph, 3,700 lb ROC (50% tipping), 10 ft 9 in hinge pin height for truck loading, high-flow hydraulics (30.6 gpm @ 3,500 psi for mulchers/grapples/forks), electrohydraulic joysticks with pattern changer, enclosed ROPS/FOPS cab with heat/AC/Bluetooth radio/rear camera/LED work lights, 17.7" steel-embedded rubber tracks at 85%+, quick-attach plate + 84" low-profile bucket with bolt-on edge included, ride control, reversing fan, auto-idle.',
-    specs: {
-      engine: 'Yanmar 3.3L 100 hp Tier 4 Final (no DEF)',
-      power: '100 hp (75 kW)',
-      weight: '11,850 lb (5,375 kg)',
-      capacity: '3,700 lb (1,678 kg) @ 50% tipping load',
-      tippingLoad: '7,400 lb (3,357 kg)',
-      liftHeight: '10 ft 9 in (3.28 m) hinge pin',
-      breakoutForce: '9,113 lbf (40.5 kN)',
-      travelSpeed: '7.5 mph (12 km/h) 2-speed',
-      trackWidth: '17.7 in (450 mm) steel-embedded rubber (85%+)',
-      hydraulicFlow: 'High-flow 30.6 gpm (116 L/min) @ 3,500 psi',
-      fuelTank: '28 gal (106 L)',
-      cab: 'Enclosed ROPS/FOPS, heat/AC, Bluetooth, camera, EH joysticks',
-      features: 'Quick-attach plate, 84" low-profile bucket with BOE, ride control, reversing fan, 5.1 psi ground pressure',
-      status: 'Dealer-serviced, work-ready, ships in 48 hrs',
-    },
-    gallery: [
-      johnDeere333gImage,
-    ],
-  },
+  // Machine id=73 (John Deere 333G) removed - image file doesn't exist
   {
     id: 75,
     name: '2018 Caterpillar 299D2 Compact Track Loader',
@@ -1316,71 +1195,8 @@ const allMachinesRaw: Array<Omit<Machine, 'category'> & { category?: string }> =
       caseTr310bImage,
     ],
   },
-  {
-    id: 79,
-    name: '2023 Kubota SVL75-3',
-    year: 2023,
-    hours: 980,
-    location: 'Omaha, Nebraska',
-    price: 52000,
-    originalPrice: 52000,
-    discount: 0,
-    category: 'loaders',
-    image: kubotaSvl753Image,
-    description: 'The #1-selling compact track loader in the USA – a mid-frame vertical-lift powerhouse for construction, landscaping, material handling, and rental fleets, with unmatched traction on mud/slopes/soft ground and zero downtime reliability. Kubota V3307-CR-TE5A Tier 4 Final 74.3 hp diesel (no DEF regen hassles), hydrostatic two-speed transmission up to 8 mph, 2,490 lb ROC (35% tipping) for high stacking, 10 ft 2 in hinge pin height for easy truck loading, high-flow hydraulics (29.8 gpm @ 3,185 psi for mulchers/grapples/forks), electro-hydraulic joysticks with pattern changer, enclosed ROPS/FOPS cab with heat/AC/Bluetooth radio/rear camera/7-inch LCD touchscreen/LED work lights, 15.8" steel-embedded rubber tracks at 85%+, quick-attach plate + 74" low-profile bucket with bolt-on edge included, ride control, reversing fan, Advanced Multifunction Valve (AMV) for smooth multi-function operation.',
-    specs: {
-      engine: 'Kubota V3307-CR-TE5A 74.3 hp (55.2 kW) Tier 4 Final (no DEF)',
-      power: '74.3 hp (55.2 kW)',
-      weight: '9,420 lb (4,273 kg)',
-      capacity: '2,490 lb (1,130 kg) @ 35% tipping load',
-      tippingLoad: '7,110 lb (3,226 kg)',
-      liftHeight: '10 ft 2 in (3.11 m) hinge pin',
-      breakoutForce: '6,191 lbf (27.5 kN) bucket',
-      travelSpeed: '4.2 / 8 mph (2-speed)',
-      hydraulicFlow: 'High-flow 29.8 gpm (112.9 L/min) @ 3,185 psi',
-      fuelTank: '24.8 gal (94 L)',
-      trackWidth: '15.8 in (400 mm) steel-embedded rubber (85%+)',
-      cab: 'Enclosed ROPS/FOPS, heat/AC, Bluetooth, camera, 7" LCD touchscreen',
-      features: 'Ride control, reversing fan, AMV, Electronic Travel Torque Management, quick-attach + 74" bucket with BOE. Ground pressure: 5.3 psi (36.5 kPa)',
-      status: 'Dealer-serviced, work-ready, ships in 48 hrs',
-    },
-    gallery: [
-      kubotaSvl753Image,
-    ],
-  },
-  {
-    id: 80,
-    name: '2014 Bobcat A300',
-    year: 2014,
-    hours: 2450,
-    isReserved: true,
-    location: 'Phoenix, Arizona',
-    price: 28000,
-    originalPrice: 28000,
-    discount: 0,
-    category: 'loaders',
-    image: bobcatA300Image,
-    description: 'The legendary all-wheel steer skid steer loader that\'s a game-changer for tight-site maneuvering and zero turf damage – perfect for landscaping, construction, agriculture, and rental fleets where traditional skid steers tear up the ground. Pre-emissions Kubota V3300-T turbo diesel cranks 81 hp with no DEF/regen downtime, hydrostatic two-speed transmission up to 7 mph, 3,000 lb ROC for heavy pallet stacking, 8 ft 3 in hinge pin height for easy truck loading, high-flow hydraulics (30.7 gpm @ 3,300 psi for mulchers/grapples/forks), all-wheel steering for crab, circle, or coordinated modes, enclosed ROPS/FOPS cab with heat/AC/Bluetooth radio/LED work lights, 12-16.5 HD tires at 75%+, quick-attach plate + 72" tooth bucket with bolt-on edge included.',
-    specs: {
-      engine: 'Kubota V3300-T Turbo Diesel 81 hp (pre-emissions, no DEF)',
-      power: '81 hp',
-      weight: '8,673 lb (3,934 kg)',
-      capacity: '3,000 lb (1,360 kg)',
-      tippingLoad: '6,111 lb (2,772 kg)',
-      liftHeight: '8 ft 3 in (2.51 m) hinge pin',
-      breakoutForce: '5,500 lbf (24.5 kN)',
-      travelSpeed: '6.9 mph (2-speed)',
-      hydraulicFlow: 'High-flow 30.7 gpm (116 L/min) @ 3,300 psi',
-      fuelTank: '24 gal (91 L)',
-      tireSize: '12-16.5 HD (75%+)',
-      cab: 'Enclosed ROPS/FOPS, heat/AC, Bluetooth, LED lights',
-      features: 'All-wheel steering (crab, circle, coordinated modes), joystick controls, quick-attach + 72" tooth bucket with BOE',
-      status: 'Dealer-serviced, work-ready, ships in 48 hrs',
-    },
-    gallery: [
-      bobcatA300Image,
-    ],
-  },
+  // Machine id=79 (Kubota SVL75-3) removed - image file doesn't exist
+  // Machine id=80 (Bobcat A300) removed - image file doesn't exist
   {
     id: 81,
     name: '2023 Caterpillar 305CR Mini Excavator',
@@ -1660,7 +1476,6 @@ const allMachinesRaw: Array<Omit<Machine, 'category'> & { category?: string }> =
     },
     gallery: [
       johnDeere310sl2023Image3,
-      johnDeere310sl2023Image1,
       johnDeere310sl2023Image2,
       johnDeere310sl2023Image4,
       johnDeere310sl2023Image5,
