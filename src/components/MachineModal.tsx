@@ -1,7 +1,8 @@
 import { X, MapPin, Send, ChevronLeft, ChevronRight, Shield, Truck, CheckCircle2, Clock } from 'lucide-react';
 import { Button } from '@/components/ui/button';
-import { useState, useCallback, useEffect } from 'react';
+import { useState, useCallback, useEffect, memo } from 'react';
 import type { Machine } from './MachineCard';
+import { useGalleryPreload } from '@/hooks/useCriticalImagePreload';
 
 interface MachineModalProps {
   machine: Machine | null;
@@ -65,6 +66,9 @@ export function MachineModal({ machine, isOpen, onClose }: MachineModalProps) {
   
   const images = galleryImages;
 
+  // Preload adjacent images for smooth navigation
+  useGalleryPreload(images, currentImageIndex, 2);
+
   const handleRequestQuote = () => {
     const message = `Hi! I'm interested in the ${machine.year} ${machine.name} listed at $${machine.price.toLocaleString()}. Is it still available?`;
     scrollToContact(message);
@@ -115,6 +119,11 @@ export function MachineModal({ machine, isOpen, onClose }: MachineModalProps) {
                 src={images[currentImageIndex]}
                 alt={`${machine.name} - Image ${currentImageIndex + 1}`}
                 className="w-full h-full object-cover bg-muted"
+                loading="eager"
+                decoding="async"
+                fetchPriority="high"
+                width={600}
+                height={400}
               />
               
               {/* Navigation Arrows */}
@@ -165,6 +174,10 @@ export function MachineModal({ machine, isOpen, onClose }: MachineModalProps) {
                       src={img}
                       alt={`Thumbnail ${idx + 1}`}
                       className="w-full h-full object-cover"
+                      loading="lazy"
+                      decoding="async"
+                      width={80}
+                      height={80}
                     />
                   </button>
                 ))}

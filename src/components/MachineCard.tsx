@@ -98,14 +98,31 @@ interface MachineCardProps {
   onViewDetails: (machine: Machine) => void;
   onImageLoaded?: () => void;
   priority?: boolean;
+  index?: number;
 }
 
-export const MachineCard = memo(function MachineCard({ machine, onViewDetails, onImageLoaded, priority = false }: MachineCardProps) {
+// Shimmer placeholder gradient
+const SHIMMER_STYLE = {
+  background: 'linear-gradient(90deg, transparent 0%, hsl(var(--muted-foreground)/0.08) 50%, transparent 100%)',
+  animation: 'shimmer 1.5s infinite',
+};
+
+export const MachineCard = memo(function MachineCard({ 
+  machine, 
+  onViewDetails, 
+  onImageLoaded, 
+  priority = false,
+  index = 0 
+}: MachineCardProps) {
   const isUnavailable = machine.isSold || machine.isReserved;
   const [imageLoaded, setImageLoaded] = useState(false);
   const isNew = machine.year >= 2023;
   // Never show discount badge for unavailable machines
   const hasDiscount = machine.discount > 0 && !isUnavailable;
+  
+  // First 6 cards get priority loading, first 3 get high fetch priority
+  const shouldPrioritize = priority || index < 6;
+  const isHighPriority = index < 3;
   
   const handleClick = () => {
     if (!isUnavailable) {
@@ -128,17 +145,20 @@ export const MachineCard = memo(function MachineCard({ machine, onViewDetails, o
     >
       {/* Image Container */}
       <div className="relative aspect-[4/3] bg-muted overflow-hidden flex items-center justify-center">
-        {/* Loading skeleton */}
+        {/* Loading skeleton with shimmer */}
         {!imageLoaded && (
-          <div className="absolute inset-0 bg-muted animate-pulse" />
+          <div className="absolute inset-0 bg-muted">
+            <div className="absolute inset-0" style={SHIMMER_STYLE} />
+          </div>
         )}
 
-        {/* Image - centered */}
+        {/* Image - centered with explicit dimensions for CLS prevention */}
         <img
           src={machine.image}
           alt={machine.name}
-          loading={priority ? 'eager' : 'lazy'}
-          decoding="async"
+          loading={shouldPrioritize ? 'eager' : 'lazy'}
+          decoding={shouldPrioritize ? 'sync' : 'async'}
+          fetchPriority={isHighPriority ? 'high' : 'auto'}
           onLoad={handleImageLoad}
           onError={handleImageLoad}
           className={`w-full h-full transition-opacity duration-300 ${imageLoaded ? 'opacity-100' : 'opacity-0'} ${isUnavailable ? 'blur-[2px]' : ''}`}
@@ -148,6 +168,7 @@ export const MachineCard = memo(function MachineCard({ machine, onViewDetails, o
           }}
           width={400}
           height={300}
+          sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
         />
 
         {/* New Badge */}
