@@ -392,6 +392,25 @@ import kubotaKx0575_2022_9 from '@/assets/machines/2022-KUBOTA-KX057-5----43,400
 import kubotaKx0575_2022_10 from '@/assets/machines/2022-KUBOTA-KX057-5----43,400---1089-hours-(10).webp';
 import kubotaKx0575_2022_11 from '@/assets/machines/2022-KUBOTA-KX057-5----43,400---1089-hours-(11).webp';
 
+// 2025 John Deere 35P Tier - $46,500 - 98.3 hours (18 photos)
+import deere35pTier2025_1 from '@/assets/machines/2025-deere-35p-tier-1.webp';
+import deere35pTier2025_2 from '@/assets/machines/2025-deere-35p-tier-2.webp';
+import deere35pTier2025_3 from '@/assets/machines/2025-deere-35p-tier-3.webp';
+import deere35pTier2025_4 from '@/assets/machines/2025-deere-35p-tier-4.webp';
+import deere35pTier2025_5 from '@/assets/machines/2025-deere-35p-tier-5.webp';
+import deere35pTier2025_6 from '@/assets/machines/2025-deere-35p-tier-6.webp';
+import deere35pTier2025_7 from '@/assets/machines/2025-deere-35p-tier-7.webp';
+import deere35pTier2025_8 from '@/assets/machines/2025-deere-35p-tier-8.webp';
+import deere35pTier2025_9 from '@/assets/machines/2025-deere-35p-tier-9.webp';
+import deere35pTier2025_10 from '@/assets/machines/2025-deere-35p-tier-10.webp';
+import deere35pTier2025_11 from '@/assets/machines/2025-deere-35p-tier-11.webp';
+import deere35pTier2025_12 from '@/assets/machines/2025-deere-35p-tier-12.webp';
+import deere35pTier2025_13 from '@/assets/machines/2025-deere-35p-tier-13.webp';
+import deere35pTier2025_14 from '@/assets/machines/2025-deere-35p-tier-14.webp';
+import deere35pTier2025_15 from '@/assets/machines/2025-deere-35p-tier-15.webp';
+import deere35pTier2025_16 from '@/assets/machines/2025-deere-35p-tier-16.webp';
+import deere35pTier2025_17 from '@/assets/machines/2025-deere-35p-tier-17.webp';
+import deere35pTier2025_18 from '@/assets/machines/2025-deere-35p-tier-18.webp';
 
 // Category definitions with labels and icons
 export const categoryInfo: Record<MachineCategory, { label: string; labelRu?: string }> = {
@@ -2652,6 +2671,53 @@ const allMachinesRaw: Array<Omit<Machine, 'category'> & { category?: string }> =
       kubotaKx0575_2022_11,
     ],
   },
+  {
+    id: 110,
+    name: '2025 John Deere 35P Tier Mini Excavator',
+    year: 2025,
+    hours: 98.3,
+    location: 'USA Stock',
+    price: 46500,
+    originalPrice: 46500,
+    discount: 0,
+    isHotOffer: true,
+    category: 'excavators',
+    image: deere35pTier2025_1,
+    description: 'Nearly new 2025 John Deere 35P Tier mini excavator with only 98.3 hours. Features enclosed cab with A/C and heat, full hydraulics, and factory warranty. Perfect for landscaping, utilities, and tight construction sites. Exceptional value for a nearly new machine.',
+    specs: {
+      engine: 'Yanmar 3TNV88C (Tier 4 Final)',
+      power: '24.7 hp (18.4 kW)',
+      weight: '7,800 lb (3,538 kg)',
+      maxDiggingDepth: '10 ft 2 in (3.1 m)',
+      maxReach: '16 ft 5 in (5.0 m)',
+      bucketDiggingForce: '5,952 lbf (26.5 kN)',
+      armDiggingForce: '3,148 lbf (14.0 kN)',
+      bucketCapacity: '0.09 cu yd (0.07 m³)',
+      trackWidth: '11.8 in (300 mm)',
+      fuelTank: '10.6 gal (40 L)',
+      cab: 'Enclosed ROPS/FOPS cab, heat/AC, suspension seat',
+    },
+    gallery: [
+      deere35pTier2025_1,
+      deere35pTier2025_2,
+      deere35pTier2025_3,
+      deere35pTier2025_4,
+      deere35pTier2025_5,
+      deere35pTier2025_6,
+      deere35pTier2025_7,
+      deere35pTier2025_8,
+      deere35pTier2025_9,
+      deere35pTier2025_10,
+      deere35pTier2025_11,
+      deere35pTier2025_12,
+      deere35pTier2025_13,
+      deere35pTier2025_14,
+      deere35pTier2025_15,
+      deere35pTier2025_16,
+      deere35pTier2025_17,
+      deere35pTier2025_18,
+    ],
+  },
 ];
 // Category assignments by machine ID - prioritized over inline category values
 const categoryMap: Record<number, MachineCategory> = {
@@ -2741,6 +2807,7 @@ const categoryMap: Record<number, MachineCategory> = {
   107: 'excavators', // Bobcat E50 2021
   108: 'excavators', // Kubota KX040-4 2022
   109: 'excavators', // Kubota KX057-5 2022
+  110: 'excavators', // John Deere 35P Tier 2025
 };
 
 const availabilityRegions = ['midwest', 'west', 'east', 'south'] as const;
