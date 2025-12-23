@@ -139,8 +139,8 @@ export default function Documents() {
           >
             <p className="text-sm text-muted-foreground">
               Need a specific document? Contact us at{' '}
-              <a href="mailto:sales@yellowcounty.com" className="text-primary hover:underline">
-                sales@yellowcounty.com
+              <a href="mailto:sales@yellowstone.equipment" className="text-primary hover:underline">
+                sales@yellowstone.equipment
               </a>
             </p>
           </motion.div>

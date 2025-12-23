@@ -218,8 +218,8 @@ export function ContactSection() {
               <div className="bg-card rounded-lg shadow-md p-4 text-center">
                 <Mail className="w-6 h-6 text-primary mx-auto mb-2" />
                 <div className="text-xs text-muted-foreground">Email</div>
-                <a href="mailto:sales@yellowcounty.com" className="font-semibold text-foreground hover:text-primary transition-colors text-sm truncate block">
-                  sales@yellowcounty.com
+                <a href="mailto:sales@yellowstone.equipment" className="font-semibold text-foreground hover:text-primary transition-colors text-sm truncate block">
+                  sales@yellowstone.equipment
                 </a>
               </div>
               <div className="bg-card rounded-lg shadow-md p-4 text-center">
