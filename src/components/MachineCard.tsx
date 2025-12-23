@@ -220,6 +220,16 @@ export const MachineCard = memo(function MachineCard({
         <h3 className="text-lg font-bold text-foreground leading-tight line-clamp-2">
           {modelName}
         </h3>
+
+        {/* USA Available Badge */}
+        {!isUnavailable && (
+          <div className="flex items-center gap-1.5 text-xs text-accent font-medium">
+            <span className="inline-block w-4 h-3 rounded-sm overflow-hidden flex-shrink-0" style={{ background: 'linear-gradient(180deg, #002868 0%, #002868 46%, #bf0a30 46%, #bf0a30 54%, white 54%, white 100%)' }}>
+              <span className="sr-only">USA Flag</span>
+            </span>
+            USA Available
+          </div>
+        )}
       </div>
     </>
   );

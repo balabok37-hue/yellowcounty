@@ -1,6 +1,6 @@
 import { useState, useCallback, useEffect, useRef, useMemo } from 'react';
 import { useParams, useNavigate, Link } from 'react-router-dom';
-import { MapPin, Send, ChevronLeft, ChevronRight, Shield, Truck, CheckCircle2, Clock, ZoomIn, ArrowLeft, X } from 'lucide-react';
+import { MapPin, Send, ChevronLeft, ChevronRight, Shield, Truck, CheckCircle2, Clock, ZoomIn, ArrowLeft, X, Gavel } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Header } from '@/components/Header';
 import { Footer } from '@/components/sections/Footer';
@@ -33,10 +33,12 @@ export default function MachinePage() {
   // Preload adjacent images
   useGalleryPreload(images, currentImageIndex, 2);
 
-  // Get similar machines (same category, excluding current)
+  // Get similar machines (same category, excluding current) - fallback to other categories if none
   const similarMachines = useMemo(() => {
     if (!machine) return [];
-    return allMachines
+    
+    // First try same category
+    const sameCategory = allMachines
       .filter(m => 
         m.id !== machine.id && 
         m.category === machine.category && 
@@ -44,7 +46,26 @@ export default function MachinePage() {
         !m.isReserved
       )
       .slice(0, 4);
+    
+    // If not enough, add from other categories
+    if (sameCategory.length < 4) {
+      const otherMachines = allMachines
+        .filter(m => 
+          m.id !== machine.id && 
+          m.category !== machine.category && 
+          !m.isSold && 
+          !m.isReserved &&
+          !sameCategory.find(sm => sm.id === m.id)
+        )
+        .slice(0, 4 - sameCategory.length);
+      return [...sameCategory, ...otherMachines];
+    }
+    
+    return sameCategory;
   }, [machine]);
+
+  // Check if bidding is available (not 2025 models)
+  const canBid = machine ? machine.year < 2025 : false;
 
   // Update page title and meta for SEO
   useEffect(() => {
@@ -144,6 +165,11 @@ export default function MachinePage() {
 
   const handleRequestQuote = () => {
     const message = `Hi! I'm interested in the ${machine.year} ${machine.name} listed at $${machine.price.toLocaleString()}. Is it still available?`;
+    scrollToContact(message);
+  };
+
+  const handlePlaceBid = () => {
+    const message = `BID REQUEST: I would like to place a bid on the ${machine.year} ${machine.name} (listed at $${machine.price.toLocaleString()}). My offer is: $`;
     scrollToContact(message);
   };
 
@@ -335,9 +361,11 @@ export default function MachinePage() {
                 <Clock className="w-4 h-4" />
                 <span>{machine.miles ? `${machine.miles.toLocaleString()} Miles` : `${machine.hours?.toLocaleString()} Hours`}</span>
               </div>
-              <div className="flex items-center gap-1.5 text-muted-foreground">
-                <MapPin className="w-4 h-4" />
-                <span>{machine.location}</span>
+              <div className="flex items-center gap-1.5 text-accent font-medium">
+                <span className="inline-block w-5 h-3.5 rounded-sm overflow-hidden flex-shrink-0" style={{ background: 'linear-gradient(180deg, #002868 0%, #002868 46%, #bf0a30 46%, #bf0a30 54%, white 54%, white 100%)' }}>
+                  <span className="sr-only">USA Flag</span>
+                </span>
+                USA Stock
               </div>
             </div>
 
@@ -345,7 +373,7 @@ export default function MachinePage() {
             {machine.availableZones && machine.availableZones.length > 0 && (
               <div>
                 <h2 className="text-sm font-bold text-foreground uppercase tracking-wide mb-2">
-                  Available Locations
+                  Available Region
                 </h2>
                 <div className="flex flex-wrap gap-2">
                   {machine.availableZones.map((zone) => (
@@ -362,7 +390,7 @@ export default function MachinePage() {
 
             {/* Price Block */}
             <div className="py-5 px-5 rounded-xl bg-muted/50 border border-border">
-              <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
+              <div className="flex flex-col gap-4">
                 <div>
                   <div className="flex items-baseline gap-2 flex-wrap">
                     <span className="text-3xl font-bold text-foreground">
@@ -381,14 +409,32 @@ export default function MachinePage() {
                     </p>
                   )}
                 </div>
-                <Button
-                  onClick={handleRequestQuote}
-                  size="lg"
-                  className="font-bold bg-primary text-primary-foreground hover:bg-primary/90 shadow-lg"
-                >
-                  <Send className="w-4 h-4 mr-2" />
-                  Get Quote
-                </Button>
+                <div className="flex flex-col sm:flex-row gap-3">
+                  <Button
+                    onClick={handleRequestQuote}
+                    size="lg"
+                    className="flex-1 font-bold bg-primary text-primary-foreground hover:bg-primary/90 shadow-lg"
+                  >
+                    <Send className="w-4 h-4 mr-2" />
+                    Get Quote
+                  </Button>
+                  {canBid ? (
+                    <Button
+                      onClick={handlePlaceBid}
+                      size="lg"
+                      variant="outline"
+                      className="flex-1 font-bold border-accent text-accent hover:bg-accent hover:text-accent-foreground"
+                    >
+                      <Gavel className="w-4 h-4 mr-2" />
+                      Place Bid
+                    </Button>
+                  ) : (
+                    <div className="flex-1 flex items-center justify-center px-4 py-2 rounded-lg bg-muted border border-border text-muted-foreground text-sm">
+                      <Gavel className="w-4 h-4 mr-2 opacity-50" />
+                      Bidding Unavailable (2025 Model)
+                    </div>
+                  )}
+                </div>
               </div>
             </div>
 
@@ -442,24 +488,24 @@ export default function MachinePage() {
           </div>
         </div>
 
-        {/* Similar Machines Section */}
-        {similarMachines.length > 0 && (
-          <section className="mt-16 pt-8 border-t border-border">
-            <h2 className="text-xl font-bold text-foreground mb-6">
-              Similar Equipment
-            </h2>
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-              {similarMachines.map((m, index) => (
-                <MachineCard
-                  key={m.id}
-                  machine={m}
-                  priority={index < 2}
-                  index={index}
-                />
-              ))}
-            </div>
-          </section>
-        )}
+        {/* Similar Machines Section - always show since we fallback to other categories */}
+        <section className="mt-16 pt-8 border-t border-border">
+          <h2 className="text-xl font-bold text-foreground mb-6">
+            {similarMachines.some(m => m.category === machine.category) 
+              ? 'Similar Equipment' 
+              : 'More Equipment'}
+          </h2>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+            {similarMachines.map((m, index) => (
+              <MachineCard
+                key={m.id}
+                machine={m}
+                priority={index < 2}
+                index={index}
+              />
+            ))}
+          </div>
+        </section>
       </main>
 
       {/* Fullscreen Lightbox with swipe */}

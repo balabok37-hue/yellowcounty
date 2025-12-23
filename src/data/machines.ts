@@ -2813,21 +2813,16 @@ const categoryMap: Record<number, MachineCategory> = {
 // All available zones
 const allZones: AvailableZone[] = ['west', 'east', 'south', 'north', 'southeast', 'northeast', 'midwest', 'northwest', 'southwest'];
 
-// Deterministic random zones based on machine id (always returns same 3 zones for same id)
-function getRandomZones(id: number): AvailableZone[] {
-  const shuffled = [...allZones].sort((a, b) => {
-    const hashA = (id * 31 + a.charCodeAt(0)) % 100;
-    const hashB = (id * 31 + b.charCodeAt(0)) % 100;
-    return hashA - hashB;
-  });
-  return shuffled.slice(0, 3);
+// Deterministic single zone based on machine id
+function getSingleZone(id: number): AvailableZone {
+  return allZones[id % allZones.length];
 }
 
 // Apply categories and zones to all machines
 const machinesWithCategories: Machine[] = allMachinesRaw.map(machine => ({
   ...machine,
   category: categoryMap[machine.id] || 'excavators',
-  availableZones: getRandomZones(machine.id),
+  availableZones: [getSingleZone(machine.id)],
 }));
 
 // Sort function: HOT OFFERS first, then by discount (desc), then by year (desc)
