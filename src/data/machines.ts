@@ -358,7 +358,39 @@ import kubotaSvl753_2024_55800_14 from '@/assets/machines/2024-KUBOTA-SVL75-3-(1
 import kubotaSvl753_2024_55800_15 from '@/assets/machines/2024-KUBOTA-SVL75-3-(15).webp';
 import kubotaSvl753_2024_55800_16 from '@/assets/machines/2024-KUBOTA-SVL75-3-(16).webp';
 
-// bobcatE50Image removed - file doesn't exist
+// 2021 BOBCAT E50 - $42,700 - 1890 hours (8 photos)
+import bobcatE50_2021_1 from '@/assets/machines/2021-BOBCAT-E50---42,700---1890-hours-(1).webp';
+import bobcatE50_2021_2 from '@/assets/machines/2021-BOBCAT-E50---42,700---1890-hours-(2).webp';
+import bobcatE50_2021_3 from '@/assets/machines/2021-BOBCAT-E50---42,700---1890-hours-(3).webp';
+import bobcatE50_2021_4 from '@/assets/machines/2021-BOBCAT-E50---42,700---1890-hours-(4).webp';
+import bobcatE50_2021_5 from '@/assets/machines/2021-BOBCAT-E50---42,700---1890-hours-(5).webp';
+import bobcatE50_2021_6 from '@/assets/machines/2021-BOBCAT-E50---42,700---1890-hours-(6).webp';
+import bobcatE50_2021_7 from '@/assets/machines/2021-BOBCAT-E50---42,700---1890-hours-(7).webp';
+import bobcatE50_2021_8 from '@/assets/machines/2021-BOBCAT-E50---42,700---1890-hours-(8).webp';
+
+// 2022 KUBOTA KX040-4 - $45,600 - 1,483h (9 photos)
+import kubotaKx0404_2022_45600_1 from '@/assets/machines/2022-KUBOTA-KX040-4----45,600---1,483h-(1).webp';
+import kubotaKx0404_2022_45600_2 from '@/assets/machines/2022-KUBOTA-KX040-4----45,600---1,483h-(2).webp';
+import kubotaKx0404_2022_45600_3 from '@/assets/machines/2022-KUBOTA-KX040-4----45,600---1,483h-(3).webp';
+import kubotaKx0404_2022_45600_4 from '@/assets/machines/2022-KUBOTA-KX040-4----45,600---1,483h-(4).webp';
+import kubotaKx0404_2022_45600_5 from '@/assets/machines/2022-KUBOTA-KX040-4----45,600---1,483h-(5).webp';
+import kubotaKx0404_2022_45600_6 from '@/assets/machines/2022-KUBOTA-KX040-4----45,600---1,483h-(6).webp';
+import kubotaKx0404_2022_45600_7 from '@/assets/machines/2022-KUBOTA-KX040-4----45,600---1,483h-(7).webp';
+import kubotaKx0404_2022_45600_8 from '@/assets/machines/2022-KUBOTA-KX040-4----45,600---1,483h-(8).webp';
+import kubotaKx0404_2022_45600_9 from '@/assets/machines/2022-KUBOTA-KX040-4----45,600---1,483h-(9).webp';
+
+// 2022 KUBOTA KX057-5 - $43,400 - 1089 hours (11 photos)
+import kubotaKx0575_2022_1 from '@/assets/machines/2022-KUBOTA-KX057-5----43,400---1089-hours-(1).webp';
+import kubotaKx0575_2022_2 from '@/assets/machines/2022-KUBOTA-KX057-5----43,400---1089-hours-(2).webp';
+import kubotaKx0575_2022_3 from '@/assets/machines/2022-KUBOTA-KX057-5----43,400---1089-hours-(3).webp';
+import kubotaKx0575_2022_4 from '@/assets/machines/2022-KUBOTA-KX057-5----43,400---1089-hours-(4).webp';
+import kubotaKx0575_2022_5 from '@/assets/machines/2022-KUBOTA-KX057-5----43,400---1089-hours-(5).webp';
+import kubotaKx0575_2022_6 from '@/assets/machines/2022-KUBOTA-KX057-5----43,400---1089-hours-(6).webp';
+import kubotaKx0575_2022_7 from '@/assets/machines/2022-KUBOTA-KX057-5----43,400---1089-hours-(7).webp';
+import kubotaKx0575_2022_8 from '@/assets/machines/2022-KUBOTA-KX057-5----43,400---1089-hours-(8).webp';
+import kubotaKx0575_2022_9 from '@/assets/machines/2022-KUBOTA-KX057-5----43,400---1089-hours-(9).webp';
+import kubotaKx0575_2022_10 from '@/assets/machines/2022-KUBOTA-KX057-5----43,400---1089-hours-(10).webp';
+import kubotaKx0575_2022_11 from '@/assets/machines/2022-KUBOTA-KX057-5----43,400---1089-hours-(11).webp';
 
 
 // Category definitions with labels and icons
@@ -2511,6 +2543,115 @@ const allMachinesRaw: Array<Omit<Machine, 'category'> & { category?: string }> =
       kubotaSvl753_2024_55800_16,
     ],
   },
+  {
+    id: 107,
+    name: '2021 Bobcat E50 Compact Excavator',
+    year: 2021,
+    hours: 1890,
+    location: 'USA Stock',
+    price: 42700,
+    originalPrice: 42700,
+    discount: 0,
+    category: 'excavators',
+    image: bobcatE50_2021_1,
+    description: 'Well-maintained 2021 Bobcat E50 compact excavator with 1,890 hours. Powered by a Bobcat D24 diesel engine delivering 42.6 hp. Features minimal tail swing design, enclosed cab with heat/AC, and excellent visibility. Perfect for residential construction, landscaping, and utility work.',
+    specs: {
+      engine: 'Bobcat D24 Tier 4 Final',
+      power: '42.6 hp (31.8 kW)',
+      weight: '11,182 lb (5,072 kg)',
+      maxDiggingDepth: '12 ft 1 in (3.68 m)',
+      maxReach: '19 ft 7 in (5.97 m)',
+      bucketDiggingForce: '8,659 lbf (38.5 kN)',
+      armDiggingForce: '5,577 lbf (24.8 kN)',
+      trackWidth: '15.7 in (400 mm)',
+      fuelTank: '17.2 gal (65.1 L)',
+      cab: 'Enclosed ROPS/FOPS cab, heat/AC',
+    },
+    gallery: [
+      bobcatE50_2021_1,
+      bobcatE50_2021_2,
+      bobcatE50_2021_3,
+      bobcatE50_2021_4,
+      bobcatE50_2021_5,
+      bobcatE50_2021_6,
+      bobcatE50_2021_7,
+      bobcatE50_2021_8,
+    ],
+  },
+  {
+    id: 108,
+    name: '2022 Kubota KX040-4 Mini Excavator',
+    year: 2022,
+    hours: 1483,
+    location: 'USA Stock',
+    price: 45600,
+    originalPrice: 45600,
+    discount: 0,
+    category: 'excavators',
+    image: kubotaKx0404_2022_45600_1,
+    description: 'Excellent condition 2022 Kubota KX040-4 mini excavator with 1,483 hours. Kubota V2607 Tier 4 Final diesel delivers 40.4 hp. Features enclosed cab with AC/heat, auxiliary hydraulics, and minimal tail swing for tight spaces. Ideal for residential and commercial excavation.',
+    specs: {
+      engine: 'Kubota V2607 Tier 4 Final',
+      power: '40.4 hp (30.1 kW)',
+      weight: '9,447 lb (4,285 kg)',
+      maxDiggingDepth: '11 ft 4 in (3.45 m)',
+      maxReach: '18 ft 4 in (5.59 m)',
+      bucketDiggingForce: '8,047 lbf (35.8 kN)',
+      armDiggingForce: '5,485 lbf (24.4 kN)',
+      trackWidth: '15.7 in (400 mm)',
+      fuelTank: '15.9 gal (60 L)',
+      cab: 'Enclosed ROPS/FOPS cab, heat/AC, suspension seat',
+    },
+    gallery: [
+      kubotaKx0404_2022_45600_1,
+      kubotaKx0404_2022_45600_2,
+      kubotaKx0404_2022_45600_3,
+      kubotaKx0404_2022_45600_4,
+      kubotaKx0404_2022_45600_5,
+      kubotaKx0404_2022_45600_6,
+      kubotaKx0404_2022_45600_7,
+      kubotaKx0404_2022_45600_8,
+      kubotaKx0404_2022_45600_9,
+    ],
+  },
+  {
+    id: 109,
+    name: '2022 Kubota KX057-5 Mini Excavator',
+    year: 2022,
+    hours: 1089,
+    location: 'USA Stock',
+    price: 43400,
+    originalPrice: 43400,
+    discount: 0,
+    category: 'excavators',
+    image: kubotaKx0575_2022_1,
+    description: 'Low-hour 2022 Kubota KX057-5 mini excavator with only 1,089 hours. Kubota V2607 Tier 4 Final engine produces 47.6 hp. Features enclosed deluxe cab with AC/heat, pattern changer, and proportional auxiliary hydraulics. Excellent for utility, landscaping, and construction applications.',
+    specs: {
+      engine: 'Kubota V2607 Tier 4 Final',
+      power: '47.6 hp (35.5 kW)',
+      weight: '12,566 lb (5,700 kg)',
+      maxDiggingDepth: '12 ft 6 in (3.81 m)',
+      maxReach: '20 ft 5 in (6.22 m)',
+      bucketDiggingForce: '10,769 lbf (47.9 kN)',
+      armDiggingForce: '7,438 lbf (33.1 kN)',
+      trackWidth: '17.7 in (450 mm)',
+      fuelTank: '21.1 gal (80 L)',
+      cab: 'Enclosed deluxe cab, heat/AC, pattern changer, suspension seat',
+    },
+    gallery: [
+      kubotaKx0575_2022_1,
+      kubotaKx0575_2022_2,
+      kubotaKx0575_2022_3,
+      kubotaKx0575_2022_4,
+      kubotaKx0575_2022_5,
+      kubotaKx0575_2022_6,
+      kubotaKx0575_2022_7,
+      kubotaKx0575_2022_8,
+      kubotaKx0575_2022_9,
+      kubotaKx0575_2022_10,
+      kubotaKx0575_2022_11,
+    ],
+  },
 ];
 // Category assignments by machine ID - prioritized over inline category values
 const categoryMap: Record<number, MachineCategory> = {
@@ -2595,6 +2736,11 @@ const categoryMap: Record<number, MachineCategory> = {
   104: 'track-loaders', // Kubota SVL97-2 2023
   105: 'track-loaders', // Kubota SVL75-3 2024 ($54,950)
   106: 'track-loaders', // Kubota SVL75-3 2024 ($55,800)
+  
+  // New machines - December 2024
+  107: 'excavators', // Bobcat E50 2021
+  108: 'excavators', // Kubota KX040-4 2022
+  109: 'excavators', // Kubota KX057-5 2022
 };
 
 const availabilityRegions = ['midwest', 'west', 'east', 'south'] as const;
