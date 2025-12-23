@@ -5,7 +5,6 @@ import { Textarea } from '@/components/ui/textarea';
 import { MapPin, Phone, Mail, Send, Loader2, MessageCircle } from 'lucide-react';
 import { useState, useEffect } from 'react';
 import { supabase } from '@/integrations/supabase/client';
-import { generateEventId, hashUserData, parseFullName, storeLeadData } from '@/lib/meta-pixel';
 
 export function ContactSection() {
   const navigate = useNavigate();
@@ -31,17 +30,6 @@ export function ContactSection() {
     setIsSubmitting(true);
 
     try {
-      const eventId = generateEventId();
-      const { firstName, lastName } = parseFullName(formData.name);
-      const hashedUserData = await hashUserData({
-        email: formData.email,
-        phone: formData.phone || undefined,
-        firstName,
-        lastName: lastName || undefined
-      });
-
-      storeLeadData({ eventId, hashedUserData });
-
       const { error: dbError } = await supabase
         .from('leads')
         .insert({
@@ -54,23 +42,6 @@ export function ContactSection() {
       if (dbError) {
         console.error('Database error:', dbError);
         throw new Error('Failed to save lead');
-      }
-
-      const { error: metaError } = await supabase.functions.invoke('meta-conversions-api', {
-        body: {
-          event_name: 'Lead',
-          event_id: eventId,
-          user_data: hashedUserData,
-          event_source_url: window.location.href,
-          custom_data: {
-            content_name: 'Contact Form',
-            content_category: 'Equipment'
-          }
-        },
-      });
-
-      if (metaError) {
-        console.error('Meta CAPI error:', metaError);
       }
 
       const { error: fnError } = await supabase.functions.invoke('send-telegram-notification', {
