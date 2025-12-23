@@ -150,8 +150,8 @@ export function Footer() {
               </li>
               <li className="flex items-center gap-2">
                 <Mail className="w-4 h-4 text-[hsl(45,100%,50%)]" />
-                <a href="mailto:sales@yellowcounty.com" className="hover:text-[hsl(45,100%,50%)] transition-colors">
-                  sales@yellowcounty.com
+                <a href="mailto:sales@yellowstone.equipment" className="hover:text-[hsl(45,100%,50%)] transition-colors">
+                  sales@yellowstone.equipment
                 </a>
               </li>
               <li className="flex items-start gap-2">
