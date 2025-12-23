@@ -1,6 +1,7 @@
 import { memo, useState, useCallback } from 'react';
 import { Link } from 'react-router-dom';
 import { generateMachineSlug } from '@/lib/machine-utils';
+import { USAFlag } from '@/components/icons/USAFlag';
 
 export type MachineCategory = 'excavators' | 'dozers' | 'wheel-loaders' | 'track-loaders' | 'backhoes' | 'telehandlers' | 'trucks' | 'compaction';
 
@@ -224,7 +225,7 @@ export const MachineCard = memo(function MachineCard({
         {/* USA Available Badge */}
         {!isUnavailable && (
           <div className="flex items-center gap-1.5 text-xs text-accent font-medium">
-            <span className="text-base">🇺🇸</span>
+            <USAFlag className="w-5 h-3" />
             USA Available
           </div>
         )}

@@ -1,0 +1,7 @@
+<svg viewBox="0 0 180 40" xmlns="http://www.w3.org/2000/svg">
+  <rect width="180" height="40" fill="#00263A" rx="4"/>
+  <g fill="#ffffff">
+    <text x="12" y="28" font-family="Arial, sans-serif" font-size="20" font-weight="bold">MONTWAY</text>
+  </g>
+  <path d="M155 10 L165 20 L155 30 L160 20 Z" fill="#FF6B00"/>
+</svg>
