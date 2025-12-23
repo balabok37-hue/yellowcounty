@@ -418,13 +418,13 @@ export default function MachinePage() {
                     </p>
                   )}
                 </div>
-                <div className="flex flex-col sm:flex-row gap-3">
+                <div className="flex flex-col gap-3">
                   <Button
                     onClick={handleRequestQuote}
                     size="lg"
-                    className="flex-1 font-bold bg-primary text-primary-foreground hover:bg-primary/90 shadow-lg"
+                    className="w-full h-14 sm:h-12 text-base sm:text-sm font-bold bg-primary text-primary-foreground hover:bg-primary/90 shadow-lg rounded-xl sm:rounded-lg transition-all active:scale-[0.98]"
                   >
-                    <Send className="w-4 h-4 mr-2" />
+                    <Send className="w-5 h-5 sm:w-4 sm:h-4 mr-2" />
                     Get Quote
                   </Button>
                   {canBid ? (
@@ -432,15 +432,15 @@ export default function MachinePage() {
                       onClick={handlePlaceBid}
                       size="lg"
                       variant="outline"
-                      className="flex-1 font-bold border-accent text-accent hover:bg-accent hover:text-accent-foreground"
+                      className="w-full h-14 sm:h-12 text-base sm:text-sm font-bold border-2 border-accent text-accent hover:bg-accent hover:text-accent-foreground rounded-xl sm:rounded-lg transition-all active:scale-[0.98]"
                     >
-                      <Gavel className="w-4 h-4 mr-2" />
+                      <Gavel className="w-5 h-5 sm:w-4 sm:h-4 mr-2" />
                       Place Bid
                     </Button>
                   ) : (
-                    <div className="flex-1 flex items-center justify-center px-4 py-2 rounded-lg bg-muted border border-border text-muted-foreground text-sm">
-                      <Gavel className="w-4 h-4 mr-2 opacity-50" />
-                      Bidding Unavailable (2025 Model)
+                    <div className="w-full h-14 sm:h-12 flex items-center justify-center px-4 rounded-xl sm:rounded-lg bg-muted border border-border text-muted-foreground text-base sm:text-sm font-medium">
+                      <Gavel className="w-5 h-5 sm:w-4 sm:h-4 mr-2 opacity-50" />
+                      2025 Model – Price Firm
                     </div>
                   )}
                 </div>

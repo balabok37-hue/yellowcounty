@@ -767,7 +767,7 @@ const allMachinesRaw: Array<Omit<Machine, 'category'> & { category?: string }> =
     category: 'earthmoving',
     image: caterpillar336Image1,
     isHotOffer: true,
-    description: '2019 CAT 336 straight from a Texas pipeline contractor. One-owner machine, no salt exposure, full Cat dealer history. Just received fresh 1,000-hour service, all pins & bushings tight, undercarriage strong (70% remaining). Runs quiet and powerful – ready to load on a lowboy today. Includes 54" HD bucket + hydraulic thumb. Clean Texas title & ownership docs.',
+    description: 'The 2022 Caterpillar 336 is a powerful full-size excavator straight from a Texas pipeline contractor. One-owner machine, no salt exposure, full Cat dealer history. Just received fresh 1,000-hour service, all pins & bushings tight, undercarriage strong (70% remaining). Runs quiet and powerful – ready to load on a lowboy today. Includes 54" HD bucket + hydraulic thumb. Clean Texas title & ownership docs.',
     specs: {
       engine: 'Cat C7.1 ACERT Tier 4 Final',
       power: '300 hp',
@@ -860,7 +860,7 @@ const allMachinesRaw: Array<Omit<Machine, 'category'> & { category?: string }> =
     category: 'loaders',
     image: caterpillar950mNewImage,
     isHotOffer: true,
-    description: 'One-owner 2018 CAT 950M from a Montana aggregate operation. Full Cat dealer service history, always shedded. Fresh 500-hour service, all filters/fluids, tight center pin, no leaks. Runs strong and quiet. Includes 5.5 yd³ GP bucket with BOE. Ready to load the day it lands.',
+    description: 'The 2018 Caterpillar 950M is a one-owner wheel loader from a Montana aggregate operation. Full Cat dealer service history, always shedded. Fresh 500-hour service, all filters/fluids, tight center pin, no leaks. Runs strong and quiet. Includes 5.5 yd³ GP bucket with BOE. Ready to load the day it lands.',
     specs: {
       engine: 'Cat C7.1 Tier 4 Final',
       power: '250 hp',
@@ -888,7 +888,7 @@ const allMachinesRaw: Array<Omit<Machine, 'category'> & { category?: string }> =
     category: 'loaders',
     image: johnDeere544pNewImage,
     isHotOffer: false,
-    description: 'Like-new 2021 John Deere 544 P-Tier with super low hours. One-owner Montana county machine, always stored inside, full JD dealer service records. Still under remaining PowerGard Protection Plan. Fresh service, no leaks, excellent rubber (92% remaining). Comes with 4.25 yd³ bucket + bolt-on edge and quick coupler.',
+    description: 'The 2021 John Deere 544 P-Tier is a like-new wheel loader with super low hours. One-owner Montana county machine, always stored inside, full JD dealer service records. Still under remaining PowerGard Protection Plan. Fresh service, no leaks, excellent rubber (92% remaining). Comes with 4.25 yd³ bucket + bolt-on edge and quick coupler.',
     specs: {
       engine: 'JD PowerTech PSS 6.8L Tier 4 Final',
       power: '171 hp',
@@ -916,7 +916,7 @@ const allMachinesRaw: Array<Omit<Machine, 'category'> & { category?: string }> =
     category: 'loaders',
     image: volvoL120h2016Image2,
     isHotOffer: true,
-    description: 'Super-clean 2016 Volvo L120H from a single-owner mining support fleet. Always dealer-serviced, stored indoors when not in use. Fresh 500-hour service completed, zero leaks, excellent Michelin tires (85% remaining). Ice-cold A/C, Comfort Drive Control, Boom Suspension. Comes with 5.0 yd³ rehandling bucket + bolt-on edge. Ready to load trucks the day it arrives.',
+    description: 'The 2016 Volvo L120H is a super-clean wheel loader from a single-owner mining support fleet. Always dealer-serviced, stored indoors when not in use. Fresh 500-hour service completed, zero leaks, excellent Michelin tires (85% remaining). Ice-cold A/C, Comfort Drive Control, Boom Suspension. Comes with 5.0 yd³ rehandling bucket + bolt-on edge. Ready to load trucks the day it arrives.',
     specs: {
       engine: 'Volvo D8J Tier 4 Final',
       power: '255 hp',
@@ -947,7 +947,7 @@ const allMachinesRaw: Array<Omit<Machine, 'category'> & { category?: string }> =
     category: 'earthmoving',
     image: komatsuD65pxiNewImage,
     isHotOffer: false,
-    description: 'Ultra-clean 2019 Komatsu D65PXi-18 (factory intelligent machine control). One-owner Arizona highway contractor unit, always dealer-serviced and shedded. Full iMC GPS system (3D-MC) still active with current subscription. Fresh service, new cutting edges, zero leaks. This is the smartest dozer you can buy at this price.',
+    description: 'The 2019 Komatsu D65PXi-18 is an ultra-clean intelligent dozer with factory iMC machine control. One-owner Arizona highway contractor unit, always dealer-serviced and shedded. Full iMC GPS system (3D-MC) still active with current subscription. Fresh service, new cutting edges, zero leaks. This is the smartest dozer you can buy at this price.',
     specs: {
       engine: 'Komatsu SAA6D114E-6 Tier 4 Final',
       power: '217 hp',
@@ -975,7 +975,7 @@ const allMachinesRaw: Array<Omit<Machine, 'category'> & { category?: string }> =
     category: 'earthmoving',
     image: kubotaKx0404NewImage,
     isHotOffer: false,
-    description: '2024 Kubota KX040-4 demo unit with factory warranty remaining. Only light dealer yard use – basically brand-new. Full KubotaCare coverage until 2027 or 3,000 hours. Zero-turn, angle blade, hydraulic thumb, rubber tracks like new. Still smells new inside the cab.',
+    description: 'The 2024 Kubota KX040-4 is a demo unit with factory warranty remaining. Only light dealer yard use – basically brand-new. Full KubotaCare coverage until 2027 or 3,000 hours. Zero-turn, angle blade, hydraulic thumb, rubber tracks like new. Still smells new inside the cab.',
     specs: {
       engine: 'Kubota V2607 Tier 4 Final',
       power: '40.4 hp',
@@ -1003,7 +1003,7 @@ const allMachinesRaw: Array<Omit<Machine, 'category'> & { category?: string }> =
     category: 'loaders',
     image: case321f2019Image,
     isHotOffer: false,
-    description: 'Super-clean 2019 Case 321F compact wheel loader from a municipal fleet. Always dealer-serviced, stored inside, no rust. Fresh service, excellent rubber, tight center pin. Comes with quick coupler + forks and 1.7 yd³ bucket. Perfect size for landscaping, snow, or tight job sites.',
+    description: 'The 2019 Case 321F is a super-clean compact wheel loader from a municipal fleet. Always dealer-serviced, stored inside, no rust. Fresh service, excellent rubber, tight center pin. Comes with quick coupler + forks and 1.7 yd³ bucket. Perfect size for landscaping, snow, or tight job sites.',
     specs: {
       engine: 'FPT Tier 4 Final',
       power: '74 hp',
@@ -1031,7 +1031,7 @@ const allMachinesRaw: Array<Omit<Machine, 'category'> & { category?: string }> =
     category: 'loaders',
     image: case321f2023NewImage,
     isHotOffer: false,
-    description: '2023 Case 321F with only light municipal use. Still covered by full Case ProCare warranty until 2026 / 3,000 hours. Basically brand-new condition – fresh service, zero damage, perfect paint. Quick coupler, forks + bucket, deluxe cab. Save big vs new price.',
+    description: 'The 2023 Case 321F is a wheel loader with only light municipal use. Still covered by full Case ProCare warranty until 2026 / 3,000 hours. Basically brand-new condition – fresh service, zero damage, perfect paint. Quick coupler, forks + bucket, deluxe cab. Save big vs new price.',
     specs: {
       engine: 'FPT 3.4L Tier 4 Final',
       power: '74 hp',
@@ -1059,7 +1059,7 @@ const allMachinesRaw: Array<Omit<Machine, 'category'> & { category?: string }> =
     category: 'loaders',
     image: case321f2024Image1,
     isHotOffer: true,
-    description: 'Brand-new 2024 Case 321F – top-selling F Series compact wheel loader. Z-Bar linkage delivers 8,000+ lb full-height lift and 11,000 lb bucket breakout in a super-compact 8\'10" frame. Tier 4 Final FPT 74 hp engine (no DEF), hydrostatic transmission with 25 mph top speed, ride control, skid-steer coupler, enhanced auxiliary hydraulics. Zero hours, deluxe cab with heat/AC/air suspension seat/Bluetooth/camera, LED lights, cold weather package. Includes 1.3 yd³ GP bucket + pallet forks. Full CASE factory warranty (2 yr/2,000 hr bumper-to-bumper + 3 yr/3,000 hr powertrain).',
+    description: 'The 2024 Case 321F is a brand-new top-selling F Series compact wheel loader. Z-Bar linkage delivers 8,000+ lb full-height lift and 11,000 lb bucket breakout in a super-compact 8\'10" frame. Tier 4 Final FPT 74 hp engine (no DEF), hydrostatic transmission with 25 mph top speed, ride control, skid-steer coupler, enhanced auxiliary hydraulics. Zero hours, deluxe cab with heat/AC/air suspension seat/Bluetooth/camera, LED lights, cold weather package. Includes 1.3 yd³ GP bucket + pallet forks. Full CASE factory warranty (2 yr/2,000 hr bumper-to-bumper + 3 yr/3,000 hr powertrain).',
     specs: {
       engine: 'FPT 74 hp Tier 4 Final (no DEF required)',
       power: '74 hp',
@@ -1097,7 +1097,7 @@ const allMachinesRaw: Array<Omit<Machine, 'category'> & { category?: string }> =
     category: 'loaders',
     image: caterpillar938m2021NewImage,
     isSold: true,
-    description: 'Pristine 2021 Caterpillar 938M – one of the lowest-hour, most loaded late-model 938M units available anywhere. Only 980 original hours, full Cat dealer service history, never left Montana. Features Fusion quick-coupler, 4.0 yd³ GP bucket + BOE, ride control, high-lift Z-bar, 23.5R25 Michelin XHA2 tires at 98%, high-flow XPS hydraulics + 3rd/4th function, reversing fan, LED 360° lights, deluxe cab with Cat Payload + printer + Autodig. Zero leaks, zero welds, runs whisper-quiet. Remaining Cat Platinum EPP until 2026/6,000 hrs (powertrain + hydraulics transferable).',
+    description: 'The 2021 Caterpillar 938M is a pristine wheel loader – one of the lowest-hour, most loaded late-model 938M units available anywhere. Only 980 original hours, full Cat dealer service history, never left Montana. Features Fusion quick-coupler, 4.0 yd³ GP bucket + BOE, ride control, high-lift Z-bar, 23.5R25 Michelin XHA2 tires at 98%, high-flow XPS hydraulics + 3rd/4th function, reversing fan, LED 360° lights, deluxe cab with Cat Payload + printer + Autodig. Zero leaks, zero welds, runs whisper-quiet. Remaining Cat Platinum EPP until 2026/6,000 hrs (powertrain + hydraulics transferable).',
     specs: {
       engine: 'Cat C7.1 Acert 190 hp (Tier 4 Final)',
       power: '190 hp',
@@ -1130,7 +1130,7 @@ const allMachinesRaw: Array<Omit<Machine, 'category'> & { category?: string }> =
     discount: 0,
     category: 'loaders',
     image: caterpillar938m2022Image1,
-    description: 'Immaculate one-owner, low-hour dealer-maintained machine with only 2,680 original hours and remaining Cat Platinum warranty until 2027/7,500 hrs. Features Fusion quick-coupler, 4.0 yd³ GP bucket + BOE, ride control, standard z-bar, 23.5R25 Michelin XLD tires at 90-95%, high-flow hydraulics + 3rd valve, reversing fan, LED lights, deluxe cab with Cat Payload. Fresh full service and SOS clean.',
+    description: 'The 2022 Caterpillar 938M is an immaculate one-owner, low-hour dealer-maintained machine with only 2,680 original hours and remaining Cat Platinum warranty until 2027/7,500 hrs. Features Fusion quick-coupler, 4.0 yd³ GP bucket + BOE, ride control, standard z-bar, 23.5R25 Michelin XLD tires at 90-95%, high-flow hydraulics + 3rd valve, reversing fan, LED lights, deluxe cab with Cat Payload. Fresh full service and SOS clean.',
     specs: {
       engine: 'Cat C7.1 Acert 190 hp (Tier 4 Final)',
       power: '190 hp',
@@ -1167,7 +1167,7 @@ const allMachinesRaw: Array<Omit<Machine, 'category'> & { category?: string }> =
     category: 'earthmoving',
     image: jcb55z1Image,
     isReserved: true,
-    description: 'Zero-tailswing mini excavator powerhouse built for tight urban digs, landscaping, utilities, and rental fleets where maneuverability is king. Kohler Tier 4 Final KDI 1903 diesel cranks 48.3 hp with no AdBlue/DEF hassles, delivering massive 6,435 lbf bucket breakout and 181° rotation for unbeatable spoil retention. Full JCB service history, enclosed cab with heat/AC/joystick controls/Bluetooth/camera, 4-way dozer blade with float, high/low-flow aux hydraulics, quick-hitch ready.',
+    description: 'The 2022 JCB 55Z-1 is a zero-tailswing mini excavator powerhouse built for tight urban digs, landscaping, utilities, and rental fleets where maneuverability is king. Kohler Tier 4 Final KDI 1903 diesel cranks 48.3 hp with no AdBlue/DEF hassles, delivering massive 6,435 lbf bucket breakout and 181° rotation for unbeatable spoil retention. Full JCB service history, enclosed cab with heat/AC/joystick controls/Bluetooth/camera, 4-way dozer blade with float, high/low-flow aux hydraulics, quick-hitch ready.',
     specs: {
       engine: 'Kohler KDI 1903 TCR Tier 4 Final',
       power: '48.3 hp @ 2,200 rpm',
@@ -1200,7 +1200,7 @@ const allMachinesRaw: Array<Omit<Machine, 'category'> & { category?: string }> =
     discount: 0,
     category: 'earthmoving',
     image: caseCx42dImage5,
-    description: 'Brand-new 4.2-ton zero-tailswing mini excavator. FPT 37.4 hp Tier 4 Final (no DEF/AdBlue), 2-speed travel, 16" rubber tracks 100%, enclosed cab with heat/AC/touchscreen joysticks/Bluetooth/radio/rear camera, proportional aux hydraulics (thumb/grapple ready), hydraulic quick-coupler + 24" digging bucket included, LED work lights, auto-idle, float blade. 100% under full CASE ProCare factory warranty: 3 yr/3,000 hr bumper-to-bumper + 5 yr powertrain.',
+    description: 'The 2025 CASE CX42D is a brand-new 4.2-ton zero-tailswing mini excavator. FPT 37.4 hp Tier 4 Final (no DEF/AdBlue), 2-speed travel, 16" rubber tracks 100%, enclosed cab with heat/AC/touchscreen joysticks/Bluetooth/radio/rear camera, proportional aux hydraulics (thumb/grapple ready), hydraulic quick-coupler + 24" digging bucket included, LED work lights, auto-idle, float blade. 100% under full CASE ProCare factory warranty: 3 yr/3,000 hr bumper-to-bumper + 5 yr powertrain.',
     specs: {
       engine: 'FPT 37.4 hp Tier 4 Final (no DEF)',
       power: '37.4 hp',
@@ -1405,7 +1405,7 @@ const allMachinesRaw: Array<Omit<Machine, 'category'> & { category?: string }> =
     discount: 0,
     category: 'loaders',
     image: caterpillar279d3Image,
-    description: 'The perfect mid-frame radial-lift track loader for landscaping, construction, and rental fleets – 2,940 lb ROC, 10 ft 1 in hinge pin height, and legendary Cat undercarriage traction. Cat C3.8 Tier 4 Final 74 hp (no DEF), high-flow XPS hydraulics (30 gpm @ 3,500 psi), 15.7" tracks at 85%+, ride control, reversing fan, advanced display with rear camera, Bluetooth radio, air-ride seat, self-leveling, quick-attach + 78" bucket with BOE included. Fresh full service, zero leaks, tight machine.',
+    description: 'The 2021 Caterpillar 279D3 is the perfect mid-frame radial-lift track loader for landscaping, construction, and rental fleets – 2,940 lb ROC, 10 ft 1 in hinge pin height, and legendary Cat undercarriage traction. Cat C3.8 Tier 4 Final 74 hp (no DEF), high-flow XPS hydraulics (30 gpm @ 3,500 psi), 15.7" tracks at 85%+, ride control, reversing fan, advanced display with rear camera, Bluetooth radio, air-ride seat, self-leveling, quick-attach + 78" bucket with BOE included. Fresh full service, zero leaks, tight machine.',
     specs: {
       engine: 'Cat C3.8 74 hp Tier 4 Final (no DEF)',
       power: '74 hp (55 kW)',
@@ -1550,7 +1550,7 @@ const allMachinesRaw: Array<Omit<Machine, 'category'> & { category?: string }> =
     discount: 0,
     category: 'earthmoving',
     image: caterpillar305e2cr2022Image2,
-    description: 'Premium 5-ton mini excavator with zero tail swing design for tight-space excavation. Cat C2.4 Tier 4 Final diesel delivers 40.2 hp with excellent fuel efficiency and no DEF required. Enclosed cab with heat/AC, joystick controls with proportional auxiliary hydraulics for thumb or grapple, standard blade with float, rubber tracks at 85%+, quick-coupler with 24" bucket included. Low hours, dealer-serviced, ready for residential or commercial work.',
+    description: 'The 2022 Caterpillar 305E2 CR is a premium 5-ton mini excavator with zero tail swing design for tight-space excavation. Cat C2.4 Tier 4 Final diesel delivers 40.2 hp with excellent fuel efficiency and no DEF required. Enclosed cab with heat/AC, joystick controls with proportional auxiliary hydraulics for thumb or grapple, standard blade with float, rubber tracks at 85%+, quick-coupler with 24" bucket included. Low hours, dealer-serviced, ready for residential or commercial work.',
     specs: {
       engine: 'Cat C2.4 Tier 4 Final 40.2 hp (no DEF)',
       power: '40.2 hp (30 kW)',
@@ -1591,7 +1591,7 @@ const allMachinesRaw: Array<Omit<Machine, 'category'> & { category?: string }> =
     discount: 0,
     category: 'earthmoving',
     image: kubotaKx0404Image1,
-    description: 'Nearly new 4-ton mini excavator with tight tail swing design for confined spaces. Kubota V2403 Tier 4 Final diesel delivers 40.4 hp with exceptional fuel efficiency and no DPF regeneration required. Enclosed cab with heat/AC, deluxe suspension seat, joystick controls with proportional auxiliary hydraulics for thumb attachment, standard angle blade with float, rubber tracks at 98%+, quick-coupler with 18" and 24" buckets included. Very low hours, full factory warranty remaining.',
+    description: 'The 2024 Kubota KX040-4 is a nearly new 4-ton mini excavator with tight tail swing design for confined spaces. Kubota V2403 Tier 4 Final diesel delivers 40.4 hp with exceptional fuel efficiency and no DPF regeneration required. Enclosed cab with heat/AC, deluxe suspension seat, joystick controls with proportional auxiliary hydraulics for thumb attachment, standard angle blade with float, rubber tracks at 98%+, quick-coupler with 18" and 24" buckets included. Very low hours, full factory warranty remaining.',
     specs: {
       engine: 'Kubota V2403-CR-TE4 Tier 4 Final 40.4 hp',
       power: '40.4 hp (30.1 kW)',
@@ -1633,7 +1633,7 @@ const allMachinesRaw: Array<Omit<Machine, 'category'> & { category?: string }> =
     category: 'wheel-loaders',
     image: volvoL120h2024Image1,
     isHotOffer: true,
-    description: 'Nearly-new 2024 Volvo L120H with factory warranty remaining. Volvo D8M Tier 4 Final engine delivers 245 hp with industry-leading fuel efficiency and smooth power delivery. Full spec cab with heated/ventilated leather seat, touchscreen display, rear camera, Comfort Drive Control, and Boom Suspension for smooth loads. Includes 5.2 yd³ GP bucket, ride control, auto-idle, LED lights throughout. Only 180 hours - practically brand new condition.',
+    description: 'The 2024 Volvo L120H is a nearly-new wheel loader with factory warranty remaining. Volvo D8M Tier 4 Final engine delivers 245 hp with industry-leading fuel efficiency and smooth power delivery. Full spec cab with heated/ventilated leather seat, touchscreen display, rear camera, Comfort Drive Control, and Boom Suspension for smooth loads. Includes 5.2 yd³ GP bucket, ride control, auto-idle, LED lights throughout. Only 180 hours - practically brand new condition.',
     specs: {
       engine: 'Volvo D8M Tier 4 Final 245 hp',
       power: '245 hp (183 kW)',
@@ -1673,7 +1673,7 @@ const allMachinesRaw: Array<Omit<Machine, 'category'> & { category?: string }> =
     category: 'telehandlers',
     image: manitouMlt1040145Image2,
     isHotOffer: true,
-    description: 'Well-maintained 2020 Manitou MLT1040-145 PS+L with premium specs. Deutz 4-cylinder Tier 4 Final engine delivers 145 hp with excellent torque for heavy loads. Full cab with heat/AC, suspended seat, rear view camera, and joystick controls. Powershift transmission with 4WD, crab-steer capability, and frame leveling. Includes pallet forks and carriage - ready for immediate work. Strong service history with all maintenance records.',
+    description: 'The 2020 Manitou MLT1040-145 PS+L is a well-maintained telehandler with premium specs. Deutz 4-cylinder Tier 4 Final engine delivers 145 hp with excellent torque for heavy loads. Full cab with heat/AC, suspended seat, rear view camera, and joystick controls. Powershift transmission with 4WD, crab-steer capability, and frame leveling. Includes pallet forks and carriage - ready for immediate work. Strong service history with all maintenance records.',
     specs: {
       engine: 'Deutz TCD 3.6 L4 Tier 4 Final 145 hp',
       power: '145 hp (108 kW)',
@@ -1713,7 +1713,7 @@ const allMachinesRaw: Array<Omit<Machine, 'category'> & { category?: string }> =
     category: 'backhoes',
     image: johnDeere310sl2023Image3,
     isHotOffer: true,
-    description: 'Low-hour 2023 John Deere 310SL backhoe loader in excellent condition. PowerTech 4.5L Tier 4 Final engine delivers 93 hp with smooth power and excellent fuel economy. Full deluxe cab with heat/AC, air-ride seat, rear camera, and excellent visibility. Includes 1.15 yd³ loader bucket, 24" backhoe bucket, auxiliary hydraulics, ride control, and extendahoe. Perfect for utility work, landscaping, and construction.',
+    description: 'The 2023 John Deere 310SL is a low-hour backhoe loader in excellent condition. PowerTech 4.5L Tier 4 Final engine delivers 93 hp with smooth power and excellent fuel economy. Full deluxe cab with heat/AC, air-ride seat, rear camera, and excellent visibility. Includes 1.15 yd³ loader bucket, 24" backhoe bucket, auxiliary hydraulics, ride control, and extendahoe. Perfect for utility work, landscaping, and construction.',
     specs: {
       engine: 'John Deere PowerTech 4.5L Tier 4 Final',
       power: '93 hp (69 kW)',
@@ -1755,7 +1755,7 @@ const allMachinesRaw: Array<Omit<Machine, 'category'> & { category?: string }> =
     category: 'track-loaders',
     image: johnDeere333g2022Image1,
     isReserved: true,
-    description: 'Powerful 2022 John Deere 333G compact track loader with excellent condition and service history. Yanmar 3.3L Tier 4 Final engine delivers 100 hp with smooth power delivery. Full cab with heat/AC, suspension seat, rear camera, and excellent visibility. High-flow hydraulics, 2-speed travel, electrohydraulic joysticks. Includes 84" bucket, quick-attach system, and LED work lights. Ready for landscaping, construction, and ag work.',
+    description: 'The 2022 John Deere 333G is a powerful compact track loader with excellent condition and service history. Yanmar 3.3L Tier 4 Final engine delivers 100 hp with smooth power delivery. Full cab with heat/AC, suspension seat, rear camera, and excellent visibility. High-flow hydraulics, 2-speed travel, electrohydraulic joysticks. Includes 84" bucket, quick-attach system, and LED work lights. Ready for landscaping, construction, and ag work.',
     specs: {
       engine: 'Yanmar 3.3L Tier 4 Final',
       power: '100 hp (75 kW)',
@@ -1795,7 +1795,7 @@ const allMachinesRaw: Array<Omit<Machine, 'category'> & { category?: string }> =
     discount: 0,
     category: 'earthmoving',
     image: caterpillar305e2cr2020Image1,
-    description: 'Reliable 5-ton mini excavator with zero tail swing design for tight jobsites. Cat C2.4 Tier 4 Final diesel delivers 40.2 hp with excellent fuel efficiency. Enclosed cab with heat/AC, joystick controls with proportional auxiliary hydraulics, standard blade with float, rubber tracks at 75%+, quick-coupler with 24" bucket included. Well-maintained machine ready for residential or commercial excavation.',
+    description: 'The 2020 Caterpillar 305E2 CR is a reliable 5-ton mini excavator with zero tail swing design for tight jobsites. Cat C2.4 Tier 4 Final diesel delivers 40.2 hp with excellent fuel efficiency. Enclosed cab with heat/AC, joystick controls with proportional auxiliary hydraulics, standard blade with float, rubber tracks at 75%+, quick-coupler with 24" bucket included. Well-maintained machine ready for residential or commercial excavation.',
     specs: {
       engine: 'Cat C2.4 Tier 4 Final 40.2 hp',
       power: '40.2 hp (30 kW)',
@@ -1836,7 +1836,7 @@ const allMachinesRaw: Array<Omit<Machine, 'category'> & { category?: string }> =
     discount: 0,
     category: 'earthmoving',
     image: caterpillar305e2cr2021Image1,
-    description: 'Well-maintained 5-ton mini excavator with zero tail swing design, perfect for residential and commercial jobsites. Cat C2.4 Tier 4 Final diesel delivers 40.2 hp with excellent fuel efficiency. Enclosed cab with heat/AC, joystick controls with proportional auxiliary hydraulics, standard blade with float, rubber tracks at 80%+. Ideal for utility work, landscaping, trenching, and foundation excavation.',
+    description: 'The 2021 Caterpillar 305E2 CR is a well-maintained 5-ton mini excavator with zero tail swing design, perfect for residential and commercial jobsites. Cat C2.4 Tier 4 Final diesel delivers 40.2 hp with excellent fuel efficiency. Enclosed cab with heat/AC, joystick controls with proportional auxiliary hydraulics, standard blade with float, rubber tracks at 80%+. Ideal for utility work, landscaping, trenching, and foundation excavation.',
     specs: {
       engine: 'Cat C2.4 Tier 4 Final 40.2 hp',
       power: '40.2 hp (30 kW)',
@@ -1877,7 +1877,7 @@ const allMachinesRaw: Array<Omit<Machine, 'category'> & { category?: string }> =
     category: 'track-loaders',
     image: caterpillar299d32023Image1,
     isHotOffer: true,
-    description: 'Top-of-the-line 2023 CAT 299D3 XE compact track loader – the largest and most powerful in Cat\'s CTL lineup. Cat C3.8 Tier 4 Final engine delivers 110 gross hp with excellent fuel efficiency. Factory XE drivetrain with continuously variable transmission for smooth operation. Pressurized cab with heat/AC, suspension seat, touchscreen display, and rear camera. High-flow hydraulics with dual-direction self-leveling, ride control, and 2-speed travel. Ready for the most demanding jobs.',
+    description: 'The 2023 Caterpillar 299D3 XE is a top-of-the-line compact track loader – the largest and most powerful in Cat\'s CTL lineup. Cat C3.8 Tier 4 Final engine delivers 110 gross hp with excellent fuel efficiency. Factory XE drivetrain with continuously variable transmission for smooth operation. Pressurized cab with heat/AC, suspension seat, touchscreen display, and rear camera. High-flow hydraulics with dual-direction self-leveling, ride control, and 2-speed travel. Ready for the most demanding jobs.',
     specs: {
       engine: 'Cat C3.8 Tier 4 Final',
       power: '110 hp (82 kW)',
@@ -2746,7 +2746,7 @@ const allMachinesRaw: Array<Omit<Machine, 'category'> & { category?: string }> =
     isHotOffer: true,
     category: 'excavators',
     image: deere35pTier2025_1,
-    description: 'Nearly new 2025 John Deere 35P Tier mini excavator with only 98.3 hours. Features enclosed cab with A/C and heat, full hydraulics, mechanical quick coupler, and factory warranty. Perfect for landscaping, utilities, and tight construction sites. Exceptional value for a nearly new machine.',
+    description: 'The 2025 John Deere 35P is a nearly new mini excavator with only 98.3 hours. Features enclosed cab with A/C and heat, full hydraulics, mechanical quick coupler, and factory warranty. Perfect for landscaping, utilities, and tight construction sites. Exceptional value for a nearly new machine.',
     specs: {
       engine: 'Yanmar 3TNV88C Tier 4 Final',
       power: '23.3 hp (17.4 kW) net',
