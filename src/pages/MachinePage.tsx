@@ -246,11 +246,21 @@ export default function MachinePage() {
 
   const modelName = machine.name.replace(/^\d{4}\s+/, '');
 
+  // Scroll thumbnails with arrows
+  const scrollThumbnails = (direction: 'left' | 'right') => {
+    if (!thumbnailsRef.current) return;
+    const scrollAmount = 200;
+    thumbnailsRef.current.scrollBy({
+      left: direction === 'left' ? -scrollAmount : scrollAmount,
+      behavior: 'smooth'
+    });
+  };
+
   return (
     <div className="min-h-screen bg-background text-foreground">
       <Header />
       
-      <main className="container px-4 py-6">
+      <main key={slug} className="container px-4 py-6 animate-fade-in">
         {/* Back Button */}
         <Link 
           to="/#catalog" 
@@ -361,54 +371,74 @@ export default function MachinePage() {
               )}
             </div>
 
-            {/* Thumbnail Gallery - horizontal scroll with drag on PC */}
+            {/* Thumbnail Gallery with navigation arrows */}
             {images.length > 1 && (
-              <div 
-                ref={thumbnailsRef}
-                className="flex gap-2 pb-2 overflow-x-auto overflow-y-hidden cursor-grab select-none"
-                style={{ 
-                  WebkitOverflowScrolling: 'touch',
-                  scrollbarWidth: 'none',
-                  msOverflowStyle: 'none',
-                }}
-                onMouseDown={handleMouseDown}
-                onMouseMove={handleMouseMove}
-                onMouseUp={handleMouseUp}
-                onMouseLeave={handleMouseLeave}
-              >
-                {images.map((img, idx) => (
-                  <button
-                    key={idx}
-                    onClick={() => {
-                      if (!isDragging.current) selectImage(idx);
-                    }}
-                    className={`flex-shrink-0 w-14 h-14 sm:w-20 sm:h-20 rounded-lg overflow-hidden border-2 transition-all ${
-                      idx === currentImageIndex 
-                        ? 'border-primary ring-2 ring-primary/30' 
-                        : 'border-transparent hover:border-muted-foreground/30'
-                    }`}
-                  >
-                    <div className="relative w-full h-full bg-muted">
-                      <div 
-                        className={`absolute inset-0 bg-muted transition-opacity duration-200 ${
-                          imageLoadStates[`thumb-${idx}`] ? 'opacity-0' : 'opacity-100'
-                        }`}
-                      />
-                      <img
-                        src={img}
-                        alt={`Thumbnail ${idx + 1}`}
-                        className={`w-full h-full object-cover transition-opacity duration-200 pointer-events-none ${
-                          imageLoadStates[`thumb-${idx}`] ? 'opacity-100' : 'opacity-0'
-                        }`}
-                        loading="eager"
-                        decoding="async"
-                        draggable={false}
-                        onLoad={() => handleImageLoad(`thumb-${idx}`)}
-                        onError={() => handleImageLoad(`thumb-${idx}`)}
-                      />
-                    </div>
-                  </button>
-                ))}
+              <div className="relative group/thumbnails">
+                {/* Left Arrow - Desktop only */}
+                <button
+                  onClick={() => scrollThumbnails('left')}
+                  className="hidden sm:flex absolute left-0 top-1/2 -translate-y-1/2 z-10 w-8 h-8 items-center justify-center bg-background/90 hover:bg-background border border-border rounded-full shadow-md opacity-0 group-hover/thumbnails:opacity-100 transition-opacity -translate-x-1/2"
+                  aria-label="Scroll left"
+                >
+                  <ChevronLeft className="w-4 h-4" />
+                </button>
+
+                <div 
+                  ref={thumbnailsRef}
+                  className="flex gap-2 pb-2 overflow-x-auto overflow-y-hidden cursor-grab select-none px-1"
+                  style={{ 
+                    WebkitOverflowScrolling: 'touch',
+                    scrollbarWidth: 'none',
+                    msOverflowStyle: 'none',
+                  }}
+                  onMouseDown={handleMouseDown}
+                  onMouseMove={handleMouseMove}
+                  onMouseUp={handleMouseUp}
+                  onMouseLeave={handleMouseLeave}
+                >
+                  {images.map((img, idx) => (
+                    <button
+                      key={idx}
+                      onClick={() => {
+                        if (!isDragging.current) selectImage(idx);
+                      }}
+                      className={`flex-shrink-0 w-14 h-14 sm:w-20 sm:h-20 rounded-lg overflow-hidden border-2 transition-all ${
+                        idx === currentImageIndex 
+                          ? 'border-primary ring-2 ring-primary/30' 
+                          : 'border-transparent hover:border-muted-foreground/30'
+                      }`}
+                    >
+                      <div className="relative w-full h-full bg-muted">
+                        <div 
+                          className={`absolute inset-0 bg-muted transition-opacity duration-200 ${
+                            imageLoadStates[`thumb-${idx}`] ? 'opacity-0' : 'opacity-100'
+                          }`}
+                        />
+                        <img
+                          src={img}
+                          alt={`Thumbnail ${idx + 1}`}
+                          className={`w-full h-full object-cover transition-opacity duration-200 pointer-events-none ${
+                            imageLoadStates[`thumb-${idx}`] ? 'opacity-100' : 'opacity-0'
+                          }`}
+                          loading="eager"
+                          decoding="async"
+                          draggable={false}
+                          onLoad={() => handleImageLoad(`thumb-${idx}`)}
+                          onError={() => handleImageLoad(`thumb-${idx}`)}
+                        />
+                      </div>
+                    </button>
+                  ))}
+                </div>
+
+                {/* Right Arrow - Desktop only */}
+                <button
+                  onClick={() => scrollThumbnails('right')}
+                  className="hidden sm:flex absolute right-0 top-1/2 -translate-y-1/2 z-10 w-8 h-8 items-center justify-center bg-background/90 hover:bg-background border border-border rounded-full shadow-md opacity-0 group-hover/thumbnails:opacity-100 transition-opacity translate-x-1/2"
+                  aria-label="Scroll right"
+                >
+                  <ChevronRight className="w-4 h-4" />
+                </button>
               </div>
             )}
           </div>
