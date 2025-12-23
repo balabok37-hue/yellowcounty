@@ -54,21 +54,21 @@ const Index = () => {
   const handleViewDetails = (machine: Machine) => {
     setSelectedMachine(machine);
     setModalOpen(true);
-    // Update URL with machine slug
+    // Update URL with machine slug (do not reset scroll position)
     const newParams = new URLSearchParams(searchParams);
     newParams.set('machine', generateMachineSlug(machine));
-    navigate(`?${newParams.toString()}`, { replace: true });
+    navigate(`?${newParams.toString()}`, { replace: true, preventScrollReset: true });
   };
 
   const handleCloseModal = () => {
     setModalOpen(false);
     setSelectedMachine(null);
-    
-    // Update URL without machine parameter
+
+    // Update URL without machine parameter (do not reset scroll position)
     const newParams = new URLSearchParams(searchParams);
     newParams.delete('machine');
     const paramString = newParams.toString();
-    navigate(paramString ? `?${paramString}` : '/', { replace: true });
+    navigate(paramString ? `?${paramString}` : '/', { replace: true, preventScrollReset: true });
   };
 
   return (
