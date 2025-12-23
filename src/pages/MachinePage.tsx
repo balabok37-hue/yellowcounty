@@ -221,21 +221,31 @@ export default function MachinePage() {
           <div className="space-y-4">
             {/* Main Image with swipe support */}
             <div 
-              className="relative aspect-[4/3] bg-muted rounded-xl overflow-hidden cursor-zoom-in group touch-pan-y"
+              className="relative aspect-[4/3] bg-muted rounded-xl overflow-hidden cursor-zoom-in group touch-pan-y will-change-transform"
               onClick={() => setIsFullscreen(true)}
               onTouchStart={onTouchStart}
               onTouchMove={onTouchMove}
               onTouchEnd={onTouchEnd}
             >
-              {/* Loading shimmer */}
-              {!imageLoadStates[currentImageIndex] && (
-                <div className="absolute inset-0 bg-gradient-to-r from-muted via-muted/50 to-muted animate-pulse" />
-              )}
+              {/* Loading shimmer - always present for smooth transitions */}
+              <div 
+                className={`absolute inset-0 bg-muted transition-opacity duration-300 ${
+                  imageLoadStates[currentImageIndex] ? 'opacity-0 pointer-events-none' : 'opacity-100'
+                }`}
+              >
+                <div 
+                  className="absolute inset-0"
+                  style={{
+                    background: 'linear-gradient(90deg, transparent 0%, hsl(var(--muted-foreground)/0.08) 50%, transparent 100%)',
+                    animation: 'shimmer 1.5s infinite',
+                  }}
+                />
+              </div>
               <img
-                key={currentImageIndex}
+                key={`main-${currentImageIndex}`}
                 src={images[currentImageIndex]}
                 alt={`${machine.name} - Image ${currentImageIndex + 1}`}
-                className={`w-full h-full object-cover transition-opacity duration-300 select-none ${
+                className={`w-full h-full object-cover transition-opacity duration-200 select-none will-change-opacity ${
                   imageLoadStates[currentImageIndex] ? 'opacity-100' : 'opacity-0'
                 }`}
                 loading="eager"
@@ -310,35 +320,39 @@ export default function MachinePage() {
             {/* Thumbnail Gallery - horizontal scroll with touch */}
             {images.length > 1 && (
               <div 
-                className="flex gap-2 overflow-x-auto pb-3 -mx-4 px-4"
+                className="flex gap-2 overflow-x-auto pb-3 -mx-4 px-4 scrollbar-hide"
                 style={{ 
                   WebkitOverflowScrolling: 'touch',
-                  scrollbarWidth: 'thin'
                 }}
               >
                 {images.map((img, idx) => (
                   <button
                     key={idx}
                     onClick={() => selectImage(idx)}
-                    className={`flex-shrink-0 w-16 h-16 sm:w-20 sm:h-20 rounded-lg overflow-hidden border-2 transition-all ${
+                    className={`flex-shrink-0 w-16 h-16 sm:w-20 sm:h-20 rounded-lg overflow-hidden border-2 transition-all will-change-transform ${
                       idx === currentImageIndex 
-                        ? 'border-primary ring-2 ring-primary/30' 
+                        ? 'border-primary ring-2 ring-primary/30 scale-105' 
                         : 'border-transparent hover:border-muted-foreground/30'
                     }`}
                   >
-                    <div className="relative w-full h-full">
-                      {!imageLoadStates[`thumb-${idx}`] && (
-                        <div className="absolute inset-0 bg-muted animate-pulse" />
-                      )}
+                    <div className="relative w-full h-full bg-muted">
+                      {/* Always show placeholder first */}
+                      <div 
+                        className={`absolute inset-0 bg-muted transition-opacity duration-200 ${
+                          imageLoadStates[`thumb-${idx}`] ? 'opacity-0' : 'opacity-100'
+                        }`}
+                      />
                       <img
                         src={img}
                         alt={`Thumbnail ${idx + 1}`}
                         className={`w-full h-full object-cover transition-opacity duration-200 ${
                           imageLoadStates[`thumb-${idx}`] ? 'opacity-100' : 'opacity-0'
                         }`}
-                        loading="lazy"
+                        loading="eager"
+                        decoding="async"
                         draggable={false}
                         onLoad={() => handleImageLoad(`thumb-${idx}`)}
+                        onError={() => handleImageLoad(`thumb-${idx}`)}
                       />
                     </div>
                   </button>
@@ -556,15 +570,16 @@ export default function MachinePage() {
       {/* Fullscreen Lightbox with swipe */}
       {isFullscreen && (
         <div 
-          className="fixed inset-0 z-[60] bg-black/95 flex items-center justify-center"
+          className="fixed inset-0 z-[60] bg-black/95 flex items-center justify-center backdrop-blur-sm"
           onClick={() => setIsFullscreen(false)}
           onTouchStart={onTouchStart}
           onTouchMove={onTouchMove}
           onTouchEnd={onTouchEnd}
+          style={{ touchAction: 'pan-y' }}
         >
           <button
             onClick={() => setIsFullscreen(false)}
-            className="absolute top-4 right-4 z-10 p-3 rounded-full bg-card/20 hover:bg-card/40 transition-colors"
+            className="absolute top-4 right-4 z-10 p-3 rounded-full bg-white/10 hover:bg-white/20 transition-colors active:scale-95"
           >
             <X className="w-6 h-6 text-white" />
           </button>
@@ -573,13 +588,13 @@ export default function MachinePage() {
             <>
               <button
                 onClick={(e) => { e.stopPropagation(); prevImage(); }}
-                className="absolute left-4 top-1/2 -translate-y-1/2 p-3 rounded-full bg-card/20 hover:bg-card/40 transition-colors hidden sm:block"
+                className="absolute left-4 top-1/2 -translate-y-1/2 p-3 rounded-full bg-white/10 hover:bg-white/20 transition-colors hidden sm:block active:scale-95"
               >
                 <ChevronLeft className="w-8 h-8 text-white" />
               </button>
               <button
                 onClick={(e) => { e.stopPropagation(); nextImage(); }}
-                className="absolute right-4 top-1/2 -translate-y-1/2 p-3 rounded-full bg-card/20 hover:bg-card/40 transition-colors hidden sm:block"
+                className="absolute right-4 top-1/2 -translate-y-1/2 p-3 rounded-full bg-white/10 hover:bg-white/20 transition-colors hidden sm:block active:scale-95"
               >
                 <ChevronRight className="w-8 h-8 text-white" />
               </button>
@@ -589,12 +604,14 @@ export default function MachinePage() {
           <img
             src={images[currentImageIndex]}
             alt={`${machine.name} - Fullscreen`}
-            className="max-w-[95vw] max-h-[90vh] object-contain select-none"
+            className="max-w-[95vw] max-h-[90vh] object-contain select-none will-change-transform"
             onClick={(e) => e.stopPropagation()}
             draggable={false}
+            loading="eager"
+            decoding="async"
           />
 
-          <div className="absolute bottom-4 left-1/2 -translate-x-1/2 px-4 py-2 rounded-full bg-card/20 text-white text-sm font-medium">
+          <div className="absolute bottom-4 left-1/2 -translate-x-1/2 px-4 py-2 rounded-full bg-white/10 text-white text-sm font-medium backdrop-blur-sm">
             {currentImageIndex + 1} / {images.length}
           </div>
 
