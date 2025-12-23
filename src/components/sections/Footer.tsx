@@ -1,6 +1,8 @@
 import { Phone, Mail, MapPin, MessageCircle, FileText, ShieldCheck, BadgeCheck, Star } from 'lucide-react';
 import { Link, useNavigate, useLocation } from 'react-router-dom';
 import centralDispatchLogo from '@/assets/partners/central-dispatch.svg';
+import montwayLogo from '@/assets/partners/montway-logo.svg';
+import readyLogisticsLogo from '@/assets/partners/ready-logistics-logo.svg';
 
 export function Footer() {
   const navigate = useNavigate();
@@ -59,17 +61,17 @@ export function Footer() {
                 href="https://www.montway.com" 
                 target="_blank" 
                 rel="noopener noreferrer"
-                className="flex items-center justify-center px-5 py-3 rounded-lg bg-[#00263A] hover:opacity-90 transition-opacity h-14 min-w-[160px]"
+                className="flex items-center justify-center px-3 py-2 rounded-lg bg-[#00263A] hover:opacity-90 transition-opacity h-14 min-w-[160px]"
               >
-                <span className="text-white font-bold text-lg tracking-tight">MONTWAY</span>
+                <img src={montwayLogo} alt="Montway Auto Transport" className="h-8 w-auto" />
               </a>
               <a 
                 href="https://www.readylogistics.com" 
                 target="_blank" 
                 rel="noopener noreferrer"
-                className="flex items-center justify-center px-5 py-3 rounded-lg bg-[#950e14] hover:opacity-90 transition-opacity h-14 min-w-[160px]"
+                className="flex items-center justify-center px-3 py-2 rounded-lg bg-[#950e14] hover:opacity-90 transition-opacity h-14 min-w-[160px]"
               >
-                <span className="text-white font-bold text-lg tracking-tight">Ready Logistics</span>
+                <img src={readyLogisticsLogo} alt="Ready Logistics" className="h-8 w-auto" />
               </a>
             </div>
           </div>

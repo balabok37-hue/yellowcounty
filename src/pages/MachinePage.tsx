@@ -1,6 +1,7 @@
 import { useState, useCallback, useEffect, useRef, useMemo } from 'react';
 import { useParams, useNavigate, Link } from 'react-router-dom';
 import { MapPin, Send, ChevronLeft, ChevronRight, Shield, Truck, CheckCircle2, Clock, ZoomIn, ArrowLeft, X, Gavel } from 'lucide-react';
+import { USAFlag } from '@/components/icons/USAFlag';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Header } from '@/components/Header';
@@ -372,7 +373,7 @@ export default function MachinePage() {
                 <span>{machine.miles ? `${machine.miles.toLocaleString()} Miles` : `${machine.hours?.toLocaleString()} Hours`}</span>
               </div>
               <div className="flex items-center gap-1.5 text-accent font-medium">
-                <span className="text-base">🇺🇸</span>
+                <USAFlag className="w-5 h-3.5" />
                 USA Stock
               </div>
             </div>
