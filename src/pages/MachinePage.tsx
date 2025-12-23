@@ -1,11 +1,12 @@
-import { useState, useCallback, useEffect } from 'react';
+import { useState, useCallback, useEffect, useRef, useMemo } from 'react';
 import { useParams, useNavigate, Link } from 'react-router-dom';
 import { MapPin, Send, ChevronLeft, ChevronRight, Shield, Truck, CheckCircle2, Clock, ZoomIn, ArrowLeft, X } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Header } from '@/components/Header';
 import { Footer } from '@/components/sections/Footer';
+import { MachineCard } from '@/components/MachineCard';
 import { allMachines } from '@/data/machines';
-import { findMachineBySlug } from '@/lib/machine-utils';
+import { findMachineBySlug, generateMachineSlug } from '@/lib/machine-utils';
 import { useGalleryPreload } from '@/hooks/useCriticalImagePreload';
 import type { Machine } from '@/components/MachineCard';
 
@@ -15,6 +16,11 @@ export default function MachinePage() {
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
   const [imageLoadStates, setImageLoadStates] = useState<Record<string, boolean>>({});
   const [isFullscreen, setIsFullscreen] = useState(false);
+  
+  // Touch/swipe handling
+  const touchStartX = useRef<number | null>(null);
+  const touchEndX = useRef<number | null>(null);
+  const minSwipeDistance = 50;
 
   // Find machine by slug
   const machine: Machine | undefined = slug ? findMachineBySlug(allMachines, slug) : undefined;
@@ -26,6 +32,24 @@ export default function MachinePage() {
 
   // Preload adjacent images
   useGalleryPreload(images, currentImageIndex, 2);
+
+  // Get similar machines (same category, excluding current)
+  const similarMachines = useMemo(() => {
+    if (!machine) return [];
+    return allMachines
+      .filter(m => 
+        m.id !== machine.id && 
+        m.category === machine.category && 
+        !m.isSold && 
+        !m.isReserved
+      )
+      .slice(0, 4);
+  }, [machine]);
+
+  // Scroll to top when page loads or machine changes
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [slug]);
 
   // Reset state when machine changes
   useEffect(() => {
@@ -53,6 +77,34 @@ export default function MachinePage() {
       }, 500);
     }
   }, [navigate]);
+
+  // Touch handlers for swipe
+  const onTouchStart = (e: React.TouchEvent) => {
+    touchEndX.current = null;
+    touchStartX.current = e.targetTouches[0].clientX;
+  };
+
+  const onTouchMove = (e: React.TouchEvent) => {
+    touchEndX.current = e.targetTouches[0].clientX;
+  };
+
+  const onTouchEnd = () => {
+    if (!touchStartX.current || !touchEndX.current) return;
+    
+    const distance = touchStartX.current - touchEndX.current;
+    const isLeftSwipe = distance > minSwipeDistance;
+    const isRightSwipe = distance < -minSwipeDistance;
+    
+    if (isLeftSwipe && images.length > 1) {
+      setCurrentImageIndex((prev) => (prev + 1) % images.length);
+    }
+    if (isRightSwipe && images.length > 1) {
+      setCurrentImageIndex((prev) => (prev - 1 + images.length) % images.length);
+    }
+    
+    touchStartX.current = null;
+    touchEndX.current = null;
+  };
 
   if (!machine) {
     return (
@@ -111,10 +163,13 @@ export default function MachinePage() {
         <div className="grid lg:grid-cols-2 gap-8">
           {/* Image Gallery Section */}
           <div className="space-y-4">
-            {/* Main Image */}
+            {/* Main Image with swipe support */}
             <div 
-              className="relative aspect-[4/3] bg-muted rounded-xl overflow-hidden cursor-zoom-in group"
+              className="relative aspect-[4/3] bg-muted rounded-xl overflow-hidden cursor-zoom-in group touch-pan-y"
               onClick={() => setIsFullscreen(true)}
+              onTouchStart={onTouchStart}
+              onTouchMove={onTouchMove}
+              onTouchEnd={onTouchEnd}
             >
               {/* Loading shimmer */}
               {!imageLoadStates[currentImageIndex] && (
@@ -124,31 +179,39 @@ export default function MachinePage() {
                 key={currentImageIndex}
                 src={images[currentImageIndex]}
                 alt={`${machine.name} - Image ${currentImageIndex + 1}`}
-                className={`w-full h-full object-cover transition-opacity duration-300 ${
+                className={`w-full h-full object-cover transition-opacity duration-300 select-none ${
                   imageLoadStates[currentImageIndex] ? 'opacity-100' : 'opacity-0'
                 }`}
                 loading="eager"
+                draggable={false}
                 onLoad={() => handleImageLoad(String(currentImageIndex))}
               />
               
-              {/* Zoom indicator */}
-              <div className="absolute bottom-3 left-3 px-2 py-1 rounded-lg bg-card/80 text-xs font-medium text-foreground opacity-0 group-hover:opacity-100 transition-opacity flex items-center gap-1">
+              {/* Zoom indicator - hidden on mobile */}
+              <div className="absolute bottom-3 left-3 px-2 py-1 rounded-lg bg-card/80 text-xs font-medium text-foreground opacity-0 group-hover:opacity-100 transition-opacity hidden sm:flex items-center gap-1">
                 <ZoomIn className="w-3 h-3" />
                 Click to zoom
               </div>
+
+              {/* Swipe hint on mobile */}
+              {images.length > 1 && (
+                <div className="absolute bottom-3 left-3 px-2 py-1 rounded-lg bg-card/80 text-xs font-medium text-foreground sm:hidden flex items-center gap-1">
+                  Swipe to browse
+                </div>
+              )}
               
-              {/* Navigation Arrows */}
+              {/* Navigation Arrows - hidden on mobile */}
               {images.length > 1 && (
                 <>
                   <button
                     onClick={(e) => { e.stopPropagation(); prevImage(); }}
-                    className="absolute left-3 top-1/2 -translate-y-1/2 p-2.5 rounded-full bg-card/95 shadow-lg hover:bg-card transition-colors"
+                    className="absolute left-3 top-1/2 -translate-y-1/2 p-2.5 rounded-full bg-card/95 shadow-lg hover:bg-card transition-colors hidden sm:block"
                   >
                     <ChevronLeft className="w-5 h-5 text-foreground" />
                   </button>
                   <button
                     onClick={(e) => { e.stopPropagation(); nextImage(); }}
-                    className="absolute right-3 top-1/2 -translate-y-1/2 p-2.5 rounded-full bg-card/95 shadow-lg hover:bg-card transition-colors"
+                    className="absolute right-3 top-1/2 -translate-y-1/2 p-2.5 rounded-full bg-card/95 shadow-lg hover:bg-card transition-colors hidden sm:block"
                   >
                     <ChevronRight className="w-5 h-5 text-foreground" />
                   </button>
@@ -166,16 +229,33 @@ export default function MachinePage() {
               <div className="absolute bottom-3 right-3 px-3 py-1 rounded-full bg-card/90 text-sm font-medium text-foreground">
                 {currentImageIndex + 1} / {images.length}
               </div>
+
+              {/* Dot indicators for mobile */}
+              {images.length > 1 && (
+                <div className="absolute bottom-12 left-1/2 -translate-x-1/2 flex gap-1.5 sm:hidden">
+                  {images.map((_, idx) => (
+                    <button
+                      key={idx}
+                      onClick={(e) => { e.stopPropagation(); selectImage(idx); }}
+                      className={`w-2 h-2 rounded-full transition-all ${
+                        idx === currentImageIndex 
+                          ? 'bg-primary w-4' 
+                          : 'bg-card/60'
+                      }`}
+                    />
+                  ))}
+                </div>
+              )}
             </div>
 
-            {/* Thumbnail Gallery */}
+            {/* Thumbnail Gallery - horizontal scroll with touch */}
             {images.length > 1 && (
-              <div className="flex gap-2 overflow-x-auto pb-2">
+              <div className="flex gap-2 overflow-x-auto pb-2 scrollbar-hide -mx-1 px-1 snap-x snap-mandatory">
                 {images.map((img, idx) => (
                   <button
                     key={idx}
                     onClick={() => selectImage(idx)}
-                    className={`flex-shrink-0 w-20 h-20 rounded-lg overflow-hidden border-2 transition-all ${
+                    className={`flex-shrink-0 w-16 h-16 sm:w-20 sm:h-20 rounded-lg overflow-hidden border-2 transition-all snap-start ${
                       idx === currentImageIndex 
                         ? 'border-primary ring-2 ring-primary/30' 
                         : 'border-transparent hover:border-muted-foreground/30'
@@ -192,6 +272,7 @@ export default function MachinePage() {
                           imageLoadStates[`thumb-${idx}`] ? 'opacity-100' : 'opacity-0'
                         }`}
                         loading="lazy"
+                        draggable={false}
                         onLoad={() => handleImageLoad(`thumb-${idx}`)}
                       />
                     </div>
@@ -313,13 +394,35 @@ export default function MachinePage() {
             </div>
           </div>
         </div>
+
+        {/* Similar Machines Section */}
+        {similarMachines.length > 0 && (
+          <section className="mt-16 pt-8 border-t border-border">
+            <h2 className="text-xl font-bold text-foreground mb-6">
+              Similar Equipment
+            </h2>
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+              {similarMachines.map((m, index) => (
+                <MachineCard
+                  key={m.id}
+                  machine={m}
+                  priority={index < 2}
+                  index={index}
+                />
+              ))}
+            </div>
+          </section>
+        )}
       </main>
 
-      {/* Fullscreen Lightbox */}
+      {/* Fullscreen Lightbox with swipe */}
       {isFullscreen && (
         <div 
           className="fixed inset-0 z-[60] bg-black/95 flex items-center justify-center"
           onClick={() => setIsFullscreen(false)}
+          onTouchStart={onTouchStart}
+          onTouchMove={onTouchMove}
+          onTouchEnd={onTouchEnd}
         >
           <button
             onClick={() => setIsFullscreen(false)}
@@ -332,13 +435,13 @@ export default function MachinePage() {
             <>
               <button
                 onClick={(e) => { e.stopPropagation(); prevImage(); }}
-                className="absolute left-4 top-1/2 -translate-y-1/2 p-3 rounded-full bg-card/20 hover:bg-card/40 transition-colors"
+                className="absolute left-4 top-1/2 -translate-y-1/2 p-3 rounded-full bg-card/20 hover:bg-card/40 transition-colors hidden sm:block"
               >
                 <ChevronLeft className="w-8 h-8 text-white" />
               </button>
               <button
                 onClick={(e) => { e.stopPropagation(); nextImage(); }}
-                className="absolute right-4 top-1/2 -translate-y-1/2 p-3 rounded-full bg-card/20 hover:bg-card/40 transition-colors"
+                className="absolute right-4 top-1/2 -translate-y-1/2 p-3 rounded-full bg-card/20 hover:bg-card/40 transition-colors hidden sm:block"
               >
                 <ChevronRight className="w-8 h-8 text-white" />
               </button>
@@ -348,13 +451,31 @@ export default function MachinePage() {
           <img
             src={images[currentImageIndex]}
             alt={`${machine.name} - Fullscreen`}
-            className="max-w-[95vw] max-h-[90vh] object-contain"
+            className="max-w-[95vw] max-h-[90vh] object-contain select-none"
             onClick={(e) => e.stopPropagation()}
+            draggable={false}
           />
 
           <div className="absolute bottom-4 left-1/2 -translate-x-1/2 px-4 py-2 rounded-full bg-card/20 text-white text-sm font-medium">
             {currentImageIndex + 1} / {images.length}
           </div>
+
+          {/* Dot indicators in fullscreen for mobile */}
+          {images.length > 1 && (
+            <div className="absolute bottom-16 left-1/2 -translate-x-1/2 flex gap-2 sm:hidden">
+              {images.map((_, idx) => (
+                <button
+                  key={idx}
+                  onClick={(e) => { e.stopPropagation(); selectImage(idx); }}
+                  className={`w-2.5 h-2.5 rounded-full transition-all ${
+                    idx === currentImageIndex 
+                      ? 'bg-white w-5' 
+                      : 'bg-white/40'
+                  }`}
+                />
+              ))}
+            </div>
+          )}
         </div>
       )}
 
