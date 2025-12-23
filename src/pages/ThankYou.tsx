@@ -5,26 +5,11 @@ import { Header } from '@/components/Header';
 import { Footer } from '@/components/sections/Footer';
 import { Button } from '@/components/ui/button';
 import { CheckCircle2, Phone, MessageCircle, ArrowLeft } from 'lucide-react';
-import { retrieveAndClearLeadData, trackLeadEvent } from '@/lib/meta-pixel';
 
 export default function ThankYou() {
-  // Scroll to top and track Lead conversion on mount
+  // Scroll to top on mount
   useEffect(() => {
     window.scrollTo({ top: 0, behavior: 'instant' });
-    
-    // Retrieve event data for deduplication
-    const { eventId, hashedUserData } = retrieveAndClearLeadData();
-    
-    // Facebook Pixel Lead event with deduplication
-    if (eventId) {
-      trackLeadEvent(eventId, hashedUserData || undefined);
-    } else {
-      // Fallback: track without deduplication if no eventId
-      if (typeof window !== 'undefined' && (window as any).fbq) {
-        (window as any).fbq('track', 'Lead');
-        console.log('[Meta Pixel] Lead event tracked (no eventID - fallback)');
-      }
-    }
   }, []);
 
   return (
