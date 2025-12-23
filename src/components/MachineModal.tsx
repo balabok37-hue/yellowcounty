@@ -13,6 +13,14 @@ interface MachineModalProps {
 export function MachineModal({ machine, isOpen, onClose }: MachineModalProps) {
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
 
+  // Build gallery - always include main image first, then add gallery images
+  const images = machine?.gallery && machine.gallery.length > 0 
+    ? machine.gallery 
+    : machine?.image ? [machine.image] : [];
+
+  // Preload adjacent images for smooth navigation - MUST be called before any conditional returns
+  useGalleryPreload(images, currentImageIndex, 2);
+
   // Reset image index when machine changes
   useEffect(() => {
     setCurrentImageIndex(0);
@@ -58,16 +66,6 @@ export function MachineModal({ machine, isOpen, onClose }: MachineModalProps) {
   }, [handleClose]);
 
   if (!machine || !isOpen) return null;
-
-  // Build gallery - always include main image first, then add gallery images
-  const galleryImages = machine.gallery && machine.gallery.length > 0 
-    ? machine.gallery 
-    : [machine.image];
-  
-  const images = galleryImages;
-
-  // Preload adjacent images for smooth navigation
-  useGalleryPreload(images, currentImageIndex, 2);
 
   const handleRequestQuote = () => {
     const message = `Hi! I'm interested in the ${machine.year} ${machine.name} listed at $${machine.price.toLocaleString()}. Is it still available?`;
