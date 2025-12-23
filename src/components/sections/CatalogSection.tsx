@@ -6,7 +6,7 @@ import { Input } from '@/components/ui/input';
 import { Checkbox } from '@/components/ui/checkbox';
 import { Label } from '@/components/ui/label';
 import { Slider } from '@/components/ui/slider';
-import { Search, ChevronDown, Filter, X } from 'lucide-react';
+import { Search, Filter, X } from 'lucide-react';
 import {
   Select,
   SelectContent,
@@ -76,102 +76,49 @@ const sortMachines = (machines: Machine[], sortBy: SortOption): Machine[] => {
   }
 };
 
-export function CatalogSection({ isOpen, onToggle, onViewDetails, urlSearchQuery = '', urlCategory = '', onSearchChange, onCategoryChange }: CatalogSectionProps) {
-  const [searchQuery, setSearchQuery] = useState(urlSearchQuery);
-  const [searchInput, setSearchInput] = useState(urlSearchQuery); // Local input state
-  const [activeCategory, setActiveCategory] = useState<string>(urlCategory || 'all');
-  const [activeBrand, setActiveBrand] = useState<string>('all');
-  const [condition, setCondition] = useState<ConditionFilter>('all');
+// Filter sidebar content - extracted as inline JSX to prevent re-mounting
+interface FilterContentProps {
+  filteredCount: number;
+  searchInput: string;
+  onSearchInputChange: (value: string) => void;
+  onSearchSubmit: (e: React.FormEvent) => void;
+  activeCategory: string;
+  onCategoryChange: (value: string) => void;
+  activeBrand: string;
+  onBrandChange: (value: string) => void;
+  condition: ConditionFilter;
+  onConditionChange: (value: ConditionFilter) => void;
+  priceRange: [number, number];
+  onPriceRangeChange: (value: [number, number]) => void;
+  onReset: () => void;
+  className?: string;
+}
 
-  // Price range for filtering - slider is uncontrolled for smooth dragging
-  const [priceRange, setPriceRange] = useState<[number, number]>([minPrice, maxPrice]);
-
-  const [sortBy, setSortBy] = useState<SortOption>('featured');
-  const [showMobileFilters, setShowMobileFilters] = useState(false);
-  const filterRef = useRef<HTMLDivElement>(null);
-
-  useEffect(() => {
-    setSearchQuery(urlSearchQuery);
-    setSearchInput(urlSearchQuery);
-  }, [urlSearchQuery]);
-
-  useEffect(() => {
-    setActiveCategory(urlCategory || 'all');
-  }, [urlCategory]);
-
-  // Submit search only on Enter or button click
-  const handleSearchSubmit = useCallback((e?: React.FormEvent) => {
-    e?.preventDefault();
-    setSearchQuery(searchInput);
-    onSearchChange?.(searchInput);
-  }, [searchInput, onSearchChange]);
-
-  const handleCategoryChange = useCallback((value: string) => {
-    setActiveCategory(value);
-    onCategoryChange?.(value);
-  }, [onCategoryChange]);
-
-  const filteredMachines = useMemo(() => {
-    let machines = catalogMachines;
-
-    // Filter by category
-    if (activeCategory !== 'all') {
-      machines = machines.filter(m => m.category === activeCategory);
-    }
-
-    // Filter by brand
-    if (activeBrand !== 'all') {
-      machines = machines.filter(m => extractBrand(m.name) === activeBrand);
-    }
-
-    // Filter by condition
-    if (condition === 'new') {
-      machines = machines.filter(m => m.year >= 2023);
-    } else if (condition === 'used') {
-      machines = machines.filter(m => m.year < 2023);
-    }
-
-    // Filter by price (committed range)
-    machines = machines.filter(m => m.price >= priceRange[0] && m.price <= priceRange[1]);
-
-    // Search
-    if (searchQuery.trim()) {
-      const query = searchQuery.trim();
-      machines = machines.filter(m =>
-        searchMatch(m.name, query) ||
-        m.year.toString().includes(query) ||
-        searchMatch(m.location, query)
-      );
-    }
-
-    return sortMachines(machines, sortBy);
-  }, [activeCategory, activeBrand, condition, priceRange, searchQuery, sortBy]);
-
-  const catalogCount = catalogMachines.length;
-
-  // Preload critical images for faster LCP
-  useCriticalImagePreload(filteredMachines, 6);
-
-  const resetFilters = useCallback(() => {
-    handleCategoryChange('all');
-    setActiveBrand('all');
-    setCondition('all');
-    setPriceRange([minPrice, maxPrice]);
-    setSearchInput('');
-    setSearchQuery('');
-    onSearchChange?.('');
-  }, [handleCategoryChange, onSearchChange]);
-
-  // Sidebar content
-  const FilterSidebar = ({ className = '' }: { className?: string }) => (
+function FilterContent({
+  filteredCount,
+  searchInput,
+  onSearchInputChange,
+  onSearchSubmit,
+  activeCategory,
+  onCategoryChange,
+  activeBrand,
+  onBrandChange,
+  condition,
+  onConditionChange,
+  priceRange,
+  onPriceRangeChange,
+  onReset,
+  className = '',
+}: FilterContentProps) {
+  return (
     <div className={`filter-sidebar space-y-6 ${className}`}>
       {/* Equipment Count */}
       <div className="text-lg font-bold text-foreground">
-        {filteredMachines.length} Equipment Found
+        {filteredCount} Equipment Found
       </div>
 
       {/* Search */}
-      <form onSubmit={handleSearchSubmit}>
+      <form onSubmit={onSearchSubmit}>
         <Label className="text-xs font-bold text-muted-foreground uppercase tracking-wide mb-2 block">
           Search Make/Model
         </Label>
@@ -181,7 +128,7 @@ export function CatalogSection({ isOpen, onToggle, onViewDetails, urlSearchQuery
             type="text"
             placeholder="Search... (press Enter)"
             value={searchInput}
-            onChange={(e) => setSearchInput(e.target.value)}
+            onChange={(e) => onSearchInputChange(e.target.value)}
             className="pl-10 bg-background border-border"
           />
         </div>
@@ -192,7 +139,7 @@ export function CatalogSection({ isOpen, onToggle, onViewDetails, urlSearchQuery
         <Label className="text-xs font-bold text-muted-foreground uppercase tracking-wide mb-2 block">
           Equipment Type
         </Label>
-        <Select value={activeCategory} onValueChange={handleCategoryChange}>
+        <Select value={activeCategory} onValueChange={onCategoryChange}>
           <SelectTrigger className="w-full bg-background border-border">
             <SelectValue placeholder="All Categories" />
           </SelectTrigger>
@@ -212,7 +159,7 @@ export function CatalogSection({ isOpen, onToggle, onViewDetails, urlSearchQuery
         <Label className="text-xs font-bold text-muted-foreground uppercase tracking-wide mb-2 block">
           Brand
         </Label>
-        <Select value={activeBrand} onValueChange={setActiveBrand}>
+        <Select value={activeBrand} onValueChange={onBrandChange}>
           <SelectTrigger className="w-full bg-background border-border">
             <SelectValue placeholder="All Brands" />
           </SelectTrigger>
@@ -237,7 +184,7 @@ export function CatalogSection({ isOpen, onToggle, onViewDetails, urlSearchQuery
             <Checkbox 
               id="condition-all" 
               checked={condition === 'all'}
-              onCheckedChange={() => setCondition('all')}
+              onCheckedChange={() => onConditionChange('all')}
             />
             <Label htmlFor="condition-all" className="text-sm cursor-pointer">All</Label>
           </div>
@@ -245,7 +192,7 @@ export function CatalogSection({ isOpen, onToggle, onViewDetails, urlSearchQuery
             <Checkbox 
               id="condition-new" 
               checked={condition === 'new'}
-              onCheckedChange={() => setCondition('new')}
+              onCheckedChange={() => onConditionChange('new')}
             />
             <Label htmlFor="condition-new" className="text-sm cursor-pointer">New</Label>
           </div>
@@ -253,7 +200,7 @@ export function CatalogSection({ isOpen, onToggle, onViewDetails, urlSearchQuery
             <Checkbox 
               id="condition-used" 
               checked={condition === 'used'}
-              onCheckedChange={() => setCondition('used')}
+              onCheckedChange={() => onConditionChange('used')}
             />
             <Label htmlFor="condition-used" className="text-sm cursor-pointer">Used</Label>
           </div>
@@ -269,7 +216,7 @@ export function CatalogSection({ isOpen, onToggle, onViewDetails, urlSearchQuery
           <Slider
             key={`${priceRange[0]}-${priceRange[1]}`}
             defaultValue={priceRange}
-            onValueCommit={(value) => setPriceRange(value as [number, number])}
+            onValueCommit={(value) => onPriceRangeChange(value as [number, number])}
             min={minPrice}
             max={maxPrice}
             step={100}
@@ -284,13 +231,106 @@ export function CatalogSection({ isOpen, onToggle, onViewDetails, urlSearchQuery
 
       {/* Reset Filters */}
       <button
-        onClick={resetFilters}
+        onClick={onReset}
         className="w-full py-2 text-sm text-primary hover:underline"
       >
         Reset Filters
       </button>
     </div>
   );
+}
+
+export function CatalogSection({ isOpen, onToggle, onViewDetails, urlSearchQuery = '', urlCategory = '', onSearchChange, onCategoryChange }: CatalogSectionProps) {
+  const [searchQuery, setSearchQuery] = useState(urlSearchQuery);
+  const [searchInput, setSearchInput] = useState(urlSearchQuery);
+  const [activeCategory, setActiveCategory] = useState<string>(urlCategory || 'all');
+  const [activeBrand, setActiveBrand] = useState<string>('all');
+  const [condition, setCondition] = useState<ConditionFilter>('all');
+  const [priceRange, setPriceRange] = useState<[number, number]>([minPrice, maxPrice]);
+  const [sortBy, setSortBy] = useState<SortOption>('featured');
+  const [showMobileFilters, setShowMobileFilters] = useState(false);
+  const filterRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    setSearchQuery(urlSearchQuery);
+    setSearchInput(urlSearchQuery);
+  }, [urlSearchQuery]);
+
+  useEffect(() => {
+    setActiveCategory(urlCategory || 'all');
+  }, [urlCategory]);
+
+  const handleSearchSubmit = useCallback((e: React.FormEvent) => {
+    e.preventDefault();
+    setSearchQuery(searchInput);
+    onSearchChange?.(searchInput);
+  }, [searchInput, onSearchChange]);
+
+  const handleCategoryChange = useCallback((value: string) => {
+    setActiveCategory(value);
+    onCategoryChange?.(value);
+  }, [onCategoryChange]);
+
+  const filteredMachines = useMemo(() => {
+    let machines = catalogMachines;
+
+    if (activeCategory !== 'all') {
+      machines = machines.filter(m => m.category === activeCategory);
+    }
+
+    if (activeBrand !== 'all') {
+      machines = machines.filter(m => extractBrand(m.name) === activeBrand);
+    }
+
+    if (condition === 'new') {
+      machines = machines.filter(m => m.year >= 2023);
+    } else if (condition === 'used') {
+      machines = machines.filter(m => m.year < 2023);
+    }
+
+    machines = machines.filter(m => m.price >= priceRange[0] && m.price <= priceRange[1]);
+
+    if (searchQuery.trim()) {
+      const query = searchQuery.trim();
+      machines = machines.filter(m =>
+        searchMatch(m.name, query) ||
+        m.year.toString().includes(query) ||
+        searchMatch(m.location, query)
+      );
+    }
+
+    return sortMachines(machines, sortBy);
+  }, [activeCategory, activeBrand, condition, priceRange, searchQuery, sortBy]);
+
+  const catalogCount = catalogMachines.length;
+
+  useCriticalImagePreload(filteredMachines, 6);
+
+  const resetFilters = useCallback(() => {
+    handleCategoryChange('all');
+    setActiveBrand('all');
+    setCondition('all');
+    setPriceRange([minPrice, maxPrice]);
+    setSearchInput('');
+    setSearchQuery('');
+    onSearchChange?.('');
+  }, [handleCategoryChange, onSearchChange]);
+
+  const filterProps = {
+    filteredCount: filteredMachines.length,
+    searchInput,
+    onSearchInputChange: setSearchInput,
+    onSearchSubmit: handleSearchSubmit,
+    activeCategory,
+    onCategoryChange: handleCategoryChange,
+    activeBrand,
+    onBrandChange: setActiveBrand,
+    condition,
+    onConditionChange: setCondition,
+    priceRange,
+    onPriceRangeChange: setPriceRange,
+    onReset: resetFilters,
+  };
 
   return (
     <section id="catalog" className="py-8 scroll-mt-20" ref={filterRef}>
@@ -302,9 +342,11 @@ export function CatalogSection({ isOpen, onToggle, onViewDetails, urlSearchQuery
         </div>
 
         <div className="flex flex-col lg:flex-row gap-6">
-          {/* Desktop Sidebar */}
+          {/* Desktop Sidebar - STICKY */}
           <aside className="hidden lg:block w-72 flex-shrink-0">
-            <FilterSidebar />
+            <div className="sticky top-20">
+              <FilterContent {...filterProps} />
+            </div>
           </aside>
 
           {/* Mobile Filter Button */}
@@ -346,7 +388,7 @@ export function CatalogSection({ isOpen, onToggle, onViewDetails, urlSearchQuery
                   </button>
                 </div>
                 <div className="p-4">
-                  <FilterSidebar />
+                  <FilterContent {...filterProps} />
                 </div>
               </div>
             </div>
