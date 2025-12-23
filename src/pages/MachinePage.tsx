@@ -372,16 +372,7 @@ export default function MachinePage() {
                 <span>{machine.miles ? `${machine.miles.toLocaleString()} Miles` : `${machine.hours?.toLocaleString()} Hours`}</span>
               </div>
               <div className="flex items-center gap-1.5 text-accent font-medium">
-                <svg className="w-5 h-3.5 flex-shrink-0" viewBox="0 0 20 14" fill="none">
-                  <rect width="20" height="14" fill="#002868"/>
-                  <rect y="1.08" width="20" height="1.08" fill="white"/>
-                  <rect y="3.23" width="20" height="1.08" fill="#BF0A30"/>
-                  <rect y="5.38" width="20" height="1.08" fill="white"/>
-                  <rect y="7.54" width="20" height="1.08" fill="#BF0A30"/>
-                  <rect y="9.69" width="20" height="1.08" fill="white"/>
-                  <rect y="11.85" width="20" height="2.15" fill="#BF0A30"/>
-                  <rect width="8" height="7.54" fill="#002868"/>
-                </svg>
+                <span className="text-base">🇺🇸</span>
                 USA Stock
               </div>
             </div>
