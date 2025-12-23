@@ -1,103 +1,86 @@
-import { X, MapPin, Send, ChevronLeft, ChevronRight, Shield, Truck, CheckCircle2, Clock, ZoomIn } from 'lucide-react';
-import { Button } from '@/components/ui/button';
 import { useState, useCallback, useEffect } from 'react';
-import type { Machine } from './MachineCard';
+import { useParams, useNavigate, Link } from 'react-router-dom';
+import { MapPin, Send, ChevronLeft, ChevronRight, Shield, Truck, CheckCircle2, Clock, ZoomIn, ArrowLeft, X } from 'lucide-react';
+import { Button } from '@/components/ui/button';
+import { Header } from '@/components/Header';
+import { Footer } from '@/components/sections/Footer';
+import { allMachines } from '@/data/machines';
+import { findMachineBySlug } from '@/lib/machine-utils';
 import { useGalleryPreload } from '@/hooks/useCriticalImagePreload';
+import type { Machine } from '@/components/MachineCard';
 
-interface MachineModalProps {
-  machine: Machine | null;
-  isOpen: boolean;
-  onClose: () => void;
-}
-
-export function MachineModal({ machine, isOpen, onClose }: MachineModalProps) {
+export default function MachinePage() {
+  const { slug } = useParams<{ slug: string }>();
+  const navigate = useNavigate();
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
-  const [imageLoadStates, setImageLoadStates] = useState<Record<number, boolean>>({});
+  const [imageLoadStates, setImageLoadStates] = useState<Record<string, boolean>>({});
   const [isFullscreen, setIsFullscreen] = useState(false);
 
-  // Build gallery - always include main image first, then add gallery images
+  // Find machine by slug
+  const machine: Machine | undefined = slug ? findMachineBySlug(allMachines, slug) : undefined;
+
+  // Build gallery
   const images = machine?.gallery && machine.gallery.length > 0 
     ? machine.gallery 
     : machine?.image ? [machine.image] : [];
 
-  // Preload adjacent images for smooth navigation - MUST be called before any conditional returns
+  // Preload adjacent images
   useGalleryPreload(images, currentImageIndex, 2);
 
-  // Reset image index and load states when machine changes
+  // Reset state when machine changes
   useEffect(() => {
     setCurrentImageIndex(0);
     setImageLoadStates({});
     setIsFullscreen(false);
   }, [machine?.id]);
 
-  // Lock body scroll when modal is open - preserve scroll position
+  // Close fullscreen on Escape
   useEffect(() => {
-    if (isOpen) {
-      // Get current scroll position BEFORE locking
-      const scrollY = window.scrollY;
-      
-      // Lock body scroll with fixed positioning
-      document.body.style.position = 'fixed';
-      document.body.style.top = `-${scrollY}px`;
-      document.body.style.left = '0';
-      document.body.style.right = '0';
-      document.body.style.width = '100%';
-      document.body.style.overflow = 'hidden';
-      
-      // Store scroll position in data attribute for restoration
-      document.body.dataset.scrollY = String(scrollY);
-      
-      return () => {
-        // Get stored scroll position
-        const storedScrollY = parseInt(document.body.dataset.scrollY || '0', 10);
-        
-        // Unlock body
-        document.body.style.position = '';
-        document.body.style.top = '';
-        document.body.style.left = '';
-        document.body.style.right = '';
-        document.body.style.width = '';
-        document.body.style.overflow = '';
-        delete document.body.dataset.scrollY;
-        
-        // Restore scroll position immediately (no animation)
-        window.scrollTo(0, storedScrollY);
-      };
-    }
-  }, [isOpen]);
-
-  const handleClose = useCallback(() => {
-    setCurrentImageIndex(0);
-    onClose();
-  }, [onClose]);
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === 'Escape' && isFullscreen) {
+        setIsFullscreen(false);
+      }
+    };
+    window.addEventListener('keydown', handleKeyDown);
+    return () => window.removeEventListener('keydown', handleKeyDown);
+  }, [isFullscreen]);
 
   const scrollToContact = useCallback((prefillMessage?: string) => {
-    handleClose();
-    setTimeout(() => {
-      const contactSection = document.getElementById('contact');
-      if (contactSection) {
-        contactSection.scrollIntoView({ behavior: 'smooth' });
-        if (prefillMessage) {
-          window.dispatchEvent(new CustomEvent('prefillContactForm', { detail: { message: prefillMessage } }));
-        }
-      }
-    }, 300);
-  }, [handleClose]);
+    navigate('/', { state: { scrollTo: 'contact' } });
+    if (prefillMessage) {
+      setTimeout(() => {
+        window.dispatchEvent(new CustomEvent('prefillContactForm', { detail: { message: prefillMessage } }));
+      }, 500);
+    }
+  }, [navigate]);
 
-  if (!machine || !isOpen) return null;
+  if (!machine) {
+    return (
+      <div className="min-h-screen bg-background text-foreground">
+        <Header />
+        <main className="container px-4 py-16 text-center">
+          <h1 className="text-2xl font-bold mb-4">Machine Not Found</h1>
+          <p className="text-muted-foreground mb-8">The machine you're looking for doesn't exist or has been removed.</p>
+          <Link to="/#catalog" className="inline-flex items-center gap-2 text-primary hover:underline">
+            <ArrowLeft className="w-4 h-4" />
+            Back to Catalog
+          </Link>
+        </main>
+        <Footer />
+      </div>
+    );
+  }
 
   const handleRequestQuote = () => {
     const message = `Hi! I'm interested in the ${machine.year} ${machine.name} listed at $${machine.price.toLocaleString()}. Is it still available?`;
     scrollToContact(message);
   };
 
-  const nextImage = (e: React.MouseEvent) => {
-    e.stopPropagation();
+  const nextImage = () => {
     setCurrentImageIndex((prev) => (prev + 1) % images.length);
   };
 
-  const prevImage = (e: React.MouseEvent) => {
-    e.stopPropagation();
+  const prevImage = () => {
     setCurrentImageIndex((prev) => (prev - 1 + images.length) % images.length);
   };
 
@@ -105,74 +88,47 @@ export function MachineModal({ machine, isOpen, onClose }: MachineModalProps) {
     setCurrentImageIndex(idx);
   };
 
-  const handleImageLoad = (idx: number) => {
-    setImageLoadStates(prev => ({ ...prev, [idx]: true }));
+  const handleImageLoad = (key: string) => {
+    setImageLoadStates(prev => ({ ...prev, [key]: true }));
   };
 
-  const openFullscreen = (e: React.MouseEvent) => {
-    e.stopPropagation();
-    setIsFullscreen(true);
-  };
-
-  const closeFullscreen = (e: React.MouseEvent) => {
-    e.stopPropagation();
-    setIsFullscreen(false);
-  };
-
-  // Extract model name
   const modelName = machine.name.replace(/^\d{4}\s+/, '');
 
   return (
-    <div
-      className="fixed inset-0 z-50 flex items-center justify-center p-2 sm:p-4 bg-foreground/60 backdrop-blur-sm overflow-hidden"
-      onClick={handleClose}
-    >
-      {/* Modal */}
-      <div
-        className="relative w-full max-w-5xl max-h-[95vh] sm:max-h-[90vh] overflow-hidden rounded-xl bg-card shadow-2xl"
-        onClick={(e) => e.stopPropagation()}
-      >
-        {/* Close button */}
-        <button
-          onClick={handleClose}
-          className="absolute top-3 right-3 z-30 p-2 rounded-full bg-card shadow-lg border border-border hover:bg-muted transition-colors"
+    <div className="min-h-screen bg-background text-foreground">
+      <Header />
+      
+      <main className="container px-4 py-6">
+        {/* Back Button */}
+        <Link 
+          to="/#catalog" 
+          className="inline-flex items-center gap-2 text-muted-foreground hover:text-foreground transition-colors mb-6"
         >
-          <X className="w-5 h-5 text-foreground" />
-        </button>
+          <ArrowLeft className="w-4 h-4" />
+          Back to Catalog
+        </Link>
 
-        <div className="flex flex-col lg:flex-row h-full max-h-[95vh] sm:max-h-[90vh]">
+        <div className="grid lg:grid-cols-2 gap-8">
           {/* Image Gallery Section */}
-          <div className="relative lg:w-[55%] flex-shrink-0 bg-muted flex flex-col">
+          <div className="space-y-4">
             {/* Main Image */}
             <div 
-              className="relative h-[35vh] sm:h-[40vh] lg:h-[350px] flex items-center justify-center overflow-hidden cursor-zoom-in group"
-              onClick={openFullscreen}
+              className="relative aspect-[4/3] bg-muted rounded-xl overflow-hidden cursor-zoom-in group"
+              onClick={() => setIsFullscreen(true)}
             >
               {/* Loading shimmer */}
               {!imageLoadStates[currentImageIndex] && (
-                <div className="absolute inset-0 bg-gradient-to-r from-muted via-muted/50 to-muted animate-pulse">
-                  <div 
-                    className="absolute inset-0 bg-gradient-to-r from-transparent via-background/20 to-transparent"
-                    style={{
-                      animation: 'shimmer 1.5s infinite',
-                      backgroundSize: '200% 100%',
-                    }}
-                  />
-                </div>
+                <div className="absolute inset-0 bg-gradient-to-r from-muted via-muted/50 to-muted animate-pulse" />
               )}
               <img
                 key={currentImageIndex}
                 src={images[currentImageIndex]}
                 alt={`${machine.name} - Image ${currentImageIndex + 1}`}
-                className={`w-full h-full object-cover bg-muted transition-opacity duration-300 ${
+                className={`w-full h-full object-cover transition-opacity duration-300 ${
                   imageLoadStates[currentImageIndex] ? 'opacity-100' : 'opacity-0'
                 }`}
                 loading="eager"
-                decoding="async"
-                fetchPriority="high"
-                width={600}
-                height={400}
-                onLoad={() => handleImageLoad(currentImageIndex)}
+                onLoad={() => handleImageLoad(String(currentImageIndex))}
               />
               
               {/* Zoom indicator */}
@@ -185,13 +141,13 @@ export function MachineModal({ machine, isOpen, onClose }: MachineModalProps) {
               {images.length > 1 && (
                 <>
                   <button
-                    onClick={prevImage}
+                    onClick={(e) => { e.stopPropagation(); prevImage(); }}
                     className="absolute left-3 top-1/2 -translate-y-1/2 p-2.5 rounded-full bg-card/95 shadow-lg hover:bg-card transition-colors"
                   >
                     <ChevronLeft className="w-5 h-5 text-foreground" />
                   </button>
                   <button
-                    onClick={nextImage}
+                    onClick={(e) => { e.stopPropagation(); nextImage(); }}
                     className="absolute right-3 top-1/2 -translate-y-1/2 p-2.5 rounded-full bg-card/95 shadow-lg hover:bg-card transition-colors"
                   >
                     <ChevronRight className="w-5 h-5 text-foreground" />
@@ -214,18 +170,17 @@ export function MachineModal({ machine, isOpen, onClose }: MachineModalProps) {
 
             {/* Thumbnail Gallery */}
             {images.length > 1 && (
-              <div className="flex gap-2 p-3 overflow-x-auto bg-card/50">
+              <div className="flex gap-2 overflow-x-auto pb-2">
                 {images.map((img, idx) => (
                   <button
                     key={idx}
                     onClick={() => selectImage(idx)}
-                    className={`flex-shrink-0 w-16 h-16 sm:w-20 sm:h-20 rounded-lg overflow-hidden border-2 transition-all ${
+                    className={`flex-shrink-0 w-20 h-20 rounded-lg overflow-hidden border-2 transition-all ${
                       idx === currentImageIndex 
                         ? 'border-primary ring-2 ring-primary/30' 
                         : 'border-transparent hover:border-muted-foreground/30'
                     }`}
                   >
-                    {/* Thumbnail loading state */}
                     <div className="relative w-full h-full">
                       {!imageLoadStates[`thumb-${idx}`] && (
                         <div className="absolute inset-0 bg-muted animate-pulse" />
@@ -237,46 +192,19 @@ export function MachineModal({ machine, isOpen, onClose }: MachineModalProps) {
                           imageLoadStates[`thumb-${idx}`] ? 'opacity-100' : 'opacity-0'
                         }`}
                         loading="lazy"
-                        decoding="async"
-                        width={80}
-                        height={80}
-                        onLoad={() => setImageLoadStates(prev => ({ ...prev, [`thumb-${idx}`]: true }))}
+                        onLoad={() => handleImageLoad(`thumb-${idx}`)}
                       />
                     </div>
                   </button>
                 ))}
               </div>
             )}
-
-            {/* Specifications - moved here to fill space below thumbnails */}
-            {machine.specs && Object.keys(machine.specs).length > 0 && (
-              <div className="hidden lg:flex flex-1 p-4 bg-card/30 overflow-y-auto flex-col">
-                <h3 className="text-sm font-bold text-foreground uppercase tracking-wide mb-3">
-                  Specifications
-                </h3>
-                <div className="grid grid-cols-2 gap-x-6 gap-y-0.5 text-sm">
-                  {Object.entries(machine.specs).map(([key, value]) => {
-                    if (!value) return null;
-                    const label = key
-                      .replace(/([A-Z])/g, ' $1')
-                      .replace(/^./, str => str.toUpperCase())
-                      .trim();
-                    return (
-                      <div key={key} className="flex flex-col py-1.5 border-b border-border/50">
-                        <span className="text-muted-foreground text-xs">{label}</span>
-                        <span className="font-medium text-foreground break-words">{value}</span>
-                      </div>
-                    );
-                  })}
-                </div>
-              </div>
-            )}
           </div>
 
           {/* Details Section */}
-          <div className="flex-1 p-4 sm:p-6 flex flex-col overflow-y-auto lg:max-h-[90vh]">
+          <div className="space-y-6">
             {/* Title & Year */}
-            <div className="mb-4">
+            <div>
               <div className="flex items-center gap-2 mb-2">
                 <span className="px-2 py-0.5 bg-primary text-primary-foreground text-xs font-bold rounded">
                   {machine.year}
@@ -287,16 +215,16 @@ export function MachineModal({ machine, isOpen, onClose }: MachineModalProps) {
                   </span>
                 )}
               </div>
-              <h2 className="text-xl sm:text-2xl font-bold text-foreground leading-tight">
+              <h1 className="text-2xl sm:text-3xl font-bold text-foreground leading-tight">
                 {modelName}
-              </h2>
+              </h1>
             </div>
 
             {/* Quick Info */}
-            <div className="flex flex-wrap gap-3 mb-4 text-sm">
+            <div className="flex flex-wrap gap-4 text-sm">
               <div className="flex items-center gap-1.5 text-muted-foreground">
                 <Clock className="w-4 h-4" />
-                <span>{machine.miles ? `${machine.miles.toLocaleString()} Miles` : `${machine.hours.toLocaleString()} Hours`}</span>
+                <span>{machine.miles ? `${machine.miles.toLocaleString()} Miles` : `${machine.hours?.toLocaleString()} Hours`}</span>
               </div>
               <div className="flex items-center gap-1.5 text-muted-foreground">
                 <MapPin className="w-4 h-4" />
@@ -305,11 +233,11 @@ export function MachineModal({ machine, isOpen, onClose }: MachineModalProps) {
             </div>
 
             {/* Price Block */}
-            <div className="py-4 px-4 rounded-xl bg-muted/50 border border-border mb-4">
-              <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3">
+            <div className="py-5 px-5 rounded-xl bg-muted/50 border border-border">
+              <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
                 <div>
                   <div className="flex items-baseline gap-2 flex-wrap">
-                    <span className="text-2xl sm:text-3xl font-bold text-foreground">
+                    <span className="text-3xl font-bold text-foreground">
                       ${machine.price.toLocaleString()}
                     </span>
                     {machine.discount > 0 && (
@@ -338,23 +266,23 @@ export function MachineModal({ machine, isOpen, onClose }: MachineModalProps) {
 
             {/* Description */}
             {machine.description && (
-              <div className="mb-4">
-                <h3 className="text-sm font-bold text-foreground uppercase tracking-wide mb-2">
+              <div>
+                <h2 className="text-sm font-bold text-foreground uppercase tracking-wide mb-2">
                   Description
-                </h3>
-                <p className="text-sm text-muted-foreground leading-relaxed">
+                </h2>
+                <p className="text-muted-foreground leading-relaxed">
                   {machine.description}
                 </p>
               </div>
             )}
 
-            {/* Specifications - Mobile only */}
+            {/* Specifications */}
             {machine.specs && Object.keys(machine.specs).length > 0 && (
-              <div className="lg:hidden mb-4">
-                <h3 className="text-sm font-bold text-foreground uppercase tracking-wide mb-3">
+              <div>
+                <h2 className="text-sm font-bold text-foreground uppercase tracking-wide mb-3">
                   Specifications
-                </h3>
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-4 gap-y-0.5 text-sm">
+                </h2>
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-6 gap-y-0.5 text-sm">
                   {Object.entries(machine.specs).map(([key, value]) => {
                     if (!value) return null;
                     const label = key
@@ -362,7 +290,7 @@ export function MachineModal({ machine, isOpen, onClose }: MachineModalProps) {
                       .replace(/^./, str => str.toUpperCase())
                       .trim();
                     return (
-                      <div key={key} className="flex flex-col py-1.5 border-b border-border/50">
+                      <div key={key} className="flex flex-col py-2 border-b border-border/50">
                         <span className="text-muted-foreground text-xs">{label}</span>
                         <span className="font-medium text-foreground break-words">{value}</span>
                       </div>
@@ -373,7 +301,7 @@ export function MachineModal({ machine, isOpen, onClose }: MachineModalProps) {
             )}
 
             {/* Trust badges */}
-            <div className="mt-auto pt-4 flex flex-wrap gap-4 border-t border-border">
+            <div className="pt-4 flex flex-wrap gap-4 border-t border-border">
               <div className="flex items-center gap-2 text-sm text-muted-foreground">
                 <Shield className="w-4 h-4 text-accent" />
                 150-Point Inspection
@@ -385,32 +313,31 @@ export function MachineModal({ machine, isOpen, onClose }: MachineModalProps) {
             </div>
           </div>
         </div>
-      </div>
+      </main>
+
       {/* Fullscreen Lightbox */}
       {isFullscreen && (
         <div 
           className="fixed inset-0 z-[60] bg-black/95 flex items-center justify-center"
-          onClick={closeFullscreen}
+          onClick={() => setIsFullscreen(false)}
         >
-          {/* Close button */}
           <button
-            onClick={closeFullscreen}
+            onClick={() => setIsFullscreen(false)}
             className="absolute top-4 right-4 z-10 p-3 rounded-full bg-card/20 hover:bg-card/40 transition-colors"
           >
             <X className="w-6 h-6 text-white" />
           </button>
 
-          {/* Navigation */}
           {images.length > 1 && (
             <>
               <button
-                onClick={(e) => { e.stopPropagation(); prevImage(e); }}
+                onClick={(e) => { e.stopPropagation(); prevImage(); }}
                 className="absolute left-4 top-1/2 -translate-y-1/2 p-3 rounded-full bg-card/20 hover:bg-card/40 transition-colors"
               >
                 <ChevronLeft className="w-8 h-8 text-white" />
               </button>
               <button
-                onClick={(e) => { e.stopPropagation(); nextImage(e); }}
+                onClick={(e) => { e.stopPropagation(); nextImage(); }}
                 className="absolute right-4 top-1/2 -translate-y-1/2 p-3 rounded-full bg-card/20 hover:bg-card/40 transition-colors"
               >
                 <ChevronRight className="w-8 h-8 text-white" />
@@ -418,7 +345,6 @@ export function MachineModal({ machine, isOpen, onClose }: MachineModalProps) {
             </>
           )}
 
-          {/* Fullscreen image */}
           <img
             src={images[currentImageIndex]}
             alt={`${machine.name} - Fullscreen`}
@@ -426,12 +352,13 @@ export function MachineModal({ machine, isOpen, onClose }: MachineModalProps) {
             onClick={(e) => e.stopPropagation()}
           />
 
-          {/* Image counter */}
-          <div className="absolute bottom-4 left-1/2 -translate-x-1/2 px-4 py-2 rounded-full bg-card/30 text-white text-sm font-medium">
+          <div className="absolute bottom-4 left-1/2 -translate-x-1/2 px-4 py-2 rounded-full bg-card/20 text-white text-sm font-medium">
             {currentImageIndex + 1} / {images.length}
           </div>
         </div>
       )}
+
+      <Footer />
     </div>
   );
 }
