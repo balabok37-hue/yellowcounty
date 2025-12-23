@@ -50,9 +50,49 @@ const allPrices = catalogMachines.map(m => m.price);
 const minPrice = Math.min(...allPrices);
 const maxPrice = Math.max(...allPrices);
 
-// Simple search match
-const searchMatch = (text: string, query: string): boolean => {
-  return text.toLowerCase().includes(query.toLowerCase());
+// Brand aliases for smart search
+const brandAliases: Record<string, string[]> = {
+  'caterpillar': ['cat', 'caterpillar'],
+  'john deere': ['deere', 'jd', 'john deere'],
+  'kubota': ['kubota'],
+  'bobcat': ['bobcat'],
+  'case': ['case'],
+  'komatsu': ['komatsu'],
+  'volvo': ['volvo'],
+  'hitachi': ['hitachi'],
+  'sany': ['sany'],
+  'develon': ['develon', 'doosan'],
+  'manitou': ['manitou'],
+  'jcb': ['jcb'],
+  'merlo': ['merlo'],
+  'asv': ['asv'],
+  'mack': ['mack'],
+  'peterbilt': ['peterbilt', 'pete'],
+};
+
+// Smart search - matches all words in query against machine data
+const smartSearch = (machine: Machine, query: string): boolean => {
+  const searchText = `${machine.name} ${machine.year} ${machine.location}`.toLowerCase();
+  const words = query.toLowerCase().trim().split(/\s+/).filter(w => w.length > 0);
+  
+  // Each word must match something
+  return words.every(word => {
+    // Direct match in name/year/location
+    if (searchText.includes(word)) return true;
+    
+    // Check brand aliases (e.g., "cat" matches "caterpillar")
+    for (const [brand, aliases] of Object.entries(brandAliases)) {
+      if (aliases.includes(word) && searchText.includes(brand)) return true;
+      // Also check if alias itself is in name
+      if (aliases.includes(word)) {
+        for (const alias of aliases) {
+          if (searchText.includes(alias)) return true;
+        }
+      }
+    }
+    
+    return false;
+  });
 };
 
 // Sort machines
@@ -291,12 +331,7 @@ export function CatalogSection({ isOpen, onToggle, onViewDetails, urlSearchQuery
     machines = machines.filter(m => m.price >= priceRange[0] && m.price <= priceRange[1]);
 
     if (searchQuery.trim()) {
-      const query = searchQuery.trim();
-      machines = machines.filter(m =>
-        searchMatch(m.name, query) ||
-        m.year.toString().includes(query) ||
-        searchMatch(m.location, query)
-      );
+      machines = machines.filter(m => smartSearch(m, searchQuery));
     }
 
     return sortMachines(machines, sortBy);
