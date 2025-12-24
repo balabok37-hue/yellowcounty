@@ -5,6 +5,7 @@ import { Textarea } from '@/components/ui/textarea';
 import { MapPin, Phone, Mail, Send, Loader2, MessageCircle } from 'lucide-react';
 import { useState, useEffect } from 'react';
 import { supabase } from '@/integrations/supabase/client';
+import { trackLead, trackContact } from '@/utils/analytics';
 
 export function ContactSection() {
   const navigate = useNavigate();
@@ -56,6 +57,13 @@ export function ContactSection() {
       if (fnError) {
         console.error('Telegram notification error:', fnError);
       }
+
+      // Track Lead event for Facebook
+      await trackLead({
+        email: formData.email,
+        phone: formData.phone || undefined,
+        contentName: 'Contact Form',
+      });
 
       setFormData({ name: '', email: '', phone: '', message: '' });
       navigate('/thank-you');
@@ -175,21 +183,35 @@ export function ContactSection() {
               <div className="bg-card rounded-lg shadow-md p-4 text-center">
                 <Phone className="w-6 h-6 text-primary mx-auto mb-2" />
                 <div className="text-xs text-muted-foreground">Phone</div>
-                <a href="tel:+16783106065" className="font-semibold text-foreground hover:text-primary transition-colors text-sm">
+                <a 
+                  href="tel:+16783106065" 
+                  className="font-semibold text-foreground hover:text-primary transition-colors text-sm"
+                  onClick={() => trackContact({ contactMethod: 'phone' })}
+                >
                   +1 (678) 310-6065
                 </a>
               </div>
               <div className="bg-card rounded-lg shadow-md p-4 text-center">
                 <MessageCircle className="w-6 h-6 text-[#25D366] mx-auto mb-2" />
                 <div className="text-xs text-muted-foreground">WhatsApp</div>
-                <a href="https://wa.me/15797013943" target="_blank" rel="noopener noreferrer" className="font-semibold text-foreground hover:text-[#25D366] transition-colors text-sm">
+                <a 
+                  href="https://wa.me/15797013943" 
+                  target="_blank" 
+                  rel="noopener noreferrer" 
+                  className="font-semibold text-foreground hover:text-[#25D366] transition-colors text-sm"
+                  onClick={() => trackContact({ contactMethod: 'whatsapp' })}
+                >
                   +1 (579) 701-3943
                 </a>
               </div>
               <div className="bg-card rounded-lg shadow-md p-4 text-center">
                 <Mail className="w-6 h-6 text-primary mx-auto mb-2" />
                 <div className="text-xs text-muted-foreground">Email</div>
-                <a href="mailto:sales@yellowstone.equipment" className="font-semibold text-foreground hover:text-primary transition-colors text-sm truncate block">
+                <a 
+                  href="mailto:sales@yellowstone.equipment" 
+                  className="font-semibold text-foreground hover:text-primary transition-colors text-sm truncate block"
+                  onClick={() => trackContact({ contactMethod: 'email' })}
+                >
                   sales@yellowstone.equipment
                 </a>
               </div>
