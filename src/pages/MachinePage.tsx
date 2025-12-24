@@ -10,6 +10,7 @@ import { MachineCard } from '@/components/MachineCard';
 import { allMachines } from '@/data/machines';
 import { findMachineBySlug, generateMachineSlug } from '@/lib/machine-utils';
 import { useGalleryPreload } from '@/hooks/useCriticalImagePreload';
+import { trackViewContent } from '@/utils/analytics';
 import type { Machine } from '@/components/MachineCard';
 
 export default function MachinePage() {
@@ -131,7 +132,7 @@ export default function MachinePage() {
   // Check if bidding is available (not 2025 models)
   const canBid = machine ? machine.year < 2025 : false;
 
-  // Update page title and meta for SEO
+  // Update page title and meta for SEO + Track ViewContent
   useEffect(() => {
     if (machine) {
       const modelName = machine.name.replace(/^\d{4}\s+/, '');
@@ -143,6 +144,15 @@ export default function MachinePage() {
       if (metaDescription) {
         metaDescription.setAttribute('content', description);
       }
+
+      // Track ViewContent for Facebook
+      trackViewContent({
+        contentName: `${machine.year} ${modelName}`,
+        contentCategory: machine.category,
+        contentId: String(machine.id),
+        value: machine.price,
+        currency: 'USD',
+      });
     }
     
     return () => {

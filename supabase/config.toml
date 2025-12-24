@@ -3,5 +3,5 @@ project_id = "bdistxpeitiilivkovhy"
 [functions.send-telegram-notification]
 verify_jwt = false
 
-[functions.meta-conversions-api]
+[functions.meta-conversions]
 verify_jwt = false
