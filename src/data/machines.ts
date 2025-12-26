@@ -2511,7 +2511,8 @@ const allMachinesRaw: Array<Omit<Machine, 'category'> & { category?: string }> =
     discount: 0,
     category: 'track-loaders',
     image: kubotaSvl753_2024_54950_1,
-    isHotOffer: true,
+    isHotOffer: false,
+    isSold: true,
     description: 'Nearly new 2024 Kubota SVL75-3 compact track loader with very low hours. Kubota V3307-TE5A Tier 4/Stage 5 engine delivers 74.3 hp with excellent fuel efficiency. Features vertical lift path, one-piece pressurized cabin, 7-inch LCD touchscreen with keyless start, and integrated reverse camera. Perfect for landscaping, construction, and agriculture.',
     specs: {
       engine: 'Kubota V3307-TE5A-CTL-Q Tier 4/Stage 5',

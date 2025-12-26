@@ -1,6 +1,6 @@
 import { useState, useCallback, useEffect, useRef, useMemo } from 'react';
 import { useParams, useNavigate, Link } from 'react-router-dom';
-import { MapPin, Send, ChevronLeft, ChevronRight, Shield, Truck, CheckCircle2, Clock, ZoomIn, ArrowLeft, X, Gavel } from 'lucide-react';
+import { MapPin, Send, ChevronLeft, ChevronRight, Shield, Truck, CheckCircle2, Clock, ZoomIn, ArrowLeft, X, Gavel, AlertTriangle } from 'lucide-react';
 import { USAFlag } from '@/components/icons/USAFlag';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
@@ -12,6 +12,13 @@ import { findMachineBySlug, generateMachineSlug } from '@/lib/machine-utils';
 import { useGalleryPreload } from '@/hooks/useCriticalImagePreload';
 import { trackViewContent } from '@/utils/analytics';
 import type { Machine } from '@/components/MachineCard';
+import {
+  Dialog,
+  DialogContent,
+  DialogHeader,
+  DialogTitle,
+  DialogDescription,
+} from '@/components/ui/dialog';
 
 export default function MachinePage() {
   const { slug } = useParams<{ slug: string }>();
@@ -21,6 +28,7 @@ export default function MachinePage() {
   const [isFullscreen, setIsFullscreen] = useState(false);
   const [showBidInput, setShowBidInput] = useState(false);
   const [bidAmount, setBidAmount] = useState('');
+  const [showSoldModal, setShowSoldModal] = useState(false);
   
   // Touch/swipe handling
   const touchStartX = useRef<number | null>(null);
@@ -98,6 +106,38 @@ export default function MachinePage() {
 
   // Preload adjacent images
   useGalleryPreload(images, currentImageIndex, 2);
+
+  // Get alternatives for sold machines - prioritize ID 106 (Kubota $55,800) for ID 105
+  const soldAlternatives = useMemo(() => {
+    if (!machine?.isSold) return [];
+    
+    // For machine 105, specifically include machine 106 first
+    const priorityIds = machine.id === 105 ? [106] : [];
+    const priorityMachines = priorityIds
+      .map(id => allMachines.find(m => m.id === id))
+      .filter((m): m is Machine => !!m && !m.isSold && !m.isReserved);
+    
+    // Get other track loaders
+    const otherSimilar = allMachines
+      .filter(m => 
+        m.id !== machine.id && 
+        !priorityIds.includes(m.id) &&
+        m.category === 'track-loaders' && 
+        !m.isSold && 
+        !m.isReserved
+      )
+      .slice(0, 4 - priorityMachines.length);
+    
+    return [...priorityMachines, ...otherSimilar].slice(0, 4);
+  }, [machine]);
+
+  // Show sold modal when machine is sold
+  useEffect(() => {
+    if (machine?.isSold) {
+      setShowSoldModal(true);
+    }
+  }, [machine?.isSold, slug]);
+
   // Get similar machines (same category, excluding current) - fallback to other categories if none
   const similarMachines = useMemo(() => {
     if (!machine) return [];
@@ -649,7 +689,7 @@ export default function MachinePage() {
         </div>
 
         {/* Similar Machines Section - always show since we fallback to other categories */}
-        <section className="mt-10 sm:mt-16 pt-6 sm:pt-8 border-t border-border w-full max-w-full overflow-hidden">
+        <section id="similar-section" className="mt-10 sm:mt-16 pt-6 sm:pt-8 border-t border-border w-full max-w-full overflow-hidden">
           <h2 className="text-lg sm:text-xl font-bold text-foreground mb-4 sm:mb-6">
             {similarMachines.some(m => m.category === machine.category) 
               ? 'Similar Equipment' 
@@ -734,6 +774,63 @@ export default function MachinePage() {
           )}
         </div>
       )}
+
+      {/* Sold Machine Modal */}
+      <Dialog open={showSoldModal} onOpenChange={setShowSoldModal}>
+        <DialogContent className="sm:max-w-lg">
+          <DialogHeader>
+            <DialogTitle className="flex items-center gap-2 text-xl">
+              <AlertTriangle className="w-6 h-6 text-amber-500" />
+              This Machine Has Been Sold
+            </DialogTitle>
+            <DialogDescription className="text-base">
+              But we have other great options at excellent prices!
+            </DialogDescription>
+          </DialogHeader>
+          
+          <div className="grid grid-cols-2 gap-3 py-4">
+            {soldAlternatives.map((m) => (
+              <Link
+                key={m.id}
+                to={`/machine/${generateMachineSlug(m)}`}
+                onClick={() => setShowSoldModal(false)}
+                className="group relative rounded-lg overflow-hidden border border-border hover:border-primary transition-colors"
+              >
+                <div className="aspect-[4/3] bg-muted">
+                  <img
+                    src={m.image}
+                    alt={m.name}
+                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                  />
+                </div>
+                <div className="p-2">
+                  <p className="text-xs text-muted-foreground line-clamp-1">{m.name.replace(/^\d{4}\s+/, '')}</p>
+                  <p className="text-sm font-bold text-foreground">${m.price.toLocaleString()}</p>
+                </div>
+              </Link>
+            ))}
+          </div>
+
+          <div className="flex flex-col sm:flex-row gap-3">
+            <Button
+              onClick={() => {
+                setShowSoldModal(false);
+                document.getElementById('similar-section')?.scrollIntoView({ behavior: 'smooth' });
+              }}
+              className="flex-1"
+            >
+              Browse Similar
+            </Button>
+            <Button
+              variant="outline"
+              onClick={() => navigate('/#catalog')}
+              className="flex-1"
+            >
+              Back to Catalog
+            </Button>
+          </div>
+        </DialogContent>
+      </Dialog>
 
       <Footer />
     </div>
