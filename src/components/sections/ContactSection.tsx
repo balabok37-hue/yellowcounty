@@ -45,18 +45,19 @@ export function ContactSection() {
         throw new Error('Failed to save lead');
       }
 
-      const { error: fnError } = await supabase.functions.invoke('send-telegram-notification', {
-        body: {
-          name: formData.name,
-          email: formData.email,
-          phone: formData.phone,
-          message: formData.message,
-        },
-      });
-
-      if (fnError) {
-        console.error('Telegram notification error:', fnError);
-      }
+      // ВРЕМЕННО ОТКЛЮЧЕНО - уведомления в Telegram
+      // const { error: fnError } = await supabase.functions.invoke('send-telegram-notification', {
+      //   body: {
+      //     name: formData.name,
+      //     email: formData.email,
+      //     phone: formData.phone,
+      //     message: formData.message,
+      //   },
+      // });
+      //
+      // if (fnError) {
+      //   console.error('Telegram notification error:', fnError);
+      // }
 
       // Track Lead event for Facebook
       await trackLead({
