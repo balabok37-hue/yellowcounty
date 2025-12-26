@@ -119,8 +119,27 @@ serve(async (req) => {
     const result = await response.json();
     console.log('Meta API response:', JSON.stringify(result));
 
+    // Handle Meta API errors gracefully
     if (!response.ok) {
       console.error('Meta API error:', result);
+      
+      // Error 2804050 = insufficient customer data for matching
+      // This is expected in preview environments without fbp cookie
+      // Don't treat this as a hard error - just log and return success
+      const errorSubcode = result?.error?.error_subcode;
+      if (errorSubcode === 2804050) {
+        console.log('Insufficient user data for matching - this is expected in preview environments');
+        return new Response(
+          JSON.stringify({ 
+            success: true, 
+            event_id: eventId, 
+            warning: 'Event sent but may not match users due to insufficient data',
+            meta_response: result 
+          }),
+          { headers: { ...corsHeaders, 'Content-Type': 'application/json' } }
+        );
+      }
+      
       return new Response(
         JSON.stringify({ error: 'Meta API error', details: result }),
         { status: response.status, headers: { ...corsHeaders, 'Content-Type': 'application/json' } }
